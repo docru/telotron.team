@@ -1,0 +1,13 @@
+# OS / редактор
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# Python (скрипты сборки docx/pdf)
+__pycache__/
+*.py[cod]
+
+# Временные артефакты сборки (канон — файлы рядом со скриптом)
+**/.build-*/docx-temp.docx
+**/.build-*/docx-fixed.docx

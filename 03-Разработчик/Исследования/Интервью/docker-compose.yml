@@ -1,0 +1,15 @@
+name: interview-whisper
+
+services:
+  transcribe:
+    build: .
+    image: interview-whisper:local
+    volumes:
+      - ./Звук:/in:ro
+      - ./Текст:/out
+      - whisper_cache:/root/.cache
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+volumes:
+  whisper_cache:

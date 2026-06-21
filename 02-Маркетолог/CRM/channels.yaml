@@ -1,0 +1,60 @@
+# Справочник канал → токен. Синхрон с «Пилот — канон ссылок регистрации.md».
+# Обновлено: 2026-06-21 (после пересоздания БД).
+
+channels:
+  site:
+    label: "Сайт telotron.ru · CTA"
+    filament_title: "С сайта telotron"
+    token: VYNOQK
+    url: https://telotron.ru/i/VYNOQK
+    outreach: false  # seeder / кнопка на сайте
+
+  personal_circle:
+    label: "Личный круг · интервью MVP"
+    filament_title: "Личный круг"
+    token: jPp1HN
+    url: https://telotron.ru/i/jPp1HN
+    outreach: true
+
+  personal_interview:
+    label: "Интервью MVP (тот же токен, что личный круг)"
+    filament_title: "Личный круг"
+    token: jPp1HN
+    url: https://telotron.ru/i/jPp1HN
+    outreach: true
+
+  personal_church:
+    label: "Церковная сеть"
+    filament_title: "Церковь"
+    token: VepXcZ
+    url: https://telotron.ru/i/VepXcZ
+    outreach: true
+
+  vk_post:
+    label: "VK · посты (лента + группа)"
+    filament_title: "VK посты"
+    token: PF8MUf
+    url: https://telotron.ru/i/PF8MUf
+    outreach: true
+
+  vk_inbound:
+    label: "VK · личка после отклика"
+    filament_title: "VK личка (отклик)"
+    token: ud2hTv
+    url: https://telotron.ru/i/ud2hTv
+    outreach: true
+
+  telegram:
+    label: "Telegram"
+    filament_title: "Telegram"
+    token: Ionlq4
+    url: https://telotron.ru/i/Ionlq4
+    outreach: true
+
+internal:
+  direct_pro_zone:
+    label: "Прямой вход в зону pro (служебная)"
+    filament_title: "Прямой вход в зону pro"
+    token: YUfgYP
+    url: https://telotron.ru/i/YUfgYP
+    outreach: false
