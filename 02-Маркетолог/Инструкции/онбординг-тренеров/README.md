@@ -14,6 +14,8 @@
 | `08_raspisanie.jpeg` | Календарь Pro, вид «Неделя» |
 | `09_programmy_trenirovok.jpeg` | «Тренировки» → шаблон программы |
 | `10_gruppy.jpeg` | Создание группы |
+| `11_client_glavnaya.jpeg` | Client: главная, трекеры (питание, вода, шаги, сон) |
+| `12_client_dnevnik_trenirovka.jpeg` | Client: дневник → тренировка, подходы и вес |
 
 Сборка Word (из каталога `Инструкции/`):
 

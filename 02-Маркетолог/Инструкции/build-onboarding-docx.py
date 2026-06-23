@@ -94,6 +94,8 @@ PAIRS: list[tuple[str, str]] = [
     ("07_client_registratsiya.jpeg", "07_client_registratsiya.jpg"),
     ("08_raspisanie.jpeg", "08_raspisanie.jpg"),
     ("09_programmy_trenirovok.jpeg", "09_programmy_trenirovok.jpg"),
+    ("12_client_dnevnik_trenirovka.jpeg", "12_client_dnevnik_trenirovka.jpg"),
+    ("11_client_glavnaya.jpeg", "11_client_glavnaya.jpg"),
     ("10_gruppy.jpeg", "10_gruppy.jpg"),
 ]
 

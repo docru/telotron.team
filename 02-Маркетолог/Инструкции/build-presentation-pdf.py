@@ -3,25 +3,32 @@
 
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
+PRESENTATION_DIR = BASE / "Презентация — Telotron для тренеров"
 SRC_DIR = BASE / "онбординг-тренеров"
 BUILD = BASE / ".build-presentation-pdf"
 MEDIA = BUILD / "media"
 SOURCE_MD = BUILD / "source.md"
 TEMP_DOCX = BUILD / "docx-temp.docx"
 FIXED_DOCX = BUILD / "docx-fixed.docx"
-OUT = BASE / "Презентация — Telotron для тренеров.docx"
-OUT_PDF = BASE / "Презентация — Telotron для тренеров.pdf"
 SOFFICE = Path("/usr/lib/libreoffice/program/soffice")
 LOGO_SRC = BASE.parent.parent / "08-Дизайнер" / "logo" / "logo-pro.svg"
 COVER_LOGO = MEDIA / "cover-logo.png"
 IMAGE_SCALE = 0.28
+MAX_IMG_HEIGHT_PX = 340
+
+VERSION = "1.3"
+SOURCE_BASENAME = "Презентация — Telotron для тренеров"
+OUT: Path
+OUT_PDF: Path
 
 COLOR_PRIMARY = "1D4ED8"
 COLOR_FOREGROUND = "0F172A"
@@ -81,42 +88,62 @@ CONTACTS_LIST = """- **Алексей Русаков** — основатель,
 
 PAIRS: list[tuple[str, str]] = [
     ("08_raspisanie.jpeg", "08_raspisanie.jpg"),
+    ("05_ustanovka_pro.jpeg", "05_ustanovka_pro.jpg"),
     ("06_klienty_ssylka.jpeg", "06_klienty_ssylka.jpg"),
     ("09_programmy_trenirovok.jpeg", "09_programmy_trenirovok.jpg"),
+    ("12_client_dnevnik_trenirovka.jpeg", "12_client_dnevnik_trenirovka.jpg"),
+    ("11_client_glavnaya.jpeg", "11_client_glavnaya.jpg"),
     ("07_client_registratsiya.jpeg", "07_client_registratsiya.jpg"),
     ("10_gruppy.jpeg", "10_gruppy.jpg"),
 ]
 
 
+def configure_outputs(version: str) -> Path:
+    global VERSION, OUT, OUT_PDF
+    VERSION = version
+    stem = f"{SOURCE_BASENAME} v{version}"
+    out_dir = PRESENTATION_DIR
+    OUT = out_dir / f"{stem}.docx"
+    OUT_PDF = out_dir / f"{stem}.pdf"
+    return PRESENTATION_DIR / f"{stem}.md"
+
+
+def replace_image_paths(text: str) -> str:
+    for src_name, dst_name in PAIRS:
+        for prefix in ("../онбординг-тренеров/", "онбординг-тренеров/"):
+            text = text.replace(f"{prefix}{src_name}", f"media/{dst_name}")
+    return text
+
+
 def strip_title_heading(text: str) -> str:
+    """Убирает H1, подзаголовок и --- до первого слайда (##). Титул — в cover page."""
     lines = text.splitlines(keepends=True)
-    idx = 0
-    while idx < len(lines) and lines[idx].strip() == "":
-        idx += 1
-    if idx < len(lines) and lines[idx].startswith("# "):
-        del lines[idx]
-        if idx < len(lines) and lines[idx].strip() == "Коротко о продукте и пилоте · 2026":
-            del lines[idx]
-        while idx < len(lines) and lines[idx].strip() in ("", "---"):
-            del lines[idx]
-    return "".join(lines)
-
-
-def insert_slide_breaks(text: str) -> str:
-    lines = text.splitlines(keepends=True)
-    out: list[str] = []
-    for line in lines:
+    for i, line in enumerate(lines):
         if SLIDE_HEADING.match(line):
-            while out and out[-1].strip() == "":
-                out.pop()
-            if out and out[-1].strip() == "---":
-                out.pop()
-            while out and out[-1].strip() == "":
-                out.pop()
-            if out:
-                out.append(PAGE_BREAK)
-        out.append(line)
-    return "".join(out)
+            return "".join(lines[i:])
+    return text
+
+
+def strip_horizontal_rules(text: str) -> str:
+    """--- между слайдами в DOCX даёт лишние разрывы; слайды разделяем только Heading2."""
+    return re.sub(r"^---\s*\n", "", text, flags=re.MULTILINE)
+
+
+def fix_slide_page_breaks(xml: str) -> str:
+    """Разрыв страницы на самом Heading2 (кроме первого слайда), без пустого абзаца."""
+    pattern = re.compile(
+        r"(<w:p><w:pPr>)(<w:pStyle w:val=\"Heading2\" />(?:\s*<w:pageBreakBefore />)?)(</w:pPr>)",
+    )
+    seen = 0
+
+    def repl(match: re.Match[str]) -> str:
+        nonlocal seen
+        seen += 1
+        if seen == 1:
+            return match.group(0)
+        return f"{match.group(1)}<w:pageBreakBefore />{match.group(2)}{match.group(3)}"
+
+    return pattern.sub(repl, xml)
 
 
 def prepare_media() -> None:
@@ -135,6 +162,8 @@ def prepare_media() -> None:
                 "none",
                 "-resize",
                 f"{scale_pct}%",
+                "-resize",
+                f"x{MAX_IMG_HEIGHT_PX}>",
                 str(MEDIA / dst_name),
             ],
             check=True,
@@ -157,16 +186,15 @@ def prepare_media() -> None:
         )
 
 
-def prepare_markdown() -> None:
-    text = (BASE / "Презентация — Telotron для тренеров.md").read_text(encoding="utf-8")
+def prepare_markdown(source_md: Path) -> None:
+    text = source_md.read_text(encoding="utf-8")
     cut = text.split("## Для команды (не отправлять тренеру)")[0]
-    for src_name, dst_name in PAIRS:
-        cut = cut.replace(f"онбординг-тренеров/{src_name}", f"media/{dst_name}")
+    cut = replace_image_paths(cut)
     cut = cut.replace(FEATURES_TABLE, FEATURES_LIST)
     cut = cut.replace(PILOT_TABLE, PILOT_LIST)
     cut = cut.replace(CONTACTS_TABLE, CONTACTS_LIST)
     cut = strip_title_heading(cut)
-    cut = insert_slide_breaks(cut)
+    cut = strip_horizontal_rules(cut)
     SOURCE_MD.write_text(cut, encoding="utf-8")
 
 
@@ -348,6 +376,7 @@ def fix_image_ids() -> None:
             return f'<pic:cNvPr{attrs}id="{cnv_id}" name="Picture" />'
 
         xml = re.sub(r'<pic:cNvPr([^>]*?)id="\d+" name="Picture" />', repl_cnv, xml)
+        xml = fix_slide_page_breaks(xml)
         xml = fix_docx_tables(xml)
 
         if cover_bytes is not None and 'Extension="png"' not in content_types:
@@ -391,14 +420,31 @@ def export_pdf() -> None:
         ],
         check=True,
     )
-    built = BUILD / "Презентация — Telotron для тренеров.pdf"
+    built = BUILD / OUT_PDF.name
     shutil.copy2(built, OUT_PDF)
     print(f"OK: {OUT_PDF}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Сборка презентации Telotron для тренеров (PDF/DOCX).")
+    parser.add_argument(
+        "--version",
+        default="1.3",
+        choices=("1.2", "1.3"),
+        help="версия markdown-исходника (по умолчанию: 1.3)",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = parse_args()
+    source_md = configure_outputs(args.version)
+    if not source_md.exists():
+        print(f"ERROR: нет файла {source_md}", file=sys.stderr)
+        sys.exit(1)
+
     prepare_media()
-    prepare_markdown()
+    prepare_markdown(source_md)
     run_pandoc()
     fix_image_ids()
     export_pdf()
