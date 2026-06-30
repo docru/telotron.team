@@ -1,0 +1,28 @@
+# Обновлено: 2026-06-25
+
+partners:
+  oksana_gubanova:
+    label: "Оксана Губанова · outreach"
+    source_id: src-oksana-gubanova
+    channel: partner_oksana
+    filament_title: "Оксана Губанова · outreach"  # как в Filament
+    token: ЗАМЕНИТЬ          # ← вписать токен из Filament
+    url: https://telotron.ru/i/ЗАМЕНИТЬ
+    status: active
+    since: 2026-06-23
+    notes: >
+      Помогала с интервью MVP. Reg тренеров, которых она доводит до «да» — только её ссылка.
+      Не jPp1HN. Выплаты/договор — не раньше обсуждения с 01.07.
+
+  dmitry_ryabko:
+    label: "Дмитрий Рябко · co-promo"
+    source_id: src-ryabko-dima
+    channel: partner_ryabko
+    filament_title: "Дмитрий Рябко · co-promo"  # завести в Filament при выдаче ссылки
+    token: ЗАМЕНИТЬ
+    url: https://telotron.ru/i/ЗАМЕНИТЬ
+    status: active
+    since: 2026-06-25
+    notes: >
+      Совместное продвижение проекта (не outreach к тренерам 1:1 как у Оксаны).
+      Бизнес-консультант. Тел. +79198719448. Договор/выплаты — после обсуждения.

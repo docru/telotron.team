@@ -1,29 +1,39 @@
 #!/usr/bin/env python3
-"""Сборка «Онбординг — инструкция для тренеров.docx/.pdf» со встроенными скринами."""
+"""Сборка «Презентация — Telotron для тренеров.docx/.pdf» со скринами продукта."""
 
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-SRC_DIR = BASE / "онбординг-тренеров"
-BUILD = BASE / ".build-onboarding-docx"
+ROOT = BASE.parent.parent
+INSTR = ROOT / "Инструкции"
+READY = ROOT / "Готовые документы"
+PRESENTATION_DIR = INSTR / "Презентация — Telotron для тренеров"
+SRC_DIR = INSTR / "скрины"
+BUILD = BASE / ".build-presentation-pdf"
+ARTIFACTS = BASE / "артефакты"
 MEDIA = BUILD / "media"
 SOURCE_MD = BUILD / "source.md"
 TEMP_DOCX = BUILD / "docx-temp.docx"
 FIXED_DOCX = BUILD / "docx-fixed.docx"
-OUT = BASE / "Онбординг — инструкция для тренеров.docx"
-OUT_PDF = BASE / "Онбординг — инструкция для тренеров.pdf"
 SOFFICE = Path("/usr/lib/libreoffice/program/soffice")
-LOGO_SRC = BASE.parent.parent / "08-Дизайнер" / "logo" / "logo-pro.svg"
+LOGO_SRC = ROOT.parent / "08-Дизайнер" / "logo" / "logo-pro.svg"
 COVER_LOGO = MEDIA / "cover-logo.png"
-IMAGE_SCALE = 0.25  # 720×1600 → ~180×400, чтобы скрины помещались на страницу A4
+IMAGE_SCALE = 0.28
+MAX_IMG_HEIGHT_PX = 340
 
-# Pro theme (см. «Токены цветов — Pro и Client»)
+VERSION = "1.3"
+SOURCE_BASENAME = "Презентация — Telotron для тренеров"
+OUT: Path
+OUT_PDF: Path
+
 COLOR_PRIMARY = "1D4ED8"
 COLOR_FOREGROUND = "0F172A"
 COLOR_MUTED = "64748B"
@@ -34,41 +44,37 @@ PAGE_BREAK = (
     '<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n'
     "```\n\n"
 )
-PAGE_BREAK_HEADING = re.compile(
-    r"^## (Шаг \d|Если ведёте группы|Минимум за первые 2 дня|Как нам помочь обратной связью)",
-)
+SLIDE_HEADING = re.compile(r"^## ")
 
-CHECKLIST_TABLE = """| ✓ | Действие |
-|---|----------|
-| ☐ | Вы зарегистрировались в Pro |
-| ☐ | Один **реальный** клиент принял приглашение |
-| ☐ | Есть **занятие** в календаре **или** **план** клиенту |"""
+FEATURES_TABLE = """| Для вас (Pro) | Для клиента (Client) |
+|---------------|----------------------|
+| Календарь занятий | Ваши записи и планы |
+| Клиенты и приглашения | Дневник (еда, вода, замеры — если нужно) |
+| Программы тренировок | Отдельное приложение на телефоне |
+| Планы питания (файлом) | Напоминания через MAX / Telegram |
+| Группы и групповые занятия | |"""
 
-CHECKLIST_LIST = """- ☐ Вы зарегистрировались в Pro
-- ☐ Один **реальный** клиент принял приглашение
-- ☐ Есть **занятие** в календаре **или** **план** клиенту"""
+FEATURES_LIST = """**Для вас (Pro):** календарь · клиенты · программы · планы питания · группы
 
-INTRO_TABLE = """| | |
+**Для клиента (Client):** записи и планы · дневник · отдельное приложение · напоминания MAX/TG"""
+
+PILOT_TABLE = """| | |
 |--|--|
-| **Пилот** | до **31 июля 2026** — пробный период, всё нужное для работы открыто |
-| **Регистрация** | **только** по **личной ссылке** `telotron.ru/i/…` из сообщения (WhatsApp, VK, Telegram) |
-| **Вход в кабинет** | [pro.telotron.ru](https://pro.telotron.ru/) — когда **уже** зарегистрировались |"""
+| **Срок** | **60 дней** бесплатно · полный функционал |
+| **Оплата** | **не раньше 01.08.2026** · карта на пилоте **не нужна** |
+| **Кого ищем** | **10–15 тренеров**, которые ведут **своих** клиентов (очно и/или онлайн) |
+| **Что просим** | зарегистрироваться, провести **1 реального клиента** в приложении, **2–4 недели** честной обратной связи |
+| **Чего не просим** | публичную рекламу, блог, «продавать» сервис |"""
 
-INTRO_LIST = """- **Пилот** — до **31 июля 2026** — пробный период, всё нужное для работы открыто
-- **Регистрация** — **только** по **личной ссылке** `telotron.ru/i/…` из сообщения
-- **Вход в кабинет** — [pro.telotron.ru](https://pro.telotron.ru/) — когда **уже** зарегистрировались"""
+PILOT_LIST = """- **Срок** — **60 дней** бесплатно, полный функционал
+- **Оплата** — не раньше **01.08.2026**, карта на пилоте не нужна
+- **Кого ищем** — **10–15 тренеров** со своими клиентами (очно и/или онлайн)
+- **Что просим** — reg, **1 реальный клиент** в приложении, **2–4 недели** обратной связи
+- **Чего не просим** — публичную рекламу и «продавать» сервис"""
 
-MISSING_TABLE = """| | |
-|--|--|
-| Оплата занятий клиентом через Telotron | в разработке |
-| Автонапоминания о тренировке в MAX | позже |
-| Чат с клиентом внутри приложения | пока общайтесь как привыкли (Telegram и т.д.) |
-| SMS-коды | нет, только MAX / Telegram / e-mail |"""
-
-MISSING_LIST = """- **Оплата занятий клиентом через Telotron** — в разработке
-- **Автонапоминания о тренировке в MAX** — позже
-- **Чат с клиентом внутри приложения** — пока общайтесь как привыкли (Telegram и т.д.)
-- **SMS-коды** — нет, только MAX / Telegram / e-mail"""
+MISSING_LIST = """- Оплата занятий клиентом через Telotron — в разработке
+- Чат с клиентом внутри приложения — пока привычные мессенджеры
+- SMS-коды — вход через MAX, Telegram или e-mail"""
 
 CONTACTS_TABLE = """| | |
 |--|--|
@@ -85,48 +91,63 @@ CONTACTS_LIST = """- **Алексей Русаков** — основатель,
 - **Сайт** — [telotron.ru](https://telotron.ru/)"""
 
 PAIRS: list[tuple[str, str]] = [
-    ("01_glavnaya_posle_ssylki.jpeg", "01_glavnaya_posle_ssylki.jpg"),
-    ("02_registratsiya_pravila.jpeg", "02_registratsiya_pravila.jpg"),
-    ("03_registratsiya_max_bot.jpeg", "03_registratsiya_max_bot.jpg"),
-    ("04_registratsiya_passkey.jpeg", "04_registratsiya_passkey.jpg"),
+    ("08_raspisanie.jpeg", "08_raspisanie.jpg"),
     ("05_ustanovka_pro.jpeg", "05_ustanovka_pro.jpg"),
     ("06_klienty_ssylka.jpeg", "06_klienty_ssylka.jpg"),
-    ("07_client_registratsiya.jpeg", "07_client_registratsiya.jpg"),
-    ("08_raspisanie.jpeg", "08_raspisanie.jpg"),
     ("09_programmy_trenirovok.jpeg", "09_programmy_trenirovok.jpg"),
     ("12_client_dnevnik_trenirovka.jpeg", "12_client_dnevnik_trenirovka.jpg"),
     ("11_client_glavnaya.jpeg", "11_client_glavnaya.jpg"),
+    ("07_client_registratsiya.jpeg", "07_client_registratsiya.jpg"),
     ("10_gruppy.jpeg", "10_gruppy.jpg"),
 ]
 
 
+def configure_outputs(version: str) -> Path:
+    global VERSION, OUT, OUT_PDF
+    VERSION = version
+    stem = f"{SOURCE_BASENAME} v{version}"
+    ARTIFACTS.mkdir(parents=True, exist_ok=True)
+    OUT = ARTIFACTS / f"{stem}.docx"
+    OUT_PDF = READY / f"{stem}.pdf"
+    return PRESENTATION_DIR / f"{stem}.md"
+
+
+def replace_image_paths(text: str) -> str:
+    for src_name, dst_name in PAIRS:
+        for prefix in ("../скрины/", "скрины/", "../онбординг-тренеров/", "онбординг-тренеров/"):
+            text = text.replace(f"{prefix}{src_name}", f"media/{dst_name}")
+    return text
+
+
 def strip_title_heading(text: str) -> str:
-    """H1 переносится на титульную страницу."""
+    """Убирает H1, подзаголовок и --- до первого слайда (##). Титул — в cover page."""
     lines = text.splitlines(keepends=True)
-    idx = 0
-    while idx < len(lines) and lines[idx].strip() == "":
-        idx += 1
-    if idx < len(lines) and lines[idx].startswith("# "):
-        del lines[idx]
-        while idx < len(lines) and lines[idx].strip() == "":
-            del lines[idx]
-    return "".join(lines)
+    for i, line in enumerate(lines):
+        if SLIDE_HEADING.match(line):
+            return "".join(lines[i:])
+    return text
 
 
-def insert_step_page_breaks(text: str) -> str:
-    lines = text.splitlines(keepends=True)
-    out: list[str] = []
-    for line in lines:
-        if PAGE_BREAK_HEADING.match(line):
-            while out and out[-1].strip() == "":
-                out.pop()
-            if out and out[-1].strip() == "---":
-                out.pop()
-            while out and out[-1].strip() == "":
-                out.pop()
-            out.append(PAGE_BREAK)
-        out.append(line)
-    return "".join(out)
+def strip_horizontal_rules(text: str) -> str:
+    """--- между слайдами в DOCX даёт лишние разрывы; слайды разделяем только Heading2."""
+    return re.sub(r"^---\s*\n", "", text, flags=re.MULTILINE)
+
+
+def fix_slide_page_breaks(xml: str) -> str:
+    """Разрыв страницы на самом Heading2 (кроме первого слайда), без пустого абзаца."""
+    pattern = re.compile(
+        r"(<w:p><w:pPr>)(<w:pStyle w:val=\"Heading2\" />(?:\s*<w:pageBreakBefore />)?)(</w:pPr>)",
+    )
+    seen = 0
+
+    def repl(match: re.Match[str]) -> str:
+        nonlocal seen
+        seen += 1
+        if seen == 1:
+            return match.group(0)
+        return f"{match.group(1)}<w:pageBreakBefore />{match.group(2)}{match.group(3)}"
+
+    return pattern.sub(repl, xml)
 
 
 def prepare_media() -> None:
@@ -134,20 +155,20 @@ def prepare_media() -> None:
         shutil.rmtree(BUILD)
     MEDIA.mkdir(parents=True)
 
+    scale_pct = int(IMAGE_SCALE * 100)
     for src_name, dst_name in PAIRS:
-        src = SRC_DIR / src_name
-        dst = MEDIA / dst_name
-        scale_pct = int(IMAGE_SCALE * 100)
         subprocess.run(
             [
                 "convert",
-                str(src),
+                str(SRC_DIR / src_name),
                 "-strip",
                 "-interlace",
                 "none",
                 "-resize",
                 f"{scale_pct}%",
-                str(dst),
+                "-resize",
+                f"x{MAX_IMG_HEIGHT_PX}>",
+                str(MEDIA / dst_name),
             ],
             check=True,
         )
@@ -169,17 +190,15 @@ def prepare_media() -> None:
         )
 
 
-def prepare_markdown() -> None:
-    text = (BASE / "Онбординг — инструкция для тренеров.md").read_text(encoding="utf-8")
+def prepare_markdown(source_md: Path) -> None:
+    text = source_md.read_text(encoding="utf-8")
     cut = text.split("## Для команды (не отправлять тренеру)")[0]
-    for src_name, dst_name in PAIRS:
-        cut = cut.replace(f"онбординг-тренеров/{src_name}", f"media/{dst_name}")
-    cut = cut.replace(INTRO_TABLE, INTRO_LIST)
-    cut = cut.replace(CHECKLIST_TABLE, CHECKLIST_LIST)
-    cut = cut.replace(MISSING_TABLE, MISSING_LIST)
+    cut = replace_image_paths(cut)
+    cut = cut.replace(FEATURES_TABLE, FEATURES_LIST)
+    cut = cut.replace(PILOT_TABLE, PILOT_LIST)
     cut = cut.replace(CONTACTS_TABLE, CONTACTS_LIST)
     cut = strip_title_heading(cut)
-    cut = insert_step_page_breaks(cut)
+    cut = strip_horizontal_rules(cut)
     SOURCE_MD.write_text(cut, encoding="utf-8")
 
 
@@ -229,7 +248,7 @@ def _accent_bar() -> str:
 
 
 def _cover_logo_paragraph(image_rid: str) -> str:
-    cx = cy = 1260000  # ~3,5 см
+    cx = cy = 1260000
     return _centered_para(
         (
             "<w:r><w:drawing><wp:inline distT=\"0\" distB=\"0\" distL=\"0\" distR=\"0\">"
@@ -255,56 +274,35 @@ def _cover_logo_paragraph(image_rid: str) -> str:
     )
 
 
+def _next_rid(rels_xml: str) -> str:
+    ids = [int(x) for x in re.findall(r'Id="rId(\d+)"', rels_xml)]
+    return f"rId{max(ids) + 1 if ids else 1}"
+
+
 def _find_hyperlink_rid(rels_xml: str, url: str) -> str | None:
     pattern = rf'Id="(rId\d+)"[^>]*Target="{re.escape(url)}"'
     match = re.search(pattern, rels_xml)
     return match.group(1) if match else None
 
 
-def _next_rid(rels_xml: str) -> str:
-    ids = [int(x) for x in re.findall(r'Id="rId(\d+)"', rels_xml)]
-    return f"rId{max(ids) + 1 if ids else 1}"
-
-
-def build_title_page_xml(cover_image_rid: str, pro_link_rid: str) -> str:
+def build_title_page_xml(cover_image_rid: str, site_link_rid: str) -> str:
     parts = [
-        _centered_para(
-            _text_run(" ", size=2, color=COLOR_BACKGROUND),
-            before=0,
-            after=0,
-        ),
+        _centered_para(_text_run(" ", size=2, color=COLOR_BACKGROUND), before=0, after=0),
         _cover_logo_paragraph(cover_image_rid),
-        _centered_para(
-            _text_run("Telotron", size=72, color=COLOR_PRIMARY, bold=True),
-            after=80,
-        ),
-        _centered_para(
-            _text_run("Как начать работу", size=44, color=COLOR_FOREGROUND, bold=True),
-            after=60,
-        ),
-        _centered_para(
-            _text_run("Инструкция для тренера", size=28, color=COLOR_MUTED),
-            after=120,
-        ),
+        _centered_para(_text_run("Telotron", size=72, color=COLOR_PRIMARY, bold=True), after=80),
+        _centered_para(_text_run("Для тренера", size=44, color=COLOR_FOREGROUND, bold=True), after=60),
+        _centered_para(_text_run("Расписание · планы · дневник клиента", size=26, color=COLOR_MUTED), after=120),
         _accent_bar(),
-        _centered_para(
-            _text_run("Пилот · до 31 июля 2026", size=24, color=COLOR_MUTED),
-            before=200,
-            after=80,
-        ),
+        _centered_para(_text_run("Пилот · 60 дней бесплатно", size=24, color=COLOR_MUTED), before=200, after=80),
         _centered_para(
             (
-                f'<w:hyperlink r:id="{pro_link_rid}">'
+                f'<w:hyperlink r:id="{site_link_rid}">'
                 f"<w:r>{_run_props(size=28, color=COLOR_PRIMARY, bold=True)}"
-                "<w:t>pro.telotron.ru</w:t></w:r></w:hyperlink>"
+                "<w:t>telotron.ru</w:t></w:r></w:hyperlink>"
             ),
             after=160,
         ),
-        _centered_para(
-            _text_run("Расписание · планы · дневник", size=22, color=COLOR_MUTED),
-            before=1200,
-            after=0,
-        ),
+        _centered_para(_text_run("Июнь–июль 2026", size=22, color=COLOR_MUTED), before=1200, after=0),
         '<w:p><w:r><w:br w:type="page"/></w:r></w:p>',
     ]
     return "".join(parts)
@@ -314,11 +312,7 @@ def _add_relationship(rels_xml: str, relationship: str) -> str:
     return rels_xml.replace("</Relationships>", f"{relationship}</Relationships>", 1)
 
 
-def insert_title_page(
-    xml: str,
-    rels_xml: str,
-    cover_logo: Path,
-) -> tuple[str, str, bytes | None]:
+def insert_title_page(xml: str, rels_xml: str, cover_logo: Path) -> tuple[str, str, bytes | None]:
     if not cover_logo.exists():
         return xml, rels_xml, None
 
@@ -331,20 +325,29 @@ def insert_title_page(
         ),
     )
 
-    pro_link_rid = _find_hyperlink_rid(rels_xml, "https://pro.telotron.ru/")
-    if pro_link_rid is None:
-        pro_link_rid = _next_rid(rels_xml)
+    site_link_rid = _find_hyperlink_rid(rels_xml, "https://telotron.ru/")
+    if site_link_rid is None:
+        site_link_rid = _next_rid(rels_xml)
         rels_xml = _add_relationship(
             rels_xml,
             (
                 f'<Relationship Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" '
-                f'Id="{pro_link_rid}" Target="https://pro.telotron.ru/" TargetMode="External"/>'
+                f'Id="{site_link_rid}" Target="https://telotron.ru/" TargetMode="External"/>'
             ),
         )
 
-    title_xml = build_title_page_xml(cover_rid, pro_link_rid)
+    title_xml = build_title_page_xml(cover_rid, site_link_rid)
     xml = xml.replace("<w:body>", f"<w:body>{title_xml}", 1)
     return xml, rels_xml, cover_logo.read_bytes()
+
+
+def fix_docx_tables(xml: str) -> str:
+    def fix_table(match: re.Match[str]) -> str:
+        table = match.group(0)
+        table = table.replace('<w:tblW w:type="pct" w:w="0.0" />', '<w:tblW w:type="pct" w:w="5000" />')
+        return table
+
+    return re.sub(r"<w:tbl>.*?</w:tbl>", fix_table, xml, flags=re.DOTALL)
 
 
 def fix_image_ids() -> None:
@@ -377,6 +380,7 @@ def fix_image_ids() -> None:
             return f'<pic:cNvPr{attrs}id="{cnv_id}" name="Picture" />'
 
         xml = re.sub(r'<pic:cNvPr([^>]*?)id="\d+" name="Picture" />', repl_cnv, xml)
+        xml = fix_slide_page_breaks(xml)
         xml = fix_docx_tables(xml)
 
         if cover_bytes is not None and 'Extension="png"' not in content_types:
@@ -399,51 +403,9 @@ def fix_image_ids() -> None:
                 zout.writestr("word/media/cover-logo.png", cover_bytes)
 
     shutil.copy2(FIXED_DOCX, OUT)
-    ids = re.findall(r'<wp:docPr[^>]*\sid="(\d+)"[^>]*name="Picture"', xml)
     media = [n for n in zipfile.ZipFile(OUT).namelist() if n.startswith("word/media/")]
     print(f"OK: {OUT}")
-    print(f"images in docx: {len(media)}; wp:docPr ids: {ids}")
-
-
-def fix_docx_tables(xml: str) -> str:
-    """Pandoc 2.9 иногда даёт tblW=0 и пустой tblGrid — LibreOffice ломает вёрстку."""
-
-    def fix_table(match: re.Match[str]) -> str:
-        table = match.group(0)
-        table = table.replace(
-            '<w:tblW w:type="pct" w:w="0.0" />',
-            '<w:tblW w:type="pct" w:w="5000" />',
-        )
-        if "<w:tblGrid />" in table or "<w:tblGrid></w:tblGrid>" in table:
-            first_row = re.search(r"<w:tr[^>]*>(.*?)</w:tr>", table, re.DOTALL)
-            if first_row:
-                cols = len(re.findall(r"<w:tc[ >]", first_row.group(1)))
-                if cols == 2:
-                    widths = ("1800", "8200")
-                elif cols == 1:
-                    widths = ("5000",)
-                else:
-                    widths = tuple(str(5000 // cols) for _ in range(cols))
-                grid = "".join(f'<w:gridCol w:w="{w}"/>' for w in widths)
-                table = re.sub(
-                    r"<w:tblGrid\s*/>|<w:tblGrid></w:tblGrid>",
-                    f"<w:tblGrid>{grid}</w:tblGrid>",
-                    table,
-                    count=1,
-                )
-        elif re.search(r"<w:tblGrid>.*?<w:gridCol", table, re.DOTALL):
-            first_row = re.search(r"<w:tr[^>]*>(.*?)</w:tr>", table, re.DOTALL)
-            if first_row and len(re.findall(r"<w:tc[ >]", first_row.group(1))) == 2:
-                grid = '<w:gridCol w:w="1800"/><w:gridCol w:w="8200"/>'
-                table = re.sub(
-                    r"<w:tblGrid>.*?</w:tblGrid>",
-                    f"<w:tblGrid>{grid}</w:tblGrid>",
-                    table,
-                    count=1,
-                )
-        return table
-
-    return re.sub(r"<w:tbl>.*?</w:tbl>", fix_table, xml, flags=re.DOTALL)
+    print(f"images in docx: {len(media)}")
 
 
 def export_pdf() -> None:
@@ -462,14 +424,32 @@ def export_pdf() -> None:
         ],
         check=True,
     )
-    built = BUILD / "Онбординг — инструкция для тренеров.pdf"
+    built = BUILD / OUT_PDF.name
     shutil.copy2(built, OUT_PDF)
     print(f"OK: {OUT_PDF}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Сборка презентации Telotron для тренеров (PDF/DOCX).")
+    parser.add_argument(
+        "--version",
+        default="1.3",
+        choices=("1.2", "1.3"),
+        help="версия markdown-исходника (по умолчанию: 1.3)",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = parse_args()
+    READY.mkdir(parents=True, exist_ok=True)
+    source_md = configure_outputs(args.version)
+    if not source_md.exists():
+        print(f"ERROR: нет файла {source_md}", file=sys.stderr)
+        sys.exit(1)
+
     prepare_media()
-    prepare_markdown()
+    prepare_markdown(source_md)
     run_pandoc()
     fix_image_ids()
     export_pdf()

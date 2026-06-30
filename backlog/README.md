@@ -95,6 +95,8 @@ insight brief  →  идеи  →  бэклог (T-XXX)  →  спринт  → 
 | T-061 | **сделано** | `done` · спринт **2** | [инструкция тренерам PDF](сделано/T-061-онбординг-инструкция-тренеров-pdf.md) |
 | T-063 | **в-работе** | `in_progress` · спринт **2** | [CRM пилота на файлах](в-работе/T-063-crm-pilot-files.md) |
 | T-062 | бэклог | `backlog` · пилот | [Client мед. согласие после Passkey](бэклог/T-062-client-регистрация-единый-шаг-согласий.md) |
+| T-064 | бэклог | `backlog` · P1 compliance | [верификация телефона / 149-ФЗ](бэклог/T-064-auth-верификация-телефона-149-фз.md) |
+| T-065 | бэклог | `backlog` · P1 пилот | [Pro onboarding порядок шагов](бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) — подготовка → клиент → назначения |
 | T-058 | бэклог | `backlog` | [public landing hero](бэклог/T-058-public-landing-hero-визуал.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) |
 | T-026 | бэклог | `backlog` | [**Commerce эпик**](бэклог/T-026-commerce-модуль-эпик.md) |
@@ -123,4 +125,4 @@ insight brief  →  идеи  →  бэклог (T-XXX)  →  спринт  → 
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-06-21: freeze scope пилота; скрины у маркетолога; prod tested; T-060 в работе (pause).*
+*Индекс обновлён 2026-06-24: T-065 онбординг Pro — порядок шагов.*

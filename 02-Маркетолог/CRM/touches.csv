@@ -2,3 +2,10 @@ date,contact_id,channel,token,action,outcome,by,note
 2026-06-21,podmoskove-alexey,personal_church,VepXcZ,call,dialog,director,Созвон · договорились о пилоте · контакт от пастора Олега
 2026-06-21,podmoskove-alexey,personal_church,VepXcZ,survey_sent,dialog,director,Входная анкета forms.gle/J3sCUzfN8Fwp1C148 · после созвона
 2026-06-21,via-nastya-svetlana,personal_circle,jPp1HN,call,no_answer,director,Недозвон · 1-я попытка · контакт от Насти Радюк
+2026-06-23,krasnodar-vk-maxftrener,personal_circle,jPp1HN,link_sent,dialog,director,Инструкция PDF + reg jPp1HN · анкета MVP (интервью)
+2026-06-23,interview-tatyana-borisova,personal_circle,jPp1HN,link_sent,dialog,director,Созвон · инструкция PDF + reg jPp1HN · анкета MVP · интро через Оксану
+2026-06-23,src-oksana-gubanova,partner_oksana,,call,dialog,director,Созвон · договорённость outreach · выдана личная reg + материалы (презентация v1.3)
+2026-06-25,krasnodar-vk-maxftrener,personal_circle,jPp1HN,session,dialog,director,Совместная установка PWA · много UX-замечаний · часть сразу в продукте
+2026-06-25,podmoskove-alexey,personal_church,VepXcZ,survey_done,dialog,director,Заполнил входную анкету
+2026-06-25,podmoskove-alexey,personal_church,VepXcZ,link_sent,dialog,director,Инструкция PDF + reg VepXcZ
+2026-06-25,src-ryabko-dima,partner_ryabko,,call,dialog,director,Договорённость · совместно продвигать Telotron
