@@ -103,6 +103,7 @@ insight brief  →  идеи  →  бэклог (T-XXX)  →  спринт  → 
 | T-069 | бэклог | `backlog` | [legal одна страница](бэклог/T-069-упрощение-входа-legal-одна-страница.md) · T-066 |
 | T-070 | бэклог | `backlog` | [мастер + баннер](бэклог/T-070-упрощение-входа-мастер-баннер.md) · T-066 |
 | T-071 | бэклог | `backlog` | [Passkey опц.](бэклог/T-071-упрощение-входа-passkey-опционально.md) · T-066 |
+| T-072 | бэклог | `backlog` | [код ссылки wo_link/public](бэклог/T-072-invite-ссылки-код-wo-link-public.md) · T-066 |
 | T-058 | бэклог | `backlog` | [public landing hero](бэклог/T-058-public-landing-hero-визуал.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) |
 | T-026 | бэклог | `backlog` | [**Commerce эпик**](бэклог/T-026-commerce-модуль-эпик.md) |

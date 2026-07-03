@@ -33,7 +33,7 @@
 - Заголовок: **«Немного формальностей»**.
 - Текст: **«Мы рады, что Вы присоединились к нам!»**.
 - Кнопки **«Принять»** для `privacy_policy` и `personal_data_consent` → галочка.
-- Второй «Принять» → `POST /register/complete` (2 acceptances + terms с телефона + `age_confirmed`) → User → отметка авторизации в localStorage → **рег. шаг 2**.
+- Второй «Принять» → `POST /register/complete` (2 acceptances + `terms_of_service` из сессии телефона + `age_confirmed`) → User + пустой `trainer_profiles` → отметка входа в localStorage → **рег. шаг 2** ([T-068](T-068-упрощение-входа-sms-бот-напоминания.md) § API).
 
 **Client v1** — без изменений.
 
