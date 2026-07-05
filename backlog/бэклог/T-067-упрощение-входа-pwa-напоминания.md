@@ -15,7 +15,7 @@
 
 Установка PWA **не обязательна** на регистрации и не блокирует первый вход. Периодически — мягкое напоминание «для удобства».
 
-Сейчас: `install_pwa` опционален в [T-060](../в-работе/T-060-pro-onboarding-k-p.md); [TelotronInstallBanner](../../../_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue).
+Сейчас: `install_pwa` опционален в [T-060](../сделано/T-060-pro-onboarding-k-p.md); [TelotronInstallBanner](../../../_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue).
 
 ## Критерии готовности
 
@@ -27,7 +27,7 @@
 
 ## Ссылки
 
-- [T-066](T-066-упрощение-входа-эпик.md) · [T-060](../в-работе/T-060-pro-onboarding-k-p.md)
+- [T-066](T-066-упрощение-входа-эпик.md) · [T-060](../сделано/T-060-pro-onboarding-k-p.md)
 
 ## Журнал
 

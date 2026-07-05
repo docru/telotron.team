@@ -4,13 +4,11 @@
 |------|----------|
 | **Статус** | `backlog` · папка: **`бэклог/`** |
 | **Приоритет** | **P2** (техдолг UX; не блокер activation, но снижает стоимость T-065 / T-055 / рефакторинга навигации) |
-| **Спринт** | этап 1 · пилот (после снятия pause [T-060](../в-работе/T-060-pro-onboarding-k-p.md) или параллельно с [T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md)) |
+| **Спринт** | этап 1 · пилот (после [T-060](../сделано/T-060-pro-onboarding-k-p.md) или параллельно с [T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md)) |
 | **Оценка** | **10–14 ч** (рефакторинг конфига + деградация spotlight + контракт-тесты; без смены API) |
 | **Роль** | dev (+ архитектор review) |
 | **Создан** | 2026-07-05 |
-| **Зависит от** | [T-060](../в-работе/T-060-pro-onboarding-k-p.md)* (базовый onboarding-bar в коде) |
-
-\* Можно делать **до** T-065: цель — не менять порядок шагов, а **отвязать** прогресс от конкретных экранов/DOM.
+| **Зависит от** | [T-060](../сделано/T-060-pro-onboarding-k-p.md) ✅ (базовый onboarding-bar в коде) |
 
 ## Контекст
 
@@ -101,7 +99,7 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 
 ## Ссылки
 
-- [T-060 Pro onboarding К+П](../в-работе/T-060-pro-onboarding-k-p.md)
+- [T-060 Pro onboarding К+П](../сделано/T-060-pro-onboarding-k-p.md)
 - [onboarding-config.ts](../../_telotron.ru/resources/ts/shared/composables/onboarding-config.ts)
 - [TrainerOnboardingStatusResolver.php](../../_telotron.ru/app/Modules/Onboarding/Services/TrainerOnboardingStatusResolver.php)
 - [ProOnboardingBar.vue](../../_telotron.ru/resources/ts/widgets/ProOnboardingBar.vue)

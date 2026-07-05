@@ -2,9 +2,10 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `done` (core) · папка: **`в-работе/`** → перенос в `сделано/` после merge [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) |
-| **Приоритет** | **P1** (activation пилота; ниже P0 prod и billing stage) |
-| **Спринт** | **2–3** (после slice billing foundation или параллельно при capacity) |
+| **Статус** | `done` · папка: **`сделано/`** |
+| **Закрыт** | 2026-07-05 |
+| **Приоритет** | **P1** (activation пилота) |
+| **Спринт** | **2–3** |
 | **Роль** | **дизайнер** (макет + copy UI) → **dev** (+ PO ревью текстов) |
 | **Создан** | 2026-06-16 |
 | **Оценка** | **~16–24 ч** (3–4 раб. дня при 10–15 ч/нед) |
@@ -406,4 +407,9 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 - Тикет приведён к **фактическому** UX: coach-bar + hub (не full-page чеклист).
 - Зафиксированы **7 шагов П** (`create_exercise`, `create_complex`, …), `schedule_or_plan` = только appointment.
 - Добавлен слой **[T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md):** `onboarding-actions.ts`, `onboarding-anchor-registry.ts`, `OnboardingStepRegistry.php`, деградация spotlight, E2E assert по API.
-- DoD и E2E-метки обновлены под coach-bar; статус **done (core)**, перенос в `сделано/` — после merge T-076.
+- DoD и E2E-метки обновлены под coach-bar; статус **done (core)**.
+
+### 2026-07-05 · закрытие
+
+- Тикет перенесён в **`сделано/`** — срез 1 (coach-bar + hub + spotlight) в prod.
+- Хвосты вне scope: [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) (порядок шагов), [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) (устойчивость UI), срезы 2–3 — freeze / feedback.
