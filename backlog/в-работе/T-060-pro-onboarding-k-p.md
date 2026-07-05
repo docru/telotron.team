@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `in_progress` · папка: **`в-работе/`** · **pause** новых срезов после freeze 21.06 |
+| **Статус** | `done` (core) · папка: **`в-работе/`** → перенос в `сделано/` после merge [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) |
 | **Приоритет** | **P1** (activation пилота; ниже P0 prod и billing stage) |
 | **Спринт** | **2–3** (после slice billing foundation или параллельно при capacity) |
 | **Роль** | **дизайнер** (макет + copy UI) → **dev** (+ PO ревью текстов) |
@@ -29,23 +29,38 @@
 
 | Контур | Когда | UX |
 |--------|-------|-----|
-| **Краткий К** | первый вход после reg (пока не dismiss) | мастер / чеклист с «Пропустить» |
-| **Полный П** | всегда доступен из меню | «Продолжить настройку» + прогресс |
+| **Краткий К** | первый вход после reg (пока не dismiss) | **coach-bar** + spotlight в shell; обзор на `/more/onboarding` |
+| **Полный П** | после dismiss К или когда К закрыт | тот же coach-bar («Расширенная настройка») + пункт в «Ещё» |
+
+**Реализованный паттерн (2026-06):** не full-page чеклист на `/onboarding`, а **единый движок** `ProOnboardingBar` + `TelotronOnboardingSpotlight`. Legacy `/onboarding`, `/onboarding/full` — редиректы в продукт. Канон: [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) §4, [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md).
+
+**Checklist vs tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md), 2026-07):**
+
+```text
+Checklist = id шага + status (PHP / GET /me/onboarding)  → источник истины done
+Tour      = маршруты + подсветка (TS action map)         → может деградировать без потери прогресса
+```
+
+Кнопки «Понятно» / «Занятие создано» в bar — **UX-подтверждение**, не источник `done` (только факты в БД).
 
 ### Шаги
 
 | ID | Контур | Заголовок (черновик) | Done when | Deep link |
 |----|--------|----------------------|-----------|-----------|
-| `welcome` | К | Добро пожаловать | просмотр экрана | — |
-| `install_pwa` | К | Установите на телефон | dismiss install banner **или** переход `/install` | `/install` |
-| `invite_client` | К | Пригласите первого клиента | ≥1 принятый клиент у тренера | `/clients` |
-| `schedule_or_plan` | К | Занятие или план | ≥1 appointment **или** ≥1 назначение плана | `/schedule`, `/plans` |
+| `welcome` | К | Настройка за 15 минут | просмотр / CTA «Начать» | расписание |
+| `install_pwa` | К | Установите на телефон | dismiss install banner **или** переход в «Ещё» → install | `/more` |
+| `invite_client` | К | Пригласите первого клиента | ≥1 клиент в `trainer_clients` (вкл. self-link) | `/clients` |
+| `schedule_or_plan` | К | Занятие в календаре | ≥1 **appointment** у тренера (назначение плана **не** закрывает шаг — MVP) | `/schedule` |
 | `create_group` | К, **опц.** | Группа (если ведёте) | ≥1 group **или** skip шага | `/groups` |
-| `create_program` | П | Программа тренировок | ≥1 program | `/plans` |
-| `assign_program` | П | Назначьте программу | ≥1 assignment программы | `/plans` |
-| `partner_invite` | П | Партнёрская ссылка | ≥1 активная `specialist_referral` ссылка | partner UI |
+| `create_exercise` | П | Упражнение | ≥1 exercise в базе | `/workouts?tab=exercises` |
+| `create_complex` | П | Комплекс | ≥1 complex template | `/workouts?tab=complexes` |
+| `create_program` | П | Программа тренировок | ≥1 program template | `/workouts?tab=programs` |
+| `assign_program` | П | Назначьте программу | ≥1 workout assignment | `/clients` (hub) |
+| `partner_invite` | П | Партнёрская ссылка | ≥1 активная `specialist_referral` ссылка | `/more/invites` |
 | `nutrition_file` | П | План питания файлом | ≥1 nutrition assignment | `/plans` |
-| `feedback` | П | Обратная связь | ≥1 thread M14 | `/feedback` |
+| `feedback` | П | Обратная связь | ≥1 feedback report | `/feedback` |
+
+Прогресс: К — **4** шага (`welcome` не входит); П — **7** шагов. Id синхронизированы: `OnboardingStepRegistry.php` ↔ `onboarding-step-ids.ts`.
 
 **Пилот:**
 
@@ -71,19 +86,20 @@
 5. **Без тарифов и оплаты** в copy и иллюстрациях.
 6. **Reuse, не новый дизайн-системы слой** — `TelotronCard`, pill-кнопки Pro, Lucide-иконки; **не** отдельная «маркетинговая» тема.
 
-### Краткий К — паттерн UI
+### Краткий К — паттерн UI (факт)
 
 | Решение | Значение |
 |---------|----------|
-| **Формат** | Отдельный **full-page route** в Pro shell, напр. `/onboarding` (не overlay на расписание, не длинный wizard по одному шагу на экран) |
-| **Структура** | Вертикальный **чеклист карточек** — один экран, все шаги К видны (scroll при необходимости) |
-| **Welcome** | Первая карточка-hero: логотип Pro + H1 «Добро пожаловать» + lead «За 15–30 минут…»; CTA **«Начать»** скроллит к первому pending или просто dismiss welcome |
-| **Прогресс** | Компактно: **`2 из 4`** текстом + опционально **точки** (`caption`), **без** длинного progress bar ([Решения совещания §4.3](../../08-Дизайнер/Инструкции/Решения%20совещания%20—%20требования%20UI.md)) |
-| **Skip всего** | В шапке экрана или sticky footer: вторичная ссылка **«Пропустить настройку»** — всегда на виду |
-| **Skip шага** | На опциональных шагах (`create_group`, `install_pwa`) — текстовая **«Позже»** рядом с primary |
-| **После dismiss К** | Редirect на **`/`** (расписание); автопоказ больше не повторяется |
+| **Формат** | **Coach-bar** в Pro shell (`ProOnboardingBar`) + spotlight; не отдельный full-page route |
+| **Обзор** | `WorkspaceOnboardingPage` — `/more/onboarding` (чеклист К и П, «Продолжить» / reopen) |
+| **Legacy** | `/onboarding` → расписание; `/onboarding/full` → workouts (exercises tab) |
+| **Welcome** | Первый шаг bar: H1 «Настройка за 15 минут»; CTA **«Начать настройку»** |
+| **Прогресс** | `onboarding-bar-progress`: **`N из M`** в bar |
+| **Skip всего** | `onboarding-brief-skip-all` в bar |
+| **Skip шага** | `onboarding-bar-skip-step` / `onboarding-welcome-later` на опциональных шагах |
+| **После dismiss К** | Bar П («Расширенная настройка»); автопоказ К не повторяется |
 
-**Почему не wizard «1 шаг = 1 экран»:** в каноне шаги внутри К **по желанию**; чеклист даёт обзор и ощущение прогресса без лишних «Далее».
+> **Историческая постановка (2026-06-16):** wireframe full-page чеклиста на `/onboarding` — **не реализован**; заменён coach-bar (см. журнал 2026-06-21). Карточки шагов — на hub `/more/onboarding`, не в отдельном wizard.
 
 ### Карточка шага (анатомия)
 
@@ -118,27 +134,29 @@
 
 **Шаг `invite_client`:** если к моменту реализации в [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) появится inline-приглашение на `WorkspaceClientsPage` — deep link туда; иначе `/more` + `ProInvitesPanel`.
 
-### Полный П — паттерн UI
+### Полный П — паттерн UI (факт)
 
 | Решение | Значение |
 |---------|----------|
-| **Формат** | Отдельная страница **`/onboarding/full`** (или тот же route с tab «Полная настройка» — на усмотрение dev, визуально **тот же чеклист**, другой набор шагов) |
-| **Entry point 1** | Карточка вверху [WorkspaceMorePage.vue](_telotron.ru/resources/ts/pages/workspace/WorkspaceMorePage.vue): **«Продолжить настройку»** + прогресс `3/5` |
-| **Entry point 2** | Мягкий **баннер** под header shell (стиль как [TelotronInstallBanner.vue](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue): `TelotronCard emphasis`), пока есть pending шаги П и `full_onboarding_banner_dismissed_at` пуст |
-| **Dismiss баннера** | **«Скрыть»** / «Не сейчас» — не путаем с dismiss всего П |
-| **Тон** | Спокойный, без urgency; это «расширенная настройка», не блокер пилота |
+| **Формат** | Тот же **coach-bar** (`onboarding-full-bar`) после dismiss К |
+| **Entry point 1** | Bar «Расширенная настройка» в shell |
+| **Entry point 2** | `onboarding-more-entry` на [WorkspaceMorePage.vue](_telotron.ru/resources/ts/pages/workspace/WorkspaceMorePage.vue) + hub `/more/onboarding` |
+| **Dismiss bar П** | `onboarding-full-dismiss` («Не сейчас») → `POST dismiss scope=full_banner` |
+| **Тон** | Спокойный, без urgency; не блокер пилота |
 
-### Маппинг шагов П → UI
+### Маппинг шагов П → UI (факт в resolver)
 
-| ID | Иконка | Заголовок (UI) | Lead (черновик) | CTA → |
-|----|--------|----------------|-----------------|-------|
-| `create_program` | `Dumbbell` | Программа тренировок | «Создайте программу — потом назначите клиенту.» | `/plans` |
-| `assign_program` | `ClipboardList` | Назначьте программу | «Выберите клиента и назначьте программу.» | `/plans` |
-| `partner_invite` | `Share2` | Партнёрская ссылка | «Пригласите коллегу-тренера — когда модуль партнёрки доступен.» | partner UI |
-| `nutrition_file` | `FileText` | План питания | «Отправьте план питания файлом клиенту.» | `/plans` |
-| `feedback` | `MessageCircle` | Обратная связь | «Напишите, если что-то непонятно — это нормально на пилоте.» | `/feedback` |
+| ID | Заголовок (UI) | Lead (факт) | CTA → |
+|----|----------------|-------------|-------|
+| `create_exercise` | Упражнение | Добавьте хотя бы одно упражнение в базу | `/workouts` |
+| `create_complex` | Комплекс | Соберите комплекс: подходы, повторы | `/workouts` |
+| `create_program` | Программа | Создайте программу из комплексов | `/workouts` |
+| `assign_program` | Назначьте программу | Клиент → «Тренировки» → «Назначения» | `/clients` |
+| `partner_invite` | Партнёрская ссылка | Раздел «Приглашения» в «Ещё» | `/more/invites` |
+| `nutrition_file` | План питания | Библиотека «Планы» → назначение в карточке клиента | `/plans` |
+| `feedback` | Обратная связь | Напишите, если что-то непонятно на пилоте | `/feedback` |
 
-Зависимые шаги (`assign_program` после `create_program` + клиент): в UI **не блокировать** клик, но lead может подсказать порядок; статус `done` только по факту данных.
+Маршруты и якоря spotlight — в `onboarding-actions.ts` ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 
 ### Поведение после deep link
 
@@ -150,10 +168,19 @@
 ### Приоритет показа (первый вход)
 
 ```
-auth OK → (client anketa N/A в Pro) → Brief K /onboarding
-         → иначе обычный shell
+auth OK → расписание + coach-bar К (если brief не dismissed и есть pending)
+         → dismiss К → coach-bar П
+         → hub /more/onboarding всегда доступен
          → one-time lightboxes [T-024] — после dismiss К или если К уже dismissed
 ```
+
+### Деградация tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
+
+1. Якорь найден (`onboarding-anchor-registry`) → spotlight.
+2. Якоря нет, route есть → bar + `onboarding-tour-fallback` + CTA «Перейти в раздел».
+3. Route нет → только `title`/`lead` из API.
+
+Spotlight **не блокирует** dismiss и навигацию по shell.
 
 ### Иллюстрации и скрины
 
@@ -163,31 +190,30 @@ auth OK → (client anketa N/A в Pro) → Brief K /onboarding
 | **Post-MVP** | Иллюстрация hero welcome — **не блокирует** slice 1–2 |
 | **Запрещено** | Стоковые фото «тренер в зале»; медицинская символика |
 
-### Deliverables дизайнера (до slice 2 dev)
+### Deliverables дизайнера (slice 0)
 
-- [ ] Wireframe / Figma: **Brief K** — mobile **360px** (обязательно), desktop **1280px** (желательно)
-- [ ] Wireframe: **Full П** — чеклист + карточка entry в «Ещё» + вариант **баннера** в shell
-- [ ] Состояния карточки шага: **pending / done / skipped**
-- [ ] Таблица **финальных UI-текстов** (заголовок + lead + CTA) — согласование с PO
-- [ ] Указать, какие скрины из `Инструкции/скрины/` вставлять (если используются)
+- [ ] Wireframe / Figma: **Brief K** — mobile **360px** (обязательно), desktop **1280px** (желательно) — **отложено**; в проде coach-bar
+- [x] Реализованный UX: coach-bar + hub (см. [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md))
+- [ ] Таблица **финальных UI-текстов** — частично в resolver; PO-ревью по желанию
 
 ### Design QA (критерии приёмки визуала)
 
-- [ ] **«Пропустить настройку»** виден без скролла на welcome (360px)
-- [ ] Не более **1 primary CTA** на карточку (исключение: `schedule_or_plan` — primary + text link)
-- [ ] Контраст и touch targets — по [Система стилей §9](../../08-Дизайнер/Инструкции/Система%20стилей%20—%20Pro%20и%20Client%20(MVP).md)
-- [ ] Empty/error онбординга: если `GET /me/onboarding` упал — **не блокировать** shell; тихий fail + работа в продукте
-- [ ] Термины UI согласованы с Pro: **«Клиенты»**, **«Календарь»**, **«Планы»**, не «assignments» / «programs» в user-facing тексте
+- [x] **«Пропустить настройку»** (`onboarding-brief-skip-all`) в bar
+- [x] Контраст и touch targets — Lucide + Pro shell
+- [x] Empty/error: `GET /me/onboarding` fail — тихий fail, shell работает
+- [x] Термины UI: «Клиенты», «Расписание», «Тренировки»
+- [x] Suppress `TelotronInstallBanner` при активном шаге `install_pwa` ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) не меняет это поведение)
 
 ---
 
 ## UX-правила
 
-1. После auth: если `brief_onboarding_dismissed_at` пуст **и** есть незакрытые шаги К → показать мастер (overlay или отдельный route).
-2. «Пропустить всё» → `POST dismiss scope=brief` → больше не показывать К автоматически.
-3. Полный П: пункт в [WorkspaceMorePage.vue](_telotron.ru/resources/ts/pages/workspace/WorkspaceMorePage.vue) или «Ещё» + мягкий баннер, пока есть pending шаги П.
-4. Шаги **авто-отмечаются** при возврате на экран онбординга (refetch `GET /me/onboarding`).
-5. PWA: переиспользовать [use-install-promo.ts](_telotron.ru/resources/ts/shared/pwa/use-install-promo.ts).
+1. После auth: если `brief_onboarding_dismissed_at` пуст **и** есть pending шаги К → **coach-bar К** на расписании (не блокирует табы).
+2. «Пропустить всё» → `POST dismiss scope=brief` → bar П; автопоказ К не повторяется.
+3. Полный П: coach-bar + `onboarding-more-entry` в «Ещё» + hub `/more/onboarding`; «Не сейчас» → `full_banner` dismiss.
+4. Шаги **auto-done** по refetch `GET /me/onboarding` после действий в продукте (источник истины — resolver).
+5. PWA: `install_pwa` ведёт в «Ещё»; suppress [TelotronInstallBanner](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) при активном шаге.
+6. Tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)): перенос UI не ломает progress; при отсутствии якоря — `fallbackLead` в bar.
 
 ---
 
@@ -198,11 +224,9 @@ auth OK → (client anketa N/A в Pro) → Brief K /onboarding
 - `brief_onboarding_dismissed_at` — nullable timestamp
 - `full_onboarding_banner_dismissed_at` — nullable timestamp (скрыть баннер П)
 
-### `TrainerOnboardingStatusResolver`
+### `TrainerOnboardingStatusResolver` + `OnboardingStepRegistry`
 
-Вычисляет `status`: `pending` | `done` | `skipped` по каждому step id (без дублирующих колонок на шаг).
-
-Источники данных — существующие модули M1/M2/plans/partner/M14.
+Вычисляет `status`: `pending` | `done` | `skipped` по каждому step id. Канонические id — `OnboardingStepRegistry.php` (контракт с TS `onboarding-step-ids.ts`, проверка в `assertOnboardingShellStepIds()`).
 
 ### API (Pro, `auth:sanctum`)
 
@@ -225,19 +249,19 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
     },
     "full": {
       "banner_dismissed": false,
-      "progress": { "done": 0, "total": 5 },
+      "progress": { "done": 0, "total": 7 },
       "steps": [ … ]
     }
   }
 }
 ```
 
-Контракт зафиксировать в `docs/Техдок/03-модули/` (новый файл или § в api-http).
+Контракт: [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (§ Checklist vs tour — [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 
 ### Тесты
 
-- Feature: `GET /me/onboarding` для нового тренера / после invite / после appointment.
-- Unit: resolver по каждому step id.
+- Feature: `MeOnboardingApiTest` — новый тренер, invite, appointment, dismiss/reopen.
+- Unit: `TrainerOnboardingStatusResolverTest`, `OnboardingStepRegistryTest`.
 
 ---
 
@@ -245,101 +269,86 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 
 | Артефакт | Назначение |
 |----------|------------|
-| `useTrainerOnboarding.ts` | load, dismiss, refresh |
-| `ProBriefOnboardingPage.vue` | чеклист К (route `/onboarding`) |
-| `ProOnboardingStepCard.vue` | карточка шага (pending/done/skipped) |
-| `ProFullOnboardingPage.vue` | чеклист П |
-| `ProOnboardingShellBanner.vue` | мягкий баннер П в layout |
-| Router / layout hook | показ К после login; suppress install banner |
+| `useTrainerOnboarding.ts` | load, dismiss, refresh, reopen |
+| `useOnboardingBar.ts` | состояние coach-bar, spotlight, confirm |
+| `ProOnboardingBar.vue` | coach-bar К и П (`onboarding-bar` / `onboarding-full-bar`) |
+| `TelotronOnboardingSpotlight.vue` | подсветка якоря |
+| `WorkspaceOnboardingPage.vue` | hub `/more/onboarding` (чеклисты К и П) |
+| `onboarding-config.ts` | shell config (сжат; маршруты из action map) |
+| `onboarding-actions.ts` | **T-076:** stepId → routes + anchor + `fallbackLead` |
+| `onboarding-anchor-registry.ts` | **T-076:** семантические якоря UI |
+| `onboarding-step-ids.ts` | id шагов К/П (контракт с PHP) |
+| `onboarding-hints.ts` | contextual hints для nested UI |
+| `App.vue` (pro) | provide onboarding, suppress install nudge |
 
-**Vitest:** composable + smoke render шагов.
+**Не реализовано (заменено):** `ProBriefOnboardingPage`, `ProOnboardingStepCard`, `ProFullOnboardingPage`, `ProOnboardingShellBanner`.
+
+**Vitest:** `useTrainerOnboarding.test.ts`, `onboarding-config.test.ts`, `useOnboardingBar.test.ts`, `onboarding-actions.test.ts`, `onboarding-anchor-registry.test.ts`.
 
 ---
 
-## E2E-метки для автотестов (задание dev)
+## E2E и testid
 
-> **Зачем:** QA после merge подготовит Playwright-сценарии онбординга (E2E-07+). Без стабильных селекторов тесты будут хрупкими (copy меняется, несколько кнопок «Позже» на экране).  
-> **Когда:** вместе с UI **slice 2–3**, не откладывать «на потом». Метки — часть DoD тикета.
+Канон селекторов: [E2E-07-pro-onboarding.md](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md), spec `e2e/specs/pro-onboarding.flow.spec.ts`.
 
-### Конвенция
+### Реализованные `data-testid` (coach-bar + hub)
 
-- Атрибут: **`data-testid`** (не `data-e2e`, не классы).
-- Префикс: **`onboarding-`**.
-- Формат: `onboarding-{scope}-{element}` или `onboarding-{scope}-step-{stepId}[-{part}]`.
-  - `scope`: `brief` | `full` | `banner` | `more`.
-  - `stepId`: id из таблицы шагов (`welcome`, `invite_client`, …).
-- **Не дублировать** testid на разных DOM-узлах на одном экране.
-- Тексты кнопок и заголовков **не** использовать как единственный селектор в E2E — testid обязателен на интерактивных элементах ниже.
-- Статус шага (`pending` / `done` / `skipped`) дублировать в **`data-status`** на карточке шага (удобно для assert без парсинга классов).
+| Элемент | `data-testid` |
+|---------|----------------|
+| Brief bar | `onboarding-bar` |
+| Full bar | `onboarding-full-bar` |
+| Bar shell | `onboarding-bar-shell` |
+| Progress | `onboarding-bar-progress` |
+| Primary CTA | `onboarding-bar-primary` |
+| Пропустить К | `onboarding-brief-skip-all` |
+| Не сейчас П | `onboarding-full-dismiss` |
+| Tour fallback | `onboarding-tour-fallback` |
+| Entry в «Ещё» | `onboarding-more-entry` |
+| Hub | `workspace-onboarding-page` |
+| Контур | `onboarding-contour-brief`, `onboarding-contour-full` |
+| Шаг на hub | `onboarding-step-{scope}-{stepId}` |
+| Spotlight | `onboarding-spotlight` |
 
-### Обязательные метки по компонентам
+### Правила assert ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
 
-| Компонент / экран | `data-testid` | Примечание |
-|-------------------|---------------|------------|
-| `ProBriefOnboardingPage` | `onboarding-brief-page` | корневой контейнер route `/onboarding` |
-| | `onboarding-brief-progress` | блок «N из M» |
-| | `onboarding-brief-skip-all` | «Пропустить настройку» |
-| | `onboarding-brief-step-list` | список карточек К |
-| `ProFullOnboardingPage` | `onboarding-full-page` | route `/onboarding/full` (или эквивалент) |
-| | `onboarding-full-progress` | прогресс П |
-| | `onboarding-full-step-list` | список карточек П |
-| `ProOnboardingStepCard` | `onboarding-brief-step-{stepId}` | на каждый шаг К, напр. `…-invite_client` |
-| | `onboarding-full-step-{stepId}` | на каждый шаг П |
-| | `…-cta` | primary CTA внутри карточки (suffix к step id) |
-| | `…-skip` | «Позже» / «Пропустить шаг» — **только** где есть опциональный skip |
-| `ProOnboardingShellBanner` | `onboarding-banner` | баннер П в layout |
-| | `onboarding-banner-cta` | «Продолжить настройку» |
-| | `onboarding-banner-dismiss` | «Скрыть» / «Не сейчас» |
-| `WorkspaceMorePage` entry | `onboarding-more-entry` | карточка «Продолжить настройку» в «Ещё» |
-| | `onboarding-more-entry-progress` | текст прогресса на карточке |
-| Layout / redirect hook | `onboarding-brief-auto-redirect` | **опционально:** marker на body или shell, если К показан принудительно после login (`data-active="true"`) — для assert автопоказа |
+- **Done** шага — по `GET /me/onboarding` (`status: done`), не по наличию spotlight/`data-onboarding-target`.
+- **Не assert** на конкретный DOM-якорь tour — хрупко при рефакторинге UI.
+- Историческая таблица testid для `ProBriefOnboardingPage` / `ProOnboardingStepCard` — **снята** (паттерн coach-bar).
 
-**Шаги К (обязательны testid карточки + cta):**  
-`welcome`, `install_pwa`, `invite_client`, `schedule_or_plan`, `create_group`  
-(`welcome`: cta «Начать» → `onboarding-brief-step-welcome-cta`).
+### Критерий (закрыто)
 
-**Шаги П (обязательны testid карточки + cta):**  
-`create_program`, `assign_program`, `partner_invite`, `nutrition_file`, `feedback`.
-
-### API / состояние (для assert в E2E, не testid)
-
-- После `POST /api/v1/me/onboarding/dismiss` UI должен убрать автопоказ К без перезагрузки (или refetch).
-- QA будет дополнительно проверять `GET /api/v1/me/onboarding` в setup; **не** менять контракт без обновления постановки.
-
-### Критерий для dev
-
-- [ ] Все строки таблицы выше реализованы в Vue; PR не мёржится без них.
-- [ ] Vitest smoke: хотя бы один тест на `ProOnboardingStepCard` проверяет наличие `data-testid` для sample step id.
-- [ ] В PR указать список добавленных testid (copy-paste таблицы) — QA сверит с постановкой E2E-07.
-
-**Связь QA:** постановка `e2e/scenarios/E2E-07-pro-onboarding-brief.md` — после закрытия slice 2–3 (роль 09).
+- [x] Testid bar + hub по E2E-07.
+- [x] Vitest smoke на bar и action map.
+- [x] E2E-07 green в CI (при поднятом стеке).
 
 ---
 
 ## Подтикеты (порядок)
 
-| Slice | Содержание | Оценка |
+| Slice | Содержание | Статус |
 |-------|------------|--------|
-| **0** | **Дизайн:** wireframe К + П, тексты UI, состояния карточек (§ «Дизайнерские решения») | 3–4 ч |
-| **1** | Миграция + resolver + API + PHP tests | 6–8 ч |
-| **2** | UI краткий К + dismiss + deep links + **E2E-метки (brief)** | 6–8 ч |
-| **3** | UI полный П + меню + баннер + **E2E-метки (full/banner/more)** | 4–6 ч |
-| **4** | Vitest, smoke (в т.ч. testid), тексты PO, design QA | 2–4 ч |
+| **0** | Дизайн wireframe | отложено; в проде coach-bar |
+| **1** | Миграция + resolver + API + PHP tests | ✅ |
+| **2** | Coach-bar К + dismiss + deep links + E2E-07 | ✅ |
+| **3** | Coach-bar П + hub + «Ещё» | ✅ |
+| **4** | Vitest, E2E-07, design QA | ✅ |
+| **+T-076** | Action map, anchor registry, деградация tour, контракт id PHP↔TS | в коде, merge pending |
 
 ---
 
 ## Критерии готовности (DoD)
 
-- [ ] **Дизайн slice 0** закрыт: макет К/П + тексты UI согласованы с PO.
-- [ ] После **первого** входа нового тренера показывается **краткий К** с «Пропустить».
-- [ ] «Пропустить» сохраняется на сервере; повторный автопоказ К **не** происходит.
-- [ ] Шаги К `invite_client` и `schedule_or_plan` **авто-done** при реальных действиях в prod.
-- [ ] Экран **«Продолжить настройку»** с чеклистом **П** доступен из меню Pro.
-- [ ] Deep links ведут в нужные разделы; после действия шаг отмечается done.
-- [ ] **Нет** упоминаний тарифов / оплаты в UI онбординга.
-- [ ] Feature-тесты API + Vitest composable зелёные в CI.
-- [ ] Smoke: новый тренер проходит К или skip → может работать в расписании без блокировок.
-- [ ] **`data-testid`** по § «E2E-метки для автотестов» на всех экранах/карточках онбординга; Vitest smoke на sample step.
+- [ ] **Дизайн slice 0** (Figma) — отложено; не блокер activation.
+- [x] После первого входа — **coach-bar К** с «Пропустить всё».
+- [x] Dismiss на сервере; автопоказ К не повторяется.
+- [x] `invite_client` auto-done при клиенте; `schedule_or_plan` — при **appointment** (не plan-only).
+- [x] Hub **«Продолжить настройку»** + чеклист П в `/more/onboarding` и «Ещё».
+- [x] Deep links + auto-done по API после действий.
+- [x] Нет тарифов / оплаты в copy.
+- [x] PHPUnit + Vitest green.
+- [x] E2E-07; assert **done** по API ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
+- [x] `data-testid` по E2E-07 (coach-bar + hub).
+- [ ] Merge [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) → перенос тикета в `сделано/`.
 
 ---
 
@@ -350,6 +359,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 | **Не блокирует** | [T-026](T-026-commerce-модуль-эпик.md) billing |
 | **Стык** | activation метрики [T-004](T-004-оценка-привлечения-воронка.md), [T-050](T-050-спринт2-воронка-метрики.md) |
 | **Параллель** | [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) UX — deep link «Пригласить»; [T-024](T-024-reminders-одноразовый-лайтбокс.md) — порядок показа после К |
+| **Следующий слой** | [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) устойчивость tour (в коде); [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) порядок шагов |
 
 ---
 
@@ -358,6 +368,9 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 - [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md)
 - [Онбординг — инструкция для тренеров.md](../../02-Маркетолог/Инструкции/онбординг-тренеров/Онбординг%20—%20инструкция%20для%20тренеров.md) · PDF-сборка закрыта в [T-061](../сделано/T-061-онбординг-инструкция-тренеров-pdf.md)
 - [TrainerProfile.php](../../_telotron.ru/app/Modules/Identity/Models/TrainerProfile.php)
+- [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) · § Checklist vs tour
+- [T-076 устойчивость tour](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)
+- [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md)
 - [Цели этапов 2026 · activation](../../01-Директор/Инструкции/Цели%20этапов%202026.md)
 - [Спецификация экранов MVP §7](../../08-Дизайнер/Инструкции/Спецификация%20экранов%20MVP.md) — прогресс точками, не wizard bar
 - [Решения совещания — UI §4.3](../../08-Дизайнер/Инструкции/Решения%20совещания%20—%20требования%20UI.md)
@@ -387,3 +400,10 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 ### 2026-06-24
 
 - Обратная связь тренера: порядок шагов «сначала подготовка, потом клиент». Вынесено в [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) (дельта к этому тикету).
+
+### 2026-07-05 · T-076 sync
+
+- Тикет приведён к **фактическому** UX: coach-bar + hub (не full-page чеклист).
+- Зафиксированы **7 шагов П** (`create_exercise`, `create_complex`, …), `schedule_or_plan` = только appointment.
+- Добавлен слой **[T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md):** `onboarding-actions.ts`, `onboarding-anchor-registry.ts`, `OnboardingStepRegistry.php`, деградация spotlight, E2E assert по API.
+- DoD и E2E-метки обновлены под coach-bar; статус **done (core)**, перенос в `сделано/` — после merge T-076.
