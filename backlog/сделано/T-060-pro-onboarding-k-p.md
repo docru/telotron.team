@@ -35,7 +35,7 @@
 
 **Реализованный паттерн (2026-06):** не full-page чеклист на `/onboarding`, а **единый движок** `ProOnboardingBar` + `TelotronOnboardingSpotlight`. Legacy `/onboarding`, `/onboarding/full` — редиректы в продукт. Канон: [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) §4, [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md).
 
-**Checklist vs tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md), 2026-07):**
+**Checklist vs tour ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md), 2026-07):**
 
 ```text
 Checklist = id шага + status (PHP / GET /me/onboarding)  → источник истины done
@@ -157,7 +157,7 @@ Tour      = маршруты + подсветка (TS action map)         → м
 | `nutrition_file` | План питания | Библиотека «Планы» → назначение в карточке клиента | `/plans` |
 | `feedback` | Обратная связь | Напишите, если что-то непонятно на пилоте | `/feedback` |
 
-Маршруты и якоря spotlight — в `onboarding-actions.ts` ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
+Маршруты и якоря spotlight — в `onboarding-actions.ts` ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 
 ### Поведение после deep link
 
@@ -175,7 +175,7 @@ auth OK → расписание + coach-bar К (если brief не dismissed �
          → one-time lightboxes [T-024] — после dismiss К или если К уже dismissed
 ```
 
-### Деградация tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
+### Деградация tour ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
 
 1. Якорь найден (`onboarding-anchor-registry`) → spotlight.
 2. Якоря нет, route есть → bar + `onboarding-tour-fallback` + CTA «Перейти в раздел».
@@ -203,7 +203,7 @@ Spotlight **не блокирует** dismiss и навигацию по shell.
 - [x] Контраст и touch targets — Lucide + Pro shell
 - [x] Empty/error: `GET /me/onboarding` fail — тихий fail, shell работает
 - [x] Термины UI: «Клиенты», «Расписание», «Тренировки»
-- [x] Suppress `TelotronInstallBanner` при активном шаге `install_pwa` ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) не меняет это поведение)
+- [x] Suppress `TelotronInstallBanner` при активном шаге `install_pwa` ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) не меняет это поведение)
 
 ---
 
@@ -214,7 +214,7 @@ Spotlight **не блокирует** dismiss и навигацию по shell.
 3. Полный П: coach-bar + `onboarding-more-entry` в «Ещё» + hub `/more/onboarding`; «Не сейчас» → `full_banner` dismiss.
 4. Шаги **auto-done** по refetch `GET /me/onboarding` после действий в продукте (источник истины — resolver).
 5. PWA: `install_pwa` ведёт в «Ещё»; suppress [TelotronInstallBanner](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) при активном шаге.
-6. Tour ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)): перенос UI не ломает progress; при отсутствии якоря — `fallbackLead` в bar.
+6. Tour ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)): перенос UI не ломает progress; при отсутствии якоря — `fallbackLead` в bar.
 
 ---
 
@@ -257,7 +257,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 }
 ```
 
-Контракт: [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (§ Checklist vs tour — [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
+Контракт: [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (§ Checklist vs tour — [T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 
 ### Тесты
 
@@ -310,7 +310,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 | Шаг на hub | `onboarding-step-{scope}-{stepId}` |
 | Spotlight | `onboarding-spotlight` |
 
-### Правила assert ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
+### Правила assert ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md))
 
 - **Done** шага — по `GET /me/onboarding` (`status: done`), не по наличию spotlight/`data-onboarding-target`.
 - **Не assert** на конкретный DOM-якорь tour — хрупко при рефакторинге UI.
@@ -333,7 +333,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 | **2** | Coach-bar К + dismiss + deep links + E2E-07 | ✅ |
 | **3** | Coach-bar П + hub + «Ещё» | ✅ |
 | **4** | Vitest, E2E-07, design QA | ✅ |
-| **+T-076** | Action map, anchor registry, деградация tour, контракт id PHP↔TS | в коде, merge pending |
+| **+T-076** | Action map, anchor registry, деградация tour, контракт id PHP↔TS | **done** (`4c8dadb`) |
 
 ---
 
@@ -347,9 +347,9 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 - [x] Deep links + auto-done по API после действий.
 - [x] Нет тарифов / оплаты в copy.
 - [x] PHPUnit + Vitest green.
-- [x] E2E-07; assert **done** по API ([T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
+- [x] E2E-07; assert **done** по API ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 - [x] `data-testid` по E2E-07 (coach-bar + hub).
-- [ ] Merge [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) → перенос тикета в `сделано/`.
+- [x] Merge [T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) → перенос тикета в `сделано/`.
 
 ---
 
@@ -357,10 +357,10 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 
 | | |
 |--|--|
-| **Не блокирует** | [T-026](T-026-commerce-модуль-эпик.md) billing |
+| **Не блокирует** | [E-001](../эпики/E-001-commerce-модуль.md) billing |
 | **Стык** | activation метрики [T-004](T-004-оценка-привлечения-воронка.md), [T-050](T-050-спринт2-воронка-метрики.md) |
 | **Параллель** | [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) UX — deep link «Пригласить»; [T-024](T-024-reminders-одноразовый-лайтбокс.md) — порядок показа после К |
-| **Следующий слой** | [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) устойчивость tour (в коде); [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) порядок шагов |
+| **Следующий слой** | [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) порядок шагов |
 
 ---
 
@@ -370,7 +370,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 - [Онбординг — инструкция для тренеров.md](../../02-Маркетолог/Инструкции/онбординг-тренеров/Онбординг%20—%20инструкция%20для%20тренеров.md) · PDF-сборка закрыта в [T-061](../сделано/T-061-онбординг-инструкция-тренеров-pdf.md)
 - [TrainerProfile.php](../../_telotron.ru/app/Modules/Identity/Models/TrainerProfile.php)
 - [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) · § Checklist vs tour
-- [T-076 устойчивость tour](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)
+- [T-076 устойчивость tour](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)
 - [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md)
 - [Цели этапов 2026 · activation](../../01-Директор/Инструкции/Цели%20этапов%202026.md)
 - [Спецификация экранов MVP §7](../../08-Дизайнер/Инструкции/Спецификация%20экранов%20MVP.md) — прогресс точками, не wizard bar
@@ -406,10 +406,10 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 
 - Тикет приведён к **фактическому** UX: coach-bar + hub (не full-page чеклист).
 - Зафиксированы **7 шагов П** (`create_exercise`, `create_complex`, …), `schedule_or_plan` = только appointment.
-- Добавлен слой **[T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md):** `onboarding-actions.ts`, `onboarding-anchor-registry.ts`, `OnboardingStepRegistry.php`, деградация spotlight, E2E assert по API.
+- Добавлен слой **[T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md):** `onboarding-actions.ts`, `onboarding-anchor-registry.ts`, `OnboardingStepRegistry.php`, деградация spotlight, E2E assert по API.
 - DoD и E2E-метки обновлены под coach-bar; статус **done (core)**.
 
 ### 2026-07-05 · закрытие
 
 - Тикет перенесён в **`сделано/`** — срез 1 (coach-bar + hub + spotlight) в prod.
-- Хвосты вне scope: [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) (порядок шагов), [T-076](../бэклог/T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) (устойчивость UI), срезы 2–3 — freeze / feedback.
+- Хвосты вне scope: [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) (порядок шагов), срезы 2–3 — freeze / feedback. [T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md) — **закрыт**.

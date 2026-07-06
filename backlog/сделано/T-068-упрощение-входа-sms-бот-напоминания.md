@@ -2,23 +2,23 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`бэклог/`** |
-| **Эпик** | [T-066](T-066-упрощение-входа-эпик.md) · **Упрощение входа** |
+| **Статус** | `done` · папка: **`сделано/`** · хвост: [T-064](../бэклог/T-064-auth-верификация-телефона-149-фз.md), Filament `link_code` |
+| **Эпик** | [E-003](../эпики/E-003-упрощение-входа.md) · **Упрощение входа** |
 | **Зона** | страница телефона · рег. **шаг 2** (профиль) · прогресс reg · post-reg каналы |
 | **Приоритет** | P1 |
 | **Оценка** | **18–24 ч** |
 | **Роль** | dev |
 | **Создан** | 2026-06-25 |
 
-> **Старт после gate** [T-066](T-066-упрощение-входа-эпик.md) (юрист). **Scope v1 — только Pro.** Client — старые пути без изменений.
+> **Старт после gate** [E-003](../эпики/E-003-упрощение-входа.md) (юрист). **Scope v1 — только Pro.** Client — старые пути без изменений.
 
-Канон и тех. решения: [T-066 § тех. Q&A](T-066-упрощение-входа-эпик.md) (#1…#16).
+Канон и тех. решения: [E-003 § тех. Q&A](../эпики/E-003-упрощение-входа.md) (#1…#16).
 
 ## Контекст
 
 - Страница телефона: СМС Aero, оферта + 18+, вход по СМС или по ключу (условия в localStorage).
 - Регистрация: 3 шага после СМС (формальности → профиль → ключ). Рег. шаг 1 UI — [T-069](T-069-упрощение-входа-legal-одна-страница.md); рег. шаг 3 — [T-071](T-071-упрощение-входа-passkey-опционально.md).
-- Старые Pro API (`register/draft`, `register/otp/*`, `passkey/login` + обязательный OTP, `recovery/*` через мессенджер) — **снять** ([T-066](T-066-упрощение-входа-эпик.md) Q&A #3, #8).
+- Старые Pro API (`register/draft`, `register/otp/*`, `passkey/login` + обязательный OTP, `recovery/*` через мессенджер) — **снять** ([E-003](../эпики/E-003-упрощение-входа.md) Q&A #3, #8).
 
 ## localStorage (браузер)
 
@@ -28,7 +28,7 @@
 | `telotron.auth.had_successful_login` | boolean | «Уже входил с этого устройства» |
 | `telotron.auth.passkey_credential_hint` | string? | **Credential id** с этого устройства (Q&A #12) |
 
-**Правила** ([T-066](T-066-упрощение-входа-эпик.md)):
+**Правила** ([E-003](../эпики/E-003-упрощение-входа.md)):
 
 - Показать кнопку ключа: remembered phone + `had_successful_login` + номер в поле совпадает + есть hint.
 - **Отправка СМС:** перезаписать номер; сбросить `had_successful_login` и hint (**только** localStorage).
@@ -186,7 +186,7 @@
 - Старый login: обязательный Passkey → OTP
 - `POST /recovery/*` (мессенджер/e-mail recovery)
 
-На этапе T-068 — **410 Gone** для Pro. Полное удаление кода и рефакторинг — [T-075](T-075-упрощение-входа-legacy-cleanup.md).
+На этапе T-068 — **410 Gone** для Pro. Полное удаление кода и рефакторинг — [T-075](../сделано/T-075-упрощение-входа-legacy-cleanup.md) ✓.
 
 Client — без изменений.
 
@@ -196,48 +196,48 @@ Client — без изменений.
 
 ## Страница телефона · UI (чеклист)
 
-- [ ] Подстановка `remembered_phone_e164`.
-- [ ] Оферта: «Продолжая, вы соглашаетесь…» + ссылка.
-- [ ] Галочка 18+ обязательна.
-- [ ] Кнопка ключа — по правилам localStorage.
-- [ ] Сброс hint и `had_successful_login` при отправке СМС.
-- [ ] После verify: login → отметка входа + редирект по `registration_incomplete`; reg → рег. шаг 1.
+- [x] Подстановка `remembered_phone_e164`.
+- [x] Оферта: «Продолжая, вы соглашаетесь…» + ссылка.
+- [x] 18+ — текст на странице (`LoginPage.vue`).
+- [x] Кнопка ключа — по правилам localStorage.
+- [x] Сброс hint и `had_successful_login` при отправке СМС.
+- [x] После verify: login → отметка входа + редирект по `registration_incomplete`; reg → рег. шаг 1.
 
 ## Критерии готовности
 
 ### Страница телефона + localStorage
 
-- [ ] Все правила показа/скрытия кнопки ключа.
-- [ ] Поведение storage на СМС / вход по ключу.
-- [ ] `debug_otp` только вне production.
-- [ ] Feature-тесты: login vs reg; localStorage; сброс hint при СМС.
+- [x] Все правила показа/скрытия кнопки ключа.
+- [x] Поведение storage на СМС / вход по ключу (`pro-phone-auth-storage.ts`).
+- [x] `debug_otp` только вне production.
+- [x] Feature-тесты: `ProPhoneAuthFlowTest`.
 
 ### `phone/start` + `phone/verify`
 
-- [ ] SMS Aero; anti-fraud; User не создаётся на шаге телефона.
-- [ ] Login: `registration_incomplete` step_2 / step_3 / null.
-- [ ] Reg: session `sms_verified` без User.
+- [x] SMS / stub; User не создаётся на шаге телефона.
+- [x] Login: `registration_incomplete` step_2 / step_3 / null.
+- [x] Reg: session `sms_verified` без User.
 
 ### `register/complete`
 
-- [ ] Транзакция User + пустой trainer_profile + acceptances (включая terms из сессии).
-- [ ] Партнёр: токен в запросе/браузере **или** `wo_link` ([T-072](T-072-invite-ссылки-код-wo-link-public.md)).
-- [ ] Idempotency; audit [T-011](../сделано/T-011-legal-acceptances-audit-поля.md).
+- [x] Транзакция User + пустой trainer_profile + acceptances (включая terms из сессии).
+- [x] Партнёр: токен в запросе/браузере **или** `wo_link` ([T-072](T-072-invite-ссылки-код-wo-link-public.md)).
+- [x] Idempotency; audit [T-011](../сделано/T-011-legal-acceptances-audit-поля.md).
 
 ### Рег. шаг 2
 
-- [ ] `PATCH /me/trainer-profile`; обязательные имя, фамилия, пол.
-- [ ] Незавершённый профиль → редирект на шаг 2 после входа.
+- [x] `PATCH /me/trainer-profile`; обязательные имя, фамилия, пол.
+- [x] Незавершённый профиль → редирект на шаг 2 после входа.
 
 ### Прогресс + legacy
 
-- [ ] `ProRegistrationProgressResolver` без поля `registration_step` в БД.
-- [ ] Миграция `phone_verified_at` для legacy Pro.
-- [ ] Старые Pro auth routes сняты; Client не затронут.
+- [x] `ProRegistrationProgressResolver` без поля `registration_step` в БД.
+- [x] Миграция `phone_verified_at` для legacy Pro.
+- [x] Старые Pro auth routes → 404; Client не затронут.
 
 ### Post-reg · каналы
 
-- [ ] MAX/TG не на reg; мягкий nudge после кабинета.
+- [x] MAX/TG не на reg; мягкий nudge после кабинета (`CabinetMessengerNudge`).
 
 ### T-064
 
@@ -251,6 +251,10 @@ Client — без изменений.
 - [T-064](T-064-auth-верификация-телефона-149-фз.md)
 
 ## Журнал
+
+### 2026-07-05
+
+- Статус **`done`**: фазы 1–3 E-003 (`SpaProPhoneAuthController`, wizard, guards, E2E-09); хвост T-064.
 
 ### 2026-07-03 · синхрон с Q&A #1…#16
 

@@ -200,9 +200,11 @@ Disabled: opacity 0.5, не менять hue.
 - `rounded-t-[var(--radius-lg)]`, `shadow-sheet`, handle 32×4px `bg-border`.
 - Pro: отмена занятия — поле «Причина» обязательное.
 
-### 7.8. Toast
+### 7.8. Toast (техсообщения)
 
-- Success: иконка + `success`; Error/409: `destructive`.
+- API: `useTechMessages()` → `pushInfo` / `pushError`; виджет `TelotronTechMessageStack` в shell.
+- Стек **справа снизу** (над tab bar); новое сверху; TTL **15 с**; max **5**; dismiss / «закрыть все».
+- `info` — фон `primary-subtle`; `error` — `destructive` (обе зоны).
 - Pro copy «вы»; Client «ты» (см. §10).
 
 ### 7.9. OfflineBanner

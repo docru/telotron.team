@@ -2,9 +2,9 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`бэклог/`** |
+| **Статус** | `done` · папка: **`сделано/`** · спринт **3** |
 | **Приоритет** | **P2** (техдолг UX; не блокер activation, но снижает стоимость T-065 / T-055 / рефакторинга навигации) |
-| **Спринт** | этап 1 · пилот (после [T-060](../сделано/T-060-pro-onboarding-k-p.md) или параллельно с [T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md)) |
+| **Спринт** | этап 1 · пилот · спринт **3** (commit `4c8dadb`) |
 | **Оценка** | **10–14 ч** (рефакторинг конфига + деградация spotlight + контракт-тесты; без смены API) |
 | **Роль** | dev (+ архитектор review) |
 | **Создан** | 2026-07-05 |
@@ -82,13 +82,13 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 
 ## Критерии готовности
 
-- [ ] `onboarding-actions.ts` (или экв.) — единая точка: stepId → routes + anchor + fallback.
-- [ ] `ONBOARDING_SHELL_CONFIG` не дублирует маршруты; сложные `contextualTargets` только для шагов П с nested UI.
-- [ ] Spotlight при отсутствии anchor: bar работает, нет console error в prod.
-- [ ] Контракт-тест id шагов PHP ↔ TS green.
-- [ ] E2E/ feature проверяют **status done** по API, не spotlight DOM.
-- [ ] § в `onboarding-api-pro.md` обновлён.
-- [ ] `npm run test:ts` / `php artisan test` (затронутые файлы) green.
+- [x] `onboarding-actions.ts` — единая точка: stepId → routes + anchor + fallback.
+- [x] `ONBOARDING_SHELL_CONFIG` не дублирует маршруты; сложные `contextualTargets` только для шагов П с nested UI.
+- [x] Spotlight при отсутствии anchor: bar работает, нет console error в prod.
+- [x] Контракт-тест id шагов PHP ↔ TS green (`OnboardingStepRegistry`, `assertOnboardingShellStepIds`).
+- [x] E2E проверяют **status done** по API, не spotlight DOM (E2E-07).
+- [x] § «Checklist vs tour» в `onboarding-api-pro.md`.
+- [x] `npm run test:ts` / `php artisan test` (onboarding) green.
 
 ## Вне scope
 
@@ -105,6 +105,11 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 - [ProOnboardingBar.vue](../../_telotron.ru/resources/ts/widgets/ProOnboardingBar.vue)
 
 ## Журнал
+
+### 2026-07-05 · закрытие
+
+- Реализовано в `4c8dadb`: `onboarding-actions.ts`, `onboarding-anchor-registry.ts`, `OnboardingStepRegistry.php`, деградация spotlight, контракт-тесты, E2E API assert.
+- Статус **`done`**; перенос в `сделано/`.
 
 ### 2026-07-05
 

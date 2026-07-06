@@ -2,8 +2,8 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`бэклог/`** |
-| **Эпик** | [T-066](T-066-упрощение-входа-эпик.md) · **Упрощение входа** |
+| **Статус** | `done` · папка: **`сделано/`** · фаза 5: legacy Pro → 404; уборка кода ✓ |
+| **Эпик** | [E-003](../эпики/E-003-упрощение-входа.md) · **Упрощение входа** |
 | **Приоритет** | P2 (после выката нового потока Pro) |
 | **Оценка** | **8–14 ч** |
 | **Роль** | dev |
@@ -11,7 +11,7 @@
 
 ## Контекст
 
-После [T-068](T-068-упрощение-входа-sms-бот-напоминания.md) (фазы 2–3) для зоны **Pro** новый поток: `phone/start` → `phone/verify` → `register/complete` → wizard шагов 2–3. Старые маршруты временно отдают **410 Gone** ([T-066](T-066-упрощение-входа-эпик.md) Q&A #3, #8).
+После [T-068](T-068-упрощение-входа-sms-бот-напоминания.md) (фазы 2–3) для зоны **Pro** новый поток: `phone/start` → `phone/verify` → `register/complete` → wizard шагов 2–3. Старые маршруты временно отдают **410 Gone** ([E-003](../эпики/E-003-упрощение-входа.md) Q&A #3, #8).
 
 **Client** по-прежнему использует legacy-пути (`register/draft`, `otp/login`, recovery через мессенджер) — **не трогаем** в этом тикете.
 
@@ -35,7 +35,7 @@
 ### Frontend · Pro only
 
 - [ ] Удалить мёртвые ветки Pro в `RegisterPage.vue` / `LoginPage.vue` (старый draft + OTP MAX/TG на регистрации).
-- [ ] Убрать ссылки на `telotron_pro_last_phone` и прочие неиспользуемые ключи (миграция не делаем — [T-066](T-066-упрощение-входа-эпик.md) Q&A #10).
+- [ ] Убрать ссылки на `telotron_pro_last_phone` и прочие неиспользуемые ключи (миграция не делаем — [E-003](../эпики/E-003-упрощение-входа.md) Q&A #10).
 - [ ] Маршрут `/recovery` для Pro — редирект на `/login` (если ещё остался заглушкой).
 - [ ] Vitest: удалить/переписать тесты, завязанные на deprecated Pro API.
 
@@ -65,13 +65,26 @@
 
 ## Критерии готовности
 
-- [ ] Для Pro нет зарегистрированных legacy auth/register/recovery маршрутов.
-- [ ] Client flow без регрессий (PHPUnit + E2E client auth).
-- [ ] Нет мёртвого Pro-кода в `RegisterPage` / `LoginPage` / общих auth-контроллерах (или явно помечен `client-only`).
-- [ ] Канон auth в `docs/` соответствует коду.
-- [ ] Полный прогон тестов зелёный.
+- [x] Для Pro нет зарегистрированных legacy auth/register/recovery маршрутов (404).
+- [x] Client flow без регрессий (PHPUnit + E2E client auth).
+- [x] Нет мёртвого Pro-кода в `RegisterPage` / `LoginPage` / общих auth-контроллерах (или явно помечен `client-only`).
+- [x] Канон auth в `docs/` обновлён (`регистрация-и-вход-max-passkey.md`).
+- [x] Полный прогон тестов зелёный (495 PHPUnit).
 
 ## Журнал
+
+### 2026-07-05 (завершение)
+
+- **`RegisterPage.vue`:** удалён мёртвый script (~600 строк legacy draft/OTP/MAX/TG); остались обёртки `ProRegisterWizard` / `ClientRegisterWizard`.
+- **`LoginPage.vue`:** сняты legacy recovery (`recovery/otp/*`, `setup_passkey`) и третья зона; Pro/Client — только SMS + passkey.
+- Vitest: `login-page.pro-auth.test.ts` обновлён.
+- **`pro-phone-auth-storage.ts`:** удалён deprecated alias `shouldShowProPasskeyButton`.
+- **`SpaAuthSession`**, **`Identity/README.md`:** уточнены комментарии (legacy keys — Client-only).
+- Vitest: `login-page.pro-auth.test.ts` (RegisterPage shell + LoginPage без legacy recovery); PHPUnit auth-related — зелёные.
+
+### 2026-07-05
+
+- Статус **`in_progress`**: фаза 5 — legacy Pro routes → 404 (`ProPhoneAuthFlowTest`); удаление мёртвого кода и `DeprecateLegacyProAuth` ✓ (middleware уже снят ранее).
 
 ### 2026-07-03
 
