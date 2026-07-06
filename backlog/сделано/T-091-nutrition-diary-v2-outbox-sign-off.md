@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`бэклог/`** |
+| **Статус** | `done` · папка: **`сделано/`** · закрыт **06.07.2026** |
 | **Приоритет** | P1 |
 | **Эпик** | [E-005](../эпики/E-005-nutrition-diary-v2.md) |
 | **Оценка** | **6–8 ч** |
@@ -28,7 +28,13 @@
 
 ## Критерии готовности
 
-- [ ] `MvpReleaseAcceptanceTest` nutrition-сценарий обновлён
-- [ ] `npm run test:ts` outbox acceptance зелёный
-- [ ] `php artisan test` Nutrition feature suite зелёный
-- [ ] PO sign-off чеклист E-005 в журнале эпика
+- [x] `MvpReleaseAcceptanceTest` nutrition-сценарий обновлён
+- [x] `npm run test:ts` outbox acceptance зелёный (Vitest 297/297)
+- [x] `php artisan test` Nutrition feature suite зелёный
+- [x] PO sign-off чеклист E-005 в журнале эпика
+
+## Журнал
+
+### 2026-07-06
+
+- Outbox, техдок §5 + api-http §4.1j; sign-off E-005.

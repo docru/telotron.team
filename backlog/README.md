@@ -69,7 +69,7 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | E-002 | `backlog` | [Partner](эпики/E-002-partner-модуль.md) · T-038…T-046 |
 | E-003 | **`done`** 05.07 | [Упрощение входа Pro](эпики/E-003-упрощение-входа.md) · T-067…T-075 |
 | E-004 | **`done`** 06.07 | [Workouts v2](эпики/E-004-workouts-v2.md) · T-080…T-087 |
-| E-005 | `backlog` | [Nutrition diary v2](эпики/E-005-nutrition-diary-v2.md) · T-088…T-091 |
+| E-005 | **`done`** 06.07 | [Nutrition diary v2](эпики/E-005-nutrition-diary-v2.md) · T-088…T-091 |
 
 Полный реестр → [`эпики/README.md`](эпики/README.md).
 
@@ -136,10 +136,10 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-085 | **сделано** | `done` | [Workouts v2 уведомления](сделано/T-085-workouts-v2-notify-assign.md) · [E-004](эпики/E-004-workouts-v2.md) |
 | T-086 | **сделано** | `done` | [Workouts v2 Pro календарь](сделано/T-086-workouts-v2-pro-executions-calendar.md) · [E-004](эпики/E-004-workouts-v2.md) |
 | T-087 | **сделано** | `done` | [Workouts v2 sign-off](сделано/T-087-workouts-v2-onboarding-sign-off.md) · [E-004](эпики/E-004-workouts-v2.md) |
-| T-088 | бэклог | `backlog` | [Nutrition diary v2 schema+API](бэклог/T-088-nutrition-diary-v2-schema-api.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
-| T-089 | бэклог | `backlog` | [Nutrition diary v2 Client UI](бэклог/T-089-nutrition-diary-v2-client-ui.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
-| T-090 | бэклог | `backlog` | [Nutrition diary v2 Pro feed](бэклог/T-090-nutrition-diary-v2-pro-calendar-feed.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
-| T-091 | бэклог | `backlog` | [Nutrition diary v2 outbox+sign-off](бэклог/T-091-nutrition-diary-v2-outbox-sign-off.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-088 | **сделано** | `done` | [Nutrition diary v2 schema+API](сделано/T-088-nutrition-diary-v2-schema-api.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-089 | **сделано** | `done` | [Nutrition diary v2 Client UI](сделано/T-089-nutrition-diary-v2-client-ui.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-090 | **сделано** | `done` | [Nutrition diary v2 Pro feed](сделано/T-090-nutrition-diary-v2-pro-calendar-feed.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-091 | **сделано** | `done` | [Nutrition diary v2 outbox+sign-off](сделано/T-091-nutrition-diary-v2-outbox-sign-off.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-027 | бэклог | `backlog` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-028 | бэклог | `backlog` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
@@ -165,4 +165,4 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-07-06: E-005 Nutrition diary v2 (T-088…T-091).*
+*Индекс обновлён 2026-07-06: E-004, E-005 закрыты; T-080…T-091 в `сделано/`.*

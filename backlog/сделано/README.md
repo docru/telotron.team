@@ -39,6 +39,18 @@
 | T-072 | Invite · `link_code` · `wo_link` / `public` (хвост Filament ☐) |
 | T-075 | Упрощение входа · legacy cleanup Pro auth |
 | T-076 | Pro onboarding · устойчивость UI (checklist vs tour) |
-| T-080 | Workouts v2 · schema, migration, API |
+| T-077 | UI · техсообщения стек toast |
+| T-080 | Workouts v2 · schema, migration, API · [E-004](../эпики/E-004-workouts-v2.md) |
+| T-081 | Workouts v2 · Pro конструктор |
+| T-082 | Workouts v2 · Pro назначения |
+| T-083 | Workouts v2 · Client список/старт |
+| T-084 | Workouts v2 · Client выполнение |
+| T-085 | Workouts v2 · уведомления при назначении |
+| T-086 | Workouts v2 · Pro календарь выполнений |
+| T-087 | Workouts v2 · онбординг, sign-off |
+| T-088 | Nutrition diary v2 · schema+API · [E-005](../эпики/E-005-nutrition-diary-v2.md) |
+| T-089 | Nutrition diary v2 · Client UI |
+| T-090 | Nutrition diary v2 · Pro calendar feed |
+| T-091 | Nutrition diary v2 · outbox, доки, sign-off |
 
-*Обновлено 2026-07-06 · T-077 закрыт; T-080 закрыт.*
+*Обновлено 2026-07-06 · E-004, E-005 закрыты.*

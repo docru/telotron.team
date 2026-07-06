@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`эпики/`** |
+| **Статус** | `done` · папка: **`эпики/`** · закрыт **06.07.2026** |
 | **Приоритет** | **P1** (параллельно E-001 / хвостам пилота; не блокер Commerce) |
 | **Спринт** | этап 1 · Пилот · **4+** |
 | **Роль** | dev (+ PO на приёмке UX) |
@@ -57,20 +57,20 @@ nutrition_meal_photos
 
 | ID | Слайс | Оценка | Зависит от |
 |----|-------|--------|------------|
-| [T-088](../бэклог/T-088-nutrition-diary-v2-schema-api.md) | Схема, миграция, API slots/dishes/photo | 8–12 ч | — |
-| [T-089](../бэклог/T-089-nutrition-diary-v2-client-ui.md) | Client: неделя, 4 слота, блюда, голос, фото | 12–16 ч | T-088 |
-| [T-090](../бэклог/T-090-nutrition-diary-v2-pro-calendar-feed.md) | Pro: calendar feed — 1 event / приём | 4–6 ч | T-088 |
-| [T-091](../бэклог/T-091-nutrition-diary-v2-outbox-sign-off.md) | Outbox офлайн, техдок, feature-тесты, sign-off | 6–8 ч | T-088, T-089 |
+| [T-088](../сделано/T-088-nutrition-diary-v2-schema-api.md) | Схема, миграция, API slots/dishes/photo | 8–12 ч | **done** |
+| [T-089](../сделано/T-089-nutrition-diary-v2-client-ui.md) | Client: неделя, 4 слота, блюда, голос, фото | 12–16 ч | **done** |
+| [T-090](../сделано/T-090-nutrition-diary-v2-pro-calendar-feed.md) | Pro: calendar feed — 1 event / приём | 4–6 ч | **done** |
+| [T-091](../сделано/T-091-nutrition-diary-v2-outbox-sign-off.md) | Outbox офлайн, техдок, feature-тесты, sign-off | 6–8 ч | **done** |
 
 ---
 
 ## Критерии закрытия эпика
 
-- [ ] Drop `nutrition_meals`; slots + dishes + photo на slot в прод-схеме
-- [ ] Client: полоска недели; только выбранный день; 4 слота; вес; голос; офлайн outbox
-- [ ] Pro: лента/календарь — один event на приём со сводкой
-- [ ] Техдок [nutrition-питание §5](../../_telotron.ru/docs/Техдок/03-модули/nutrition-питание-схема-данных-mvp.md) и api-http §4.1j обновлены
-- [ ] `NutritionMealsApiTest` (или преемник) + регрессия MVP acceptance
+- [x] Drop `nutrition_meals`; slots + dishes + photo на slot в прод-схеме
+- [x] Client: полоска недели; только выбранный день; 4 слота; вес; голос; офлайн outbox
+- [x] Pro: лента/календарь — один event на приём со сводкой
+- [x] Техдок [nutrition-питание §5](../../_telotron.ru/docs/Техдок/03-модули/nutrition-питание-схема-данных-mvp.md) и api-http §4.1j обновлены
+- [x] `NutritionDiaryApiTest` + регрессия MVP acceptance
 
 **Вне DoD:** КБЖУ; лимиты тарифа L-11.
 
@@ -81,3 +81,9 @@ nutrition_meal_photos
 ### 2026-07-06
 
 - Эпик согласован с PO (опрос 16 пунктов); P1, параллельно другим потокам.
+
+### 2026-07-06 · реализация
+
+- T-088…T-091 закрыты: схема v2, API `/nutrition-diary`, Client UI (неделя + 4 слота), Pro feed, outbox, техдок.
+- Тесты: `NutritionDiaryApiTest` 8/8, `MvpReleaseAcceptanceTest` nutrition-сценарии, Vitest 297/297.
+- `build.client` → **189**.
