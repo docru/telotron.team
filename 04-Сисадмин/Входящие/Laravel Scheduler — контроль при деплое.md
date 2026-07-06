@@ -17,7 +17,7 @@ nutrition:purge-expired-meal-photos
 Она удаляет файлы фото приёмов пищи старше **14 суток** (`config/nutrition.php` → `meal_photo_retention_days`).  
 Без работающего **Laravel Scheduler** диск будет расти бесконечно, хотя в продукте заявлено хранение 2 недели.
 
-Расписание в коде: `_telotron.ru/bootstrap/app.php` → `Schedule::command('nutrition:purge-expired-meal-photos')->daily()`.
+Расписание в коде: `_telotron.ru/routes/schedule.php`.
 
 ---
 
