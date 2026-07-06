@@ -14,7 +14,7 @@
 | `06_klienty_ssylka.jpeg` | Раздел «Клиенты»: ссылка для клиента |
 | `07_client_registratsiya.jpeg` | Регистрация Client: «Приглашён тренером…» |
 | `08_raspisanie.jpeg` | Календарь Pro, вид «Неделя» |
-| `09_programmy_trenirovok.jpeg` | «Тренировки» → шаблон программы |
+| `09_programmy_trenirovok.jpeg` | «Тренировки» → **шаблон тренировки** |
 | `10_gruppy.jpeg` | Создание группы |
 | `11_client_glavnaya.jpeg` | Client: главная, трекеры |
 | `12_client_dnevnik_trenirovka.jpeg` | Client: дневник → тренировка |
