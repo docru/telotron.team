@@ -39,6 +39,6 @@
 | T-072 | Invite · `link_code` · `wo_link` / `public` (хвост Filament ☐) |
 | T-075 | Упрощение входа · legacy cleanup Pro auth |
 | T-076 | Pro onboarding · устойчивость UI (checklist vs tour) |
-| T-077 | Стек технических сообщений (toast) Pro/Client |
+| T-080 | Workouts v2 · schema, migration, API |
 
-*Обновлено 2026-07-06 · T-077 закрыт.*
+*Обновлено 2026-07-06 · T-077 закрыт; T-080 закрыт.*

@@ -43,14 +43,23 @@
 
 | ID | Статус | Фокус |
 |----|--------|-------|
-| [T-080](../в-работе/T-080-workouts-v2-schema-api.md) | **`in_progress`** | Схема, миграция, API |
-| [T-081](T-081-workouts-v2-pro-constructor.md) | `backlog` | Pro конструктор |
+| [T-080](../сделано/T-080-workouts-v2-schema-api.md) | **`done`** | Схема, миграция, API |
+| [T-081](../в-работе/T-081-workouts-v2-pro-constructor.md) | **`in_progress`** | Pro конструктор |
 | [T-082](T-082-workouts-v2-pro-assignments.md) | `backlog` | Pro назначения |
 | [T-083](T-083-workouts-v2-client-list-start.md) | `backlog` | Client список/старт |
 | [T-084](T-084-workouts-v2-client-execution.md) | `backlog` | Client выполнение |
 | [T-085](T-085-workouts-v2-notify-assign.md) | `backlog` | Уведомления |
 | [T-086](T-086-workouts-v2-pro-executions-calendar.md) | `backlog` | Pro отчёты/календарь |
 | [T-087](T-087-workouts-v2-onboarding-sign-off.md) | `backlog` | Онбординг, sign-off |
+
+## Nutrition diary v2 · [E-005](../эпики/E-005-nutrition-diary-v2.md)
+
+| ID | Статус | Фокус |
+|----|--------|-------|
+| [T-088](T-088-nutrition-diary-v2-schema-api.md) | `backlog` | Схема, API |
+| [T-089](T-089-nutrition-diary-v2-client-ui.md) | `backlog` | Client UI |
+| [T-090](T-090-nutrition-diary-v2-pro-calendar-feed.md) | `backlog` | Pro calendar feed |
+| [T-091](T-091-nutrition-diary-v2-outbox-sign-off.md) | `backlog` | Outbox, доки, sign-off |
 
 ## Commerce · [E-001](../эпики/E-001-commerce-модуль.md) · stage к 31.07 / prod 01.08
 
@@ -86,4 +95,4 @@
 
 **Период 0 Go:** T-001…T-003 → [`../сделано/`](../сделано/). Полный индекс → [`../README.md`](../README.md).
 
-*Обновлено 2026-07-06.*
+*Обновлено 2026-07-06 · E-005 Nutrition diary v2.*
