@@ -66,7 +66,7 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | ID | Статус | Файл |
 |----|--------|------|
 | E-001 | `backlog` | [Commerce](эпики/E-001-commerce-модуль.md) · T-027…T-036, T-047 |
-| E-002 | `backlog` | [Partner](эпики/E-002-partner-модуль.md) · T-038…T-046 |
+| E-002 | `backlog` | [Partner · внедрение](эпики/E-002-partner-модуль.md) · T-038…T-046, T-059, T-025, T-092 |
 | E-003 | **`done`** 05.07 | [Упрощение входа Pro](эпики/E-003-упрощение-входа.md) · T-067…T-075 |
 | E-004 | **`done`** 06.07 | [Workouts v2](эпики/E-004-workouts-v2.md) · T-080…T-087 |
 | E-005 | **`done`** 06.07 | [Nutrition diary v2](эпики/E-005-nutrition-diary-v2.md) · T-088…T-091 |
@@ -101,14 +101,14 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-054 | **в-работе** | `in_progress` · код ✅ · ops ⬜ | [боты MAX/TG Pro vs Client](в-работе/T-054-auth-боты-max-telegram-pro-client.md) |
 | T-055 | **в-работе** | `in_progress` · срез 1 ✅ · **pause** 2–3 | [UX wave 1 Pro/Client](в-работе/T-055-ux-обновление-pro-client-волна1.md) |
 | T-024 | бэклог | `backlog` | [Reminders лайтбокс](бэклог/T-024-reminders-одноразовый-лайтбокс.md) |
-| T-025 | бэклог | `backlog` | [UX партнёрская ссылка](бэклог/T-025-ux-подталкивание-партнёрской-ссылки.md) |
+| T-025 | бэклог | `backlog` | [UX партнёрская ссылка](бэклог/T-025-ux-подталкивание-партнёрской-ссылки.md) · [E-002](эпики/E-002-partner-модуль.md) |
 | T-048 | бэклог | `backlog` · **частично** | [VK пакет](бэклог/T-048-спринт2-vk-пакет-запуска.md) — скрины ✅ · чеклист, календарь ⬜ |
 | T-049 | бэклог | `backlog` · **частично** | [личные связи реестр](бэклог/T-049-спринт2-личные-связи-реестр.md) — док v0.1 ✅ · реестр ≥40 ⬜ |
 | T-050 | **отменено** | `cancelled` | [воронка метрики](отменено/T-050-спринт2-воронка-метрики.md) · мало пользователей |
 | T-051 | бэклог | `backlog` · хвост спр. **2** | [Q-M юр. тексты](бэклог/T-051-спринт2-qm-юр-тексты.md) |
 | T-052 | бэклог | `backlog` · хвост спр. **2** | [ТЗ CRM продвижения](бэклог/T-052-тз-crm-продвижение-пилот.md) |
 | T-056 | бэклог | `backlog` · **частично** | [скрины Pro VK](бэклог/T-056-скрины-pro-vk-пилот.md) — кадры ✅ у маркетолога · альбом VK ⬜ |
-| T-059 | **в-работе** | `in_progress` · спринт **2→4** | [auth-gate Pro/Client invite](в-работе/T-059-auth-gate-pro-client-invite.md) |
+| T-059 | **в-работе** | `in_progress` · спринт **2→4** | [auth-gate Pro/Client invite](в-работе/T-059-auth-gate-pro-client-invite.md) · [E-002](эпики/E-002-partner-модуль.md) |
 | T-060 | **сделано** | `done` · спринт **2–3** | [Pro onboarding К+П](сделано/T-060-pro-onboarding-k-p.md) · coach-bar; хвост [T-065](бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) |
 | T-061 | **сделано** | `done` · спринт **2** | [инструкция тренерам PDF](сделано/T-061-онбординг-инструкция-тренеров-pdf.md) |
 | T-063 | **в-работе** | `in_progress` · спринт **2→4** | [CRM пилота на файлах](в-работе/T-063-crm-pilot-files.md) |
@@ -140,6 +140,7 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-089 | **сделано** | `done` | [Nutrition diary v2 Client UI](сделано/T-089-nutrition-diary-v2-client-ui.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-090 | **сделано** | `done` | [Nutrition diary v2 Pro feed](сделано/T-090-nutrition-diary-v2-pro-calendar-feed.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-091 | **сделано** | `done` | [Nutrition diary v2 outbox+sign-off](сделано/T-091-nutrition-diary-v2-outbox-sign-off.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-092 | бэклог | `backlog` · P1 | [Юр. пакет партнёрской программы](бэклог/T-092-legal-партнёрская-программа-пакет-документов.md) · [E-002](эпики/E-002-partner-модуль.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-027 | бэклог | `backlog` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-028 | бэклог | `backlog` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
@@ -165,4 +166,4 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-07-06: E-004, E-005 закрыты; T-080…T-091 в `сделано/`.*
+*Индекс обновлён 2026-07-07: E-002 расширен, T-092.*
