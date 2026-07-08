@@ -17,13 +17,14 @@
 
 ## Критерии готовности
 
-- [ ] Страница/секция «Тариф и счёт» в Pro (`/more` или согласованный route).
-- [ ] Отображение: баланс Ед., текущий тариф, `status`, capabilities (read-only).
-- [ ] Пополнение: выбор пакета (кратно 30 дн.), quote, redirect на `checkout_url`.
-- [ ] Ввод купона; отображение активного купона B; снятие.
-- [ ] Смена тарифа (если доступна по продукту).
+- [ ] Верхняя планка Pro: chip «N Ед. · ~M дн.» + пиктограмма статуса → `/more/tariff`.
+- [ ] Плитка «Тариф и счёт» на «Ещё».
+- [ ] Отображение: баланс Ед., тариф, `status`, freeze, capabilities (read-only).
+- [ ] Пополнение: произвольная сумма ≥ `min_topup_rub`, quote, redirect `checkout_url`.
+- [ ] Купон: apply / active discount / remove.
+- [ ] Смена тарифа Лайт ↔ Профи (confirm на даунгрейд).
 - [ ] История транзакций (пагинация).
-- [ ] Скрытие/неактивные разделы Pro по capabilities (gating UI).
+- [ ] Gating UI по `capabilities` (группы и др.).
 - [ ] `npm run build` под `-u sail`; Vitest при наличии компонентов.
 - [ ] Ручной smoke на stage.
 
@@ -33,6 +34,7 @@
 
 ## Ссылки
 
+- [commerce-pro-ui-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-pro-ui-mvp.md)
 - [commerce-модуль-тз-mvp §9](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
 - [frontend-архитектура §6](../../_telotron.ru/docs/Техдок/01-канон-mvp/frontend-архитектура-и-стек-mvp.md)
 

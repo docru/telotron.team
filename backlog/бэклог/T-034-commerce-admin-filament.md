@@ -17,12 +17,13 @@
 
 ## Критерии готовности
 
-- [ ] Filament: правка цен → новая строка `commerce_tariff_prices` (деактивация предыдущей).
-- [ ] Ручное начисление Ед.: сумма, комментарий, admin user → `commerce_transactions` type `admin_adjustment`.
-- [ ] Заморозка / разморозка тренера → `commerce_freezes`.
-- [ ] Просмотр `commerce_payment_webhook_logs` (фильтр по provider, payment).
-- [ ] CRUD купонов: код, тип, параметры, `starts_at`, `expires_at`, деактивация.
-- [ ] Smoke: admin action → отражается в API тренера.
+- [ ] Filament: группа **Commerce** — см. [commerce-admin-filament-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-admin-filament-mvp.md).
+- [ ] Цены → новая строка `commerce_tariff_prices`.
+- [ ] Ручное начисление Ед. → `admin_adjustment` (comment required).
+- [ ] Freeze / unfreeze на view тренера.
+- [ ] Webhook logs + payments read-only.
+- [ ] CRUD купонов (individual auto-code).
+- [ ] Shield permissions; smoke по §9 админ-дока.
 
 ## Вне scope
 
@@ -30,7 +31,8 @@
 
 ## Ссылки
 
-- [commerce-модуль-тз-mvp §10](../../_telotron.ru/docs/Тechдok/03-модули/commerce-модуль-тз-mvp.md)
+- [commerce-admin-filament-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-admin-filament-mvp.md)
+- [commerce-модуль-тз-mvp §10](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
 
 ## Журнал
 

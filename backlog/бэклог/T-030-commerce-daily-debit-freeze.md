@@ -22,7 +22,7 @@
 - [ ] `FreezeService`: `planned_end_date`, `trial_ended`; лимиты `config/commerce/commerce.php` → `freeze`; по окончании без оплаты → `light`.
 - [ ] Scheduler: cron МСК (на stage — ручной запуск + тест).
 - [ ] При переходе в `light`/`frozen` (новый эпизод) — `OneTimeLightboxService::schedule(..., prompt_key=commerce.suspension)` (если T-024 готов; иначе stub + тест с mock).
-- [ ] Feature-тесты: debit ok; insufficient → freeze → light; лимит 10 дн./эпизод; годовой лимит; повтор job за дату — без дубля.
+- [ ] Feature-тесты: debit ok; insufficient → freeze → light; лимит 10 дн./эпизод; повтор job за дату — без дубля.
 
 ## Вне scope
 

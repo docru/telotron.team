@@ -103,7 +103,7 @@ flowchart TD
 
 ### 2026-07-08 (уточнения PO)
 
-- [ADR-004](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-004-commerce-po-уточнения-mvp.md): Профи 3000 ₽; max — заглушка; freeze 10 дн./эпизод + годовой лимит; купоны individual/promotional; даунгрейд сам; Partner — только событие.
+- [ADR-004](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-004-commerce-po-уточнения-mvp.md): Профи 3000 ₽; max — заглушка; freeze 10 дн./эпизод (без годового лимита); купоны individual/promotional; даунгрейд сам; Partner — только событие.
 - T-047 → [техдолг](../../_telotron.ru/docs/Техдок/00-мета/техдолг-commerce-mvp.md).
 
 ### 2026-07-08
