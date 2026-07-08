@@ -19,10 +19,11 @@
 
 - [ ] `TariffPriceService` — активные цены из `commerce_tariff_prices`, `daily_rate_units`.
 - [ ] `TrainerTariffService` — смена тарифа (новая строка `commerce_trainer_tariffs`, деактивация предыдущей).
-- [ ] `CommerceStatusResolver` — вычисление `status` и `effective_tariff` (триал → `pro`; конец триала → `light` и т.д.).
+- [ ] `CommerceStatusResolver` — `status` и `effective_tariff` (триал → `pro`; конец триала → **freeze**, не сразу `light` — ADR-004).
 - [ ] `TrialService` (расширение A10): один триал на аккаунт; 60 дней по настройке.
-- [ ] Переход в `light` при нехватке Ед. (логика без nightly job — job в T-030).
-- [ ] Unit/feature-тесты: триал → effective_tariff=pro; end trial → light; смена тарифа → история.
+- [ ] `TrainerTariffService`: **самостоятельный** даунгрейд на Лайт.
+- [ ] Переход в freeze при нехватке Ед. (логика без nightly job — job в T-030).
+- [ ] Unit/feature-тесты: триал → effective_tariff=pro; end trial → freeze; смена тарифа → история.
 
 ## Вне scope
 
@@ -38,3 +39,7 @@
 ### 2026-06-12
 
 - Подтикет эпика E-001.
+
+### 2026-07-08
+
+- ADR-004: конец триала → freeze; даунгрейд сам.

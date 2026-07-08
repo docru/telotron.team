@@ -1,4 +1,4 @@
-# T-032 · Commerce: купоны A/B
+# T-032 · Commerce: купоны bonus / discount
 
 | Поле | Значение |
 |------|----------|
@@ -13,15 +13,16 @@
 
 ## Контекст
 
-Купоны тип **A** (бонус Ед.) и **B** (скидка на пакет, частичное использование, смешанная цена). Срок действия: `starts_at`, **`expires_at`** (null = без срока).
+- **`bonus` / `discount`** + **`individual` / `promotional`** (ADR-004).
+- Пополнение: **`units_to_credit` ≥ min_topup_rub** (1000), не привязано к тарифу — см. журнал ТЗ 2026-07-08.
 
 ## Критерии готовности
 
-- [ ] `CouponService`: apply / active / remove; проверка `starts_at`, `expires_at`, лимитов, `is_active`.
-- [ ] Тип A: немедленное зачисление → `commerce_transactions` type `coupon_bonus`.
-- [ ] Тип B: привязка активного купона; расчёт quote/purchase со смешанной ценой; списание `remaining_budget_units`; `commerce_coupon_redemptions`.
+- [ ] `CouponService`: `scope`; promotional — admin code + `max_redemptions`; individual — генерация 8 символов; UK redemption на тренера.
+- [ ] `bonus`: немедленное зачисление → `commerce_transactions` type `coupon_bonus`.
+- [ ] `discount`: привязка; quote/purchase со смешанной ценой; `remaining_budget_units` на active; `commerce_coupon_redemptions`.
 - [ ] API: `POST .../coupons/apply`, `DELETE .../coupons/active`; просроченный купон → **422**.
-- [ ] Feature-тесты: A начисление; B частичная скидка; expires_at в прошлом → 422.
+- [ ] Feature-тесты: bonus; discount частично; `valid_days_after_activation` истёк → purchase без скидки / 422 на apply.
 
 ## Вне scope
 
@@ -37,3 +38,11 @@
 ### 2026-06-12
 
 - Подтикет эпика E-001.
+
+### 2026-07-08
+
+- Канон: bonus/discount; срок после активации; пополнение без привязки к тарифу.
+
+### 2026-07-08 (scope)
+
+- ADR-004: `individual` / `promotional`.

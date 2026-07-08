@@ -17,12 +17,12 @@
 
 ## Критерии готовности
 
-- [ ] `DailyDebitJob`: платный тариф, не в freeze; `balance >= daily_rate` → списание; иначе → `light` без частичного списания.
+- [ ] `DailyDebitJob`: платный тариф, не в freeze; `balance >= daily_rate` → списание; иначе флаг нехватки (freeze с D+1, ADR-004).
 - [ ] Идемпотентность: UK `(trainer_user_id, debit_date)` в `commerce_daily_debits`.
-- [ ] `FreezeService`: CRUD периодов `commerce_freezes`; статус `frozen`; gating как `light`.
+- [ ] `FreezeService`: `planned_end_date`, `trial_ended`; лимиты `config/commerce/commerce.php` → `freeze`; по окончании без оплаты → `light`.
 - [ ] Scheduler: cron МСК (на stage — ручной запуск + тест).
 - [ ] При переходе в `light`/`frozen` (новый эпизод) — `OneTimeLightboxService::schedule(..., prompt_key=commerce.suspension)` (если T-024 готов; иначе stub + тест с mock).
-- [ ] Feature-тесты: debit ok; insufficient → light; freeze blocks debit; повтор job за дату — без дубля.
+- [ ] Feature-тесты: debit ok; insufficient → freeze → light; лимит 10 дн./эпизод; годовой лимит; повтор job за дату — без дубля.
 
 ## Вне scope
 
@@ -38,3 +38,7 @@
 ### 2026-06-12
 
 - Подтикет эпика E-001.
+
+### 2026-07-08
+
+- ADR-004: freeze → light; лимиты в конфиге.

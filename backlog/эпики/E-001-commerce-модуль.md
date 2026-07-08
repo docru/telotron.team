@@ -18,8 +18,10 @@
 - [commerce-схема-данных-mvp.md](../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md)
 - [api-http §4.1m](../../_telotron.ru/docs/Техдок/01-канон-mvp/api-http-контракт-mvp.md)
 - [ADR-001 B1–B7](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-001-scope-billing-partner-01-08.md)
+- [ADR-003](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-003-commerce-tovar-popolnenie-kupony.md) — товар, пополнение, купоны
+- [ADR-004](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-004-commerce-po-уточнения-mvp.md) — уточнения PO 2026-07-08
 
-**Вне эпика:** оплаты клиент→тренер, prod go/no-go **01.08**. **Partner:** [E-002](E-002-partner-модуль.md) (отдельный эпик, стык через topup).
+**Вне эпика:** оплаты клиент→тренер; [автопополнение с карты](../идеи/commerce-автопополнение-с-карты.md). **Partner:** [E-002](E-002-partner-модуль.md) (только `TopupSucceeded` из Commerce). **Public `/tariffs`:** [техдолг](../../_telotron.ru/docs/Техдок/00-мета/техдолг-commerce-mvp.md).
 
 **Зависимости не-dev:**
 
@@ -41,11 +43,11 @@
 | [T-029](../бэклог/T-029-commerce-платежи-yookassa.md) | Платежи + webhook | 3 | 10–14 ч | T-027, T-028 |
 | [T-030](../бэклог/T-030-commerce-daily-debit-freeze.md) | Nightly debit + заморозка | 4 | 10–12 ч | T-028 |
 | [T-031](../бэклог/T-031-commerce-gating-api.md) | TariffGate + HTTP API | 4 | 12–14 ч | T-028, T-005* |
-| [T-032](../бэклог/T-032-commerce-купоны.md) | Купоны A/B | 4 | 8–10 ч | T-027, T-029 |
+| [T-032](../бэклог/T-032-commerce-купоны.md) | Купоны bonus/discount | 4 | 8–10 ч | T-027, T-029 |
 | [T-035](../бэклог/T-035-commerce-напоминания-триала.md) | Напоминания 14/7/1 | 4 | 6–8 ч | T-028 |
 | [T-033](../бэклог/T-033-commerce-pro-ui.md) | Pro UI «Тариф и счёт» | 4–5 | 12–16 ч | T-029, T-031, T-024 |
 | [T-034](../бэклог/T-034-commerce-admin-filament.md) | Admin Filament | 5 | 8–12 ч | T-027…T-032 |
-| [T-047](../бэклог/T-047-commerce-public-тарифы.md) | Public `/tariffs` (SSR, матрица модулей) | 3–4 | 6–8 ч | T-031* |
+| ~~T-047~~ | Public `/tariffs` | — | — | **техдолг** · см. ниже |
 | [T-036](../бэклог/T-036-commerce-stage-sign-off.md) | Stage sign-off, E2E, runbook | 5 | 6–8 ч | все выше |
 
 \*Спринты — по [плану Пилота](../../_telotron.ru/docs/Техдок/00-мета/план-разработки-этап-1-пилот.md); неделя отпуска 06–12.07 без новых слайсов.
@@ -60,12 +62,12 @@
 
 - [ ] **B1** — ЮKassa sandbox: checkout, webhook, ошибки, логи `commerce_payment_webhook_logs`
 - [ ] **B2** — триал 60 дн., один на аккаунт; на триале **Профи**
-- [ ] **B3** — три тарифа; нехватка Ед. → `light`
-- [ ] **B4** — gating: Лайт без групп (+ `tariff-capabilities.php`)
+- [ ] **B3** — Лайт + Профи; нехватка Ед. → freeze → light
+- [ ] **B4** — gating: Лайт без групп; **только Лайт vs Профи**
 - [ ] **B5** — напоминания триала 14/7/1 (T-035)
 - [ ] **B6** — счёт Ед., nightly debit МСК, freeze
 - [ ] **B7** — feature-тесты модуля + runbook §14 ТЗ + E2E «триал → пополнение → списание → light» (T-036)
-- [ ] **C+** — купоны A/B; admin; лайтбокс через Reminders (T-024 + T-030)
+- [ ] **C+** — купоны bonus/discount; admin; лайтбокс через Reminders (T-024 + T-030)
 
 **Prod go/no-go** — отдельно **01.08**, не закрытие эпика.
 
@@ -98,3 +100,12 @@ flowchart TD
 ### 2026-06-12
 
 - Эпик и подтикеты T-027…T-036 созданы по канону Commerce и плану этапа 1 Пилот.
+
+### 2026-07-08 (уточнения PO)
+
+- [ADR-004](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-004-commerce-po-уточнения-mvp.md): Профи 3000 ₽; max — заглушка; freeze 10 дн./эпизод + годовой лимит; купоны individual/promotional; даунгрейд сам; Partner — только событие.
+- T-047 → [техдолг](../../_telotron.ru/docs/Техдок/00-мета/техдолг-commerce-mvp.md).
+
+### 2026-07-08
+
+- Ссылка на [ADR-003](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-003-commerce-tovar-popolnenie-kupony.md); автопополнение — [идея](../идеи/commerce-автопополнение-с-карты.md).
