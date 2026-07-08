@@ -16,13 +16,13 @@
 
 ## Критерии готовности
 
-- [ ] `app/Modules/Commerce/` — структура (Models, Services, Providers, routes placeholder).
-- [ ] Миграции в порядке схемы: `commerce_tariff_prices`, `commerce_accounts`, `commerce_trainer_tariffs`, `commerce_transactions`, `commerce_payments`, `commerce_coupons`, `commerce_coupon_redemptions`, `commerce_freezes`, `commerce_daily_debits`, `commerce_payment_webhook_logs`.
+- [ ] `app/Modules/Commerce/` — каркас по [ТЗ §12.1](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md): `Models/`, `Enums/`, `Services/CommerceAccountService`, `Support/CommerceMoney`, `Providers/CommerceServiceProvider` (зарегистрирован в `bootstrap/providers.php`).
+- [ ] Миграции всех **11** таблиц схемы: `commerce_tariff_prices`, `commerce_accounts`, `commerce_trainer_tariffs`, `commerce_transactions`, `commerce_payments`, `commerce_coupons`, `commerce_coupon_redemptions`, `commerce_trainer_active_coupons`, `commerce_freezes`, `commerce_daily_debits`, `commerce_payment_webhook_logs`.
 - [ ] Сидер начальных цен (`light`=0, `pro`, `max`).
 - [ ] Backfill `commerce_accounts` + начальный тариф для существующих `trainer_profiles`.
 - [ ] `CommerceAccountService`: создание счёта, атомарная проводка (`balance_units` + `commerce_transactions` в одной DB-транзакции).
 - [ ] Factory `CommerceAccount` для тестов.
-- [ ] Feature-тест: регистрация тренера → счёт создан; проводка меняет баланс и пишет ledger.
+- [ ] Feature-тесты в `tests/Feature/Commerce/`: регистрация тренера → счёт создан; проводка меняет баланс и пишет ledger.
 
 ## Вне scope
 
@@ -31,9 +31,13 @@
 ## Ссылки
 
 - [commerce-схема-данных-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md)
-- [commerce-модуль-тз-mvp §4.4, §12](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
+- [commerce-модуль-тз-mvp §12](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
 
 ## Журнал
+
+### 2026-07-08
+
+- Структура модуля, `CommerceServiceProvider` с foundation, тесты `tests/Feature/Commerce/`, миграция `commerce_trainer_active_coupons`.
 
 ### 2026-06-12
 
