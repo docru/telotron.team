@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`эпики/`** |
+| **Статус** | `in_progress` · папка: **`эпики/`** (dev T-036 готов; stage sign-off — директор) |
 | **Бывш. ID** | T-026 |
 | **Приоритет** | P1 (stage ready **31.07**, prod платежей **01.08**) |
 | **Спринт** | этап 1 · Пилот · спринты **2–5** |
@@ -60,14 +60,16 @@
 
 Чеклист **ADR-001 Billing B1–B7** прогнан на **stage** (не prod):
 
-- [ ] **B1** — ЮKassa sandbox: checkout, webhook, ошибки, логи `commerce_payment_webhook_logs`
-- [ ] **B2** — триал 60 дн., один на аккаунт; на триале **Профи**
-- [ ] **B3** — Лайт + Профи; нехватка Ед. → freeze → light
-- [ ] **B4** — gating: Лайт без групп; **только Лайт vs Профи**
-- [ ] **B5** — напоминания триала 14/7/1 (T-035)
-- [ ] **B6** — счёт Ед., nightly debit МСК, freeze
-- [ ] **B7** — feature-тесты модуля + runbook §14 ТЗ + E2E «триал → пополнение → списание → light» (T-036)
-- [ ] **C+** — купоны bonus/discount; admin; лайтбокс через Reminders (T-024 + T-030)
+Легенда: ☑ — покрыто автотестами / dev-доставкой; ☐ — нужен stage или prod.
+
+- ☐ **B1** — ЮKassa sandbox: checkout, webhook, ошибки, логи `commerce_payment_webhook_logs` *(prod gate 01.08; PHPUnit — mock webhook)*
+- ☑ **B2** — триал 60 дн., один на аккаунт; на триале **Профи**
+- ☑ **B3** — Лайт + Профи; нехватка Ед. → freeze → light
+- ☑ **B4** — gating: Лайт без групп; **только Лайт vs Профи**
+- ☑ **B5** — напоминания триала 14/7/1 (T-035)
+- ☑ **B6** — счёт Ед., nightly debit МСК, freeze
+- ☑ **B7** — feature-тесты модуля + runbook §14 ТЗ + E2E «триал → пополнение → списание → light» (T-036 dev)
+- ☑ **C+** — купоны bonus/discount; admin *(☑ PHPUnit/Filament)*; лайтбокс *(☐ T-024 stub, не prod UX)*
 
 **Prod go/no-go** — отдельно **01.08**, не закрытие эпика.
 
@@ -109,3 +111,9 @@ flowchart TD
 ### 2026-07-08
 
 - Ссылка на [ADR-003](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-003-commerce-tovar-popolnenie-kupony.md); автопополнение — [идея](../идеи/commerce-автопополнение-с-карты.md).
+
+### 2026-07-08 (T-036 dev)
+
+- **T-036 dev-deliverable:** `CommerceLifecycleSignOffTest` (триал → webhook topup → `commerce:daily-debit` → freeze → light → gating); E2E `pro-commerce.flow.spec.ts`; [commerce-runbook-mvp.md](../../_telotron.ru/docs/Техдок/03-модули/commerce-runbook-mvp.md).
+- Чеклист B1–B7 + C+ обновлён: ☑ автотесты/runbook/E2E smoke; ☐ B1 stage sandbox + director sign-off; ☐ лайтбокс T-024.
+- Эпик **не** `done` — ждёт stage прогон с реальной ЮKassa и подпись директора.
