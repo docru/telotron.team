@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Сборка PDF: Telotron — one-pager инвестор партнёр."""
+"""Сборка PDF: коммерческие one-pager для инвестора / партнёра."""
 
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from pathlib import Path
@@ -11,32 +12,51 @@ BASE = Path(__file__).resolve().parent
 ROOT = BASE.parent.parent
 INSTR = ROOT / "Инструкции"
 READY = ROOT / "Готовые документы"
-BUILD = BASE / ".build-one-pager-investor"
-SOURCE = INSTR / "Telotron — one-pager инвестор партнёр.md"
-OUT_DOCX = BUILD / "one-pager.docx"
-OUT_PDF = READY / "Telotron — one-pager инвестор партнёр.pdf"
 SOFFICE = Path("/usr/lib/libreoffice/program/soffice")
 
+VARIANTS = {
+    "1p": {
+        "source": INSTR / "Telotron — one-pager инвестор партнёр.md",
+        "pdf": READY / "Telotron — one-pager инвестор партнёр.pdf",
+        "build": BASE / ".build-one-pager-investor",
+        "margin": "1.2cm",
+        "fontsize": "9pt",
+    },
+    "3p": {
+        "source": INSTR / "Telotron — инвестор партнёр 3 страницы.md",
+        "pdf": READY / "Telotron — инвестор партнёр 3 страницы.pdf",
+        "build": BASE / ".build-investor-3p",
+        "margin": "1.2cm",
+        "fontsize": "9pt",
+    },
+}
 
-def main() -> None:
-    if not SOURCE.exists():
-        print(f"ERROR: нет {SOURCE}", file=sys.stderr)
+
+def build(variant: str) -> None:
+    cfg = VARIANTS[variant]
+    source: Path = cfg["source"]
+    out_pdf: Path = cfg["pdf"]
+    build_dir: Path = cfg["build"]
+    out_docx = build_dir / "document.docx"
+
+    if not source.exists():
+        print(f"ERROR: нет {source}", file=sys.stderr)
         sys.exit(1)
 
-    BUILD.mkdir(parents=True, exist_ok=True)
+    build_dir.mkdir(parents=True, exist_ok=True)
     READY.mkdir(parents=True, exist_ok=True)
 
     subprocess.run(
         [
             "pandoc",
-            str(SOURCE),
+            str(source),
             "-o",
-            str(OUT_DOCX),
+            str(out_docx),
             "--standalone",
             "-V",
-            "geometry:margin=1.2cm",
+            f"geometry:margin={cfg['margin']}",
             "-V",
-            "fontsize=9pt",
+            f"fontsize={cfg['fontsize']}",
         ],
         check=True,
     )
@@ -51,19 +71,41 @@ def main() -> None:
             "--convert-to",
             "pdf",
             "--outdir",
-            str(BUILD),
-            str(OUT_DOCX),
+            str(build_dir),
+            str(out_docx),
         ],
         check=True,
     )
 
-    built = BUILD / "one-pager.pdf"
+    built = build_dir / "document.pdf"
     if not built.exists():
         print("ERROR: PDF не создан", file=sys.stderr)
         sys.exit(1)
 
-    built.replace(OUT_PDF)
-    print(f"OK: {OUT_PDF}")
+    built.replace(out_pdf)
+    print(f"OK: {out_pdf}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Сборка PDF one-pager Telotron.")
+    parser.add_argument(
+        "--variant",
+        choices=VARIANTS.keys(),
+        default="1p",
+        help="1p — один лист; 3p — три страницы (по умолчанию: 1p)",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="собрать все варианты",
+    )
+    args = parser.parse_args()
+
+    if args.all:
+        for key in VARIANTS:
+            build(key)
+    else:
+        build(args.variant)
 
 
 if __name__ == "__main__":
