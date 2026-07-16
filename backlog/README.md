@@ -141,6 +141,8 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-090 | **сделано** | `done` | [Nutrition diary v2 Pro feed](сделано/T-090-nutrition-diary-v2-pro-calendar-feed.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-091 | **сделано** | `done` | [Nutrition diary v2 outbox+sign-off](сделано/T-091-nutrition-diary-v2-outbox-sign-off.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-092 | бэклог | `backlog` · P1 | [Юр. пакет партнёрской программы](бэклог/T-092-legal-партнёрская-программа-пакет-документов.md) · [E-002](эпики/E-002-partner-модуль.md) |
+| T-093 | бэклог / done | `done` | [Главный партнёр — атрибуция](бэклог/T-093-head-partner-атрибуция.md) · [E-002](эпики/E-002-partner-модуль.md) |
+| T-094 | бэклог | `backlog` · P1 | [Client трекеры — день за 2 недели](бэклог/T-094-client-трекеры-выбор-дня-2-недели.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-027 | бэклог | `backlog` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-028 | бэклог | `backlog` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
@@ -166,4 +168,4 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-07-07: E-002 расширен, T-092.*
+*Индекс обновлён 2026-07-14: T-094 Client трекеры за 2 недели; T-093 в индексе.*

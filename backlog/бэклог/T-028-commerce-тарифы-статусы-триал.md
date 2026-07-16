@@ -20,7 +20,7 @@
 - [ ] `TariffPriceService` — активные цены из `commerce_tariff_prices`, `daily_rate_units`.
 - [ ] `TrainerTariffService` — смена тарифа (новая строка `commerce_trainer_tariffs`, деактивация предыдущей).
 - [ ] `CommerceStatusResolver` — `status` и `effective_tariff` (триал → `pro`; конец триала → **freeze**, не сразу `light` — ADR-004).
-- [ ] `TrialService` (расширение A10): один триал на аккаунт; 60 дней по настройке.
+- [ ] `TrialService` (расширение A10): один триал на аккаунт; 30 дней по настройке.
 - [ ] `TrainerTariffService`: **самостоятельный** даунгрейд на Лайт.
 - [ ] Переход в freeze при нехватке Ед. (логика без nightly job — job в T-030).
 - [ ] Unit/feature-тесты: триал → effective_tariff=pro; end trial → freeze; смена тарифа → история.

@@ -49,7 +49,7 @@ def main() -> None:
 
     title = "Telotron · для тренеров"
     subtitle = "Запись · планы · дневник клиента"
-    pilot = "Пилот: 60 дней бесплатно, без оплат до 01.08"
+    pilot = "Пилот: 30 дней бесплатно, без оплат до 01.08"
 
     font_title = load_font(FONT_BOLD, 52)
     font_sub = load_font(FONT_REG, 30)
