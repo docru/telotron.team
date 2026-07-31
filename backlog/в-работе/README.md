@@ -13,6 +13,7 @@
 | ID | Фокус | Спринт | Статус |
 |----|--------|--------|--------|
 | [T-059](T-059-auth-gate-pro-client-invite.md) | Auth-gate Pro/Client invite | 2→4 | `in_progress` · DoD не закрыт |
+| [T-101](T-101-ux-volna2-pro-ia-i-audit.md) | UX волна 2 · Pro IA + хвосты T-100 | 5+ | `in_progress` · **срез 0 ✅** · **срез 1 ✅** · **срез 2 ← старт** |
 
 ---
 
@@ -31,7 +32,7 @@
 | [T-022](T-022-план-продвижения-личные-связи-и-соцсети.md) | План продвижения Пилота | 1→∞ | `in_progress` · v0.1 ✅ · утверждение v1.0 ⬜ |
 | [T-023](T-023-план-разработки-этап-1-пилот.md) | План разработки / ТЗ dev | 1→**4** | `in_progress` · billing stage на planning 13.07 |
 | [T-054](T-054-auth-боты-max-telegram-pro-client.md) | Боты MAX/TG Pro vs Client | 2→4 | `in_progress` · **код ✅** · ops webhook/env ⬜ |
-| [T-055](T-055-ux-обновление-pro-client-волна1.md) | UX wave 1 Pro+Client | 2–4 | `in_progress` · **срез 1 ✅** · волны 2–3 **pause** |
+| [T-055](T-055-ux-обновление-pro-client-волна1.md) | UX wave 1 Pro+Client | 2–4 | `in_progress` · **срез 1 ✅** · волны 2–3 **pause** → продолжение в [T-101](T-101-ux-volna2-pro-ia-i-audit.md) |
 
 ---
 

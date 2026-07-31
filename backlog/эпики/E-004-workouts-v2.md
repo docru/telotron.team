@@ -30,6 +30,7 @@
 | [T-085](../сделано/T-085-workouts-v2-notify-assign.md) | Уведомления при «Назначить» | **done** |
 | [T-086](../сделано/T-086-workouts-v2-pro-executions-calendar.md) | Pro: завершённые выполнения + календарь | **done** |
 | [T-087](../сделано/T-087-workouts-v2-onboarding-sign-off.md) | Онбординг, доки, sign-off | **done** |
+| [T-104](../бэклог/T-104-ux-konstruktor-trenirovok-pro-p1.md) | UX P1 конструктора (WC-01…04 из T-103) | **backlog** |
 
 ---
 
