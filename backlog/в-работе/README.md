@@ -13,7 +13,9 @@
 | ID | Фокус | Спринт | Статус |
 |----|--------|--------|--------|
 | [T-059](T-059-auth-gate-pro-client-invite.md) | Auth-gate Pro/Client invite | 2→4 | `in_progress` · DoD не закрыт |
-| [T-101](T-101-ux-volna2-pro-ia-i-audit.md) | UX волна 2 · Pro IA + хвосты T-100 | 5+ | `in_progress` · **срез 0 ✅** · **срез 1 ✅** · **срез 2 ← старт** |
+| [T-101](T-101-ux-volna2-pro-ia-i-audit.md) | UX волна 2 · Pro IA + хвосты T-100 | 5+ | `in_progress` · срезы 0–4 ✅ · + schedule / 5 |
+| [T-104](T-104-ux-konstruktor-trenirovok-pro-p1.md) | Конструктор тренировок Pro · P1 | — | `in_progress` · срез 1 ✅ · WC-01 list/sheet ✅ |
+| [T-106](T-106-ux-profil-pro-client-p1.md) | Профиль Pro/Client · P1 | — | `in_progress` · срез 1 ✅ · **сводки+sheet ←** |
 
 ---
 

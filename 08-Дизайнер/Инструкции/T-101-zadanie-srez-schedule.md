@@ -2,7 +2,7 @@
 
 **От:** дизайнер (08)  
 **Файл:** `T-101-zadanie-srez-schedule.md`  
-**Статус:** готово к постановке · срез **«+»** T-101  
+**Статус:** done · срез **«+»** T-101  
 **Тикет:** [T-101](../../backlog/в-работе/T-101-ux-volna2-pro-ia-i-audit.md)  
 **Общее задание:** [T-101-zadanie-razrabotchiku](T-101-zadanie-razrabotchiku.md)  
 **Канон:** [T-101-wireframe-srez-0](T-101-wireframe-srez-0.md) §3, §4.2  
@@ -95,13 +95,13 @@ Wireframe: §4.2.
 
 ## 5. DoD
 
-- [ ] Основной вид Расписания = **сетка дни × часы** (не 4-режимный сегмент как primary).  
-- [ ] Колонки дней **3 → 5 → 7** по ширине; smoke 360 / ~600 / wide.  
-- [ ] Ось **07:00–22:00** или из **«Мои часы»**; якорь сегодня/сейчас.  
-- [ ] Имя экрана **Расписание**; CTA создания в шапке.  
-- [ ] В профиле — блок «Мои часы» (хотя бы UI + сохранение по договорённости с API).  
-- [ ] E2E/Vitest по затронутым потокам create/view; `npm run test:ts` через Sail.  
-- [ ] `npm run build` `-u sail`; `build.pro` при shell/PWA.
+- [x] Основной вид Расписания = **сетка дни × часы** (не 4-режимный сегмент как primary).  
+- [x] Колонки дней **3 → 5 → 7** по ширине; smoke 360 / ~600 / wide.  
+- [x] Ось **07:00–22:00** или из **«Мои часы»**; якорь сегодня/сейчас.  
+- [x] Имя экрана **Расписание**; CTA создания в шапке.  
+- [x] В профиле — блок «Мои часы» (хотя бы UI + сохранение по договорённости с API).  
+- [x] E2E/Vitest по затронутым потокам create/view; `npm run test:ts` через Sail.  
+- [x] `npm run build` `-u sail`; `build.pro` при shell/PWA.
 
 ---
 
@@ -125,3 +125,10 @@ Wireframe: §4.2.
 ### 2026-07-31
 
 - Задание выделено отдельно (раньше было только строка «+» в общем zadanie).
+
+### 2026-07-31 · реализовано
+
+- `ScheduleHourGrid` + helpers `schedule-hour-grid.ts`; Pro `WorkspaceSchedulePage` без mode toolbar.
+- «Мои часы» в профиле; `work_day_start`/`work_day_end` на `trainer_profiles` + Me/PATCH API.
+- Vitest `t-101-schedule` / `schedule-hour-grid`; PHP patch hours; `build.pro` 224.
+- Статус: **done**.

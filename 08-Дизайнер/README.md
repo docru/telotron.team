@@ -21,11 +21,13 @@
 | **[ТЗ — public-страница (A13)](../01-Директор/Инструкции/ТЗ%20—%20public-страница%20проекта%20(A13).md)** | Тексты §6.2, юр. §4 |
 | **[Задание: public A13 v2 — вёрстка](Инструкции/Задание%20разработчику%20—%20public-страница%20A13%20вёрстка%20и%20дизайн%20v2.md)** | Дизайн и приёмка визуала |
 | **[T-101-wireframe-srez-0](Инструкции/T-101-wireframe-srez-0.md)** | IA Pro + Client home / дневник / Расписание (markdown) |
+| **[T-111-wireframe-auth-oauth-vk-yandex](Инструкции/T-111-wireframe-auth-oauth-vk-yandex.md)** | Wireframe: вход VK/Яндекс + телефон |
+| **[T-112-wireframe-raspisanie-rabochiy-den](Инструкции/T-112-wireframe-raspisanie-rabochiy-den.md)** | Wireframe: рабочий день + запись в свободный слот |
 | **[T-101-zadanie-razrabotchiku](Инструкции/T-101-zadanie-razrabotchiku.md)** | Передача в разработку по срезам T-101 |
 | **[T-101-zadanie-srez-2](Инструкции/T-101-zadanie-srez-2.md)** | Срез 2: табы / Кабинет / мастера |
 | **[T-101-zadanie-srez-3](Инструкции/T-101-zadanie-srez-3.md)** | Срез 3: hub клиента = сводка |
 | **[T-101-zadanie-srez-4](Инструкции/T-101-zadanie-srez-4.md)** | Срез 4: Client home / дневник / термины |
-| **[T-101-zadanie-srez-schedule](Инструкции/T-101-zadanie-srez-schedule.md)** | Расписание: сетка часов + «Мои часы» |
+| **[T-106-zadanie-summary-sheets](Инструкции/T-106-zadanie-summary-sheets.md)** | T-106: профиль — сводки + sheet |
 | **[Задание разработчика — A13](../03-Разработчик/Инструкции%20разработка/Задание%20—%20public-страница%20A13%20(период%200).md)** | Чеклист P0, seeder, тесты |
 
 ## Связанные документы

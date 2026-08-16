@@ -70,6 +70,7 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | E-003 | **`done`** 05.07 | [Упрощение входа Pro](эпики/E-003-упрощение-входа.md) · T-067…T-075 |
 | E-004 | **`done`** 06.07 | [Workouts v2](эпики/E-004-workouts-v2.md) · T-080…T-087 |
 | E-005 | **`done`** 06.07 | [Nutrition diary v2](эпики/E-005-nutrition-diary-v2.md) · T-088…T-091 |
+| E-006 | `backlog` | [Поиск клиентов](эпики/E-006-поиск-клиентов.md) · ИИ + CRM + лендинг + соцзапись · T TBD |
 
 Полный реестр → [`эпики/README.md`](эпики/README.md).
 
@@ -152,7 +153,15 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-101 | **в-работе** | `in_progress` · срез 0 ✅ · срез 1 ✅ · срез 2 | [UX волна 2 IA + хвосты](в-работе/T-101-ux-volna2-pro-ia-i-audit.md) |
 | T-102 | бэклог | `backlog` · P2 | [Виджет мягких подсказок](бэклог/T-102-ux-виджет-мягких-подсказок.md) |
 | T-103 | бэклог | `backlog` · аудит ✅ | [UX аудит конструктор тренировок Pro](бэклог/T-103-ux-аудит-конструктор-тренировок-pro.md) |
-| T-104 | бэклог | `backlog` · P1 | [Конструктор тренировок Pro · P1 WC-01…04](бэклог/T-104-ux-konstruktor-trenirovok-pro-p1.md) · [E-004](эпики/E-004-workouts-v2.md) |
+| T-104 | **в-работе** | `in_progress` · P1 | [Конструктор тренировок Pro · P1 WC-01…04](в-работе/T-104-ux-konstruktor-trenirovok-pro-p1.md) · [E-004](эпики/E-004-workouts-v2.md) |
+| T-105 | бэклог | `backlog` · аудит ✅ | [UX аудит профиль Pro/Client](бэклог/T-105-ux-audit-profil-pro-client.md) |
+| T-106 | **в-работе** | `in_progress` · срез 2 ✅ | [Профиль Pro/Client · P1](в-работе/T-106-ux-profil-pro-client-p1.md) |
+| T-107 | бэклог | `backlog` · аудит ✅ | [UX аудит ввод еды Client](бэклог/T-107-ux-audit-vvod-edy-client.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-108 | **в-работе** | `in_progress` · A✅ B✅ C.1✅ C.2✅ · **стык 1** (полный дамп) | [КБЖУ + ввод еды Client](в-работе/T-108-ux-kbju-vvod-edy-client.md) · [wireframe](../08-Дизайнер/Инструкции/T-108-wireframe-kbju-lightbox.md) · [ops OFF](../04-Сисадмин/Инструкции/7-эксплуатация-и-доверие/Инфраструктура/каталог-open-food-facts.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
+| T-109 | сделано | `done` · P1 | [PWA cold-start · first paint Pro/Client](сделано/T-109-pwa-cold-start-first-paint.md) |
+| T-110 | **в-работе** | `in_progress` | [ИИ-ансамбль КБЖУ](в-работе/T-110-nutrition-ii-ansambl-kbju.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) · идея [ИИ-оценка](идеи/дневник-питания-ии-оценка-кбжу.md) |
+| T-111 | бэклог | `backlog` · проектирование · wireframe | [Auth: VK/Яндекс + телефон](бэклог/T-111-auth-oauth-vk-yandex-telefon.md) · [wireframe](../08-Дизайнер/Инструкции/T-111-wireframe-auth-oauth-vk-yandex.md) · [E-003](эпики/E-003-упрощение-входа.md) |
+| T-112 | **в-работе** | `in_progress` · ветка `feat/t-112-work-day-schedule` | [Расписание: рабочий день + запись](в-работе/T-112-raspisanie-rabochiy-den-zapis.md) · [wireframe](../08-Дизайнер/Инструкции/T-112-wireframe-raspisanie-rabochiy-den.md) |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-027 | бэклог | `backlog` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-028 | бэклог | `backlog` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
@@ -178,4 +187,4 @@ insight brief  →  идеи  →  эпик (E-XXX) + тикеты (T-XXX)  → 
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-07-27: T-099 пересылка сообщений тренера — уточнение PO закрыто.*
+*Индекс обновлён 2026-08-16: T-112 → в-работе, ветка feat/t-112-work-day-schedule.*

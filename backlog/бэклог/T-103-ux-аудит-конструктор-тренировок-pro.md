@@ -138,7 +138,7 @@
 - [x] Сверка с BR  
 - [x] Матрица WC-01…12 с приоритетами  
 - [x] Вердикт + очередь фиксов  
-- [x] Решение директора: **P1 → implementation [T-104](T-104-ux-konstruktor-trenirovok-pro-p1.md)** (2026-07-31)
+- [x] Решение директора: **P1 → implementation [T-104](../в-работе/T-104-ux-konstruktor-trenirovok-pro-p1.md)** (2026-07-31) · **в работе**
 
 ---
 
@@ -147,4 +147,4 @@
 ### 2026-07-31
 
 - Аудит выполнен (код + BR). Тикет создан. Canvas: `ux-audit-pro-workout-constructor`.
-- Директор: P1 (WC-01…04) → **[T-104](T-104-ux-konstruktor-trenirovok-pro-p1.md)**.
+- Директор: P1 (WC-01…04) → **[T-104](../в-работе/T-104-ux-konstruktor-trenirovok-pro-p1.md)** · handoff разработчику (`в-работе/`, WC-02 = A).
