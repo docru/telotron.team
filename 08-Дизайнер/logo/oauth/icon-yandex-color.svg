@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" role="img" aria-label="Яндекс">
+  <!-- OAuth icon-button style: brand red + white «Я» (Yandex ID buttonView=icon) -->
+  <rect width="28" height="28" rx="6" fill="#FC3F1D"/>
+  <path fill="#FFFFFF" transform="translate(5.2,2.2) scale(0.26)" d="M60.5,91H44.6V12.3h-7.1c-13,0-19.8,6.5-19.8,16.2c0,11,4.7,16.1,14.4,22.6l8,5.4L17.1,91H0l20.7-30.8C8.8,51.7,2.1,43.4,2.1,29.4C2.1,11.9,14.3,0,37.4,0h23V91z"/>
+</svg>
