@@ -103,6 +103,17 @@
 | [T-123](T-123-leadgen-идеи-постов.md) | P1 | **E-010** · Идеи постов |
 | [T-125](T-125-leadgen-commerce-gating-аддон.md) | P2 | Commerce gating |
 
+### E-009 · Ядро, среды, адаптеры · [эпик](../эпики/E-009-кросплатформенность.md)
+
+| ID | P | Фокус |
+|----|---|--------|
+| [T-127](T-127-e009-runtime-bootstrap.md) | **P0** | Bootstrap RuntimeAdapter |
+| [T-128](T-128-e009-pwa-adapter.md) | **P0** | `PwaAdapter` |
+| [T-129](T-129-e009-client-update-policy.md) | **P0** | defer\|force update |
+| [T-130](T-130-e009-auth-launch-token.md) | **P0** | VK sign → Bearer |
+| [T-131](T-131-e009-vk-adapter-пилот.md) | **P0** | `VkAdapter` пилот |
+| [T-132](T-132-e009-welcome-clients-host.md) | P1 | welcome-clients host |
+
 ---
 
 **Период 0 Go:** T-001…T-003 → [`../сделано/`](../сделано/). Полный индекс → [`../README.md`](../README.md).
