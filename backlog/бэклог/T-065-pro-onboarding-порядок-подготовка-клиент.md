@@ -64,7 +64,7 @@ T-065 — **дельта к T-060**, не замена тикета: после 
 | `partner_invite` | — | П | referral link | partner UI | без изменений |
 | `feedback` | — | П | M14 thread | `/feedback` | без изменений |
 
-**Убрать / заменить:** `schedule_or_plan` (раздвоение); перенос `create_training_template`, `upload_nutrition_plan` из чистого П в К с разделением «создать» vs «назначить». В коде до T-065 ещё legacy id `create_complex`, `create_program`, `assign_program` — переименовать при реализации ([ADR-002](../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-002-workouts-v2-dvuhurovnevaya-model.md)).
+**Убрать / заменить:** `schedule_or_plan` (раздвоение); перенос `create_training_template`, `upload_nutrition_plan` из чистого П в К с разделением «создать» vs «назначить». В коде до T-065 ещё legacy id `create_complex`, `create_program`, `assign_program` — переименовать при реализации ([ADR-002](../../../_telotron.ru/docs/Техдок/00-мета/архитектурные-решения/ADR-002-workouts-v2-dvuhurovnevaya-model.md)).
 
 ### Открытый вопрос · занятие без клиента
 
@@ -107,7 +107,7 @@ T-065 — **дельта к T-060**, не замена тикета: после 
 | Тикет / документ | Связь |
 |------------------|--------|
 | [T-060](../сделано/T-060-pro-onboarding-k-p.md) | базовая реализация coach-bar (**done**); старт T-065 после приоритизации |
-| [E-004](../эпики/E-004-workouts-v2.md) | глоссарий v2; шаги онбординга в коде — вместе с [T-087](T-087-workouts-v2-onboarding-sign-off.md) |
+| [E-004](../эпики/E-004-workouts-v2.md) | глоссарий v2; шаги онбординга в коде — вместе с [T-087](../сделано/T-087-workouts-v2-onboarding-sign-off.md) |
 | [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) | invite / client hub |
 | [F-13, F-20, F-21](../../02-Маркетолог/Исследования/Пилот%20—%20пожелания%20тренеров/2026-06-24%20—%20сессия%20с%20тренером.md) | источник требования |
 

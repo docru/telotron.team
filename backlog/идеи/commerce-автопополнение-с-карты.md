@@ -54,7 +54,7 @@
 
 ## Связь
 
-- [commerce-модуль-тз-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md) §15 вне scope MVP
+- [commerce-модуль-тз-mvp](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md) §15 вне scope MVP
 - [E-001](../эпики/E-001-commerce-модуль.md)
 
 ## Журнал

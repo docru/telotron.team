@@ -6,7 +6,7 @@
 | **Дата** | 2026-08-01 |
 | **Файл** | `T-108-wireframe-kbju-lightbox.md` (без пробелов) |
 | **Формат** | markdown wireframe |
-| **Тикет** | [T-108](../../backlog/бэклог/T-108-ux-kbju-vvod-edy-client.md) |
+| **Тикет** | [T-108](../../backlog/в-работе/T-108-ux-kbju-vvod-edy-client.md) |
 | **Статус дизайна** | черновик · ждёт approve директора |
 | **Стиль** | [Система стилей](Система%20стилей%20—%20Pro%20и%20Client%20(MVP).md) · Client accent |
 | **Ширина** | PWA **360–430px**; lightbox на узком — почти full-screen Dialog |

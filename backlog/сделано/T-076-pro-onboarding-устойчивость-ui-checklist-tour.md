@@ -19,11 +19,11 @@ Pro onboarding (контуры **К** и **П**) уже разделён на:
 | **Чеклист (goal)** | `TrainerOnboardingStatusResolver` (PHP), `GET /me/onboarding` | высокая — done по фактам продукта |
 | **Тур (guide)** | `onboarding-config.ts`, `data-onboarding-target`, `contextualTargets` | низкая — ломается при переносе UI |
 
-При рефакторинге Pro ([T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md)), смене порядка шагов ([T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md)) или переносе «Пригласить» / назначений на другие страницы приходится править разросшийся `ONBOARDING_SHELL_CONFIG` и разбросанные `data-onboarding-target`.
+При рефакторинге Pro ([T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md)), смене порядка шагов ([T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md)) или переносе «Пригласить» / назначений на другие страницы приходится править разросшийся `ONBOARDING_SHELL_CONFIG` и разбросанные `data-onboarding-target`.
 
 **Цель:** перенос кнопки/раздела **не ломает** прогресс и coach-bar; spotlight может временно отключиться, но шаг остаётся рабочим.
 
-**Канон прогресса не меняем:** [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md), [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md).
+**Канон прогресса не меняем:** [onboarding-api-pro.md](../../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md), [онбординг-тренера.md](../../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md).
 
 ## Принцип (зафиксировать в техдоке)
 
@@ -71,14 +71,14 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 
 ### 5. E2E / feature — outcomes, не DOM
 
-- Дополнить/скорректить сценарий [E2E-07-pro-onboarding.md](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md):
+- Дополнить/скорректить сценарий [E2E-07-pro-onboarding.md](../../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md):
   - после действий пользователя `GET /me/onboarding` → шаг `done`;
   - **не** assert на наличие конкретного `data-onboarding-target` (хрупко).
 - Feature-тест PHP: resolver + id registry без изменений контракта API.
 
 ### 6. Документация (кратко)
 
-Добавить § **«Checklist vs tour»** в [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (5–10 строк + ссылка на action map).
+Добавить § **«Checklist vs tour»** в [onboarding-api-pro.md](../../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (5–10 строк + ссылка на action map).
 
 ## Критерии готовности
 
@@ -92,7 +92,7 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 
 ## Вне scope
 
-- Смена порядка шагов К/П — [T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md).
+- Смена порядка шагов К/П — [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md).
 - Post-reg баннер / опциональность мастера — [T-070](T-070-упрощение-входа-мастер-баннер.md).
 - Server-driven navigation hints из API (можно идеей на потом).
 - Client onboarding.
@@ -100,9 +100,9 @@ Spotlight **не блокирует** dismiss и навигацию по при�
 ## Ссылки
 
 - [T-060 Pro onboarding К+П](../сделано/T-060-pro-onboarding-k-p.md)
-- [onboarding-config.ts](../../_telotron.ru/resources/ts/shared/composables/onboarding-config.ts)
-- [TrainerOnboardingStatusResolver.php](../../_telotron.ru/app/Modules/Onboarding/Services/TrainerOnboardingStatusResolver.php)
-- [ProOnboardingBar.vue](../../_telotron.ru/resources/ts/widgets/ProOnboardingBar.vue)
+- [onboarding-config.ts](../../../_telotron.ru/resources/ts/shared/composables/onboarding-config.ts)
+- [TrainerOnboardingStatusResolver.php](../../../_telotron.ru/app/Modules/Onboarding/Services/TrainerOnboardingStatusResolver.php)
+- [ProOnboardingBar.vue](../../../_telotron.ru/resources/ts/widgets/ProOnboardingBar.vue)
 
 ## Журнал
 

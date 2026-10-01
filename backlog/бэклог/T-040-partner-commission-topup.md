@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` |
+| **Статус** | `backlog` · код на ветке `partner` (09.07), в `main` не слит · стык с Commerce (I-003) |
 | **Эпик** | [E-002](../эпики/E-002-partner-модуль.md) |
 | **Спринт** | 4–5 |
 | **Оценка** | 12–14 ч |
@@ -15,10 +15,14 @@
 - [ ] L3 только если у beneficiary `partner_profiles.contract_signed_at` set.
 - [ ] Skip: `platform_trainer_recruitment` attribution; base = 0.
 - [ ] Атомарно: `commerce_accounts.balance` ↑ + `commerce_transactions` `partner_commission` + `partner_commissions` row.
-- [ ] UK идемпотентности ([схема §3](../../_telotron.ru/docs/Техдок/03-модули/partner-схема-данных-mvp.md)).
+- [ ] UK идемпотентности ([схема §3](../../../_telotron.ru/docs/Техдок/03-модули/partner-схема-данных-mvp.md)).
 - [ ] Feature-тест: A→B→C topup → commissions; platform invite topup → 0; L3 без договора → нет L3.
 
 ## Журнал
+
+### 2026-09-29
+
+- Актуализация: реализация лежит в ветке `partner` (09.07, отстаёт от `main` на 84 коммита). Слияние — вместе с Commerce под DEC-007.
 
 ### 2026-06-12
 

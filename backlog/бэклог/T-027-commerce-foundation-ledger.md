@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `backlog` · папка: **`бэклог/`** |
+| **Статус** | `backlog` · код на ветке `commerce` (08.07), в `main` не слит · тарифная модель — переделать под клиенто-день (DEC-007) |
 | **Эпик** | [E-001](../эпики/E-001-commerce-модуль.md) |
 | **Приоритет** | P1 |
 | **Спринт** | 2 (15–28.06) |
@@ -12,11 +12,11 @@
 
 ## Контекст
 
-Первый слайс Commerce: каркас модуля, все таблицы по [схеме §15](../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md), сервис проводок. Без платежей и UI.
+Первый слайс Commerce: каркас модуля, все таблицы по [схеме §15](../../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md), сервис проводок. Без платежей и UI.
 
 ## Критерии готовности
 
-- [ ] `app/Modules/Commerce/` — каркас по [ТЗ §12.1](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md): `Models/`, `Enums/`, `Services/CommerceAccountService`, `Support/CommerceMoney`, `Providers/CommerceServiceProvider` (зарегистрирован в `bootstrap/providers.php`).
+- [ ] `app/Modules/Commerce/` — каркас по [ТЗ §12.1](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md): `Models/`, `Enums/`, `Services/CommerceAccountService`, `Support/CommerceMoney`, `Providers/CommerceServiceProvider` (зарегистрирован в `bootstrap/providers.php`).
 - [ ] Миграции всех **11** таблиц схемы: `commerce_tariff_prices`, `commerce_accounts`, `commerce_trainer_tariffs`, `commerce_transactions`, `commerce_payments`, `commerce_coupons`, `commerce_coupon_redemptions`, `commerce_trainer_active_coupons`, `commerce_freezes`, `commerce_daily_debits`, `commerce_payment_webhook_logs`.
 - [ ] Сидер начальных цен (`light`=0, `pro`, `max`).
 - [ ] Backfill `commerce_accounts` + начальный тариф для существующих `trainer_profiles`.
@@ -30,10 +30,14 @@
 
 ## Ссылки
 
-- [commerce-схема-данных-mvp](../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md)
-- [commerce-модуль-тз-mvp §12](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
+- [commerce-схема-данных-mvp](../../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md)
+- [commerce-модуль-тз-mvp §12](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
 
 ## Журнал
+
+### 2026-09-29
+
+- Актуализация: реализация лежит в ветке `commerce` (08.07), в `main` нет. Критерии написаны под тарифы; до включения денег (I-003, янв 2027) переписать под клиенто-день + аддоны.
 
 ### 2026-07-08
 

@@ -2,7 +2,7 @@
 
 | Поле | Значение |
 |------|----------|
-| **Статус** | `done` · папка: **`бэклог/`** (перенос в архив — по процессу команды) |
+| **Статус** | `done` · папка: **`сделано/`** · код в `main` (`d2f324a`) |
 | **Приоритет** | P1 |
 | **Спринт** | по capacity (Client UX) |
 | **Роль** | dev |
@@ -24,7 +24,7 @@
 | Недельная полоса дней | `TelotronWeekDayPicker.vue` + логика недели в `shared/nutrition-diary.ts` (`weekRangeForAnchor`, `shiftWeek`) |
 | Образец страницы | `ClientNutritionDiaryPage.vue` |
 | Блок ввода трекеров | `features/tracking/ClientTrackerDayEditor.vue` (главная + `/trackers`) |
-| API Client | `PATCH/GET /api/v1/me/tracker-daily-entries` — см. [api-http §4.1](../../_telotron.ru/docs/Техдок/01-канон-mvp/api-http-контракт-mvp.md); схема [tracker-дневник](../../_telotron.ru/docs/Техдок/03-модули/tracker-дневник-схема-данных-mvp.md) |
+| API Client | `PATCH/GET /api/v1/me/tracker-daily-entries` — см. [api-http §4.1](../../../_telotron.ru/docs/Техдок/01-канон-mvp/api-http-контракт-mvp.md); схема [tracker-дневник](../../../_telotron.ru/docs/Техдок/03-модули/tracker-дневник-схема-данных-mvp.md) |
 
 ## Решение PO
 
@@ -73,9 +73,13 @@
 - `resources/ts/features/tracking/ClientTrackerDayEditor.vue`
 - `resources/ts/pages/client/ClientTrackerHomePage.vue`
 - `app/Modules/Tracking/Support/TrackerEditableDayWindow.php`
-- [tracker-дневник-схема-данных-mvp](../../_telotron.ru/docs/Техдок/03-модули/tracker-дневник-схема-данных-mvp.md)
+- [tracker-дневник-схема-данных-mvp](../../../_telotron.ru/docs/Техдок/03-модули/tracker-дневник-схема-данных-mvp.md)
 
 ## Журнал
+
+### 2026-09-29
+
+- Перенесён в `сделано/` при актуализации бэклога: код в `main` (`d2f324a`).
 
 ### 2026-07-14
 

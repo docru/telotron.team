@@ -9,7 +9,7 @@
 | **Создан** | 2026-08-01 |
 | **Wireframe** | [T-108-wireframe-kbju-lightbox.md](../../08-Дизайнер/Инструкции/T-108-wireframe-kbju-lightbox.md) |
 | **Canvas** | `ux-kbju-meal-entry.canvas.tsx` |
-| **Аудит** | [T-107](T-107-ux-audit-vvod-edy-client.md) (NF-01…04 → закрываются этим тикетом) |
+| **Аудит** | [T-107](../бэклог/T-107-ux-audit-vvod-edy-client.md) (NF-01…04 → закрываются этим тикетом) |
 | **Идея** | [дневник-питания-штрихкод-кбжу](../идеи/дневник-питания-штрихкод-кбжу.md) |
 | **База** | [E-005](../эпики/E-005-nutrition-diary-v2.md) (слоты З/О/У/П без КБЖУ) |
 
@@ -255,7 +255,7 @@
 
 | Артефакт | Путь |
 |----------|------|
-| Аудит формы | [T-107](T-107-ux-audit-vvod-edy-client.md) |
+| Аудит формы | [T-107](../бэклог/T-107-ux-audit-vvod-edy-client.md) |
 | Wireframe | [T-108-wireframe…](../../08-Дизайнер/Инструкции/T-108-wireframe-kbju-lightbox.md) |
 | Идея OFF/barcode | [идеи/…](../идеи/дневник-питания-штрихкод-кбжу.md) |
 | Эпик слотов | [E-005](../эпики/E-005-nutrition-diary-v2.md) |

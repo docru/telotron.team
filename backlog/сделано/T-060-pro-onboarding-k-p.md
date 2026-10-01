@@ -12,15 +12,15 @@
 
 ## Контекст
 
-После регистрации Pro тренер сразу попадает в [расписание](_telotron.ru/resources/ts/app/pro/router/routes.ts) — без маршрута «что делать дальше». Регистрация (legal → MAX/TG/email → Passkey) **уже есть**; **пост-регистрационного мастера нет**.
+После регистрации Pro тренер сразу попадает в [расписание](../../../_telotron.ru/resources/ts/app/pro/router/routes.ts) — без маршрута «что делать дальше». Регистрация (legal → MAX/TG/email → Passkey) **уже есть**; **пост-регистрационного мастера нет**.
 
 **Зачем:** KPI пилота — **activation** ([§1.3 плана продвижения](../../02-Маркетолог/План%20продвижения%20—%20этап%201%20Пилот.md)): реальный клиент + занятие в календаре **или** план. Онбординг **ведёт** к тем же действиям, **не блокирует** продукт.
 
-**Канон:** [_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) — два контура **К** и **П**, можно пропустить.
+**Канон:** [_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md](../../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) — два контура **К** и **П**, можно пропустить.
 
 **Тексты UI:** простой язык, ориентир — [Онбординг — инструкция для тренеров.md](../../02-Маркетолог/Инструкции/онбординг-тренеров/Онбординг%20—%20инструкция%20для%20тренеров.md) (маркетинг; не дублировать Word в коде).
 
-**Вне scope тикета:** Word/pandoc для тренеров, Filament-отчёт activation ([T-050](T-050-спринт2-воронка-метрики.md) — отдельно).
+**Вне scope тикета:** Word/pandoc для тренеров, Filament-отчёт activation ([T-050](../отменено/T-050-спринт2-воронка-метрики.md) — отдельно).
 
 ---
 
@@ -33,7 +33,7 @@
 | **Краткий К** | первый вход после reg (пока не dismiss) | **coach-bar** + spotlight в shell; обзор на `/more/onboarding` |
 | **Полный П** | после dismiss К или когда К закрыт | тот же coach-bar («Расширенная настройка») + пункт в «Ещё» |
 
-**Реализованный паттерн (2026-06):** не full-page чеклист на `/onboarding`, а **единый движок** `ProOnboardingBar` + `TelotronOnboardingSpotlight`. Legacy `/onboarding`, `/onboarding/full` — редиректы в продукт. Канон: [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) §4, [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md).
+**Реализованный паттерн (2026-06):** не full-page чеклист на `/onboarding`, а **единый движок** `ProOnboardingBar` + `TelotronOnboardingSpotlight`. Legacy `/onboarding`, `/onboarding/full` — редиректы в продукт. Канон: [онбординг-тренера.md](../../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md) §4, [E2E-07](../../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md).
 
 **Checklist vs tour ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md), 2026-07):**
 
@@ -131,7 +131,7 @@ Tour      = маршруты + подсветка (TS action map)         → м
 | `schedule_or_plan` | `CalendarDays` | Занятие или план | «Поставьте занятие в календаре **или** назначьте план тренировок.» | **Открыть календарь** / secondary **Планы** | два CTA допустимы |
 | `create_group` | `Layers` | Группа (если ведёте) | «Создайте группу, если работаете с несколькими клиентами сразу.» | **Создать группу** → `/groups` | **опц.**; явный **«Пропустить шаг»** |
 
-**Шаг `install_pwa`:** переиспользовать copy из [TelotronInstallBanner.vue](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) / `voiceForZone('pro')`, не писать второй текст.
+**Шаг `install_pwa`:** переиспользовать copy из [TelotronInstallBanner.vue](../../../_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) / `voiceForZone('pro')`, не писать второй текст.
 
 **Шаг `invite_client`:** если к моменту реализации в [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) появится inline-приглашение на `WorkspaceClientsPage` — deep link туда; иначе `/more` + `ProInvitesPanel`.
 
@@ -141,7 +141,7 @@ Tour      = маршруты + подсветка (TS action map)         → м
 |---------|----------|
 | **Формат** | Тот же **coach-bar** (`onboarding-full-bar`) после dismiss К |
 | **Entry point 1** | Bar «Расширенная настройка» в shell |
-| **Entry point 2** | `onboarding-more-entry` на [WorkspaceMorePage.vue](_telotron.ru/resources/ts/pages/workspace/WorkspaceMorePage.vue) + hub `/more/onboarding` |
+| **Entry point 2** | `onboarding-more-entry` на [WorkspaceMorePage.vue](../../../_telotron.ru/resources/ts/pages/workspace/WorkspaceMorePage.vue) + hub `/more/onboarding` |
 | **Dismiss bar П** | `onboarding-full-dismiss` («Не сейчас») → `POST dismiss scope=full_banner` |
 | **Тон** | Спокойный, без urgency; не блокер пилота |
 
@@ -164,7 +164,7 @@ Tour      = маршруты + подсветка (TS action map)         → м
 1. Тренер уходит по CTA в раздел продукта → выполняет действие → возвращается (back или таб **«Настройка»** / пункт меню).
 2. При открытии экрана онбординга — **refetch**; выполненные шаги с анимацией **check** (лёгкая, без confetti).
 3. Если все шаги К **done** — экран К больше не показывается автоматически (даже без dismiss).
-4. **Конфликт с install-баннером:** пока активен экран К с шагом `install_pwa` pending — **не дублировать** [TelotronInstallBanner](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) на том же первом заходе (suppress в layout hook).
+4. **Конфликт с install-баннером:** пока активен экран К с шагом `install_pwa` pending — **не дублировать** [TelotronInstallBanner](../../../_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) на том же первом заходе (suppress в layout hook).
 
 ### Приоритет показа (первый вход)
 
@@ -194,7 +194,7 @@ Spotlight **не блокирует** dismiss и навигацию по shell.
 ### Deliverables дизайнера (slice 0)
 
 - [ ] Wireframe / Figma: **Brief K** — mobile **360px** (обязательно), desktop **1280px** (желательно) — **отложено**; в проде coach-bar
-- [x] Реализованный UX: coach-bar + hub (см. [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md))
+- [x] Реализованный UX: coach-bar + hub (см. [E2E-07](../../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md))
 - [ ] Таблица **финальных UI-текстов** — частично в resolver; PO-ревью по желанию
 
 ### Design QA (критерии приёмки визуала)
@@ -213,7 +213,7 @@ Spotlight **не блокирует** dismiss и навигацию по shell.
 2. «Пропустить всё» → `POST dismiss scope=brief` → bar П; автопоказ К не повторяется.
 3. Полный П: coach-bar + `onboarding-more-entry` в «Ещё» + hub `/more/onboarding`; «Не сейчас» → `full_banner` dismiss.
 4. Шаги **auto-done** по refetch `GET /me/onboarding` после действий в продукте (источник истины — resolver).
-5. PWA: `install_pwa` ведёт в «Ещё»; suppress [TelotronInstallBanner](_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) при активном шаге.
+5. PWA: `install_pwa` ведёт в «Ещё»; suppress [TelotronInstallBanner](../../../_telotron.ru/resources/ts/widgets/TelotronInstallBanner.vue) при активном шаге.
 6. Tour ([T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)): перенос UI не ломает progress; при отсутствии якоря — `fallbackLead` в bar.
 
 ---
@@ -257,7 +257,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 }
 ```
 
-Контракт: [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (§ Checklist vs tour — [T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
+Контракт: [onboarding-api-pro.md](../../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) (§ Checklist vs tour — [T-076](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)).
 
 ### Тесты
 
@@ -290,7 +290,7 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 
 ## E2E и testid
 
-Канон селекторов: [E2E-07-pro-onboarding.md](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md), spec `e2e/specs/pro-onboarding.flow.spec.ts`.
+Канон селекторов: [E2E-07-pro-onboarding.md](../../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md), spec `e2e/specs/pro-onboarding.flow.spec.ts`.
 
 ### Реализованные `data-testid` (coach-bar + hub)
 
@@ -358,20 +358,20 @@ POST /api/v1/me/onboarding/dismiss   { "scope": "brief" | "full_banner" }
 | | |
 |--|--|
 | **Не блокирует** | [E-001](../эпики/E-001-commerce-модуль.md) billing |
-| **Стык** | activation метрики [T-004](T-004-оценка-привлечения-воронка.md), [T-050](T-050-спринт2-воронка-метрики.md) |
-| **Параллель** | [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) UX — deep link «Пригласить»; [T-024](T-024-reminders-одноразовый-лайтбокс.md) — порядок показа после К |
+| **Стык** | activation метрики [T-004](../бэклог/T-004-оценка-привлечения-воронка.md), [T-050](../отменено/T-050-спринт2-воронка-метрики.md) |
+| **Параллель** | [T-055](../в-работе/T-055-ux-обновление-pro-client-волна1.md) UX — deep link «Пригласить»; [T-024](../бэклог/T-024-reminders-одноразовый-лайтбокс.md) — порядок показа после К |
 | **Следующий слой** | [T-065](../бэклог/T-065-pro-onboarding-порядок-подготовка-клиент.md) порядок шагов |
 
 ---
 
 ## Ссылки
 
-- [онбординг-тренера.md](../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md)
+- [онбординг-тренера.md](../../../_telotron.ru/docs/Бизнес-требования/02-модули/onboarding/онбординг-тренера.md)
 - [Онбординг — инструкция для тренеров.md](../../02-Маркетолог/Инструкции/онбординг-тренеров/Онбординг%20—%20инструкция%20для%20тренеров.md) · PDF-сборка закрыта в [T-061](../сделано/T-061-онбординг-инструкция-тренеров-pdf.md)
-- [TrainerProfile.php](../../_telotron.ru/app/Modules/Identity/Models/TrainerProfile.php)
-- [onboarding-api-pro.md](../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) · § Checklist vs tour
+- [TrainerProfile.php](../../../_telotron.ru/app/Modules/Identity/Models/TrainerProfile.php)
+- [onboarding-api-pro.md](../../../_telotron.ru/docs/Техдок/03-модули/onboarding-api-pro.md) · § Checklist vs tour
 - [T-076 устойчивость tour](T-076-pro-onboarding-устойчивость-ui-checklist-tour.md)
-- [E2E-07](../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md)
+- [E2E-07](../../../_telotron.ru/e2e/scenarios/E2E-07-pro-onboarding.md)
 - [Цели этапов 2026 · activation](../../01-Директор/Инструкции/Цели%20этапов%202026.md)
 - [Спецификация экранов MVP §7](../../08-Дизайнер/Инструкции/Спецификация%20экранов%20MVP.md) — прогресс точками, не wizard bar
 - [Решения совещания — UI §4.3](../../08-Дизайнер/Инструкции/Решения%20совещания%20—%20требования%20UI.md)

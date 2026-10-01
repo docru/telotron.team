@@ -22,7 +22,7 @@
 
 На **public**-домене (`telotron.ru`) — SSR-страница с таблицей **Лайт / Профи** (Максимум — когда продукт выведет тариф). Единый источник матрицы — `config/commerce/tariff-capabilities.php`.
 
-Канон: [commerce-модуль-тз-mvp §9.4](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md), [домены-маршруты-сессии](../../_telotron.ru/docs/Техдок/02-зоны/домены-маршруты-сессии.md), [матрица-тарифов-платформа](../../_telotron.ru/docs/Бизнес-требования/00-канон-mvp/матрица-тарифов-платформа.md).
+Канон: [commerce-модуль-тз-mvp §9.4](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md), [домены-маршруты-сессии](../../../_telotron.ru/docs/Техдок/02-зоны/домены-маршруты-сессии.md), [матрица-тарифов-платформа](../../../_telotron.ru/docs/Бизнес-требования/00-канон-mvp/матрица-тарифов-платформа.md).
 
 ## Что сделать
 
@@ -82,9 +82,9 @@
 
 ## Ссылки
 
-- [commerce-модуль-тз-mvp §3.2, §9.4](../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
-- [commerce-схема §3](../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md) — `commerce_tariff_prices`
-- [PublicWelcomeController](../../_telotron.ru/app/Http/Controllers/Public/PublicWelcomeController.php) — образец A13
+- [commerce-модуль-тз-mvp §3.2, §9.4](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md)
+- [commerce-схема §3](../../../_telotron.ru/docs/Техдок/03-модули/commerce-схема-данных-mvp.md) — `commerce_tariff_prices`
+- [PublicWelcomeController](../../../_telotron.ru/app/Http/Controllers/Public/PublicWelcomeController.php) — образец A13
 
 ## Журнал
 

@@ -19,7 +19,7 @@
 
 ## Хвост → T-081
 
-Pro/Client Vue ещё на v1 URL — пересборка UI в [T-081](../бэклог/T-081-workouts-v2-pro-constructor.md).
+Pro/Client Vue ещё на v1 URL — пересборка UI в [T-081](T-081-workouts-v2-pro-constructor.md).
 
 ## Журнал
 

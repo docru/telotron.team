@@ -105,7 +105,7 @@
 ## 6) Связи
 
 - Эпик: [E-005](../эпики/E-005-nutrition-diary-v2.md)  
-- Implementation (КБЖУ / lightbox / barcode): [T-108](T-108-ux-kbju-vvod-edy-client.md)  
+- Implementation (КБЖУ / lightbox / barcode): [T-108](../в-работе/T-108-ux-kbju-vvod-edy-client.md)  
 - Done: T-088…T-091  
 - Техдок: `_telotron.ru/docs/Техдок/03-модули/nutrition-питание-схема-данных-mvp.md` §5  
 - T-101 дневник: [wireframe](../../08-Дизайнер/Инструкции/T-101-wireframe-srez-0.md) §6 · [срез 4](../../08-Дизайнер/Инструкции/T-101-zadanie-srez-4.md)
