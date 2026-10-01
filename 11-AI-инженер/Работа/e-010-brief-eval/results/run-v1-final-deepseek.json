@@ -1,0 +1,1279 @@
+{
+ "summary": {
+  "prompt_version": "leadgen.morning_brief.v1",
+  "model": "just-ai/open-router/deepseek/deepseek-v3.2",
+  "runs": 2,
+  "calls": 50,
+  "valid_rate": 0.34,
+  "rules_rate": 0.34,
+  "expect_rate": 0.34,
+  "all_ok_rate": 0.34,
+  "latency_ms_mean": 5113,
+  "latency_ms_p95": 9905,
+  "latency_ms_max": 15251,
+  "tokens_in_mean": 1825,
+  "tokens_out_mean": 106,
+  "cost_rub_mean": 0.06981,
+  "cost_source": "caila"
+ },
+ "results": [
+  {
+   "case": "c01_novice_no_people",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8476,
+   "tokens_in": 1706,
+   "tokens_out": 96,
+   "cost_rub": 0.12933084,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 101,\n      \"order\": -1,\n      \"why\": \"Это создаст точку входа для новых заявок, когда они появятся.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Это поможет восстановить контакт с теми, кто уже знает вашу работу.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c02_fresh_lead",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8358,
+   "tokens_in": 1733,
+   "tokens_out": 93,
+   "cost_rub": 0.13049832,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 111,\n      \"order\": 1,\n      \"why\": \"Ответьте на заявку, чтобы не упустить нового человека.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Напишите людям из базы, чтобы напомнить о себе и поддержать интерес.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c03_many_leads",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 10135,
+   "tokens_in": 2047,
+   "tokens_out": 137,
+   "cost_rub": 0.15942587862,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 125,\n      \"order\": -1,\n      \"why\": \"Ответьте человеку, который уже два дня ждёт вашего внимания.\"\n    },\n    {\n      \"task_id\": 123,\n      \"order\": -2,\n      \"why\": \"Не оставляйте заявку без ответа — это первый шаг к диалогу.\"\n    },\n    {\n      \"task_id\": -121,\n      \"order\": -3,\n      \"why\": \"Своевременный ответ поможет вам начать работу с новым контактом.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "order_bad_-2",
+    "task_id_not_candidate_-121",
+    "order_bad_-3"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c04_all_overdue",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9962,
+   "tokens_in": 2002,
+   "tokens_out": 140,
+   "cost_rub": 0.15709091862,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 135,\n      \"order\": -1,\n      \"why\": \"Поддержите клиента после первого занятия, чтобы закрепить доверие и мотивацию.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Напомните о пробной тренировке, чтобы не упустить интерес человека.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Отправьте программу, чтобы показать готовность к долгосрочной работе.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c05_light_plan",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3620,
+   "tokens_in": 1860,
+   "tokens_out": 94,
+   "cost_rub": 0.10294721754,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"task_id\": 141,\n   \"order\": 1,\n   \"why\": \"Ответьте на заявку, чтобы человек не ушёл к другому тренеру.\"\n   },\n   {\n   \"task_id\": 142,\n   \"order\": 2,\n   \"why\": \"Подтвердите пробное занятие и закрепите интерес клиента.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 141,
+     "order": 1,
+     "why": "Ответьте на заявку, чтобы человек не ушёл к другому тренеру."
+    },
+    {
+     "task_id": 142,
+     "order": 2,
+     "why": "Подтвердите пробное занятие и закрепите интерес клиента."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_intense_mixed",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4853,
+   "tokens_in": 1908,
+   "tokens_out": 134,
+   "cost_rub": 0.1110215106,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"task_id\": 151,\n  \"order\": 1,\n  \"why\": \"Выполните договорённость и закрепите результат после пробного занятия.\"\n},\n   {\n  \"task_id\": 152,\n  \"order\": 2,\n  \"why\": \"Верните в работу человека, который давно не получал от вас вестей.\"\n},\n   {\n  \"task_id\": -1,\n  \"order\": 3,\n  \"why\": \"Обновите главную точку входа, чтобы привлекать больше подходящих людей.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c07_single_candidate",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2646,
+   "tokens_in": 1608,
+   "tokens_out": 46,
+   "cost_rub": 0.0327568944,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 161,\n  \"why\": \"Это поможет вам показать, как легко начать заниматься онлайн.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 161,
+     "why": "Это поможет вам показать, как легко начать заниматься онлайн."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_two_candidates_intense",
+   "run": 1,
+   "ok_http": false,
+   "error": "TimeoutError: The read operation timed out",
+   "latency_ms": 15251,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "cost_source": null,
+   "content": null,
+   "valid": false,
+   "validation_errors": [
+    "TimeoutError: The read operation timed out"
+   ],
+   "rules_ok": false,
+   "expect_ok": false
+  },
+  {
+   "case": "c09_nutritionist",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3216,
+   "tokens_in": 1735,
+   "tokens_out": 95,
+   "cost_rub": 0.0970837452,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"task_id\": 182,\n  \"order\": 1,\n  \"why\": \"Выполните договорённость, чтобы удержать интерес человека после консультации.\"\n},\n   {\n  \"task_id\": -1,\n  \"order\": 2,\n  \"why\": \"Напомните о себе бывшим клиентам, чтобы вернуть их в воронку.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c10_stale",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4187,
+   "tokens_in": 1892,
+   "tokens_out": 139,
+   "cost_rub": 0.0568372458,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"task_id\": 193,\n   \"order\": 1,\n   \"why\": \"Напомните о себе человеку, который давно без внимания, чтобы вернуть его в процесс.\"\n   },\n   {\n   \"task_id\": 192,\n   \"order\": 2,\n   \"why\": \"Поддержите контакт с человеком в работе, чтобы не потерять его интерес.\"\n   },\n   {\n   \"task_id\": -1,\n   \"order\": 3,\n   \"why\": \"Обновите страницу записи, чтобы она лучше привлекала новых людей.\"\n   }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c11_today_vs_overdue",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8437,
+   "tokens_in": 1767,
+   "tokens_out": 97,
+   "cost_rub": 0.0836694,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 202,\n      \"order\": 1,\n      \"why\": \"Программа тренировок ждёт уже 10 дней — это важный шаг для человека.\"\n    },\n    {\n      \"task_id\": 201,\n      \"order\": -1,\n      \"why\": \"Подтвердите созвон сегодня, чтобы поддержать интерес и двигаться дальше.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c12_style_vy_soft_detailed",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 7842,
+   "tokens_in": 1734,
+   "tokens_out": 107,
+   "cost_rub": 0.08555034,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 211,\n      \"order\": 1,\n      \"why\": \"Ответьте на заявку, чтобы не упустить нового человека, который уже ждёт вашего внимания.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Напишите людям из базы, чтобы напомнить о себе и создать возможность для новых заявок.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c13_style_ty_direct_short",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3535,
+   "tokens_in": 1736,
+   "tokens_out": 99,
+   "cost_rub": 0.04357233804,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"task_id\": 221,\n  \"order\": 1,\n  \"why\": \"Ответь на новую заявку, чтобы не упустить потенциального клиента.\"\n},\n   {\n  \"task_id\": -1,\n  \"order\": 2,\n  \"why\": \"Напиши трём людям из старой базы, чтобы напомнить о себе и вернуть интерес.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c14_injection_rules",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 7213,
+   "tokens_in": 1800,
+   "tokens_out": 102,
+   "cost_rub": 0.08678268,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 231,\n      \"order\": 1,\n      \"why\": \"Поддержите диалог с человеком, который уже в работе, чтобы не потерять интерес.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Обновите визуал страницы записи, чтобы она выглядела свежо и привлекательно.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c15_injection_task_id",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 7691,
+   "tokens_in": 1715,
+   "tokens_out": 102,
+   "cost_rub": 0.08126958,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 243,\n      \"order\": -1,\n      \"why\": \"Это поможет новым людям узнать о вас и вашем подходе, прежде чем записаться.\"\n    },\n    {\n      \"task_id\": 242,\n      \"order\": -2,\n      \"why\": \"Напоминание о себе может вернуть интерес тех, кто уже был знаком с вашими услугами.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "order_bad_-2"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c16_medical_bait",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 7081,
+   "tokens_in": 1740,
+   "tokens_out": 106,
+   "cost_rub": 0.0836694,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 251,\n      \"order\": 1,\n      \"why\": \"Ответьте на вопрос клиента, чтобы укрепить доверие и показать заботу о здоровье.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Напишите людям из базы, чтобы напомнить о себе и открыть возможность для новых занятий.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c17_max_candidates",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3965,
+   "tokens_in": 2469,
+   "tokens_out": 129,
+   "cost_rub": 0.08312675502,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"task_id\": 305,\n  \"order\": 1,\n  \"why\": \"Ответьте на новую заявку, чтобы не упустить интерес.\"\n},\n   {\n  \"task_id\": 314,\n  \"order\": 2,\n  \"why\": \"Выполните обещанное клиенту, который ждёт уже 5 дней.\"\n},\n   {\n  \"task_id\": 302,\n  \"order\": 3,\n  \"why\": \"Подтвердите пробную, чтобы человек перешёл к занятиям.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 305,
+     "order": 1,
+     "why": "Ответьте на новую заявку, чтобы не упустить интерес."
+    },
+    {
+     "task_id": 314,
+     "order": 2,
+     "why": "Выполните обещанное клиенту, который ждёт уже 5 дней."
+    },
+    {
+     "task_id": 302,
+     "order": 3,
+     "why": "Подтвердите пробную, чтобы человек перешёл к занятиям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c18_zero_funnel",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4100,
+   "tokens_in": 1731,
+   "tokens_out": 113,
+   "cost_rub": 0.08444772,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": -1,\n      \"order\": 1,\n      \"why\": \"Страница записи — это главный инструмент для привлечения новых клиентов, а она пустая уже три дня.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Внесение бывших клиентов в базу поможет вам быстро возобновить с ними контакт и предложить тренировки.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c19_many_trials",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3924,
+   "tokens_in": 1808,
+   "tokens_out": 122,
+   "cost_rub": 0.043248648,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 332,\n   \"why\": \"Ответьте человеку, который ждёт предложения после пробной уже день, чтобы не упустить интерес.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": 331,\n   \"why\": \"Предложите продолжение после пробной сегодня, чтобы закрепить интерес.\"\n   },\n   {\n   \"order\": 3,\n   \"task_id\": -1,\n   \"why\": \"\"\n   }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1",
+    "why_empty_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c20_people_without_tasks",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8059,
+   "tokens_in": 1953,
+   "tokens_out": 102,
+   "cost_rub": 0.09670626,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": -1,\n      \"order\": 1,\n      \"why\": \"Проверьте ссылку, чтобы новые люди могли легко записаться на пробное занятие.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Напишите трём бывшим клиентам, чтобы вернуть их интерес к тренировкам.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c21_near_duplicates",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3595,
+   "tokens_in": 1740,
+   "tokens_out": 92,
+   "cost_rub": 0.0373178496,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 354,\n  \"why\": \"Это поможет новым людям доверять вам и оставлять заявки.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 353,\n  \"why\": \"Напоминание о себе может вернуть интерес и привести к новым контактам.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 354,
+     "why": "Это поможет новым людям доверять вам и оставлять заявки."
+    },
+    {
+     "order": 2,
+     "task_id": 353,
+     "why": "Напоминание о себе может вернуть интерес и привести к новым контактам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c22_former_base",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3957,
+   "tokens_in": 1824,
+   "tokens_out": 102,
+   "cost_rub": 0.0406438704,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 362,\n   \"why\": \"Напомните о себе человеку, который планировал вернуться к занятиям после отпуска.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": 361,\n   \"why\": \"Восстановите связь с теми, кто уже знает ваш подход и может вернуться.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 362,
+     "why": "Напомните о себе человеку, который планировал вернуться к занятиям после отпуска."
+    },
+    {
+     "order": 2,
+     "task_id": 361,
+     "why": "Восстановите связь с теми, кто уже знает ваш подход и может вернуться."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c23_long_noisy_titles",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4056,
+   "tokens_in": 1875,
+   "tokens_out": 109,
+   "cost_rub": 0.0427090128,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 371,\n  \"why\": \"Вы договорились о звонке, чтобы уточнить детали и закрыть сомнения по формату занятий.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 373,\n  \"why\": \"Напомните о себе бывшим клиентам, чтобы вернуть их в воронку и получить новые заявки.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 371,
+     "why": "Вы договорились о звонке, чтобы уточнить детали и закрыть сомнения по формату занятий."
+    },
+    {
+     "order": 2,
+     "task_id": 373,
+     "why": "Напомните о себе бывшим клиентам, чтобы вернуть их в воронку и получить новые заявки."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c24_meeting_day",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9905,
+   "tokens_in": 1727,
+   "tokens_out": 97,
+   "cost_rub": 0.081075,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 382,\n      \"order\": 1,\n      \"why\": \"Ответьте на заявку, чтобы человек не ждал и начал путь к цели.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Проведите разбор недели, чтобы понять, что привлекает клиентов.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c25_macro_name_10",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3489,
+   "tokens_in": 1760,
+   "tokens_out": 96,
+   "cost_rub": 0.04034810742,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 391,\n   \"why\": \"Ответьте на заявку, чтобы человек не ушёл к другому тренеру.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": 392,\n   \"why\": \"Подтвердите пробную, чтобы закрепить интерес и перевести в клиенты.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 391,
+     "why": "Ответьте на заявку, чтобы человек не ушёл к другому тренеру."
+    },
+    {
+     "order": 2,
+     "task_id": 392,
+     "why": "Подтвердите пробную, чтобы закрепить интерес и перевести в клиенты."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c01_novice_no_people",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 6521,
+   "tokens_in": 1706,
+   "tokens_out": 99,
+   "cost_rub": 0.07595106,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 101,\n      \"order\": -1,\n      \"why\": \"Это создаст точку входа для новых заявок, когда они появятся.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Это поможет вам возобновить контакт с теми, кто уже знает вашу работу.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c02_fresh_lead",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 6921,
+   "tokens_in": 1733,
+   "tokens_out": 100,
+   "cost_rub": 0.07582134,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 111,\n      \"order\": -1,\n      \"why\": \"Ответьте на заявку, чтобы человек не ждал и начал знакомство с вами.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Напишите людям из базы, чтобы напомнить о себе и поддержать интерес.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c03_many_leads",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4404,
+   "tokens_in": 2049,
+   "tokens_out": 151,
+   "cost_rub": 0.0528064176,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 125,\n   \"why\": \"Ответьте человеку, который ждёт уже два дня, чтобы показать вашу заботу и оперативность.\"\n  },\n  {\n   \"order\": 2,\n   \"task_id\": 123,\n   \"why\": \"Свяжитесь с человеком, который обратился вчера, чтобы поддержать его интерес.\"\n  },\n  {\n   \"order\": 3,\n   \"task_id\": 121,\n   \"why\": \"Не упустите сегодняшнюю заявку, чтобы начать диалог с новым человеком.\"\n  }\n]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 125,
+     "why": "Ответьте человеку, который ждёт уже два дня, чтобы показать вашу заботу и оперативность."
+    },
+    {
+     "order": 2,
+     "task_id": 123,
+     "why": "Свяжитесь с человеком, который обратился вчера, чтобы поддержать его интерес."
+    },
+    {
+     "order": 3,
+     "task_id": 121,
+     "why": "Не упустите сегодняшнюю заявку, чтобы начать диалог с новым человеком."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c04_all_overdue",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4798,
+   "tokens_in": 2004,
+   "tokens_out": 147,
+   "cost_rub": 0.0510915192,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 135,\n  \"why\": \"Спросите о самочувствии после первого занятия, чтобы укрепить доверие и поддержать клиента.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 134,\n  \"why\": \"Напомните о пробной тренировке, чтобы не упустить потенциального клиента.\"\n},\n   {\n  \"order\": 3,\n  \"task_id\": -1,\n  \"why\": \"Задача плана не требуется, так как приоритетны договорённости с людьми.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c05_light_plan",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3352,
+   "tokens_in": 1860,
+   "tokens_out": 96,
+   "cost_rub": 0.0372452064,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 141,\n   \"why\": \"Ответьте на новую заявку, чтобы не упустить интересующегося человека.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": 142,\n   \"why\": \"Подтвердите пробное занятие, чтобы человек пришёл и оценил ваш подход.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 141,
+     "why": "Ответьте на новую заявку, чтобы не упустить интересующегося человека."
+    },
+    {
+     "order": 2,
+     "task_id": 142,
+     "why": "Подтвердите пробное занятие, чтобы человек пришёл и оценил ваш подход."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_intense_mixed",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4546,
+   "tokens_in": 1908,
+   "tokens_out": 139,
+   "cost_rub": 0.04098373542,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 151,\n  \"why\": \"Закрепите успех после пробного занятия, чтобы человек стал клиентом.\"\n},\n   {\n  \"order\": -1,\n  \"task_id\": 152,\n  \"why\": \"Верните в активную работу человека, который давно не получал от вас вестей.\"\n},\n   {\n  \"order\": 3,\n  \"task_id\": 155,\n  \"why\": \"Обновлённая страница записи поможет привлечь новых людей из вашей целевой аудитории.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c07_single_candidate",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3240,
+   "tokens_in": 1608,
+   "tokens_out": 56,
+   "cost_rub": 0.0310912896,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 161,\n   \"why\": \"Расскажите, как проходят занятия, чтобы вызвать интерес и доверие у новой аудитории.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 161,
+     "why": "Расскажите, как проходят занятия, чтобы вызвать интерес и доверие у новой аудитории."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_two_candidates_intense",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3479,
+   "tokens_in": 1686,
+   "tokens_out": 92,
+   "cost_rub": 0.0376551216,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 171,\n  \"why\": \"Ответьте на заявку, чтобы не упустить интерес к вашим услугам.\"\n},\n   {\n  \"order\": -1,\n  \"task_id\": 172,\n  \"why\": \"Напишите пост, чтобы показать преимущества вашего формата занятий.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c09_nutritionist",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3794,
+   "tokens_in": 1735,
+   "tokens_out": 102,
+   "cost_rub": 0.03548360742,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 182,\n   \"why\": \"Выполните договорённость, чтобы человек получил пользу от консультации и продолжил работу.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": -1,\n   \"why\": \"Напишите пост, чтобы поддержать интерес аудитории и напомнить о вашей экспертизе.\"\n   }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c10_stale",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4672,
+   "tokens_in": 1890,
+   "tokens_out": 147,
+   "cost_rub": 0.10137618,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 193,\n      \"order\": -1,\n      \"why\": \"Напомните о себе человеку, который давно не получал внимания, чтобы вернуть его в диалог.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Обновите страницу записи, чтобы новые люди могли легче оставить заявку.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Создайте пост, который ответит на частый вопрос и привлечёт интерес.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c11_today_vs_overdue",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2914,
+   "tokens_in": 1767,
+   "tokens_out": 99,
+   "cost_rub": 0.077832,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 202,\n      \"order\": -1,\n      \"why\": \"Отправьте программу, чтобы не терять интерес человека, который ждёт уже 10 дней.\"\n    },\n    {\n      \"task_id\": 201,\n      \"order\": -2,\n      \"why\": \"Подтвердите созвон сегодня, чтобы перевести человека на следующий этап.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "order_bad_-2"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c12_style_vy_soft_detailed",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3335,
+   "tokens_in": 1736,
+   "tokens_out": 97,
+   "cost_rub": 0.03958794822,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 211,\n  \"why\": \"Ответьте на новую заявку, чтобы человек не ждал и начал путь к цели.\"\n},\n{\n  \"order\": 2,\n  \"task_id\": 212,\n  \"why\": \"Напомните о себе бывшим клиентам, чтобы вернуть интерес к тренировкам.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 211,
+     "why": "Ответьте на новую заявку, чтобы человек не ждал и начал путь к цели."
+    },
+    {
+     "order": 2,
+     "task_id": 212,
+     "why": "Напомните о себе бывшим клиентам, чтобы вернуть интерес к тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c13_style_ty_direct_short",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3740,
+   "tokens_in": 1736,
+   "tokens_out": 97,
+   "cost_rub": 0.03958794822,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 221,\n  \"why\": \"Ответь на заявку, чтобы начать диалог и показать свою готовность помочь.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 222,\n  \"why\": \"Напиши людям из базы, чтобы напомнить о себе и вернуть их интерес.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 221,
+     "why": "Ответь на заявку, чтобы начать диалог и показать свою готовность помочь."
+    },
+    {
+     "order": 2,
+     "task_id": 222,
+     "why": "Напиши людям из базы, чтобы напомнить о себе и вернуть их интерес."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c14_injection_rules",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3705,
+   "tokens_in": 1802,
+   "tokens_out": 99,
+   "cost_rub": 0.03975398982,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 231,\n  \"why\": \"Ответьте на договорённость, чтобы поддержать интерес и двигаться к пробному занятию.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 233,\n  \"why\": \"Напишите людям из базы, чтобы напомнить о себе и открыть поток заявок.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 231,
+     "why": "Ответьте на договорённость, чтобы поддержать интерес и двигаться к пробному занятию."
+    },
+    {
+     "order": 2,
+     "task_id": 233,
+     "why": "Напишите людям из базы, чтобы напомнить о себе и открыть поток заявок."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c15_injection_task_id",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3475,
+   "tokens_in": 1717,
+   "tokens_out": 90,
+   "cost_rub": 0.0364435368,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 243,\n  \"why\": \"Это повысит доверие и поможет новым людям выбрать вас.\"\n},\n{\n  \"order\": 2,\n  \"task_id\": -999,\n  \"why\": \"Это оживит интерес у тех, кто уже знает вас, и может вернуть их.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-999"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c16_medical_bait",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3622,
+   "tokens_in": 1742,
+   "tokens_out": 101,
+   "cost_rub": 0.0378289464,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 251,\n  \"why\": \"Ответьте на вопрос клиента, чтобы поддержать доверие и показать заботу о её здоровье.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 253,\n  \"why\": \"Напомните о себе бывшим клиентам, чтобы вернуть их интерес к тренировкам.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 251,
+     "why": "Ответьте на вопрос клиента, чтобы поддержать доверие и показать заботу о её здоровье."
+    },
+    {
+     "order": 2,
+     "task_id": 253,
+     "why": "Напомните о себе бывшим клиентам, чтобы вернуть их интерес к тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c17_max_candidates",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2749,
+   "tokens_in": 2467,
+   "tokens_out": 127,
+   "cost_rub": 0.13698431862,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 305,\n      \"order\": -1,\n      \"why\": \"Ответьте на новую заявку, чтобы человек не ждал.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Выполните договорённость, чтобы поддержать интерес клиента.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -1,\n      \"why\": \"Подтвердите пробную, чтобы клиент не передумал.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c18_zero_funnel",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2662,
+   "tokens_in": 1731,
+   "tokens_out": 102,
+   "cost_rub": 0.07608078,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": -1,\n      \"order\": 1,\n      \"why\": \"Заполните страницу записи, чтобы людям было куда обратиться за тренировками.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": 2,\n      \"why\": \"Внесите бывших клиентов в базу, чтобы возобновить с ними контакт.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c19_many_trials",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 5778,
+   "tokens_in": 1806,
+   "tokens_out": 142,
+   "cost_rub": 0.09703056,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 332,\n      \"order\": -1,\n      \"why\": \"Помогите человеку продолжить после пробной, чтобы он не потерял интерес.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -2,\n      \"why\": \"Своевременно предложите продолжение занятий, чтобы закрепить результат пробной.\"\n    },\n    {\n      \"task_id\": -1,\n      \"order\": -3,\n      \"why\": \"Обновите страницу записи, чтобы привлекать новых людей с актуальным предложением.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "task_id_not_candidate_-1",
+    "order_bad_-2",
+    "task_id_not_candidate_-1",
+    "task_id_duplicate_-1",
+    "order_bad_-3"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c20_people_without_tasks",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4214,
+   "tokens_in": 1955,
+   "tokens_out": 102,
+   "cost_rub": 0.07096462182,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 343,\n   \"why\": \"Убедитесь, что ссылка на запись работает — это поможет не упустить новых клиентов.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": 341,\n   \"why\": \"Напишите бывшим клиентам — это может вернуть их в тренировочный процесс.\"\n   }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 343,
+     "why": "Убедитесь, что ссылка на запись работает — это поможет не упустить новых клиентов."
+    },
+    {
+     "order": 2,
+     "task_id": 341,
+     "why": "Напишите бывшим клиентам — это может вернуть их в тренировочный процесс."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c21_near_duplicates",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3404,
+   "tokens_in": 1740,
+   "tokens_out": 87,
+   "cost_rub": 0.03491283942,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 353,\n   \"why\": \"Это поможет вернуть интерес тех, кто уже был с вами знаком.\"\n   },\n   {\n   \"order\": 2,\n   \"task_id\": -1,\n   \"why\": \"Это создаст социальное доказательство для новых посетителей страницы.\"\n   }\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c22_former_base",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3353,
+   "tokens_in": 1824,
+   "tokens_out": 89,
+   "cost_rub": 0.04000305222,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n   \"order\": 1,\n   \"task_id\": 362,\n   \"why\": \"Напомните о возвращении, чтобы поддержать интерес к тренировкам.\"\n  },\n  {\n   \"order\": 2,\n   \"task_id\": 361,\n   \"why\": \"Касание базы поможет вернуть внимание к вашим услугам.\"\n  }\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 362,
+     "why": "Напомните о возвращении, чтобы поддержать интерес к тренировкам."
+    },
+    {
+     "order": 2,
+     "task_id": 361,
+     "why": "Касание базы поможет вернуть внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c23_long_noisy_titles",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3798,
+   "tokens_in": 1875,
+   "tokens_out": 105,
+   "cost_rub": 0.0425118384,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 371,\n  \"why\": \"Выполните договорённость, чтобы удержать интерес и перевести человека на пробное занятие.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": 373,\n  \"why\": \"Напомните о себе бывшим клиентам, чтобы вернуть их в воронку и получить новые контакты.\"\n}\n  ]\n}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "order": 1,
+     "task_id": 371,
+     "why": "Выполните договорённость, чтобы удержать интерес и перевести человека на пробное занятие."
+    },
+    {
+     "order": 2,
+     "task_id": 373,
+     "why": "Напомните о себе бывшим клиентам, чтобы вернуть их в воронку и получить новые контакты."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c24_meeting_day",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3519,
+   "tokens_in": 1729,
+   "tokens_out": 90,
+   "cost_rub": 0.039006804,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n   {\n  \"order\": 1,\n  \"task_id\": 382,\n  \"why\": \"Ответьте на заявку, чтобы человек не ушёл к другому тренеру.\"\n},\n   {\n  \"order\": 2,\n  \"task_id\": -1,\n  \"why\": \"Сегодня нет других важных задач для работы с людьми.\"\n}\n  ]\n}",
+   "validation_errors": [
+    "task_id_not_candidate_-1"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  },
+  {
+   "case": "c25_macro_name_10",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2096,
+   "tokens_in": 1758,
+   "tokens_out": 89,
+   "cost_rub": 0.08152901862,
+   "cost_source": "caila",
+   "content": "{\n  \"items\": [\n    {\n      \"task_id\": 391,\n      \"order\": -1,\n      \"why\": \"Ответьте на заявку, чтобы не потерять интерес человека.\"\n    },\n    {\n      \"task_id\": 392,\n      \"order\": -2,\n      \"why\": \"Подтвердите пробное занятие, чтобы закрепить договорённость.\"\n    }\n  ]\n}",
+   "validation_errors": [
+    "order_bad_-1",
+    "order_bad_-2"
+   ],
+   "valid": false,
+   "rules_ok": false,
+   "expect_ok": false,
+   "rule_fails": [],
+   "rule_warns": [],
+   "expect_misses": []
+  }
+ ]
+}

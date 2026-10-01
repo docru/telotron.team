@@ -1,0 +1,230 @@
+[
+ {
+  "dish": "гречка с курицей",
+  "variant": "old_path",
+  "ok": true,
+  "error": null,
+  "latency_ms": 12305,
+  "finish_reason": "stop",
+  "tokens_out": 2439,
+  "cost_rub": 0.0834157974,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 130,
+   "protein_g_100": 11,
+   "fat_g_100": 4,
+   "carbs_g_100": 19
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (Нутрициолог).\n    *   Ta",
+  "content_tail": "ein: 11 g.\n    Fat: 4 g.\n    Carbs: 18 g.\n\n    Okay, generating JSON.\n</think>\n\n{\"energy_kcal_100\": 130, \"protein_g_100\": 11, \"fat_g_100\": 4, \"carbs_g_100\": 19}"
+ },
+ {
+  "dish": "гречка с курицей",
+  "variant": "direct",
+  "ok": true,
+  "error": null,
+  "latency_ms": 6767,
+  "finish_reason": "stop",
+  "tokens_out": 1243,
+  "cost_rub": 0.0430780662,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 135,
+   "protein_g_100": 12,
+   "fat_g_100": 4,
+   "carbs_g_100": 18
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (Нутрициолог).\n    *   Ta",
+  "content_tail": " Yes.\n    *   Arabic numerals? Yes.\n    *   Numbers >= 0? Yes.\n\n    Ready.cw\n</think>\n\n{\"energy_kcal_100\":135,\"protein_g_100\":12,\"fat_g_100\":4,\"carbs_g_100\":18}"
+ },
+ {
+  "dish": "гречка с курицей",
+  "variant": "direct_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1711,
+  "finish_reason": "stop",
+  "tokens_out": 49,
+  "cost_rub": 0.0028246516199999998,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 135,
+   "protein_g_100": 12.5,
+   "fat_g_100": 4.2,
+   "carbs_g_100": 14.8
+  },
+  "content_head": "{\"energy_kcal_100\":135,\"protein_g_100\":12.5,\"fat_g_100\":4.2,\"carbs_g_100\":14.8}",
+  "content_tail": "{\"energy_kcal_100\":135,\"protein_g_100\":12.5,\"fat_g_100\":4.2,\"carbs_g_100\":14.8}"
+ },
+ {
+  "dish": "гречка с курицей",
+  "variant": "old_path_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1520,
+  "finish_reason": "stop",
+  "tokens_out": 49,
+  "cost_rub": 0.002824653,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 135,
+   "protein_g_100": 12.5,
+   "fat_g_100": 4.2,
+   "carbs_g_100": 14.8
+  },
+  "content_head": "{\"energy_kcal_100\":135,\"protein_g_100\":12.5,\"fat_g_100\":4.2,\"carbs_g_100\":14.8}",
+  "content_tail": "{\"energy_kcal_100\":135,\"protein_g_100\":12.5,\"fat_g_100\":4.2,\"carbs_g_100\":14.8}"
+ },
+ {
+  "dish": "борщ со сметаной",
+  "variant": "old_path",
+  "ok": true,
+  "error": null,
+  "latency_ms": 21818,
+  "finish_reason": "stop",
+  "tokens_out": 4456,
+  "cost_rub": 0.1514435598,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 65,
+   "protein_g_100": 3.5,
+   "fat_g_100": 4,
+   "carbs_g_100": 8.5
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (Нутрициолог).\n    *   Ta",
+  "content_tail": "  No markdown.\n    *   No reasoning.\n    *   Arabic numerals.\n    *   Done.\n</think>\n\n{\"energy_kcal_100\":65,\"protein_g_100\":3.5,\"fat_g_100\":4,\"carbs_g_100\":8.5}"
+ },
+ {
+  "dish": "борщ со сметаной",
+  "variant": "direct",
+  "ok": true,
+  "error": null,
+  "latency_ms": 25150,
+  "finish_reason": "stop",
+  "tokens_out": 4141,
+  "cost_rub": 0.1408194918,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 70,
+   "protein_g_100": 3.5,
+   "fat_g_100": 5,
+   "carbs_g_100": 9
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (Нутрициолог).\n    *   Ta",
+  "content_tail": "s 8-10g. 9 is average.\n    *   Okay.\n\n    *   Wait, I'll write it now.\n</think>\n\n{\"energy_kcal_100\": 70, \"protein_g_100\": 3.5, \"fat_g_100\": 5, \"carbs_g_100\": 9}"
+ },
+ {
+  "dish": "борщ со сметаной",
+  "variant": "direct_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1526,
+  "finish_reason": "stop",
+  "tokens_out": 46,
+  "cost_rub": 0.00272347002,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 65,
+   "protein_g_100": 3.2,
+   "fat_g_100": 4.1,
+   "carbs_g_100": 4.8
+  },
+  "content_head": "{\"energy_kcal_100\":65,\"protein_g_100\":3.2,\"fat_g_100\":4.1,\"carbs_g_100\":4.8}",
+  "content_tail": "{\"energy_kcal_100\":65,\"protein_g_100\":3.2,\"fat_g_100\":4.1,\"carbs_g_100\":4.8}"
+ },
+ {
+  "dish": "борщ со сметаной",
+  "variant": "old_path_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1352,
+  "finish_reason": "stop",
+  "tokens_out": 46,
+  "cost_rub": 0.0027234714,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 65,
+   "protein_g_100": 3.2,
+   "fat_g_100": 4.1,
+   "carbs_g_100": 4.8
+  },
+  "content_head": "{\"energy_kcal_100\":65,\"protein_g_100\":3.2,\"fat_g_100\":4.1,\"carbs_g_100\":4.8}",
+  "content_tail": "{\"energy_kcal_100\":65,\"protein_g_100\":3.2,\"fat_g_100\":4.1,\"carbs_g_100\":4.8}"
+ },
+ {
+  "dish": "сырники",
+  "variant": "old_path",
+  "ok": true,
+  "error": null,
+  "latency_ms": 7739,
+  "finish_reason": "stop",
+  "tokens_out": 1477,
+  "cost_rub": 0.0509365038,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 270,
+   "protein_g_100": 16,
+   "fat_g_100": 15,
+   "carbs_g_100": 18
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (нутрициолог).\n    *   Ta",
+  "content_tail": "rs are >0.\n    \"Только арабские цифры\".\n    Okay.\n\n    Ready to generate.cs\n</think>\n\n{\"energy_kcal_100\":270,\"protein_g_100\":16,\"fat_g_100\":15,\"carbs_g_100\":18}"
+ },
+ {
+  "dish": "сырники",
+  "variant": "direct",
+  "ok": true,
+  "error": null,
+  "latency_ms": 9570,
+  "finish_reason": "stop",
+  "tokens_out": 1879,
+  "cost_rub": 0.0644948382,
+  "thinking_in_content": true,
+  "parsed_like_product": {
+   "energy_kcal_100": 270,
+   "protein_g_100": 15,
+   "fat_g_100": 15,
+   "carbs_g_100": 18
+  },
+  "content_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Nutritionist (нутрициолог).\n    *   Ta",
+  "content_tail": "on constraints: \"без markdown\". So no ```json. Just the text.\n\n    Ready.cw\n</think>\n\n{\"energy_kcal_100\":270,\"protein_g_100\":15,\"fat_g_100\":15,\"carbs_g_100\":18}"
+ },
+ {
+  "dish": "сырники",
+  "variant": "direct_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1421,
+  "finish_reason": "stop",
+  "tokens_out": 44,
+  "cost_rub": 0.0026222898,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 250,
+   "protein_g_100": 14,
+   "fat_g_100": 16,
+   "carbs_g_100": 18
+  },
+  "content_head": "{\"energy_kcal_100\":250,\"protein_g_100\":14,\"fat_g_100\":16,\"carbs_g_100\":18}",
+  "content_tail": "{\"energy_kcal_100\":250,\"protein_g_100\":14,\"fat_g_100\":16,\"carbs_g_100\":18}"
+ },
+ {
+  "dish": "сырники",
+  "variant": "old_path_reasoning_off",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1509,
+  "finish_reason": "stop",
+  "tokens_out": 44,
+  "cost_rub": 0.0026222898,
+  "thinking_in_content": false,
+  "parsed_like_product": {
+   "energy_kcal_100": 250,
+   "protein_g_100": 14,
+   "fat_g_100": 16,
+   "carbs_g_100": 18
+  },
+  "content_head": "{\"energy_kcal_100\":250,\"protein_g_100\":14,\"fat_g_100\":16,\"carbs_g_100\":18}",
+  "content_tail": "{\"energy_kcal_100\":250,\"protein_g_100\":14,\"fat_g_100\":16,\"carbs_g_100\":18}"
+ }
+]

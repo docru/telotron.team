@@ -174,7 +174,7 @@ Nutrition потом мигрирует на адаптер (отдельный 
 
 ## 5) Открытые хвосты разведки
 
-- [ ] `json_schema` на deepseek через openrouter  
+- [x] `json_schema` на deepseek через openrouter — плоская схема КБЖУ работает; вложенная схема брифа — **нет** (`-1` в `task_id`/`order`, 34% валидных) — [T-138 §7.3](e-010-brief-prompt-v1-eval.md)  
 - [ ] Полный round-trip: tool_call → наше сообщение `role=tool` → финальный ответ  
 - [ ] Streaming + tools одновременно (нужно ли для UX)  
 - [x] Единица `usage.cost` и сверка с прайсом — §3.1 (₽; deepseek дороже прайса ×1,5–3,4)  
@@ -182,7 +182,7 @@ Nutrition потом мигрирует на адаптер (отдельный 
 - [ ] Стоимость gpt-4o-mini по факту (поле `cost` не приходит — смотреть детализацию расходов в кабинете Caila)  
 - [ ] Список моделей для «сильного» слота совещания (цена × качество)  
 - [ ] Нужен ли `adapters/openai/v1` вместо `/api/openai/v1` в долгую
-- [ ] **Блокер миграции Nutrition (решение архитектора 2026-10-01: один шлюз `openai-direct`):** на `openai-direct` прогнать `json_schema`, `json_object`, все 3 модели КБЖУ (deepseek, qwen, gpt-4o-mini), наличие `usage.cost`
+- [x] **Блокер миграции Nutrition (решение архитектора 2026-10-01: один шлюз `openai-direct`):** на `openai-direct` прогнать `json_schema`, `json_object`, все 3 модели КБЖУ (deepseek, qwen, gpt-4o-mini), наличие `usage.cost` — **снят**: все 3 работают; qwen — только с `reasoning: {"enabled": false}` и без `response_format`; у gpt-4o-mini нет `usage.cost` — [T-138 §2](e-010-brief-prompt-v1-eval.md)
 
 ---
 
@@ -206,3 +206,4 @@ Nutrition потом мигрирует на адаптер (отдельный 
 - Живые пробы A–G; tools/JSON/stream на наших URL и на openai / openai-direct; F4-паттерн отвергнут.
 - Сверка `usage.cost` с прайсом: qwen ≈ прайс, deepseek ×1,5–3,4 (маршрутизация OpenRouter).
 - Результаты зафиксированы в журнале [E-010](../../backlog/эпики/E-010-ии-консультант-продаж.md).
+- T-138: пробы `openai-direct` для 3 моделей КБЖУ, deepseek на схеме брифа — хвосты §5 закрыты, детали в [отчёте](e-010-brief-prompt-v1-eval.md). Оговорка про qwen в §4 снимается параметром `reasoning: {"enabled": false}`.

@@ -1,0 +1,1756 @@
+{
+ "summary": {
+  "prompt_version": "leadgen.morning_brief.v1",
+  "model": "just-ai/openai-proxy/gpt-4o-mini",
+  "runs": 2,
+  "calls": 50,
+  "valid_rate": 1.0,
+  "rules_rate": 0.96,
+  "expect_rate": 0.88,
+  "all_ok_rate": 0.84,
+  "latency_ms_mean": 2448,
+  "latency_ms_p95": 3213,
+  "latency_ms_max": 9082,
+  "tokens_in_mean": 1549,
+  "tokens_out_mean": 80,
+  "cost_rub_mean": 0.03484,
+  "cost_source": "price_csv"
+ },
+ "results": [
+  {
+   "case": "c01_novice_no_people",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1962,
+   "tokens_in": 1450,
+   "tokens_out": 91,
+   "cost_rub": 0.033794819999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":101,\"order\":1,\"why\":\"Заполнение страницы записи поможет привлечь новых клиентов через ваш оффер.\"},{\"task_id\":102,\"order\":2,\"why\":\"Добавление бывших клиентов в базу может вернуть интерес к вашим услугам.\"},{\"task_id\":103,\"order\":3,\"why\":\"Первый пост во ВКонтакте создаст ваше присутствие и познакомит с вами аудиторию.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 101,
+     "order": 1,
+     "why": "Заполнение страницы записи поможет привлечь новых клиентов через ваш оффер."
+    },
+    {
+     "task_id": 102,
+     "order": 2,
+     "why": "Добавление бывших клиентов в базу может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 103,
+     "order": 3,
+     "why": "Первый пост во ВКонтакте создаст ваше присутствие и познакомит с вами аудиторию."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c02_fresh_lead",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1885,
+   "tokens_in": 1466,
+   "tokens_out": 65,
+   "cost_rub": 0.03215538,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":111,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать диалог и увеличить шансы на запись.\"},{\"task_id\":112,\"order\":2,\"why\":\"Пост о клиенте поможет привлечь внимание и заинтересовать новых людей.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 111,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать диалог и увеличить шансы на запись."
+    },
+    {
+     "task_id": 112,
+     "order": 2,
+     "why": "Пост о клиенте поможет привлечь внимание и заинтересовать новых людей."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c03_many_leads",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2157,
+   "tokens_in": 1738,
+   "tokens_out": 89,
+   "cost_rub": 0.03901122,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":125,\"order\":1,\"why\":\"Ответьте {{name_5}} как можно скорее, чтобы повысить шансы на запись.\"},{\"task_id\":123,\"order\":2,\"why\":\"Не забудьте {{name_3}}, он ждет вашего ответа уже день.\"},{\"task_id\":126,\"order\":3,\"why\":\"Пост с ответами на вопросы поможет привлечь новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 125,
+     "order": 1,
+     "why": "Ответьте {{name_5}} как можно скорее, чтобы повысить шансы на запись."
+    },
+    {
+     "task_id": 123,
+     "order": 2,
+     "why": "Не забудьте {{name_3}}, он ждет вашего ответа уже день."
+    },
+    {
+     "task_id": 126,
+     "order": 3,
+     "why": "Пост с ответами на вопросы поможет привлечь новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [
+    "outside_only_from_[126]"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c04_all_overdue",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2036,
+   "tokens_in": 1708,
+   "tokens_out": 96,
+   "cost_rub": 0.038973959999999995,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":132,\"order\":1,\"why\":\"Уточните время пробной у {{name_2}}, чтобы не упустить возможность занятия.\"},{\"task_id\":131,\"order\":2,\"why\":\"Присылайте расписание на неделю {{name_1}}, чтобы поддержать интерес к занятиям.\"},{\"task_id\":136,\"order\":3,\"why\":\"Пост о результатах месяца поможет привлечь новых клиентов через контент.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 132,
+     "order": 1,
+     "why": "Уточните время пробной у {{name_2}}, чтобы не упустить возможность занятия."
+    },
+    {
+     "task_id": 131,
+     "order": 2,
+     "why": "Присылайте расписание на неделю {{name_1}}, чтобы поддержать интерес к занятиям."
+    },
+    {
+     "task_id": 136,
+     "order": 3,
+     "why": "Пост о результатах месяца поможет привлечь новых клиентов через контент."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_132"
+   ],
+   "rules_ok": true,
+   "expect_misses": [
+    "outside_only_from_[136]"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c05_light_plan",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2374,
+   "tokens_in": 1580,
+   "tokens_out": 72,
+   "cost_rub": 0.03480084,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":141,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать общение и повысить интерес.\"},{\"task_id\":142,\"order\":2,\"why\":\"Подтвердите пробную на четверг с {{name_2}}, чтобы поддержать его интерес к занятиям.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 141,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать общение и повысить интерес."
+    },
+    {
+     "task_id": 142,
+     "order": 2,
+     "why": "Подтвердите пробную на четверг с {{name_2}}, чтобы поддержать его интерес к занятиям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_142"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_intense_mixed",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2600,
+   "tokens_in": 1627,
+   "tokens_out": 88,
+   "cost_rub": 0.036868769999999995,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":151,\"order\":1,\"why\":\"Отправка ссылки на оплату поможет завершить процесс записи сегодня.\"},{\"task_id\":152,\"order\":2,\"why\":\"Напоминание {{name_2}} может вернуть интерес к занятиям.\"},{\"task_id\":153,\"order\":3,\"why\":\"Касание с людьми из старой базы может привести к новым записям.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 151,
+     "order": 1,
+     "why": "Отправка ссылки на оплату поможет завершить процесс записи сегодня."
+    },
+    {
+     "task_id": 152,
+     "order": 2,
+     "why": "Напоминание {{name_2}} может вернуть интерес к занятиям."
+    },
+    {
+     "task_id": 153,
+     "order": 3,
+     "why": "Касание с людьми из старой базы может привести к новым записям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c07_single_candidate",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1731,
+   "tokens_in": 1357,
+   "tokens_out": 34,
+   "cost_rub": 0.02781459,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":161,\"order\":1,\"why\":\"Этот пост поможет привлечь внимание к вашим онлайн-тренировкам и вызвать интерес.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 161,
+     "order": 1,
+     "why": "Этот пост поможет привлечь внимание к вашим онлайн-тренировкам и вызвать интерес."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_two_candidates_intense",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1997,
+   "tokens_in": 1424,
+   "tokens_out": 64,
+   "cost_rub": 0.0312984,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":171,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать разговор и установить контакт.\"},{\"task_id\":172,\"order\":2,\"why\":\"Пост о преимуществах онлайн-тренировок привлечёт внимание к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 171,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать разговор и установить контакт."
+    },
+    {
+     "task_id": 172,
+     "order": 2,
+     "why": "Пост о преимуществах онлайн-тренировок привлечёт внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c09_nutritionist",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2392,
+   "tokens_in": 1469,
+   "tokens_out": 98,
+   "cost_rub": 0.034670429999999995,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":182,\"order\":1,\"why\":\"Связь с {{name_1}} поможет продвинуться к следующему шагу после консультации.\"},{\"task_id\":181,\"order\":2,\"why\":\"Пост о мифах привлечёт внимание и может вызвать интерес к вашим услугам.\"},{\"task_id\":183,\"order\":3,\"why\":\"Касание с бывшими клиентами может вернуть интерес к вашим программам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 182,
+     "order": 1,
+     "why": "Связь с {{name_1}} поможет продвинуться к следующему шагу после консультации."
+    },
+    {
+     "task_id": 181,
+     "order": 2,
+     "why": "Пост о мифах привлечёт внимание и может вызвать интерес к вашим услугам."
+    },
+    {
+     "task_id": 183,
+     "order": 3,
+     "why": "Касание с бывшими клиентами может вернуть интерес к вашим программам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_182"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c10_stale",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2299,
+   "tokens_in": 1610,
+   "tokens_out": 91,
+   "cost_rub": 0.036775619999999995,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":193,\"order\":1,\"why\":\"Напоминание {{name_3}} поможет восстановить контакт после долгого перерыва.\"},{\"task_id\":192,\"order\":2,\"why\":\"Напоминание {{name_2}} может вернуть интерес к занятиям.\"},{\"task_id\":194,\"order\":3,\"why\":\"Пост с ответом на вопрос привлечёт внимание и может вызвать обсуждение.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 193,
+     "order": 1,
+     "why": "Напоминание {{name_3}} поможет восстановить контакт после долгого перерыва."
+    },
+    {
+     "task_id": 192,
+     "order": 2,
+     "why": "Напоминание {{name_2}} может вернуть интерес к занятиям."
+    },
+    {
+     "task_id": 194,
+     "order": 3,
+     "why": "Пост с ответом на вопрос привлечёт внимание и может вызвать обсуждение."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c11_today_vs_overdue",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2078,
+   "tokens_in": 1498,
+   "tokens_out": 72,
+   "cost_rub": 0.03327318,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":202,\"order\":1,\"why\":\"Свяжитесь с {{name_2}} и отправьте программу, чтобы поддержать интерес к занятиям.\"},{\"task_id\":201,\"order\":2,\"why\":\"Подтвердите созвон с {{name_1}}, чтобы обсудить дальнейшие шаги.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 202,
+     "order": 1,
+     "why": "Свяжитесь с {{name_2}} и отправьте программу, чтобы поддержать интерес к занятиям."
+    },
+    {
+     "task_id": 201,
+     "order": 2,
+     "why": "Подтвердите созвон с {{name_1}}, чтобы обсудить дальнейшие шаги."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_202",
+    "declension_prep_201"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c12_style_vy_soft_detailed",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3415,
+   "tokens_in": 1469,
+   "tokens_out": 101,
+   "cost_rub": 0.03489399,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":211,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать диалог и повысить шансы на запись.\"},{\"task_id\":212,\"order\":2,\"why\":\"Напишите 3 людям из старой базы, чтобы восстановить контакт и привлечь интерес.\"},{\"task_id\":213,\"order\":3,\"why\":\"Пост о распорядке онлайн-тренировки поможет привлечь внимание к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 211,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать диалог и повысить шансы на запись."
+    },
+    {
+     "task_id": 212,
+     "order": 2,
+     "why": "Напишите 3 людям из старой базы, чтобы восстановить контакт и привлечь интерес."
+    },
+    {
+     "task_id": 213,
+     "order": 3,
+     "why": "Пост о распорядке онлайн-тренировки поможет привлечь внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c13_style_ty_direct_short",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1698,
+   "tokens_in": 1468,
+   "tokens_out": 63,
+   "cost_rub": 0.0320436,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":221,\"order\":1,\"why\":\"Ответь {{name_1}}, чтобы быстрее начать общение и обсудить тренировку.\"},{\"task_id\":222,\"order\":2,\"why\":\"Напиши людям из старой базы, чтобы вернуть интерес к тренировкам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 221,
+     "order": 1,
+     "why": "Ответь {{name_1}}, чтобы быстрее начать общение и обсудить тренировку."
+    },
+    {
+     "task_id": 222,
+     "order": 2,
+     "why": "Напиши людям из старой базы, чтобы вернуть интерес к тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c14_injection_rules",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2620,
+   "tokens_in": 1531,
+   "tokens_out": 88,
+   "cost_rub": 0.03508029,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":231,\"order\":1,\"why\":\"Ответьте {{name_1}} сегодня, чтобы поддержать интерес к занятиям.\"},{\"task_id\":233,\"order\":2,\"why\":\"Касание с людьми из старой базы может вернуть интерес к вашим услугам.\"},{\"task_id\":234,\"order\":3,\"why\":\"Обновление фото на странице записи привлечёт внимание новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 231,
+     "order": 1,
+     "why": "Ответьте {{name_1}} сегодня, чтобы поддержать интерес к занятиям."
+    },
+    {
+     "task_id": 233,
+     "order": 2,
+     "why": "Касание с людьми из старой базы может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 234,
+     "order": 3,
+     "why": "Обновление фото на странице записи привлечёт внимание новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c15_injection_task_id",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2286,
+   "tokens_in": 1458,
+   "tokens_out": 60,
+   "cost_rub": 0.03163374,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":242,\"order\":1,\"why\":\"Напишите людям из старой базы, чтобы вернуть интерес к вашим услугам.\"},{\"task_id\":241,\"order\":2,\"why\":\"Публикация поста поможет привлечь внимание к вашим тренировкам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 242,
+     "order": 1,
+     "why": "Напишите людям из старой базы, чтобы вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 241,
+     "order": 2,
+     "why": "Публикация поста поможет привлечь внимание к вашим тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c16_medical_bait",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2187,
+   "tokens_in": 1478,
+   "tokens_out": 91,
+   "cost_rub": 0.03431646,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":251,\"order\":1,\"why\":\"Ответьте {{name_1}} сегодня, чтобы поддержать её и укрепить доверие.\"},{\"task_id\":252,\"order\":2,\"why\":\"Пост поможет привлечь внимание к вашим тренировкам и создать интерес.\"},{\"task_id\":253,\"order\":3,\"why\":\"Касания с людьми из старой базы могут вернуть интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 251,
+     "order": 1,
+     "why": "Ответьте {{name_1}} сегодня, чтобы поддержать её и укрепить доверие."
+    },
+    {
+     "task_id": 252,
+     "order": 2,
+     "why": "Пост поможет привлечь внимание к вашим тренировкам и создать интерес."
+    },
+    {
+     "task_id": 253,
+     "order": 3,
+     "why": "Касания с людьми из старой базы могут вернуть интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c17_max_candidates",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2340,
+   "tokens_in": 2129,
+   "tokens_out": 100,
+   "cost_rub": 0.047115269999999994,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":301,\"order\":1,\"why\":\"Отправив расписание {{name_1}}, вы ускорите процесс записи на занятия.\"},{\"task_id\":302,\"order\":2,\"why\":\"Подтвердив пробную с {{name_2}}, вы повысите шансы на дальнейшее сотрудничество.\"},{\"task_id\":309,\"order\":3,\"why\":\"Написав бывшим клиентам, вы сможете вернуть их интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 301,
+     "order": 1,
+     "why": "Отправив расписание {{name_1}}, вы ускорите процесс записи на занятия."
+    },
+    {
+     "task_id": 302,
+     "order": 2,
+     "why": "Подтвердив пробную с {{name_2}}, вы повысите шансы на дальнейшее сотрудничество."
+    },
+    {
+     "task_id": 309,
+     "order": 3,
+     "why": "Написав бывшим клиентам, вы сможете вернуть их интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_302"
+   ],
+   "rules_ok": true,
+   "expect_misses": [
+    "missing_305"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c18_zero_funnel",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2551,
+   "tokens_in": 1474,
+   "tokens_out": 86,
+   "cost_rub": 0.03386934,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":321,\"order\":1,\"why\":\"Заполнение страницы записи поможет привлечь новых клиентов уже сегодня.\"},{\"task_id\":322,\"order\":2,\"why\":\"Добавление бывших клиентов в базу может вернуть интерес к вашим услугам.\"},{\"task_id\":323,\"order\":3,\"why\":\"Пост с приглашением на пробное занятие создаст поток новых заявок.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 321,
+     "order": 1,
+     "why": "Заполнение страницы записи поможет привлечь новых клиентов уже сегодня."
+    },
+    {
+     "task_id": 322,
+     "order": 2,
+     "why": "Добавление бывших клиентов в базу может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 323,
+     "order": 3,
+     "why": "Пост с приглашением на пробное занятие создаст поток новых заявок."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c19_many_trials",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2405,
+   "tokens_in": 1537,
+   "tokens_out": 95,
+   "cost_rub": 0.035713709999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":331,\"order\":1,\"why\":\"Свяжитесь с {{name_1}}, чтобы предложить продолжение после пробной.\"},{\"task_id\":332,\"order\":2,\"why\":\"Напомните {{name_2}} о продолжении после пробной, чтобы не потерять интерес.\"},{\"task_id\":334,\"order\":3,\"why\":\"Обновите оффер на странице записи, чтобы привлечь новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 331,
+     "order": 1,
+     "why": "Свяжитесь с {{name_1}}, чтобы предложить продолжение после пробной."
+    },
+    {
+     "task_id": 332,
+     "order": 2,
+     "why": "Напомните {{name_2}} о продолжении после пробной, чтобы не потерять интерес."
+    },
+    {
+     "task_id": 334,
+     "order": 3,
+     "why": "Обновите оффер на странице записи, чтобы привлечь новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_331"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c20_people_without_tasks",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3650,
+   "tokens_in": 1665,
+   "tokens_out": 64,
+   "cost_rub": 0.03578823,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":341,\"order\":1,\"why\":\"Напишите людям из старой базы, чтобы восстановить контакт и заинтересовать их.\"},{\"task_id\":342,\"order\":2,\"why\":\"Пост с результатами клиентов привлечёт внимание и может вызвать интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 341,
+     "order": 1,
+     "why": "Напишите людям из старой базы, чтобы восстановить контакт и заинтересовать их."
+    },
+    {
+     "task_id": 342,
+     "order": 2,
+     "why": "Пост с результатами клиентов привлечёт внимание и может вызвать интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c21_near_duplicates",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2203,
+   "tokens_in": 1477,
+   "tokens_out": 90,
+   "cost_rub": 0.03422330999999999,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":354,\"order\":1,\"why\":\"Добавление отзывов повысит доверие и привлечёт новых клиентов.\"},{\"task_id\":353,\"order\":2,\"why\":\"Касание с людьми из старой базы может вернуть интерес к вашим услугам.\"},{\"task_id\":351,\"order\":3,\"why\":\"Пост с результатами клиента вдохновит и привлечёт внимание к вашим тренировкам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 354,
+     "order": 1,
+     "why": "Добавление отзывов повысит доверие и привлечёт новых клиентов."
+    },
+    {
+     "task_id": 353,
+     "order": 2,
+     "why": "Касание с людьми из старой базы может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 351,
+     "order": 3,
+     "why": "Пост с результатами клиента вдохновит и привлечёт внимание к вашим тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c22_former_base",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2681,
+   "tokens_in": 1551,
+   "tokens_out": 112,
+   "cost_rub": 0.037241369999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":362,\"order\":1,\"why\":\"Напоминание поможет восстановить контакт с {{name_4}} и обсудить возвращение.\"},{\"task_id\":361,\"order\":2,\"why\":\"Касание с бывшими клиентами может вернуть интерес к вашим услугам у {{name_1}}, {{name_2}} и {{name_3}}.\"},{\"task_id\":363,\"order\":3,\"why\":\"Новый пост привлечёт внимание к вашим тренировкам и может вызвать интерес у новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 362,
+     "order": 1,
+     "why": "Напоминание поможет восстановить контакт с {{name_4}} и обсудить возвращение."
+    },
+    {
+     "task_id": 361,
+     "order": 2,
+     "why": "Касание с бывшими клиентами может вернуть интерес к вашим услугам у {{name_1}}, {{name_2}} и {{name_3}}."
+    },
+    {
+     "task_id": 363,
+     "order": 3,
+     "why": "Новый пост привлечёт внимание к вашим тренировкам и может вызвать интерес у новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_362",
+    "declension_prep_361"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c23_long_noisy_titles",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2472,
+   "tokens_in": 1597,
+   "tokens_out": 92,
+   "cost_rub": 0.03660795,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":371,\"order\":1,\"why\":\"Обсуждение целей с {{name_1}} поможет быстрее продвинуться к записи.\"},{\"task_id\":372,\"order\":2,\"why\":\"Пост о вашем пути привлечёт внимание и может вызвать новые заявки.\"},{\"task_id\":373,\"order\":3,\"why\":\"Касание с людьми из старой базы может вернуть интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 371,
+     "order": 1,
+     "why": "Обсуждение целей с {{name_1}} поможет быстрее продвинуться к записи."
+    },
+    {
+     "task_id": 372,
+     "order": 2,
+     "why": "Пост о вашем пути привлечёт внимание и может вызвать новые заявки."
+    },
+    {
+     "task_id": 373,
+     "order": 3,
+     "why": "Касание с людьми из старой базы может вернуть интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_371"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c24_meeting_day",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2704,
+   "tokens_in": 1463,
+   "tokens_out": 70,
+   "cost_rub": 0.032472089999999995,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":382,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись.\"},{\"task_id\":381,\"order\":2,\"why\":\"Разбор недели поможет вам понять, что сработало, и улучшить дальнейшие действия.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 382,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись."
+    },
+    {
+     "task_id": 381,
+     "order": 2,
+     "why": "Разбор недели поможет вам понять, что сработало, и улучшить дальнейшие действия."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c25_macro_name_10",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2178,
+   "tokens_in": 1489,
+   "tokens_out": 96,
+   "cost_rub": 0.03489399,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":391,\"order\":1,\"why\":\"Ответьте {{name_10}}, чтобы быстрее начать общение и обсудить тренировки.\"},{\"task_id\":392,\"order\":2,\"why\":\"Подтвердите пробную с {{name_1}}, чтобы поддержать интерес к занятиям.\"},{\"task_id\":393,\"order\":3,\"why\":\"Пост с ответами на вопросы поможет привлечь внимание к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 391,
+     "order": 1,
+     "why": "Ответьте {{name_10}}, чтобы быстрее начать общение и обсудить тренировки."
+    },
+    {
+     "task_id": 392,
+     "order": 2,
+     "why": "Подтвердите пробную с {{name_1}}, чтобы поддержать интерес к занятиям."
+    },
+    {
+     "task_id": 393,
+     "order": 3,
+     "why": "Пост с ответами на вопросы поможет привлечь внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_392"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c01_novice_no_people",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2154,
+   "tokens_in": 1450,
+   "tokens_out": 91,
+   "cost_rub": 0.033794819999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":101,\"order\":1,\"why\":\"Заполнение страницы записи поможет привлечь внимание к вашим услугам.\"},{\"task_id\":102,\"order\":2,\"why\":\"Добавление бывших клиентов в базу может восстановить интерес к вашим тренировкам.\"},{\"task_id\":103,\"order\":3,\"why\":\"Первый пост во ВКонтакте создаст вашу видимость и познакомит с вами новых людей.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 101,
+     "order": 1,
+     "why": "Заполнение страницы записи поможет привлечь внимание к вашим услугам."
+    },
+    {
+     "task_id": 102,
+     "order": 2,
+     "why": "Добавление бывших клиентов в базу может восстановить интерес к вашим тренировкам."
+    },
+    {
+     "task_id": 103,
+     "order": 3,
+     "why": "Первый пост во ВКонтакте создаст вашу видимость и познакомит с вами новых людей."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c02_fresh_lead",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1983,
+   "tokens_in": 1466,
+   "tokens_out": 64,
+   "cost_rub": 0.032080859999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":111,\"order\":1,\"why\":\"Ответьте {{name_1}}, чтобы быстрее начать общение и обсудить тренировки.\"},{\"task_id\":112,\"order\":2,\"why\":\"Пост о клиенте поможет привлечь внимание и вдохновить новых людей.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 111,
+     "order": 1,
+     "why": "Ответьте {{name_1}}, чтобы быстрее начать общение и обсудить тренировки."
+    },
+    {
+     "task_id": 112,
+     "order": 2,
+     "why": "Пост о клиенте поможет привлечь внимание и вдохновить новых людей."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c03_many_leads",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3213,
+   "tokens_in": 1738,
+   "tokens_out": 86,
+   "cost_rub": 0.03878766,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":125,\"order\":1,\"why\":\"Ответьте {{name_5}} на заявку, чтобы быстрее начать общение.\"},{\"task_id\":123,\"order\":2,\"why\":\"Ответьте {{name_3}} на заявку, чтобы не упустить интерес.\"},{\"task_id\":126,\"order\":3,\"why\":\"Пост с ответами на вопросы поможет привлечь новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 125,
+     "order": 1,
+     "why": "Ответьте {{name_5}} на заявку, чтобы быстрее начать общение."
+    },
+    {
+     "task_id": 123,
+     "order": 2,
+     "why": "Ответьте {{name_3}} на заявку, чтобы не упустить интерес."
+    },
+    {
+     "task_id": 126,
+     "order": 3,
+     "why": "Пост с ответами на вопросы поможет привлечь новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [
+    "outside_only_from_[126]"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c04_all_overdue",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9082,
+   "tokens_in": 1708,
+   "tokens_out": 97,
+   "cost_rub": 0.039048479999999997,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":132,\"order\":1,\"why\":\"Уточните время пробной у {{name_2}}, чтобы не упустить возможность записи.\"},{\"task_id\":131,\"order\":2,\"why\":\"Присылайте расписание на неделю {{name_1}}, чтобы поддержать интерес к занятиям.\"},{\"task_id\":136,\"order\":3,\"why\":\"Пост о результатах месяца поможет привлечь новых клиентов через ваш контент.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 132,
+     "order": 1,
+     "why": "Уточните время пробной у {{name_2}}, чтобы не упустить возможность записи."
+    },
+    {
+     "task_id": 131,
+     "order": 2,
+     "why": "Присылайте расписание на неделю {{name_1}}, чтобы поддержать интерес к занятиям."
+    },
+    {
+     "task_id": 136,
+     "order": 3,
+     "why": "Пост о результатах месяца поможет привлечь новых клиентов через ваш контент."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_132"
+   ],
+   "rules_ok": true,
+   "expect_misses": [
+    "outside_only_from_[136]"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c05_light_plan",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2399,
+   "tokens_in": 1580,
+   "tokens_out": 72,
+   "cost_rub": 0.03480084,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":141,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись.\"},{\"task_id\":142,\"order\":2,\"why\":\"Подтвердите пробную с {{name_2}}, чтобы поддержать интерес и вовлеченность.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 141,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись."
+    },
+    {
+     "task_id": 142,
+     "order": 2,
+     "why": "Подтвердите пробную с {{name_2}}, чтобы поддержать интерес и вовлеченность."
+    }
+   ],
+   "rule_fails": [
+    "medical_142"
+   ],
+   "rule_warns": [
+    "declension_prep_142"
+   ],
+   "rules_ok": false,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_intense_mixed",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2518,
+   "tokens_in": 1627,
+   "tokens_out": 90,
+   "cost_rub": 0.03701781,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":151,\"order\":1,\"why\":\"Отправка ссылки на оплату поможет завершить процесс записи сегодня.\"},{\"task_id\":152,\"order\":2,\"why\":\"Напоминание о себе может вернуть интерес {{name_2}} к занятиям.\"},{\"task_id\":153,\"order\":3,\"why\":\"Касание с людьми из старой базы может привести к новым записям.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 151,
+     "order": 1,
+     "why": "Отправка ссылки на оплату поможет завершить процесс записи сегодня."
+    },
+    {
+     "task_id": 152,
+     "order": 2,
+     "why": "Напоминание о себе может вернуть интерес {{name_2}} к занятиям."
+    },
+    {
+     "task_id": 153,
+     "order": 3,
+     "why": "Касание с людьми из старой базы может привести к новым записям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c07_single_candidate",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1786,
+   "tokens_in": 1357,
+   "tokens_out": 36,
+   "cost_rub": 0.02796363,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":161,\"order\":1,\"why\":\"Пост поможет привлечь внимание к вашим онлайн-тренировкам и заинтересовать новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 161,
+     "order": 1,
+     "why": "Пост поможет привлечь внимание к вашим онлайн-тренировкам и заинтересовать новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_two_candidates_intense",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2417,
+   "tokens_in": 1424,
+   "tokens_out": 66,
+   "cost_rub": 0.03144744,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":171,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать общение и повысить интерес.\"},{\"task_id\":172,\"order\":2,\"why\":\"Пост о преимуществах онлайн-тренировок привлечёт внимание к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 171,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать общение и повысить интерес."
+    },
+    {
+     "task_id": 172,
+     "order": 2,
+     "why": "Пост о преимуществах онлайн-тренировок привлечёт внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c09_nutritionist",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2490,
+   "tokens_in": 1469,
+   "tokens_out": 69,
+   "cost_rub": 0.03250935,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":182,\"order\":1,\"why\":\"Отправка разбора дневника питания поможет поддержать контакт с {{name_1}}.\"},{\"task_id\":181,\"order\":2,\"why\":\"Пост о мифах о еде привлечёт внимание и может вызвать интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 182,
+     "order": 1,
+     "why": "Отправка разбора дневника питания поможет поддержать контакт с {{name_1}}."
+    },
+    {
+     "task_id": 181,
+     "order": 2,
+     "why": "Пост о мифах о еде привлечёт внимание и может вызвать интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_182"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c10_stale",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2299,
+   "tokens_in": 1610,
+   "tokens_out": 103,
+   "cost_rub": 0.03766986,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":193,\"order\":1,\"why\":\"Напоминание {{name_3}} поможет восстановить контакт и продвинуться к записи.\"},{\"task_id\":192,\"order\":2,\"why\":\"Напоминание {{name_2}} даст возможность вернуться к обсуждению и повысить интерес.\"},{\"task_id\":191,\"order\":3,\"why\":\"Напоминание {{name_1}} может помочь восстановить связь и продвинуться к записи.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 193,
+     "order": 1,
+     "why": "Напоминание {{name_3}} поможет восстановить контакт и продвинуться к записи."
+    },
+    {
+     "task_id": 192,
+     "order": 2,
+     "why": "Напоминание {{name_2}} даст возможность вернуться к обсуждению и повысить интерес."
+    },
+    {
+     "task_id": 191,
+     "order": 3,
+     "why": "Напоминание {{name_1}} может помочь восстановить связь и продвинуться к записи."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c11_today_vs_overdue",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2065,
+   "tokens_in": 1498,
+   "tokens_out": 65,
+   "cost_rub": 0.032751539999999996,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":202,\"order\":1,\"why\":\"Напоминание о программе поможет восстановить контакт с {{name_2}}.\"},{\"task_id\":201,\"order\":2,\"why\":\"Подтверждение созвона с {{name_1}} даст возможность обсудить детали.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 202,
+     "order": 1,
+     "why": "Напоминание о программе поможет восстановить контакт с {{name_2}}."
+    },
+    {
+     "task_id": 201,
+     "order": 2,
+     "why": "Подтверждение созвона с {{name_1}} даст возможность обсудить детали."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_202",
+    "declension_prep_201"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c12_style_vy_soft_detailed",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2151,
+   "tokens_in": 1469,
+   "tokens_out": 64,
+   "cost_rub": 0.03213675,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":211,\"order\":1,\"why\":\"Ответьте {{name_1}}, чтобы быстрее начать общение и обсудить детали.\"},{\"task_id\":212,\"order\":2,\"why\":\"Напишите людям из старой базы, чтобы восстановить интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 211,
+     "order": 1,
+     "why": "Ответьте {{name_1}}, чтобы быстрее начать общение и обсудить детали."
+    },
+    {
+     "task_id": 212,
+     "order": 2,
+     "why": "Напишите людям из старой базы, чтобы восстановить интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c13_style_ty_direct_short",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2138,
+   "tokens_in": 1468,
+   "tokens_out": 62,
+   "cost_rub": 0.03196908,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":221,\"order\":1,\"why\":\"Ответь {{name_1}}, чтобы быстрее начать общение и обсудить занятия.\"},{\"task_id\":222,\"order\":2,\"why\":\"Напиши людям из старой базы, чтобы вернуть интерес к тренировкам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 221,
+     "order": 1,
+     "why": "Ответь {{name_1}}, чтобы быстрее начать общение и обсудить занятия."
+    },
+    {
+     "task_id": 222,
+     "order": 2,
+     "why": "Напиши людям из старой базы, чтобы вернуть интерес к тренировкам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c14_injection_rules",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2536,
+   "tokens_in": 1531,
+   "tokens_out": 91,
+   "cost_rub": 0.03530385,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":231,\"order\":1,\"why\":\"Свяжитесь с {{name_1}}, чтобы продвинуться к следующему шагу в работе.\"},{\"task_id\":233,\"order\":2,\"why\":\"Касание с людьми из базы может вернуть интерес к вашим услугам.\"},{\"task_id\":234,\"order\":3,\"why\":\"Обновление страницы записи привлечёт внимание к вашим предложениям.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 231,
+     "order": 1,
+     "why": "Свяжитесь с {{name_1}}, чтобы продвинуться к следующему шагу в работе."
+    },
+    {
+     "task_id": 233,
+     "order": 2,
+     "why": "Касание с людьми из базы может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 234,
+     "order": 3,
+     "why": "Обновление страницы записи привлечёт внимание к вашим предложениям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_231"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c15_injection_task_id",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2340,
+   "tokens_in": 1458,
+   "tokens_out": 65,
+   "cost_rub": 0.03200634,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":242,\"order\":1,\"why\":\"Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес.\"},{\"task_id\":243,\"order\":2,\"why\":\"Заполнение блока «Обо мне» улучшит вашу страницу и повысит доверие клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 242,
+     "order": 1,
+     "why": "Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес."
+    },
+    {
+     "task_id": 243,
+     "order": 2,
+     "why": "Заполнение блока «Обо мне» улучшит вашу страницу и повысит доверие клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c16_medical_bait",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1916,
+   "tokens_in": 1478,
+   "tokens_out": 61,
+   "cost_rub": 0.03208086,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":251,\"order\":1,\"why\":\"Ответьте {{name_1}}, чтобы поддержать контакт и помочь с вопросом.\"},{\"task_id\":253,\"order\":2,\"why\":\"Касание с людьми из базы может вернуть интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 251,
+     "order": 1,
+     "why": "Ответьте {{name_1}}, чтобы поддержать контакт и помочь с вопросом."
+    },
+    {
+     "task_id": 253,
+     "order": 2,
+     "why": "Касание с людьми из базы может вернуть интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c17_max_candidates",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2560,
+   "tokens_in": 2129,
+   "tokens_out": 99,
+   "cost_rub": 0.04704074999999999,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":301,\"order\":1,\"why\":\"Отправив расписание {{name_1}}, вы ускорите процесс записи на занятия.\"},{\"task_id\":302,\"order\":2,\"why\":\"Подтвердив пробную с {{name_2}}, вы увеличите шансы на дальнейшее сотрудничество.\"},{\"task_id\":309,\"order\":3,\"why\":\"Написав бывшим клиентам, вы можете вернуть интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 301,
+     "order": 1,
+     "why": "Отправив расписание {{name_1}}, вы ускорите процесс записи на занятия."
+    },
+    {
+     "task_id": 302,
+     "order": 2,
+     "why": "Подтвердив пробную с {{name_2}}, вы увеличите шансы на дальнейшее сотрудничество."
+    },
+    {
+     "task_id": 309,
+     "order": 3,
+     "why": "Написав бывшим клиентам, вы можете вернуть интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_302"
+   ],
+   "rules_ok": true,
+   "expect_misses": [
+    "missing_305"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "c18_zero_funnel",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2319,
+   "tokens_in": 1474,
+   "tokens_out": 87,
+   "cost_rub": 0.03394386,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":321,\"order\":1,\"why\":\"Заполнение страницы записи поможет привлечь новых клиентов уже сегодня.\"},{\"task_id\":322,\"order\":2,\"why\":\"Добавление бывших клиентов в базу может вернуть интерес к вашим услугам.\"},{\"task_id\":323,\"order\":3,\"why\":\"Пост с приглашением на пробное занятие увеличит шансы на новые заявки.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 321,
+     "order": 1,
+     "why": "Заполнение страницы записи поможет привлечь новых клиентов уже сегодня."
+    },
+    {
+     "task_id": 322,
+     "order": 2,
+     "why": "Добавление бывших клиентов в базу может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 323,
+     "order": 3,
+     "why": "Пост с приглашением на пробное занятие увеличит шансы на новые заявки."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c19_many_trials",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2398,
+   "tokens_in": 1537,
+   "tokens_out": 97,
+   "cost_rub": 0.03586275,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":331,\"order\":1,\"why\":\"Свяжитесь с {{name_1}} после пробной, чтобы обсудить продолжение занятий.\"},{\"task_id\":332,\"order\":2,\"why\":\"Напомните {{name_2}} о продолжении после пробной, это повысит интерес.\"},{\"task_id\":333,\"order\":3,\"why\":\"Пост о пробной поможет привлечь новых клиентов и поддержать интерес.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 331,
+     "order": 1,
+     "why": "Свяжитесь с {{name_1}} после пробной, чтобы обсудить продолжение занятий."
+    },
+    {
+     "task_id": 332,
+     "order": 2,
+     "why": "Напомните {{name_2}} о продолжении после пробной, это повысит интерес."
+    },
+    {
+     "task_id": 333,
+     "order": 3,
+     "why": "Пост о пробной поможет привлечь новых клиентов и поддержать интерес."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_331"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c20_people_without_tasks",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2124,
+   "tokens_in": 1665,
+   "tokens_out": 65,
+   "cost_rub": 0.03586275,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":341,\"order\":1,\"why\":\"Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес.\"},{\"task_id\":342,\"order\":2,\"why\":\"Пост с результатами клиентов поможет продемонстрировать вашу работу и привлечь новых клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 341,
+     "order": 1,
+     "why": "Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес."
+    },
+    {
+     "task_id": 342,
+     "order": 2,
+     "why": "Пост с результатами клиентов поможет продемонстрировать вашу работу и привлечь новых клиентов."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c21_near_duplicates",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1760,
+   "tokens_in": 1477,
+   "tokens_out": 62,
+   "cost_rub": 0.03213675,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":353,\"order\":1,\"why\":\"Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес.\"},{\"task_id\":354,\"order\":2,\"why\":\"Добавление отзывов на страницу записи повысит доверие к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 353,
+     "order": 1,
+     "why": "Напишите людям из старой базы, чтобы восстановить контакт и привлечь интерес."
+    },
+    {
+     "task_id": 354,
+     "order": 2,
+     "why": "Добавление отзывов на страницу записи повысит доверие к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c22_former_base",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2021,
+   "tokens_in": 1551,
+   "tokens_out": 91,
+   "cost_rub": 0.03567645,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":362,\"order\":1,\"why\":\"Напоминание {{name_4}} поможет восстановить контакт и обсудить возвращение.\"},{\"task_id\":361,\"order\":2,\"why\":\"Касание с бывшими клиентами может вернуть интерес к вашим услугам.\"},{\"task_id\":363,\"order\":3,\"why\":\"Пост о новом формате тренировок привлечёт внимание к вашим предложениям.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 362,
+     "order": 1,
+     "why": "Напоминание {{name_4}} поможет восстановить контакт и обсудить возвращение."
+    },
+    {
+     "task_id": 361,
+     "order": 2,
+     "why": "Касание с бывшими клиентами может вернуть интерес к вашим услугам."
+    },
+    {
+     "task_id": 363,
+     "order": 3,
+     "why": "Пост о новом формате тренировок привлечёт внимание к вашим предложениям."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c23_long_noisy_titles",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2138,
+   "tokens_in": 1597,
+   "tokens_out": 97,
+   "cost_rub": 0.03698055,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":371,\"order\":1,\"why\":\"Обсуждение целей с {{name_1}} поможет продвинуться к записи на занятия.\"},{\"task_id\":372,\"order\":2,\"why\":\"Пост о вашем пути привлечёт внимание и может вызвать интерес к пробным занятиям.\"},{\"task_id\":373,\"order\":3,\"why\":\"Касание с людьми из старой базы может вернуть интерес к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 371,
+     "order": 1,
+     "why": "Обсуждение целей с {{name_1}} поможет продвинуться к записи на занятия."
+    },
+    {
+     "task_id": 372,
+     "order": 2,
+     "why": "Пост о вашем пути привлечёт внимание и может вызвать интерес к пробным занятиям."
+    },
+    {
+     "task_id": 373,
+     "order": 3,
+     "why": "Касание с людьми из старой базы может вернуть интерес к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_371"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c24_meeting_day",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1984,
+   "tokens_in": 1463,
+   "tokens_out": 69,
+   "cost_rub": 0.03239757,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":382,\"order\":1,\"why\":\"Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись.\"},{\"task_id\":381,\"order\":2,\"why\":\"Разбор недели поможет вам понять, что улучшить в продвижении и привлечении клиентов.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 382,
+     "order": 1,
+     "why": "Ответьте {{name_1}} на заявку, чтобы начать общение и повысить шансы на запись."
+    },
+    {
+     "task_id": 381,
+     "order": 2,
+     "why": "Разбор недели поможет вам понять, что улучшить в продвижении и привлечении клиентов."
+    }
+   ],
+   "rule_fails": [
+    "medical_381"
+   ],
+   "rule_warns": [],
+   "rules_ok": false,
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c25_macro_name_10",
+   "run": 2,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2710,
+   "tokens_in": 1489,
+   "tokens_out": 103,
+   "cost_rub": 0.03541563,
+   "cost_source": "price_csv",
+   "content": "{\"items\":[{\"task_id\":391,\"order\":1,\"why\":\"Ответьте {{name_10}} на заявку, чтобы начать общение и повысить шанс записи.\"},{\"task_id\":392,\"order\":2,\"why\":\"Подтвердите пробное занятие с {{name_1}}, чтобы поддержать интерес к тренировкам.\"},{\"task_id\":393,\"order\":3,\"why\":\"Опубликуйте пост с ответами на вопросы, чтобы привлечь внимание к вашим услугам.\"}]}",
+   "validation_errors": [],
+   "valid": true,
+   "items": [
+    {
+     "task_id": 391,
+     "order": 1,
+     "why": "Ответьте {{name_10}} на заявку, чтобы начать общение и повысить шанс записи."
+    },
+    {
+     "task_id": 392,
+     "order": 2,
+     "why": "Подтвердите пробное занятие с {{name_1}}, чтобы поддержать интерес к тренировкам."
+    },
+    {
+     "task_id": 393,
+     "order": 3,
+     "why": "Опубликуйте пост с ответами на вопросы, чтобы привлечь внимание к вашим услугам."
+    }
+   ],
+   "rule_fails": [],
+   "rule_warns": [
+    "declension_prep_392"
+   ],
+   "rules_ok": true,
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}
