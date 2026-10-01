@@ -52,5 +52,6 @@
 | T-089 | Nutrition diary v2 · Client UI |
 | T-090 | Nutrition diary v2 · Pro calendar feed |
 | T-091 | Nutrition diary v2 · outbox, доки, sign-off |
+| T-138 | E-010 · промпт утреннего брифа v1 + проверочный набор · [E-010](../эпики/E-010-ии-консультант-продаж.md) |
 
 *Обновлено 2026-07-06 · E-004, E-005 закрыты.*

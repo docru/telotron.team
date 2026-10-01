@@ -20,8 +20,6 @@
 | [T-110](T-110-nutrition-ii-ansambl-kbju.md) | ИИ-ансамбль КБЖУ | — | `in_progress` · журнал 08.08 |
 | [T-111](T-111-auth-oauth-vk-yandex-telefon.md) | Auth: VK/Яндекс + телефон | — | `in_progress` · разработка · журнал 10.08 |
 | [T-112](T-112-raspisanie-rabochiy-den-zapis.md) | Расписание: рабочий день + запись | — | `in_progress` · ветка `feat/t-112-work-day-schedule` (последний коммит 20.09), в `main` нет |
-| [T-138](T-138-e010-промпт-бриф-golden-set.md) | E-010 · промпт брифа v1 + проверочный набор (LLM-инженер) | — | `in_progress` · взят 01.10 |
-
 ---
 
 ## Активные · маркетинг / PO

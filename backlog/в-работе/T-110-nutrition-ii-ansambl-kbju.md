@@ -257,3 +257,9 @@
 - Реализация: миграции + сервисы (normalizer B, catalog, Caila ensemble, rate limit, crowd promote); API `nutrition-kbju/suggest` + `ai-estimate`; lightbox лупа+ИИ / без barcode; Pro compact+ДИ; техдок; `build.pro` 252 / `build.client` 239. PHPUnit+Vitest T-110 зелёные. **Выкат** (migrate + `CAILA_*` в prod `.env` + deploy `--npm`) — отдельно по запросу.
 - **Q23 закрыт:** ансамбль = **Deepseek V3.2** + **Qwen3.5 Flash 02.23** + **Gpt 4o Mini** (отвергнуты Qwen 2.5 7b / Llama 3.3 70b как слабее по RU/JSON при той же копеечной цене). Бюджет ≈0,02 ₽/ансамбль. Прайс: `Команда/01-Директор/caila-llm-prices.csv`.
 - Model id (локальный `.env` / пример): `openrouter:deepseek/deepseek-v3.2`, `openrouter:qwen/qwen3.5-flash-02-23`, `openai:gpt-4o-mini`; клиент — Bearer + OpenRouter/OpenAI base URL (не adapters/openai).
+
+### 2026-10-01 (LLM-инженер · пробы для T-135/T-138)
+
+- **Дефект: qwen3.5-flash «думает» в текущем пути** (`/api/providers/openrouter/v1`, промпт КБЖУ дословно): в `content` — рассуждения на 1,5–4,5 тыс. токенов, 7,7–21,8 с, **0,05–0,15 ₽ за один вызов** (бюджет 0,02 ₽ на весь ансамбль); при таймауте 20 с часть ответов теряется. Исправление: в тело запроса qwen `"reasoning": {"enabled": false}` → чистый JSON, 44–49 токенов, ~1,5 с, ~0,003 ₽. `response_format` для qwen не передавать (`json_object`/`json_schema` дают мусор вроде `1.05e+14`). Рекомендация — поправить, не дожидаясь переезда в T-135.
+- **Качество: deepseek иногда отдаёт `protein_g_100: -1`** (3 из 7 ответов, похоже на «не знаю»); агрегатор обнуляет отрицательное → занижает среднее. Рекомендация — отрицательное значение считать невалидным (исключать ответ/поле), а не 0.
+- Подробности: [отчёт T-138 §2](../../11-AI-инженер/Работа/e-010-brief-prompt-v1-eval.md).
