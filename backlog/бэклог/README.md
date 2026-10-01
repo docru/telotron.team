@@ -24,7 +24,7 @@
 | [T-048](T-048-спринт2-vk-пакет-запуска.md) | `backlog` · частично | VK пакет · хвост чеклист/календарь |
 | [T-049](T-049-спринт2-личные-связи-реестр.md) | `backlog` · частично | Реестр ≥40 |
 | [T-051](T-051-спринт2-qm-юр-тексты.md) | `backlog` | Q-M юр. тексты постов |
-| [T-052](T-052-тз-crm-продвижение-pilot.md) | `backlog` | ТЗ CRM (Filament — позже) |
+| [T-052](T-052-тз-crm-продвижение-пилот.md) | `backlog` | ТЗ CRM (Filament — позже) |
 | [T-056](T-056-скрины-pro-vk-пилот.md) | `backlog` · частично | Альбом VK |
 | [T-065](T-065-pro-onboarding-порядок-подготовка-клиент.md) | `backlog` · P1 | Порядок шагов мастера |
 
@@ -47,79 +47,103 @@
 
 **Закрыты (сделано):** [T-088](../сделано/T-088-nutrition-diary-v2-schema-api.md)…[T-091](../сделано/T-091-nutrition-diary-v2-outbox-sign-off.md).
 
-## Commerce · [E-001](../эпики/E-001-commerce-модуль.md) · stage к 31.07 / prod 01.08
+## Commerce · [E-001](../эпики/E-001-commerce-модуль.md) · I-003 · prod янв 2027
+
+Код T-027…T-036 лежит в ветке **`commerce`** (08.07), в `main` не слит. Критерии написаны под тарифы — до включения денег переписать под клиенто-день (DEC-007).
 
 | ID | Статус | Фокус |
 |----|--------|-------|
-| [T-027](T-027-commerce-foundation-ledger.md) | `backlog` | Foundation |
-| [T-028](T-028-commerce-тарифы-статусы-триал.md) | `backlog` | Тарифы |
-| [T-029](T-029-commerce-платежи-yookassa.md) | `backlog` | YooKassa |
-| [T-030](T-030-commerce-daily-debit-freeze.md) | `backlog` | Debit + freeze |
-| [T-031](T-031-commerce-gating-api.md) | `backlog` | Gating + API |
-| [T-032](T-032-commerce-купоны.md) | `backlog` | Купоны |
-| [T-033](T-033-commerce-pro-ui.md) | `backlog` | Pro UI |
-| [T-034](T-034-commerce-admin-filament.md) | `backlog` | Admin |
-| [T-035](T-035-commerce-напоминания-триала.md) | `backlog` | Trial reminders |
-| [T-036](T-036-commerce-stage-sign-off.md) | `backlog` | Stage sign-off |
-| [T-047](T-047-commerce-public-тарифы.md) | `backlog` · P2 | Public `/tariffs` |
+| [T-027](T-027-commerce-foundation-ledger.md) | `backlog` · код в ветке | Foundation |
+| [T-028](T-028-commerce-тарифы-статусы-триал.md) | `backlog` · код в ветке | Тарифы → клиенто-день |
+| [T-029](T-029-commerce-платежи-yookassa.md) | `backlog` · код в ветке | YooKassa |
+| [T-030](T-030-commerce-daily-debit-freeze.md) | `backlog` · код в ветке | Debit + freeze |
+| [T-031](T-031-commerce-gating-api.md) | `backlog` · код в ветке | Gating + API |
+| [T-032](T-032-commerce-купоны.md) | `backlog` · код в ветке | Купоны |
+| [T-033](T-033-commerce-pro-ui.md) | `backlog` · код в ветке | Pro UI |
+| [T-034](T-034-commerce-admin-filament.md) | `backlog` · код в ветке | Admin |
+| [T-035](T-035-commerce-напоминания-триала.md) | `backlog` · код в ветке | Trial reminders |
+| [T-036](T-036-commerce-stage-sign-off.md) | `backlog` · код в ветке | Stage sign-off |
+| [T-047](T-047-commerce-public-тарифы.md) | `backlog` · P2 | Public `/tariffs` (пересмотреть под DEC-007) |
 
-## Partner · [E-002](../эпики/E-002-partner-модуль.md) · stage к 31.07
+## Partner · [E-002](../эпики/E-002-partner-модуль.md) · prod вместе с Commerce
+
+Код T-038…T-046 лежит в ветке **`partner`** (09.07), в `main` не слит (отстаёт на 84 коммита). В `main` уже есть головной партнёр и пересылка входящих ([T-093](../сделано/T-093-head-partner-атрибуция.md), [T-099](../сделано/T-099-канал-тренера-пересылка-сообщений-головному-партнёру.md)).
 
 | ID | Статус | Фокус |
 |----|--------|-------|
 | [T-092](T-092-legal-партнёрская-программа-пакет-документов.md) | `backlog` · P1 · **юрист** | Пакет юрдокументов |
-| [T-038](T-038-partner-foundation-config.md) | `backlog` | Foundation |
-| [T-039](T-039-partner-кампании-ссылки.md) | `backlog` | Кампании |
-| [T-040](T-040-partner-commission-topup.md) | `backlog` | L1/L2/L3 |
-| [T-041](T-041-partner-http-api.md) | `backlog` | API |
-| [T-042](T-042-partner-договор-legal.md) | `backlog` | Договор |
-| [T-043](T-043-partner-вывод-admin.md) | `backlog` | Вывод |
-| [T-044](T-044-partner-payout-providers.md) | `backlog` | Payout |
-| [T-045](T-045-partner-pro-ui.md) | `backlog` | Pro UI |
-| [T-046](T-046-partner-stage-sign-off.md) | `backlog` | Stage sign-off |
+| [T-038](T-038-partner-foundation-config.md) | `backlog` · код в ветке | Foundation |
+| [T-039](T-039-partner-кампании-ссылки.md) | `backlog` · код в ветке | Кампании |
+| [T-040](T-040-partner-commission-topup.md) | `backlog` · код в ветке | L1/L2/L3 |
+| [T-041](T-041-partner-http-api.md) | `backlog` · код в ветке | API |
+| [T-042](T-042-partner-договор-legal.md) | `backlog` · код в ветке | Договор |
+| [T-043](T-043-partner-вывод-admin.md) | `backlog` · код в ветке | Вывод |
+| [T-044](T-044-partner-payout-providers.md) | `backlog` · код в ветке | Payout |
+| [T-045](T-045-partner-pro-ui.md) | `backlog` · код в ветке | Pro UI |
+| [T-046](T-046-partner-stage-sign-off.md) | `backlog` · код в ветке | Stage sign-off |
+| [T-025](T-025-ux-подталкивание-партнёрской-ссылки.md) | `backlog` | UX nudge partner link |
+
+## UX-аудиты и admin
+
+| ID | Статус | Фокус |
+|----|--------|-------|
+| [T-100](T-100-ux-аудит-pro-client-волна2.md) | `backlog` · аудит ✅ | UX-аудит волна 2 → работа в [T-101](../в-работе/T-101-ux-volna2-pro-ia-i-audit.md) |
+| [T-103](T-103-ux-аудит-конструктор-тренировок-pro.md) | `backlog` · аудит ✅ | Конструктор тренировок → [T-104](../в-работе/T-104-ux-konstruktor-trenirovok-pro-p1.md) |
+| [T-105](T-105-ux-audit-profil-pro-client.md) | `backlog` · аудит ✅ | Профиль Pro/Client → [T-106](../в-работе/T-106-ux-profil-pro-client-p1.md) |
+| [T-107](T-107-ux-audit-vvod-edy-client.md) | `backlog` · аудит ✅ | Ввод еды Client → [T-108](../в-работе/T-108-ux-kbju-vvod-edy-client.md) |
+| [T-102](T-102-ux-виджет-мягких-подсказок.md) | `backlog` · P2 | Виджет мягких подсказок |
+| [T-095](T-095-admin-оповещения-max.md) | `backlog` · P2 | Admin: оповещения через MAX |
+| [T-096](T-096-admin-сроки-оплаты-внешних-сервисов-max.md) | `backlog` · P1 | Admin: сроки оплаты внешних сервисов → MAX |
 
 ---
 
 ## I-001 · Модуль продаж · [инициатива](../инициативы/I-001-модуль-продаж.md)
 
-Подтикеты распределены по E-006 / E-008 / E-010; см. [реестр эпиков](../эпики/README.md).
+Код инициативы — в ветке `initiative/i-001-modul-prodazh` (`_telotron.ru`), в `main` нет.
 
 ### E-006 · CRM (headless) · [эпик](../эпики/E-006-crm-тренера.md)
 
+**Закрыты (сделано):** [T-113](../сделано/T-113-leadgen-discovery-adr-экраны.md) PO + ADR · [T-119](../сделано/T-119-leadgen-учёт-лидов-скрытый.md) домен + API.
+
 | ID | P | Фокус |
 |----|---|--------|
-| [T-113](T-113-leadgen-discovery-adr-экраны.md) | 0 | PO + ADR безголовой CRM |
-| [T-119](T-119-leadgen-учёт-лидов-скрытый.md) | **done** | Домен `CrmContact` + API |
-| [T-114](T-114-leadgen-pro-shell-раздел.md) | **P0** | Shell тонкого CRM UI |
-| [T-124](T-124-leadgen-wireframe-p0.md) | 0 | Wireframe тонкого CRM |
-| [T-118](T-118-leadgen-legal-пдн-старая-база.md) | 0 | **E-008** · Юр. ПДн базы |
-| [T-115](T-115-leadgen-профиль-план-задач.md) | **P0** | **E-010** · Профиль + план |
-| [T-116](T-116-leadgen-старая-база-тексты.md) | **P0** | **E-008** · База + тексты |
-| [T-117](T-117-leadgen-страница-записи.md) | **done** | **E-008** · welcome-clients колбек/квиз |
-| [T-126](T-126-welcome-clients-pro-crm-ui.md) | **done** | **E-008** · Pro временный CRM UI |
-| [T-120](T-120-leadgen-ii-помощник-чат.md) | P1 | **E-010** · ИИ-помощник |
-| [T-121](T-121-leadgen-совещание-неделя.md) | P1 | **E-010** · Совещание |
+| [T-114](T-114-leadgen-pro-shell-раздел.md) | **P0** | Карточка контакта в Pro (этап, заметки, следующее действие) · частично закрыт T-126 |
+| [T-124](T-124-leadgen-wireframe-p0.md) | 0 | Wireframe тонкого CRM · **кандидат на отмену** |
+| [T-121](T-121-leadgen-совещание-неделя.md) | P1 | Совещание недели |
 | [T-122](T-122-leadgen-импорт-базы-csv.md) | P1 | Импорт CSV → CRM |
-| [T-123](T-123-leadgen-идеи-постов.md) | P1 | **E-010** · Идеи постов |
-| [T-125](T-125-leadgen-commerce-gating-аддон.md) | P2 | Commerce gating |
+| [T-125](T-125-leadgen-commerce-gating-аддон.md) | P2 | Commerce gating аддона |
 
-### E-009 · Ядро, среды, адаптеры · [эпик](../эпики/E-009-кросплатформенность.md)
+### E-008 · Зона лидов · [эпик](../эпики/E-008-зона-лидов.md)
+
+**Закрыты (сделано):** [T-117](../сделано/T-117-leadgen-страница-записи.md) welcome-clients колбек/квиз · [T-126](../сделано/T-126-welcome-clients-pro-crm-ui.md) временный CRM UI в Pro.
 
 | ID | P | Фокус |
 |----|---|--------|
-| [T-127](T-127-e009-runtime-bootstrap.md) | **P0** | Bootstrap RuntimeAdapter |
-| [T-128](T-128-e009-pwa-adapter.md) | **P0** | `PwaAdapter` |
-| [T-129](T-129-e009-client-update-policy.md) | **P0** | defer\|force update |
-| [T-130](T-130-e009-auth-launch-token.md) | **P0** | VK sign → Bearer |
-| [T-131](T-131-e009-vk-adapter-пилот.md) | **P0** | `VkAdapter` пилот |
-| [T-132](T-132-e009-welcome-clients-host.md) | P1 | welcome-clients host |
+| [T-118](T-118-leadgen-legal-пдн-старая-база.md) | **P0** · блокер | Юр. ПДн старой базы (юрист) |
+| [T-116](T-116-leadgen-старая-база-тексты.md) | **P0** | Старая база + тексты · после T-118 |
+
+### E-009 · Ядро, среды, адаптеры · [эпик](../эпики/E-009-кросплатформенность.md) · **`done`** 26.09
+
+**Закрыты (сделано):** [T-127](../сделано/T-127-e009-runtime-bootstrap.md)…[T-134](../сделано/T-134-e009-связка-аккаунтов.md) — bootstrap, PwaAdapter, defer/force, VK → Bearer, VkAdapter, welcome host, `auth_methods`, связка аккаунтов.
+
+### E-010 · ИИ-консультант продаж · [эпик](../эпики/E-010-ии-консультант-продаж.md) · планирование · пилот ноября = утренний бриф
+
+| ID | P | Фокус |
+|----|---|--------|
+| [T-135](T-135-e010-общий-ai-слой.md) | **P0** | Общий AI-слой `Modules/Ai` + перенос питания (ADR-010) |
+| [T-115](T-115-leadgen-профиль-план-задач.md) | **P0** | Профиль + план задач (LeadGen, rule-based) · блокер брифа |
+| [T-138](../в-работе/T-138-e010-промпт-бриф-golden-set.md) | **P0** | **в работе** · Пробы шлюза + промпт брифа v1 + проверочный набор (LLM-инженер) |
+| [T-136](T-136-e010-утренний-бриф-бэкенд.md) | **P0** | Утренний бриф — бэкенд (сигналы CRM, расчёт, крон, API, пилот в Filament) |
+| [T-137](T-137-e010-утренний-бриф-ui.md) | **P0** | Утренний бриф — карточка в «Поиске клиентов» + виджет главной (P1) |
+| [T-120](T-120-leadgen-ii-помощник-чат.md) | P1 | ИИ-помощник (чат) · после пилота |
+| [T-123](T-123-leadgen-идеи-постов.md) | P1 | Идеи постов |
 
 ---
 
+## Закрыты вне инициатив (сделано 29.09)
+
+[T-093](../сделано/T-093-head-partner-атрибуция.md) головной партнёр · [T-094](../сделано/T-094-client-трекеры-выбор-дня-2-недели.md) трекеры за 2 недели · [T-097](../сделано/T-097-shell-настраиваемые-виджеты-и-меню.md) виджеты главной · [T-098](../сделано/T-098-голосовые-опросы-админка-и-канал.md) голосовые опросы · [T-099](../сделано/T-099-канал-тренера-пересылка-сообщений-головному-партнёру.md) пересылка головному партнёру.
+
 **Период 0 Go:** T-001…T-003 → [`../сделано/`](../сделано/). Полный индекс → [`../README.md`](../README.md).
 
-| [T-025](../бэклог/T-025-ux-подталкивание-партнёрской-ссылки.md) | `backlog` | UX nudge partner link |
-
-**В работе:** [T-059](../в-работе/T-059-auth-gate-pro-client-invite.md) · auth-gate.
-
-*Обновлено 2026-07-07 · E-002: T-092, T-025, T-059.*
+*Обновлено 2026-09-29 · актуализация по коду: 17 тикетов перенесены в `сделано/`, Commerce/Partner помечены «код в ветке», добавлены UX-аудиты и admin.*

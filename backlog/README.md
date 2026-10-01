@@ -62,6 +62,9 @@ insight brief  →  идеи  →  инициатива (I) → эпик (E) + �
 | **3** | **закрыт** · retro **05.07** | [29.06–05.07.2026](спринты/2026-06-спринт-3.md) · E-003 канон, CRM, T-076 |
 | **—** | **отпуск** · 06.07–12.07 | freeze · P0 only |
 | **4** | **`план`** · с **13.07** | [13–26.07.2026](спринты/2026-07-спринт-4.md) · billing/partner stage |
+| **5** | **`план`** · итог не зафиксирован | [27.07–09.08.2026](спринты/2026-07-спринт-5.md) · воронка |
+
+После спринта 5 спринты не заводились; с 19.09 работа идёт по инициативам ([DEC-008](../01-Директор/Инструкции/План-2026-09-фокус-разработка.md), [инициативы](инициативы/README.md)).
 
 ## Индекс инициатив и эпиков
 
@@ -70,9 +73,13 @@ insight brief  →  идеи  →  инициатива (I) → эпик (E) + �
 | I-001 | `in_progress` | [Модуль продаж](инициативы/I-001-модуль-продаж.md) · E-006, E-008, E-009, E-010 |
 | I-002 | `backlog` | [Дистанционное сопровождение](инициативы/I-002-дистанционное-сопровождение.md) · E-007, E-011, E-012 |
 | I-003 | `backlog` | [Платежи](инициативы/I-003-платежи.md) · E-001, E-013 |
-| E-001 | `backlog` | [Commerce · оплата платформы](эпики/E-001-commerce-модуль.md) |
-| E-006 | `in_progress` | [CRM тренера](эпики/E-006-crm-тренера.md) |
-| E-007…E-013 | `planned` | см. [`эпики/README.md`](эпики/README.md) |
+| E-001 | `backlog` · код в ветке `commerce` | [Commerce · оплата платформы](эпики/E-001-commerce-модуль.md) |
+| E-002 | `in_progress` · код в ветке `partner` | [Partner](эпики/E-002-partner-модуль.md) |
+| E-006 | `in_progress` · ядро готово | [CRM тренера](эпики/E-006-crm-тренера.md) |
+| E-008 | `in_progress` · хвост T-118 → T-116 | [Зона лидов](эпики/E-008-зона-лидов.md) |
+| E-009 | **`done`** 26.09 | [Ядро, среды, адаптеры](эпики/E-009-кросплатформенность.md) |
+| E-010 | `planned` · не начат | [ИИ-консультант продаж](эпики/E-010-ии-консультант-продаж.md) |
+| E-007, E-011…E-013 | `planned` | см. [`эпики/README.md`](эпики/README.md) |
 
 Полный реестр → [`эпики/README.md`](эпики/README.md) · [`инициативы/README.md`](инициативы/README.md).
 
@@ -144,13 +151,13 @@ insight brief  →  идеи  →  инициатива (I) → эпик (E) + �
 | T-090 | **сделано** | `done` | [Nutrition diary v2 Pro feed](сделано/T-090-nutrition-diary-v2-pro-calendar-feed.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-091 | **сделано** | `done` | [Nutrition diary v2 outbox+sign-off](сделано/T-091-nutrition-diary-v2-outbox-sign-off.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-092 | бэклог | `backlog` · P1 | [Юр. пакет партнёрской программы](бэклог/T-092-legal-партнёрская-программа-пакет-документов.md) · [E-002](эпики/E-002-partner-модуль.md) |
-| T-093 | бэклог / done | `done` | [Главный партнёр — атрибуция](бэклог/T-093-head-partner-атрибуция.md) · [E-002](эпики/E-002-partner-модуль.md) |
-| T-094 | **сделано** | `done` | [Client трекеры — день за 2 недели](бэклог/T-094-client-трекеры-выбор-дня-2-недели.md) |
+| T-093 | **сделано** | `done` | [Главный партнёр — атрибуция](сделано/T-093-head-partner-атрибуция.md) · [E-002](эпики/E-002-partner-модуль.md) |
+| T-094 | **сделано** | `done` | [Client трекеры — день за 2 недели](сделано/T-094-client-трекеры-выбор-дня-2-недели.md) |
 | T-095 | бэклог | `backlog` · P2 | [Admin оповещения MAX](бэклог/T-095-admin-оповещения-max.md) |
 | T-096 | бэклог | `backlog` · P1 | [Admin сроки оплаты внешних сервисов → MAX](бэклог/T-096-admin-сроки-оплаты-внешних-сервисов-max.md) · связ. T-095 |
-| T-097 | бэклог | `backlog` · P2 · готов | [Shell виджеты главной](бэклог/T-097-shell-настраиваемые-виджеты-и-меню.md) · меню → идея |
-| T-098 | бэклог | `backlog` · готов | [Голосовые опросы (админка + канал)](бэклог/T-098-голосовые-опросы-админка-и-канал.md) |
-| T-099 | бэклог | `backlog` · готов | [Канал тренера: пересылка сообщений головному партнёру](бэклог/T-099-канал-тренера-пересылка-сообщений-головному-партнёру.md) |
+| T-097 | **сделано** | `done` | [Shell виджеты главной](сделано/T-097-shell-настраиваемые-виджеты-и-меню.md) |
+| T-098 | **сделано** | `done` | [Голосовые опросы (админка + канал)](сделано/T-098-голосовые-опросы-админка-и-канал.md) |
+| T-099 | **сделано** | `done` | [Канал тренера: пересылка сообщений головному партнёру](сделано/T-099-канал-тренера-пересылка-сообщений-головному-партнёру.md) |
 | T-100 | бэклог | `backlog` · аудит ✅ | [UX аудит волна 2](бэклог/T-100-ux-аудит-pro-client-волна2.md) |
 | T-101 | **в-работе** | `in_progress` · срез 0 ✅ · срез 1 ✅ · срез 2 | [UX волна 2 IA + хвосты](в-работе/T-101-ux-volna2-pro-ia-i-audit.md) |
 | T-102 | бэклог | `backlog` · P2 | [Виджет мягких подсказок](бэклог/T-102-ux-виджет-мягких-подсказок.md) |
@@ -162,31 +169,57 @@ insight brief  →  идеи  →  инициатива (I) → эпик (E) + �
 | T-108 | **в-работе** | `in_progress` · A✅ B✅ C.1✅ C.2✅ · **стык 1** (полный дамп) | [КБЖУ + ввод еды Client](в-работе/T-108-ux-kbju-vvod-edy-client.md) · [wireframe](../08-Дизайнер/Инструкции/T-108-wireframe-kbju-lightbox.md) · [ops OFF](../04-Сисадмин/Инструкции/7-эксплуатация-и-доверие/Инфраструктура/каталог-open-food-facts.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) |
 | T-109 | сделано | `done` · P1 | [PWA cold-start · first paint Pro/Client](сделано/T-109-pwa-cold-start-first-paint.md) |
 | T-110 | **в-работе** | `in_progress` | [ИИ-ансамбль КБЖУ](в-работе/T-110-nutrition-ii-ansambl-kbju.md) · [E-005](эпики/E-005-nutrition-diary-v2.md) · идея [ИИ-оценка](идеи/дневник-питания-ии-оценка-кбжу.md) |
-| T-111 | бэклог | `backlog` · проектирование · wireframe | [Auth: VK/Яндекс + телефон](бэклог/T-111-auth-oauth-vk-yandex-telefon.md) · [wireframe](../08-Дизайнер/Инструкции/T-111-wireframe-auth-oauth-vk-yandex.md) · [E-003](эпики/E-003-упрощение-входа.md) |
+| T-111 | **в-работе** | `in_progress` · разработка | [Auth: VK/Яндекс + телефон](в-работе/T-111-auth-oauth-vk-yandex-telefon.md) · [wireframe](../08-Дизайнер/Инструкции/T-111-wireframe-auth-oauth-vk-yandex.md) · [E-003](эпики/E-003-упрощение-входа.md) |
 | T-112 | **в-работе** | `in_progress` · ветка `feat/t-112-work-day-schedule` | [Расписание: рабочий день + запись](в-работе/T-112-raspisanie-rabochiy-den-zapis.md) · [wireframe](../08-Дизайнер/Инструкции/T-112-wireframe-raspisanie-rabochiy-den.md) |
+| T-113 | **сделано** | `done` | [PO + ADR безголовой CRM](сделано/T-113-leadgen-discovery-adr-экраны.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-114 | бэклог | `backlog` · P0 · частично (T-126) | [Карточка CRM в Pro](бэклог/T-114-leadgen-pro-shell-раздел.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-115 | бэклог | `backlog` · P0 | [Профиль + план задач](бэклог/T-115-leadgen-профиль-план-задач.md) · [E-010](эпики/E-010-ии-консультант-продаж.md) |
+| T-116 | бэклог | `backlog` · P0 · после T-118 | [Старая база + тексты](бэклог/T-116-leadgen-старая-база-тексты.md) · [E-008](эпики/E-008-зона-лидов.md) |
+| T-117 | **сделано** | `done` | [welcome-clients колбек/квиз](сделано/T-117-leadgen-страница-записи.md) · [E-008](эпики/E-008-зона-лидов.md) |
+| T-118 | бэклог | `backlog` · P0 · юрист | [Юр. ПДн старой базы](бэклог/T-118-leadgen-legal-пдн-старая-база.md) · [E-008](эпики/E-008-зона-лидов.md) |
+| T-119 | **сделано** | `done` | [Домен CRM + API](сделано/T-119-leadgen-учёт-лидов-скрытый.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-120 | бэклог | `backlog` · P1 | [ИИ-помощник](бэклог/T-120-leadgen-ii-помощник-чат.md) · [E-010](эпики/E-010-ии-консультант-продаж.md) |
+| T-121 | бэклог | `backlog` · P1 | [Совещание недели](бэклог/T-121-leadgen-совещание-неделя.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-122 | бэклог | `backlog` · P1 | [Импорт CSV → CRM](бэклог/T-122-leadgen-импорт-базы-csv.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-123 | бэклог | `backlog` · P1 | [Идеи постов](бэклог/T-123-leadgen-идеи-постов.md) · [E-010](эпики/E-010-ии-консультант-продаж.md) |
+| T-124 | бэклог | `backlog` · кандидат на отмену | [Wireframe тонкого CRM](бэклог/T-124-leadgen-wireframe-p0.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-125 | бэклог | `backlog` · P2 | [Commerce gating аддона](бэклог/T-125-leadgen-commerce-gating-аддон.md) · [E-006](эпики/E-006-crm-тренера.md) |
+| T-126 | **сделано** | `done` | [Pro временный CRM UI](сделано/T-126-welcome-clients-pro-crm-ui.md) · [E-008](эпики/E-008-зона-лидов.md) |
+| T-127 | **сделано** | `done` | [Bootstrap RuntimeAdapter](сделано/T-127-e009-runtime-bootstrap.md) · [E-009](эпики/E-009-кросплатформенность.md) |
+| T-128 | **сделано** | `done` | [PwaAdapter](сделано/T-128-e009-pwa-adapter.md) · E-009 |
+| T-129 | **сделано** | `done` | [defer\|force update](сделано/T-129-e009-client-update-policy.md) · E-009 |
+| T-130 | **сделано** | `done` | [VK launch → Bearer](сделано/T-130-e009-auth-launch-token.md) · E-009 |
+| T-131 | **сделано** | `done` | [VkAdapter пилот](сделано/T-131-e009-vk-adapter-пилот.md) · E-009 |
+| T-132 | **сделано** | `done` | [welcome-clients host](сделано/T-132-e009-welcome-clients-host.md) · E-009 |
+| T-133 | **сделано** | `done` | [auth_methods](сделано/T-133-e009-identity-credentials.md) · E-009 |
+| T-134 | **сделано** | `done` | [Связка аккаунтов сайт↔ВК](сделано/T-134-e009-связка-аккаунтов.md) · E-009 |
+| T-135 | бэклог | `backlog` · P0 | [Общий AI-слой + перенос питания](бэклог/T-135-e010-общий-ai-слой.md) · E-010 |
+| T-136 | бэклог | `backlog` · P0 | [Утренний бриф — бэкенд](бэклог/T-136-e010-утренний-бриф-бэкенд.md) · E-010 |
+| T-137 | бэклог | `backlog` · P0 | [Утренний бриф — интерфейс Pro](бэклог/T-137-e010-утренний-бриф-ui.md) · E-010 |
+| T-138 | **в-работе** | `in_progress` · P0 | [Промпт брифа v1 + проверочный набор](в-работе/T-138-e010-промпт-бриф-golden-set.md) · E-010 |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
-| T-027 | бэклог | `backlog` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
-| T-028 | бэклог | `backlog` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
-| T-029 | бэклог | `backlog` | [Commerce платежи](бэклог/T-029-commerce-платежи-yookassa.md) |
-| T-030 | бэклог | `backlog` | [Commerce debit+freeze](бэклог/T-030-commerce-daily-debit-freeze.md) |
-| T-031 | бэклог | `backlog` | [Commerce gating+API](бэклог/T-031-commerce-gating-api.md) |
-| T-032 | бэклог | `backlog` | [Commerce купоны](бэклог/T-032-commerce-купоны.md) |
-| T-033 | бэклог | `backlog` | [Commerce Pro UI](бэклог/T-033-commerce-pro-ui.md) |
-| T-034 | бэклог | `backlog` | [Commerce admin](бэклог/T-034-commerce-admin-filament.md) |
-| T-035 | бэклог | `backlog` | [Commerce trial reminders](бэклог/T-035-commerce-напоминания-триала.md) |
-| T-036 | бэклог | `backlog` | [Commerce stage sign-off](бэклог/T-036-commerce-stage-sign-off.md) |
-| T-038 | бэклог | `backlog` | [Partner foundation](бэклог/T-038-partner-foundation-config.md) · [E-002](эпики/E-002-partner-модуль.md) |
-| T-039 | бэклог | `backlog` | [Partner кампании](бэклог/T-039-partner-кампании-ссылки.md) |
-| T-040 | бэклог | `backlog` | [Partner commission](бэклог/T-040-partner-commission-topup.md) |
-| T-041 | бэклог | `backlog` | [Partner API](бэклог/T-041-partner-http-api.md) |
-| T-042 | бэклог | `backlog` | [Partner договор](бэклог/T-042-partner-договор-legal.md) |
-| T-043 | бэклог | `backlog` | [Partner вывод](бэклог/T-043-partner-вывод-admin.md) |
-| T-044 | бэклог | `backlog` | [Partner payout](бэклог/T-044-partner-payout-providers.md) |
-| T-045 | бэклог | `backlog` | [Partner Pro UI](бэклог/T-045-partner-pro-ui.md) |
-| T-046 | бэклог | `backlog` | [Partner sign-off](бэклог/T-046-partner-stage-sign-off.md) |
+| T-027 | бэклог | `backlog` · код в ветке `commerce` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
+| T-028 | бэклог | `backlog` · код в ветке `commerce` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |
+| T-029 | бэклог | `backlog` · код в ветке `commerce` | [Commerce платежи](бэклог/T-029-commerce-платежи-yookassa.md) |
+| T-030 | бэклог | `backlog` · код в ветке `commerce` | [Commerce debit+freeze](бэклог/T-030-commerce-daily-debit-freeze.md) |
+| T-031 | бэклог | `backlog` · код в ветке `commerce` | [Commerce gating+API](бэклог/T-031-commerce-gating-api.md) |
+| T-032 | бэклог | `backlog` · код в ветке `commerce` | [Commerce купоны](бэклог/T-032-commerce-купоны.md) |
+| T-033 | бэклог | `backlog` · код в ветке `commerce` | [Commerce Pro UI](бэклог/T-033-commerce-pro-ui.md) |
+| T-034 | бэклог | `backlog` · код в ветке `commerce` | [Commerce admin](бэклог/T-034-commerce-admin-filament.md) |
+| T-035 | бэклог | `backlog` · код в ветке `commerce` | [Commerce trial reminders](бэклог/T-035-commerce-напоминания-триала.md) |
+| T-036 | бэклог | `backlog` · код в ветке `commerce` | [Commerce stage sign-off](бэклог/T-036-commerce-stage-sign-off.md) |
+| T-038 | бэклог | `backlog` · код в ветке `partner` | [Partner foundation](бэклог/T-038-partner-foundation-config.md) · [E-002](эпики/E-002-partner-модуль.md) |
+| T-039 | бэклог | `backlog` · код в ветке `partner` | [Partner кампании](бэклог/T-039-partner-кампании-ссылки.md) |
+| T-040 | бэклог | `backlog` · код в ветке `partner` | [Partner commission](бэклог/T-040-partner-commission-topup.md) |
+| T-041 | бэклог | `backlog` · код в ветке `partner` | [Partner API](бэклог/T-041-partner-http-api.md) |
+| T-042 | бэклог | `backlog` · код в ветке `partner` | [Partner договор](бэклог/T-042-partner-договор-legal.md) |
+| T-043 | бэклог | `backlog` · код в ветке `partner` | [Partner вывод](бэклог/T-043-partner-вывод-admin.md) |
+| T-044 | бэклог | `backlog` · код в ветке `partner` | [Partner payout](бэклог/T-044-partner-payout-providers.md) |
+| T-045 | бэклог | `backlog` · код в ветке `partner` | [Partner Pro UI](бэклог/T-045-partner-pro-ui.md) |
+| T-046 | бэклог | `backlog` · код в ветке `partner` | [Partner sign-off](бэклог/T-046-partner-stage-sign-off.md) |
 | T-017 | **сделано** | `done` | [radius деловой стиль](сделано/T-017-radius-delovoy-stil.md) |
 | T-018 | **сделано** | `done` | [Client шапка тренер](сделано/T-018-client-shell-header-trener.md) |
 | T-019 | **сделано** | `done` | [календарь статусы](сделано/T-019-calendar-appointment-status-colors.md) |
 | T-020 | **сделано** | `done` | [календарь individual/group](сделано/T-020-calendar-individual-group-visual.md) |
 
-*Индекс обновлён 2026-08-16: T-112 → в-работе, ветка feat/t-112-work-day-schedule.*
+*Индекс обновлён 2026-09-29: 17 тикетов → `сделано/` (T-093, T-094, T-097…T-099, T-113, T-117, T-119, T-126…T-134); добавлены T-113…T-134; Commerce/Partner — «код в ветке».*
