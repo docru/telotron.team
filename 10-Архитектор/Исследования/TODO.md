@@ -8,3 +8,4 @@
 - [ ] Граница Scheduling ↔ Groups ↔ Reminders
 - [ ] Audit на мутациях с ПД (152-ФЗ)
 - [ ] Задел billing/partner → **Commerce** [ТЗ](../../../_telotron.ru/docs/Техдок/03-модули/commerce-модуль-тз-mvp.md) · **Partner** [ТЗ](../../../_telotron.ru/docs/Техдок/03-модули/partner-модуль-тз-mvp.md)
+- [ ] **E-014 ИИ-РОП** · запрос LLM-инженера (волна 3): [e-014-zapros-arhitektoru-volna-3.md](../../11-AI-инженер/Работа/e-014-zapros-arhitektoru-volna-3.md) — `source=strategy`, черновики HITL, сигналы тренера, оркестратор в LeadGen, лимиты, ADR
