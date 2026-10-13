@@ -1,0 +1,558 @@
+{
+ "model": "just-ai/open-router/qwen/qwen3.5-flash-02-23",
+ "tag": "v1-qwen-intake",
+ "summary": {
+  "total": 16,
+  "agents": {
+   "intake": {
+    "n": 16,
+    "valid_pct": 100.0,
+    "expect_pct": 87.5,
+    "latency_ms_avg": 2559,
+    "cost_rub_sum": 0.2503
+   }
+  },
+  "cost_rub_total": 0.2503,
+  "expect_pct_all": 87.5
+ },
+ "results": [
+  {
+   "case": "s01_clear_base_mid",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4589,
+   "tokens_in": 1128,
+   "tokens_out": 219,
+   "cost_rub": 0.01689732582,
+   "content": "{\n  \"specialization\": \"Тренер по силовым тренировкам, работает в зале и онлайн\",\n  \"services\": [\n    \"workouts\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Фитнес-тренер специализируется на силовых тренировках. Ведет занятия как в фитнес-зале, так и в онлайн-формате. Имеет базу из примерно пятнадцати бывших клиентов, с которыми давно не поддерживалась связь. Готов к работе без спешки, предлагая бесплатную пробную сессию.\",\n  \"unclear\": [\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер по силовым тренировкам, работает в зале и онлайн",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Фитнес-тренер специализируется на силовых тренировках. Ведет занятия как в фитнес-зале, так и в онлайн-формате. Имеет базу из примерно пятнадцати бывших клиентов, с которыми давно не поддерживалась связь. Готов к работе без спешки, предлагая бесплатную пробную сессию.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s02_clear_large_base_urgent",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2341,
+   "tokens_in": 1124,
+   "tokens_out": 195,
+   "cost_rub": 0.0160541472,
+   "content": "{\n  \"specialization\": \"Персональный тренер с опытом работы пять лет\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\n    \"vk\"\n  ],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": \"Предлагает платную пробную тренировку\",\n  \"about\": \"Работает персональным тренером уже пять лет. Имеет базу из более чем сорока бывших клиентов. Ищет новых клиентов срочно из-за финансовых обязательств (кредиты). Ведет работу через ВКонтакте и готов уделять занятиям более пяти часов в неделю.\",\n  \"unclear\": [\n    \"services\",\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Персональный тренер с опытом работы пять лет",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": "Предлагает платную пробную тренировку",
+    "about": "Работает персональным тренером уже пять лет. Имеет базу из более чем сорока бывших клиентов. Ищет новых клиентов срочно из-за финансовых обязательств (кредиты). Ведет работу через ВКонтакте и готов уделять занятиям более пяти часов в неделю.",
+    "unclear": [
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s03_sparse",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2026,
+   "tokens_in": 1078,
+   "tokens_out": 141,
+   "cost_rub": 0.01384501422,
+   "content": "{\n  \"specialization\": \"Тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": \"urgent\",\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": \"Пользователь заявляет о себе как о тренере и выражает потребность в поиске клиентов.\",\n  \"unclear\": [\n    \"services\",\n    \"goal_clients_per_month\",\n    \"hours_per_week\",\n    \"offer\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": "urgent",
+    "offer": null,
+    "offer_note": null,
+    "about": "Пользователь заявляет о себе как о тренере и выражает потребность в поиске клиентов.",
+    "unclear": [
+     "services",
+     "goal_clients_per_month",
+     "hours_per_week",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s04_only_niche",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2415,
+   "tokens_in": 1084,
+   "tokens_out": 176,
+   "cost_rub": 0.0150760584,
+   "content": "{\n  \"specialization\": \"Помощь женщинам после родов в возвращении к форме\",\n  \"services\": [\n    \"workouts\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": null,\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": \"Тренер работает с женщинами, которые хотят вернуться в форму после рождения ребенка. Занятия проходят в онлайн-формате.\",\n  \"unclear\": [\n    \"goal_clients_per_month\",\n    \"old_base_size\",\n    \"channels\",\n    \"hours_per_week\",\n    \"urgency\",\n    \"offer\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Помощь женщинам после родов в возвращении к форме",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": null,
+    "offer": null,
+    "offer_note": null,
+    "about": "Тренер работает с женщинами, которые хотят вернуться в форму после рождения ребенка. Занятия проходят в онлайн-формате.",
+    "unclear": [
+     "goal_clients_per_month",
+     "old_base_size",
+     "channels",
+     "hours_per_week",
+     "urgency",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s05_contradiction_base",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1953,
+   "tokens_in": 1120,
+   "tokens_out": 137,
+   "cost_rub": 0.0140642424,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\n    \"specialization\",\n    \"services\",\n    \"goal_clients_per_month\",\n    \"old_base_size\",\n    \"about\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month",
+     "old_base_size",
+     "about"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s06_pii_phone_name",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2360,
+   "tokens_in": 1134,
+   "tokens_out": 218,
+   "cost_rub": 0.0169141908,
+   "content": "{\n  \"specialization\": \"Нутрициолог\",\n  \"services\": [\n    \"nutrition\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\n    \"ok\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": \"Бесплатная консультация\",\n  \"about\": \"Работает нутрициологом. Имеет довольную клиентку (имя удалено). Бывших клиентов около восьми человек. Готов уделять работе от 2 до 5 часов в неделю. Продвигается через ВКонтакте и Одноклассники (указан только ОК). Предлагает бесплатную консультацию. Не торопится с поиском новых клиентов.\",\n  \"unclear\": [\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": "Бесплатная консультация",
+    "about": "Работает нутрициологом. Имеет довольную клиентку (имя удалено). Бывших клиентов около восьми человек. Готов уделять работе от 2 до 5 часов в неделю. Продвигается через ВКонтакте и Одноклассники (указан только ОК). Предлагает бесплатную консультацию. Не торопится с поиском новых клиентов.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [
+    "channels_missing_['max']"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "s07_pii_multiple_names",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2383,
+   "tokens_in": 1127,
+   "tokens_out": 182,
+   "cost_rub": 0.015640989,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": 5,\n  \"old_base_size\": \"none\",\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер без собственной базы клиентов. Времени уделяет около трёх часов в неделю. Ведёт работу через Telegram. Имеет несколько знакомых, интересующихся тренировками, и обещания привести новых людей от третьих лиц. Ищет пять новых клиентов в месяц без срочности.\",\n  \"unclear\": [\n    \"specialization\",\n    \"services\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": 5,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер без собственной базы клиентов. Времени уделяет около трёх часов в неделю. Ведёт работу через Telegram. Имеет несколько знакомых, интересующихся тренировками, и обещания привести новых людей от третьих лиц. Ищет пять новых клиентов в месяц без срочности.",
+    "unclear": [
+     "specialization",
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s08_pii_email_nick",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2578,
+   "tokens_in": 1120,
+   "tokens_out": 171,
+   "cost_rub": 0.0152109672,
+   "content": "{\n  \"specialization\": \"Тренер по йоге\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Тренер по йоге. Базы клиентов нет. Готовность к работе составляет менее двух часов в неделю. Отношение к поиску новых клиентов спокойное, без спешки. Предлагает консультации.\",\n  \"unclear\": [\n    \"services\",\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер по йоге",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Тренер по йоге. Базы клиентов нет. Готовность к работе составляет менее двух часов в неделю. Отношение к поиску новых клиентов спокойное, без спешки. Предлагает консультации.",
+    "unclear": [
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s09_no_base_start",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2912,
+   "tokens_in": 1114,
+   "tokens_out": 172,
+   "cost_rub": 0.0151941036,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\n    \"vk\",\n    \"tg\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер только что получила сертификат. Клиентов пока нет, планирует набирать первых. Готов вести занятия в ВКонтакте и Telegram. Времени на работу выделяет около четырёх часов в неделю.\",\n  \"unclear\": [\n    \"specialization\",\n    \"services\",\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "vk",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер только что получила сертификат. Клиентов пока нет, планирует набирать первых. Готов вести занятия в ВКонтакте и Telegram. Времени на работу выделяет около четырёх часов в неделю.",
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s10_small_base",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2342,
+   "tokens_in": 1111,
+   "tokens_out": 189,
+   "cost_rub": 0.0157421706,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\n    \"ok\"\n  ],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер был активен в прошлом году с небольшой группой клиентов (5-6 человек), сейчас деятельность на паузе. Работает через ВКонтакте. Готов уделять работе менее двух часов в неделю. Ищет новых клиентов без срочности. Предлагает платную пробную тренировку.\",\n  \"unclear\": [\n    \"specialization\",\n    \"services\",\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": "Тренер был активен в прошлом году с небольшой группой клиентов (5-6 человек), сейчас деятельность на паузе. Работает через ВКонтакте. Готов уделять работе менее двух часов в неделю. Ищет новых клиентов без срочности. Предлагает платную пробную тренировку.",
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s11_multi_channel_unclear_primary",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2381,
+   "tokens_in": 1121,
+   "tokens_out": 213,
+   "cost_rub": 0.0166359414,
+   "content": "{\n  \"specialization\": \"Силовые тренировки и функциональный тренинг\",\n  \"services\": [\n    \"workouts\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\n    \"vk\",\n    \"tg\",\n    \"max\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер по силовым и функциональному тренингу. Имеет базу около двадцати клиентов. Ведёт деятельность в социальных сетях ВКонтакте, Telegram и Max. Готов к интенсивной работе, так как срочно нуждается в новых клиентах. Предлагает бесплатную пробную сессию.\",\n  \"unclear\": [\n    \"goal_clients_per_month\",\n    \"hours_per_week\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Силовые тренировки и функциональный тренинг",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk",
+     "tg",
+     "max"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "urgent",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер по силовым и функциональному тренингу. Имеет базу около двадцати клиентов. Ведёт деятельность в социальных сетях ВКонтакте, Telegram и Max. Готов к интенсивной работе, так как срочно нуждается в новых клиентах. Предлагает бесплатную пробную сессию.",
+    "unclear": [
+     "goal_clients_per_month",
+     "hours_per_week"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s12_consultation_offer",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2459,
+   "tokens_in": 1104,
+   "tokens_out": 195,
+   "cost_rub": 0.0158855112,
+   "content": "{\n  \"specialization\": \"Нутрициолог, проводит разборы питания\",\n  \"services\": [\n    \"nutrition\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Работает нутрициологом, специализируется на разборах питания. Не имеет базы бывших клиентов. Ведет работу через Telegram. Готов уделять работе от двух до пяти часов в неделю. Предлагает консультации клиентам. Работает в спокойном темпе.\",\n  \"unclear\": [\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог, проводит разборы питания",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Работает нутрициологом, специализируется на разборах питания. Не имеет базы бывших клиентов. Ведет работу через Telegram. Готов уделять работе от двух до пяти часов в неделю. Предлагает консультации клиентам. Работает в спокойном темпе.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s13_hours_lt2",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2260,
+   "tokens_in": 1112,
+   "tokens_out": 190,
+   "cost_rub": 0.0157843296,
+   "content": "{\n  \"specialization\": \"Тренер зала\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\n    \"vk\"\n  ],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Работает тренером в зале. Имеет большую базу бывших клиентов (более 30 человек). Ведет деятельность через ВКонтакте. Времени на работу уделяет мало — менее двух часов в неделю. Не испытывает срочности в поиске новых клиентов. Предлагает бесплатную пробную тренировку.\",\n  \"unclear\": [\n    \"services\",\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер зала",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Работает тренером в зале. Имеет большую базу бывших клиентов (более 30 человек). Ведет деятельность через ВКонтакте. Времени на работу уделяет мало — менее двух часов в неделю. Не испытывает срочности в поиске новых клиентов. Предлагает бесплатную пробную тренировку.",
+    "unclear": [
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s14_goal_explicit",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2077,
+   "tokens_in": 1114,
+   "tokens_out": 175,
+   "cost_rub": 0.0152952852,
+   "content": "{\n  \"specialization\": \"Онлайн-тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": 10,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\n    \"tg\"\n  ],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": \"Работает как онлайн-тренер. Имеет базу из примерно двенадцати человек. Готов уделять работе более пяти часов в неделю. Ищет стабильно десять новых клиентов ежемесячно. Предлагает платную пробную сессию.\",\n  \"unclear\": [\n    \"services\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Онлайн-тренер",
+    "services": [],
+    "goal_clients_per_month": 10,
+    "old_base_size": "10_30",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": "Работает как онлайн-тренер. Имеет базу из примерно двенадцати человек. Готов уделять работе более пяти часов в неделю. Ищет стабильно десять новых клиентов ежемесячно. Предлагает платную пробную сессию.",
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s15_complex_services",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2669,
+   "tokens_in": 1103,
+   "tokens_out": 205,
+   "cost_rub": 0.0162143514,
+   "content": "{\n  \"specialization\": \"Ведёт тренировки и питание вместе\",\n  \"services\": [\n    \"workouts\",\n    \"nutrition\",\n    \"complex\"\n  ],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\n    \"max\",\n    \"tg\"\n  ],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Тренер, который ведёт клиентов по комплексной программе: тренировки и питание. Базы бывших клиентов нет. Работает в мессенджерах Max и Telegram. Готов уделять работе около трёх часов в неделю. Ищет новых клиентов без спешки.\",\n  \"unclear\": [\n    \"goal_clients_per_month\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Ведёт тренировки и питание вместе",
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "max",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Тренер, который ведёт клиентов по комплексной программе: тренировки и питание. Базы бывших клиентов нет. Работает в мессенджерах Max и Telegram. Готов уделять работе около трёх часов в неделю. Ищет новых клиентов без спешки.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [
+    "services_['workouts', 'nutrition', 'complex']"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "s16_ambiguous_hours",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3214,
+   "tokens_in": 1108,
+   "tokens_out": 194,
+   "cost_rub": 0.0158855112,
+   "content": "{\n  \"specialization\": \"Тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\n    \"vk\"\n  ],\n  \"hours_per_week\": null,\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Работает тренером. Имеет базу из примерно двадцати клиентов. Ведет деятельность через ВКонтакте. Предлагает бесплатную пробную сессию. Не испытывает срочности в поиске новых клиентов. Количество времени на работу варьируется от нуля до большого объема.\",\n  \"unclear\": [\n    \"specialization\",\n    \"services\",\n    \"goal_clients_per_month\",\n    \"hours_per_week\"\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": null,
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Работает тренером. Имеет базу из примерно двадцати клиентов. Ведет деятельность через ВКонтакте. Предлагает бесплатную пробную сессию. Не испытывает срочности в поиске новых клиентов. Количество времени на работу варьируется от нуля до большого объема.",
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month",
+     "hours_per_week"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}

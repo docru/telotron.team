@@ -1,0 +1,853 @@
+[
+ {
+  "id": "s01_clear_base_mid",
+  "description": "Ясный рассказ: силовые, база ~15, Telegram, без спешки, бесплатная пробная",
+  "input": {
+   "story": "Я тренер по силовым, веду в зале и онлайн. Бывших клиентов примерно пятнадцать, им давно не писала. Времени часа три-четыре в неделю. Клиенты нужны без спешки. Бесплатная пробная. Основной канал — телега.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "services_any": [
+    [
+     "workouts"
+    ],
+    [
+     "workouts",
+     "complex"
+    ]
+   ],
+   "old_base_size": "10_30",
+   "channels_include": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "no_rush",
+   "offer": "free_trial",
+   "must_not_unclear": [
+    "old_base_size",
+    "channels",
+    "hours_per_week",
+    "offer"
+   ]
+  }
+ },
+ {
+  "id": "s02_clear_large_base_urgent",
+  "description": "Большая база, срочно, ВК, платная пробная",
+  "input": {
+   "story": "Работаю персональным тренером уже пять лет. В телефоне больше сорока бывших клиентов. Нужны новые срочно — кредиты. Пишу во ВКонтакте. Предлагаю платную пробную тренировку. Могу уделять больше пяти часов в неделю.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "gt30",
+   "channels_include": [
+    "vk"
+   ],
+   "hours_per_week": "gt5",
+   "urgency": "urgent",
+   "offer": "paid_trial"
+  }
+ },
+ {
+  "id": "s03_sparse",
+  "description": "Очень короткий рассказ — почти всё unclear",
+  "input": {
+   "story": "Нужны клиенты. Я тренер.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "must_unclear_any": [
+    "services",
+    "old_base_size",
+    "channels",
+    "hours_per_week",
+    "urgency",
+    "offer",
+    "goal_clients_per_month"
+   ],
+   "unclear_min": 4
+  }
+ },
+ {
+  "id": "s04_only_niche",
+  "description": "Только ниша, остальное пусто",
+  "input": {
+   "story": "Помогаю женщинам после родов вернуться в форму, онлайн.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "must_unclear_any": [
+    "old_base_size",
+    "channels",
+    "hours_per_week",
+    "offer"
+   ],
+   "specialization_not_null": true
+  }
+ },
+ {
+  "id": "s05_contradiction_base",
+  "description": "Противоречие про базу → old_base unclear",
+  "input": {
+   "story": "Базы клиентов у меня нет совсем. Но я регулярно пишу своим тридцати бывшим ученикам в WhatsApp. Канал — Telegram. Часов мало, меньше двух. Не горю. Консультация бесплатная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "must_unclear": [
+    "old_base_size"
+   ],
+   "channels_include": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "offer": "consultation"
+  }
+ },
+ {
+  "id": "s06_pii_phone_name",
+  "description": "В рассказе имя клиента и телефон — не должны попасть в about/specialization",
+  "input": {
+   "story": "Я нутрициолог. Клиентка Марина Петрова, телефон +7 916 555-44-33, очень довольна. Бывших человек восемь. Время 2–5 часов. Канал ОК. Бесплатная консультация. Без спешки.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "services_any": [
+    [
+     "nutrition"
+    ],
+    [
+     "nutrition",
+     "complex"
+    ],
+    [
+     "complex"
+    ]
+   ],
+   "old_base_size": "lt10",
+   "channels_include": [
+    "ok"
+   ],
+   "must_not_contain": [
+    "Марина",
+    "Петрова",
+    "916",
+    "555-44-33",
+    "+7"
+   ]
+  }
+ },
+ {
+  "id": "s07_pii_multiple_names",
+  "description": "Несколько имён знакомых — не копировать",
+  "input": {
+   "story": "Знакомые Сергей и Ольга спрашивали про тренировки. Игорь обещал привести жену. Своей базы почти нет. Веду в Telegram. Часа три в неделю. Хочу пятерых клиентов в месяц. Срочности нет. Бесплатная пробная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size_any": [
+    "none",
+    "lt10"
+   ],
+   "channels_include": [
+    "tg"
+   ],
+   "goal_clients_per_month": 5,
+   "must_not_contain": [
+    "Сергей",
+    "Ольга",
+    "Игорь"
+   ]
+  }
+ },
+ {
+  "id": "s08_pii_email_nick",
+  "description": "Почта и ник — не копировать",
+  "input": {
+   "story": "Пишите мне на coach_anna@mail.ru или в телеге @anna_fit_pro. Я тренер по йоге. Базы нет. Часов меньше двух. Не горю. Оффер — консультация. Канал телега.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "none",
+   "channels_include": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "must_not_contain": [
+    "coach_anna@mail.ru",
+    "@anna_fit_pro",
+    "mail.ru"
+   ]
+  }
+ },
+ {
+  "id": "s09_no_base_start",
+  "description": "Старт с нуля",
+  "input": {
+   "story": "Только получила сертификат. Клиентов ещё не было. Буду вести в ВК и телеге. Часа четыре в неделю. Хочу набрать первых. Бесплатная пробная. Без сильной спешки.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "none",
+   "channels_include_all": [
+    "vk",
+    "tg"
+   ],
+   "offer": "free_trial",
+   "hours_per_week_any": [
+    "2_5",
+    "gt5"
+   ]
+  }
+ },
+ {
+  "id": "s10_small_base",
+  "description": "Маленькая база lt10",
+  "input": {
+   "story": "Было человек пять-шесть клиентов в прошлом году. Сейчас на паузе. Канал ОК. Меньше двух часов в неделю. Нужны люди не срочно. Платная пробная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "lt10",
+   "channels_include": [
+    "ok"
+   ],
+   "hours_per_week": "lt2",
+   "offer": "paid_trial"
+  }
+ },
+ {
+  "id": "s11_multi_channel_unclear_primary",
+  "description": "Много каналов названо — channels могут заполниться все; цель может быть unclear",
+  "input": {
+   "story": "Силовые и функционал. База около двадцати. Сижу и в ВК, и в телеге, и в Max — не знаю что выбрать. Часов пять плюс. Срочно нужны клиенты. Бесплатная пробная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "10_30",
+   "urgency": "urgent",
+   "offer": "free_trial",
+   "channels_min": 2
+  }
+ },
+ {
+  "id": "s12_consultation_offer",
+  "description": "Оффер консультация, питание",
+  "input": {
+   "story": "Нутрициолог, веду разборы питания. Базы нет. Telegram. Два-пять часов. Предлагаю консультацию. Темп спокойный.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "services_any": [
+    [
+     "nutrition"
+    ],
+    [
+     "complex"
+    ]
+   ],
+   "old_base_size": "none",
+   "offer": "consultation",
+   "channels_include": [
+    "tg"
+   ]
+  }
+ },
+ {
+  "id": "s13_hours_lt2",
+  "description": "Явно мало времени",
+  "input": {
+   "story": "Тренер зала. Бывших много — больше тридцати. ВК. Свободного времени почти нет, меньше двух часов. Не горю. Бесплатная пробная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "gt30",
+   "hours_per_week": "lt2",
+   "channels_include": [
+    "vk"
+   ],
+   "urgency": "no_rush"
+  }
+ },
+ {
+  "id": "s14_goal_explicit",
+  "description": "Явная цель по числу клиентов",
+  "input": {
+   "story": "Онлайн-тренер. Хочу стабильно десять новых клиентов в месяц. База человек двенадцать. Телега. Часов больше пяти. Срочно. Платная пробная.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "goal_clients_per_month": 10,
+   "old_base_size": "10_30",
+   "hours_per_week": "gt5",
+   "urgency": "urgent",
+   "offer": "paid_trial"
+  }
+ },
+ {
+  "id": "s15_complex_services",
+  "description": "Комплекс: тренировки + питание",
+  "input": {
+   "story": "Веду и тренировки, и питание вместе. Базы нет. Max и телега. Часа три. Без спешки. Консультация.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "services_any": [
+    [
+     "complex"
+    ],
+    [
+     "workouts",
+     "nutrition"
+    ]
+   ],
+   "old_base_size": "none",
+   "offer": "consultation"
+  }
+ },
+ {
+  "id": "s16_ambiguous_hours",
+  "description": "Часы сформулированы туманно → hours unclear",
+  "input": {
+   "story": "Тренер. База средняя, штук двадцать. ВК. Времени сколько получится — иногда много, иногда ноль. Бесплатная пробная. Не срочно.",
+   "allowed": {
+    "services": [
+     "workouts",
+     "nutrition",
+     "complex"
+    ],
+    "channels": [
+     "vk",
+     "ok",
+     "tg",
+     "max"
+    ],
+    "old_base_size": [
+     "none",
+     "lt10",
+     "10_30",
+     "gt30"
+    ],
+    "hours_per_week": [
+     "lt2",
+     "2_5",
+     "gt5"
+    ],
+    "urgency": [
+     "urgent",
+     "normal",
+     "no_rush"
+    ],
+    "offer": [
+     "free_trial",
+     "paid_trial",
+     "consultation"
+    ]
+   }
+  },
+  "expect": {
+   "old_base_size": "10_30",
+   "channels_include": [
+    "vk"
+   ],
+   "offer": "free_trial",
+   "must_unclear": [
+    "hours_per_week"
+   ]
+  }
+ }
+]

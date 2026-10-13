@@ -1,0 +1,169 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "strategic_diagnose",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "data_quality": {
+          "type": "string",
+          "enum": ["sufficient", "partial", "insufficient"]
+        },
+        "strengths": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": { "type": "string", "maxLength": 200 }
+        },
+        "bottlenecks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": [
+                  "base_untouched",
+                  "no_base",
+                  "low_visibility",
+                  "weak_offer",
+                  "slow_response",
+                  "no_follow_up",
+                  "low_conversion",
+                  "no_referrals",
+                  "irregular_activity"
+                ]
+              },
+              "text": { "type": "string", "maxLength": 200 }
+            },
+            "required": ["code", "text"],
+            "additionalProperties": false
+          }
+        },
+        "hypotheses": {
+          "type": "array",
+          "maxItems": 4,
+          "items": { "type": "string", "maxLength": 200 }
+        },
+        "opportunities": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "type": "string", "maxLength": 200 }
+        },
+        "skill_gaps": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string", "maxLength": 160 }
+        },
+        "assumptions": {
+          "type": "array",
+          "maxItems": 5,
+          "items": { "type": "string", "maxLength": 160 }
+        },
+        "questions": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string", "maxLength": 64 },
+              "text": { "type": "string", "maxLength": 120 },
+              "why": { "type": "string", "maxLength": 120 },
+              "options": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 5,
+                "items": { "type": "string", "maxLength": 60 }
+              },
+              "allow_free_text": { "type": "boolean" },
+              "profile_field": {
+                "type": ["string", "null"],
+                "enum": [
+                  "old_base_size",
+                  "channels",
+                  "hours_per_week",
+                  "urgency",
+                  "offer",
+                  "services",
+                  null
+                ]
+              }
+            },
+            "required": ["key", "text", "why", "options", "allow_free_text", "profile_field"],
+            "additionalProperties": false
+          }
+        },
+        "observations": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "properties": {
+              "topic": {
+                "type": "string",
+                "enum": [
+                  "channel_performance",
+                  "time_pattern",
+                  "load",
+                  "offer",
+                  "audience",
+                  "base_usage",
+                  "follow_up_gap",
+                  "plan_fit",
+                  "skill_signal"
+                ]
+              },
+              "text": { "type": "string", "maxLength": 300 }
+            },
+            "required": ["topic", "text"],
+            "additionalProperties": false
+          }
+        },
+        "profile_change_proposals": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string",
+                "enum": ["hours_per_week", "urgency", "channels", "old_base_size", "offer"]
+              },
+              "current_value": { "type": "string", "maxLength": 64 },
+              "proposed_value": {
+                "type": "string",
+                "enum": [
+                  "lt2", "2_5", "gt5",
+                  "urgent", "normal", "no_rush",
+                  "vk", "ok", "tg", "max",
+                  "none", "lt10", "10_30", "gt30",
+                  "free_trial", "paid_trial", "consultation"
+                ]
+              },
+              "reason": { "type": "string", "maxLength": 200 }
+            },
+            "required": ["field", "current_value", "proposed_value", "reason"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "data_quality",
+        "strengths",
+        "bottlenecks",
+        "hypotheses",
+        "opportunities",
+        "skill_gaps",
+        "assumptions",
+        "questions",
+        "observations",
+        "profile_change_proposals"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

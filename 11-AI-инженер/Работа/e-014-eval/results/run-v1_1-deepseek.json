@@ -1,0 +1,2308 @@
+{
+ "model": "just-ai/open-router/deepseek/deepseek-v3.2",
+ "tag": "v1_1-deepseek",
+ "summary": {
+  "total": 45,
+  "agents": {
+   "decompose": {
+    "n": 5,
+    "valid_pct": 80.0,
+    "expect_pct": 80.0,
+    "latency_ms_avg": 17157,
+    "cost_rub_sum": 1.4274
+   },
+   "diagnose": {
+    "n": 11,
+    "valid_pct": 100.0,
+    "expect_pct": 81.8,
+    "latency_ms_avg": 14873,
+    "cost_rub_sum": 2.6019
+   },
+   "intake": {
+    "n": 16,
+    "valid_pct": 100.0,
+    "expect_pct": 93.8,
+    "latency_ms_avg": 3553,
+    "cost_rub_sum": 1.3027
+   },
+   "propose": {
+    "n": 7,
+    "valid_pct": 100.0,
+    "expect_pct": 85.7,
+    "latency_ms_avg": 17461,
+    "cost_rub_sum": 1.5517
+   },
+   "review": {
+    "n": 6,
+    "valid_pct": 100.0,
+    "expect_pct": 83.3,
+    "latency_ms_avg": 7925,
+    "cost_rub_sum": 0.6781
+   }
+  },
+  "cost_rub_total": 7.5618,
+  "expect_pct_all": 86.7,
+  "runs": 1,
+  "schema": true,
+  "reasoning_off": false
+ },
+ "results": [
+  {
+   "case": "s01_clear_base_mid",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 5624,
+   "tokens_in": 1469,
+   "tokens_out": 194,
+   "cost_rub": 0.13302786,
+   "content": "{\n  \"specialization\": \"Тренер по силовым тренировкам в зале и онлайн\",\n  \"services\": [\"workouts\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер по силовым тренировкам, работает в зале и онлайн. Имеет базу бывших клиентов, с которыми давно не связывалась. Готов уделять несколько часов в неделю. Ищет клиентов без спешки, предлагает бесплатную пробную тренировку. Основной канал для работы — Telegram.\",\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер по силовым тренировкам в зале и онлайн",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер по силовым тренировкам, работает в зале и онлайн. Имеет базу бывших клиентов, с которыми давно не связывалась. Готов уделять несколько часов в неделю. Ищет клиентов без спешки, предлагает бесплатную пробную тренировку. Основной канал для работы — Telegram.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s02_clear_large_base_urgent",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4594,
+   "tokens_in": 1470,
+   "tokens_out": 155,
+   "cost_rub": 0.0839937,
+   "content": "{\n  \"specialization\": \"Персональный тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": \"Работаю персональным тренером уже пять лет. Нужны новые клиенты срочно. Пишу во ВКонтакте. Предлагаю платную пробную тренировку. Могу уделять больше пяти часов в неделю.\",\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Персональный тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": "Работаю персональным тренером уже пять лет. Нужны новые клиенты срочно. Пишу во ВКонтакте. Предлагаю платную пробную тренировку. Могу уделять больше пяти часов в неделю.",
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s03_sparse",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3430,
+   "tokens_in": 1412,
+   "tokens_out": 112,
+   "cost_rub": 0.07186487999999999,
+   "content": "{\n  \"specialization\": \"тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": null,\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\", \"goal_clients_per_month\", \"old_base_size\", \"channels\", \"hours_per_week\", \"urgency\", \"offer\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": null,
+    "offer": null,
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services",
+     "goal_clients_per_month",
+     "old_base_size",
+     "channels",
+     "hours_per_week",
+     "urgency",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s04_only_niche",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3620,
+   "tokens_in": 1418,
+   "tokens_out": 133,
+   "cost_rub": 0.11785062,
+   "content": "{\n  \"specialization\": \"помогает женщинам после родов вернуться в форму онлайн\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": null,\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": \"Помогаю женщинам после родов вернуться в форму, онлайн.\",\n  \"unclear\": [\"services\", \"old_base_size\", \"channels\", \"hours_per_week\", \"urgency\", \"offer\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "помогает женщинам после родов вернуться в форму онлайн",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": null,
+    "offer": null,
+    "offer_note": null,
+    "about": "Помогаю женщинам после родов вернуться в форму, онлайн.",
+    "unclear": [
+     "services",
+     "old_base_size",
+     "channels",
+     "hours_per_week",
+     "urgency",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s05_contradiction_base",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3428,
+   "tokens_in": 1451,
+   "tokens_out": 107,
+   "cost_rub": 0.07342152,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\", \"services\", \"goal_clients_per_month\", \"old_base_size\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month",
+     "old_base_size"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s06_pii_phone_name",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3877,
+   "tokens_in": 1464,
+   "tokens_out": 119,
+   "cost_rub": 0.07659966,
+   "content": "{\n  \"specialization\": \"Нутрициолог\",\n  \"services\": [\"nutrition\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\"ok\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Я нутрициолог. Клиентка очень довольна.\",\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Я нутрициолог. Клиентка очень довольна.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s07_pii_multiple_names",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3159,
+   "tokens_in": 1471,
+   "tokens_out": 120,
+   "cost_rub": 0.07724826,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": 5,\n  \"old_base_size\": null,\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Знакомые спрашивали про тренировки. Обещали привести жену.\",\n  \"unclear\": [\"specialization\", \"services\", \"old_base_size\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": 5,
+    "old_base_size": null,
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Знакомые спрашивали про тренировки. Обещали привести жену.",
+    "unclear": [
+     "specialization",
+     "services",
+     "old_base_size"
+    ]
+   },
+   "expect_misses": [
+    "old_base_None"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "s08_pii_email_nick",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3816,
+   "tokens_in": 1456,
+   "tokens_out": 97,
+   "cost_rub": 0.07180001999999999,
+   "content": "{\n  \"specialization\": \"тренер по йоге\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "тренер по йоге",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s09_no_base_start",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 5030,
+   "tokens_in": 1455,
+   "tokens_out": 154,
+   "cost_rub": 0.08282621999999999,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"vk\", \"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Только получила сертификат. Клиентов ещё не было. Буду вести в ВК и телеге. Часа четыре в неделю. Хочу набрать первых. Бесплатная пробная. Без сильной спешки.\",\n  \"unclear\": [\"specialization\", \"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "vk",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Только получила сертификат. Клиентов ещё не было. Буду вести в ВК и телеге. Часа четыре в неделю. Хочу набрать первых. Бесплатная пробная. Без сильной спешки.",
+    "unclear": [
+     "specialization",
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s10_small_base",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2599,
+   "tokens_in": 1452,
+   "tokens_out": 98,
+   "cost_rub": 0.07173515999999999,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\"ok\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\", \"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s11_multi_channel_unclear_primary",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2497,
+   "tokens_in": 1460,
+   "tokens_out": 116,
+   "cost_rub": 0.07575648,
+   "content": "{\n  \"specialization\": \"Силовые и функциональные тренировки\",\n  \"services\": [\"workouts\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"vk\", \"tg\", \"max\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Силовые и функциональные тренировки",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk",
+     "tg",
+     "max"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s12_consultation_offer",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3280,
+   "tokens_in": 1439,
+   "tokens_out": 140,
+   "cost_rub": 0.07906434,
+   "content": "{\n  \"specialization\": \"Нутрициолог, разборы питания\",\n  \"services\": [\"nutrition\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Нутрициолог, веду разборы питания. Базы нет. Telegram. Два-пять часов. Предлагаю консультацию. Темп спокойный.\",\n  \"unclear\": []\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог, разборы питания",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Нутрициолог, веду разборы питания. Базы нет. Telegram. Два-пять часов. Предлагаю консультацию. Темп спокойный.",
+    "unclear": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s13_hours_lt2",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3051,
+   "tokens_in": 1442,
+   "tokens_out": 99,
+   "cost_rub": 0.07128113999999999,
+   "content": "{\n  \"specialization\": \"Тренер зала\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер зала",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s14_goal_explicit",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2944,
+   "tokens_in": 1448,
+   "tokens_out": 101,
+   "cost_rub": 0.07205946,
+   "content": "{\n  \"specialization\": \"Онлайн-тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": 10,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Онлайн-тренер",
+    "services": [],
+    "goal_clients_per_month": 10,
+    "old_base_size": "10_30",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s15_complex_services",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2469,
+   "tokens_in": 1434,
+   "tokens_out": 106,
+   "cost_rub": 0.07212432,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [\"complex\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"max\", \"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\", \"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [
+     "complex"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "max",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s16_ambiguous_hours",
+   "agent": "intake",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3445,
+   "tokens_in": 1445,
+   "tokens_out": 102,
+   "cost_rub": 0.07205946,
+   "content": "{\n  \"specialization\": \"Тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": null,\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\", \"hours_per_week\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": null,
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services",
+     "hours_per_week"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 10578,
+   "tokens_in": 2523,
+   "tokens_out": 519,
+   "cost_rub": 0.2646288,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.\",\n    \"Вы предлагаете пробную тренировку — это понятное и привлекательное предложение для первого знакомства.\",\n    \"Вы работаете в Telegram — это удобный канал для личного общения.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но вы им давно не писали. С неё можно начать получать заявки быстрее, чем с нуля.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если вы напишете нескольким бывшим клиентам лично, можно быстро получить первые разговоры и записи.\",\n    \"Вы готовы тратить меньше 2 часов в неделю на поиск — это подходит для точечной работы с базой, а не для массового привлечения.\"\n  ],\n  \"opportunities\": [\n    \"Начать с 5–10 личных сообщений бывшим клиентам в Telegram, напомнить о себе и предложить пробную тренировку.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать личные сообщения бывшим клиентам.\",\n    \"Ваша цель — 4 новых клиента в месяц — достижима через возвращение части базы, если начать с ними общаться.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"last_contact_base\",\n      \"text\": \"Когда вы в последний раз писали или общались с кем-то из своей старой базы клиентов? Это поможет понять, насколько они готовы к диалогу сейчас.\",\n      \"why\": \"Если контакт был недавно, ответ может быть быстрее. Если очень давно — нужно аккуратно возобновить разговор.\",\n      \"options\": [\"Недавно (в последние пару месяцев)\", \"Давно (больше полугода назад)\", \"Не помню точно\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.",
+     "Вы предлагаете пробную тренировку — это понятное и привлекательное предложение для первого знакомства.",
+     "Вы работаете в Telegram — это удобный канал для личного общения."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но вы им давно не писали. С неё можно начать получать заявки быстрее, чем с нуля."
+     }
+    ],
+    "hypotheses": [
+     "Если вы напишете нескольким бывшим клиентам лично, можно быстро получить первые разговоры и записи.",
+     "Вы готовы тратить меньше 2 часов в неделю на поиск — это подходит для точечной работы с базой, а не для массового привлечения."
+    ],
+    "opportunities": [
+     "Начать с 5–10 личных сообщений бывшим клиентам в Telegram, напомнить о себе и предложить пробную тренировку."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать личные сообщения бывшим клиентам.",
+     "Ваша цель — 4 новых клиента в месяц — достижима через возвращение части базы, если начать с ними общаться."
+    ],
+    "questions": [
+     {
+      "key": "last_contact_base",
+      "text": "Когда вы в последний раз писали или общались с кем-то из своей старой базы клиентов? Это поможет понять, насколько они готовы к диалогу сейчас.",
+      "why": "Если контакт был недавно, ответ может быть быстрее. Если очень давно — нужно аккуратно возобновить разговор.",
+      "options": [
+       "Недавно (в последние пару месяцев)",
+       "Давно (больше полугода назад)",
+       "Не помню точно"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 21140,
+   "tokens_in": 1418,
+   "tokens_out": 1032,
+   "cost_rub": 0.29277804,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Вернуть бывших клиентов\",\n      \"summary\": \"Напишите лично нескольким бывшим клиентам из вашей базы, предложите пробную тренировку и узнайте, как у них дела. Делайте это регулярно, по несколько человек в неделю.\",\n      \"rationale\": \"У вас есть база из 15 человек, которые вас уже знают, но вы давно с ними не общались. Это главное узкое место, которое можно исправить простыми личными сообщениями. Ваша цель — 4 клиента в месяц — вполне достижима через возврат тех, кто уже доверяет вам.\",\n      \"expected_effect\": \"Появятся первые диалоги и, как следствие, записи на пробные тренировки. Вы снова почувствуете связь с людьми, которые когда.то занимались у вас.\",\n      \"resource_requirements\": \"Около 30–40 минут в неделю: нужно выбрать 3–5 человек из базы, подготовить простое дружеское сообщение и написать им.\",\n      \"risks\": \"Некоторые могут не ответить сразу или отказаться — это нормально. Важно не бросать после первой недели и писать регулярно.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую работает с вашим главным узким местом — неиспользуемой базой. Она требует мало времени (менее 2 часов в неделю), соответствует вашему легкому уровню интенсивности и этическим нормам (вы пишете тем, кто вас знает). Это самый естественный и быстрый путь к первым клиентам.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Наладить завершение разговоров\",\n      \"summary\": \"Сосредоточьтесь на том, чтобы доводить начатые диалоги до конкретной записи на тренировку. Для этого добавьте мягкие напоминания тем, кто заинтересовался, но не записался.\",\n      \"rationale\": \"Когда вы начнёте писать бывшим клиентам, важно не терять тех, кто проявил интерес. Эта стратегия поможет вам превратить больше разговоров в реальные записи, что увеличит эффективность ваших усилий.\",\n      \"expected_effect\": \"Увеличится доля диалогов, которые заканчиваются записью. Вы будете меньше терять потенциальных клиентов на этапе обсуждения.\",\n      \"resource_requirements\": \"Не требует дополнительного времени сверх общения. Нужно лишь внести в привычку: если человек положительно ответил, но не записался, через пару дней мягко напомнить о предложении.\",\n      \"risks\": \"Можно показаться навязчивым, если переусердствовать с напоминаниями. Важно сохранять дружеский и заботливый тон.\",\n      \"knowledge_card_keys\": [\"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Проверить и упростить предложение\",\n      \"summary\": \"Убедитесь, что ваше предложение (пробная тренировка) понятно и привлекательно, а процесс записи — простой и быстрый. Отредактируйте текст, если нужно.\",\n      \"rationale\": \"Даже при личном общении чёткое и простое предложение помогает человеку быстрее принять решение. Это снижает барьер для записи, особенно если вы давно не общались.\",\n      \"expected_effect\": \"Людям будет проще сказать «да» и понять, что делать дальше. Это может немного повысить готовность записаться после вашего сообщения.\",\n      \"resource_requirements\": \"Около 20–30 минут один раз на подготовку: просмотреть, как вы описываете пробную тренировку, и проверить, легко ли по вашей ссылке или инструкции записаться.\",\n      \"risks\": \"Можно потратить время на правки текста, но не получить значительного эффекта, если основная проблема — в отсутствии общения с базой.\",\n      \"knowledge_card_keys\": [\"offer-and-booking\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Вернуть бывших клиентов",
+      "summary": "Напишите лично нескольким бывшим клиентам из вашей базы, предложите пробную тренировку и узнайте, как у них дела. Делайте это регулярно, по несколько человек в неделю.",
+      "rationale": "У вас есть база из 15 человек, которые вас уже знают, но вы давно с ними не общались. Это главное узкое место, которое можно исправить простыми личными сообщениями. Ваша цель — 4 клиента в месяц — вполне достижима через возврат тех, кто уже доверяет вам.",
+      "expected_effect": "Появятся первые диалоги и, как следствие, записи на пробные тренировки. Вы снова почувствуете связь с людьми, которые когда.то занимались у вас.",
+      "resource_requirements": "Около 30–40 минут в неделю: нужно выбрать 3–5 человек из базы, подготовить простое дружеское сообщение и написать им.",
+      "risks": "Некоторые могут не ответить сразу или отказаться — это нормально. Важно не бросать после первой недели и писать регулярно.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую работает с вашим главным узким местом — неиспользуемой базой. Она требует мало времени (менее 2 часов в неделю), соответствует вашему легкому уровню интенсивности и этическим нормам (вы пишете тем, кто вас знает). Это самый естественный и быстрый путь к первым клиентам."
+     },
+     {
+      "label": "B",
+      "name": "Наладить завершение разговоров",
+      "summary": "Сосредоточьтесь на том, чтобы доводить начатые диалоги до конкретной записи на тренировку. Для этого добавьте мягкие напоминания тем, кто заинтересовался, но не записался.",
+      "rationale": "Когда вы начнёте писать бывшим клиентам, важно не терять тех, кто проявил интерес. Эта стратегия поможет вам превратить больше разговоров в реальные записи, что увеличит эффективность ваших усилий.",
+      "expected_effect": "Увеличится доля диалогов, которые заканчиваются записью. Вы будете меньше терять потенциальных клиентов на этапе обсуждения.",
+      "resource_requirements": "Не требует дополнительного времени сверх общения. Нужно лишь внести в привычку: если человек положительно ответил, но не записался, через пару дней мягко напомнить о предложении.",
+      "risks": "Можно показаться навязчивым, если переусердствовать с напоминаниями. Важно сохранять дружеский и заботливый тон.",
+      "knowledge_card_keys": [
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Проверить и упростить предложение",
+      "summary": "Убедитесь, что ваше предложение (пробная тренировка) понятно и привлекательно, а процесс записи — простой и быстрый. Отредактируйте текст, если нужно.",
+      "rationale": "Даже при личном общении чёткое и простое предложение помогает человеку быстрее принять решение. Это снижает барьер для записи, особенно если вы давно не общались.",
+      "expected_effect": "Людям будет проще сказать «да» и понять, что делать дальше. Это может немного повысить готовность записаться после вашего сообщения.",
+      "resource_requirements": "Около 20–30 минут один раз на подготовку: просмотреть, как вы описываете пробную тренировку, и проверить, легко ли по вашей ссылке или инструкции записаться.",
+      "risks": "Можно потратить время на правки текста, но не получить значительного эффекта, если основная проблема — в отсутствии общения с базой.",
+      "knowledge_card_keys": [
+       "offer-and-booking"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 11300,
+   "tokens_in": 2517,
+   "tokens_out": 626,
+   "cost_rub": 0.28505969999999997,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть большая база бывших клиентов — больше 30 человек, с которой можно начать.\",\n    \"Вы уже определили своё предложение для знакомства — бесплатная пробная тренировка, это понятный первый шаг для клиента.\",\n    \"Вы готовы уделять поиску клиентов от 2 до 5 часов в неделю, это хороший регулярный объём времени.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"У вас есть база из более чем 40 бывших клиентов, но за последний месяц вы связались только с одним из них. Это самая близкая возможность для быстрого старта.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если вы начнёте регулярно писать личные сообщения нескольким бывшим клиентам в неделю, это может привести к первым разговорам и записям на пробную тренировку.\",\n    \"Ваше текущее предложение (бесплатная пробная тренировка) хорошо подходит для того, чтобы оживить интерес у тех, кто уже знает вас.\"\n  ],\n  \"opportunities\": [\n    \"Начать с малого: выбрать 5-10 человек из базы, кому вы доверяете или с кем хорошо общались раньше, и написать им персонально в ближайшие дни.\",\n    \"Использовать ваш канал общения (ВКонтакте) для этих личных сообщений, так как клиенты уже есть там в ваших контактах.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать личные сообщения бывшим клиентам.\",\n    \"Вы можете выделить часть из ваших 2-5 часов в неделю именно на эту задачу.\",\n    \"Ваша база бывших клиентов актуальна и контакты в ВКонтакте рабочие.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"last_base_contact\",\n      \"text\": \"Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов? Это важно, чтобы понять, с каким настроением начинать разговор.\",\n      \"why\": \"Если контакт был недавно, можно строить на этом разговор. Если давно, нужно более осторожное и обновляющее сообщение.\",\n      \"options\": [\"В последний месяц\", \"Несколько месяцев назад\", \"Больше полугода назад\", \"Не помню точно\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть большая база бывших клиентов — больше 30 человек, с которой можно начать.",
+     "Вы уже определили своё предложение для знакомства — бесплатная пробная тренировка, это понятный первый шаг для клиента.",
+     "Вы готовы уделять поиску клиентов от 2 до 5 часов в неделю, это хороший регулярный объём времени."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "У вас есть база из более чем 40 бывших клиентов, но за последний месяц вы связались только с одним из них. Это самая близкая возможность для быстрого старта."
+     }
+    ],
+    "hypotheses": [
+     "Если вы начнёте регулярно писать личные сообщения нескольким бывшим клиентам в неделю, это может привести к первым разговорам и записям на пробную тренировку.",
+     "Ваше текущее предложение (бесплатная пробная тренировка) хорошо подходит для того, чтобы оживить интерес у тех, кто уже знает вас."
+    ],
+    "opportunities": [
+     "Начать с малого: выбрать 5-10 человек из базы, кому вы доверяете или с кем хорошо общались раньше, и написать им персонально в ближайшие дни.",
+     "Использовать ваш канал общения (ВКонтакте) для этих личных сообщений, так как клиенты уже есть там в ваших контактах."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать личные сообщения бывшим клиентам.",
+     "Вы можете выделить часть из ваших 2-5 часов в неделю именно на эту задачу.",
+     "Ваша база бывших клиентов актуальна и контакты в ВКонтакте рабочие."
+    ],
+    "questions": [
+     {
+      "key": "last_base_contact",
+      "text": "Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов? Это важно, чтобы понять, с каким настроением начинать разговор.",
+      "why": "Если контакт был недавно, можно строить на этом разговор. Если давно, нужно более осторожное и обновляющее сообщение.",
+      "options": [
+       "В последний месяц",
+       "Несколько месяцев назад",
+       "Больше полугода назад",
+       "Не помню точно"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 17539,
+   "tokens_in": 1396,
+   "tokens_out": 705,
+   "cost_rub": 0.22772346,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Вернуть бывших клиентов\",\n      \"summary\": \"Лично напишите нескольким бывшим клиентам каждую неделю, чтобы напомнить о себе и предложить пробную тренировку.\",\n      \"rationale\": \"У вас большая база людей, которые уже знают вас и доверяют вашему подходу. Это самый прямой путь к новым занятиям, так как не нужно тратить время на поиск и знакомство с новыми людьми.\",\n      \"expected_effect\": \"Постепенно начнутся диалоги, часть из них приведёт к записи на пробную тренировку. Вы восстановите связь с людьми, которые уже были вашими клиентами.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю на подготовку списка и личное общение в мессенджерах. Нужно будет аккуратно вести список, чтобы не писать одному человеку дважды.\",\n      \"risks\": \"Некоторые могут не ответить или отказаться. Важно не быть навязчивым и писать с искренним интересом к их самочувствию.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую решает главное узкое место — неиспользуемую базу. Она соответствует вашему опыту, не требует много времени и использует ваш самый сильный актив.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Стабильное присутствие в ВК и работа с откликами\",\n      \"summary\": \"Регулярно публиковать посты и истории в вашей группе ВК, а затем внимательно работать с каждым, кто проявит интерес.\",\n      \"rationale\": \"Ваш канал ВК — это ваша визитная карточка. Регулярный контент напоминает о вас не только бывшим, но и их друзьям. Это создаёт поток заинтересованных людей, с которыми можно начать диалог.\",\n      \"expected_effect\": \"Увеличится узнаваемость и доверие. Появятся новые вопросы и заявки в сообщениях. Важно будет каждый такой контакт доводить до обсуждения тренировки.\",\n      \"resource_requirements\": \"Потребуется 2-3 часа в неделю на создание простого контента (фото, короткие видео, полезные советы) и оперативные ответы на комментарии и личные сообщения.\",\n      \"risks\": \"Первое время откликов может быть мало. Нужно проявить терпение и не бросать регулярные публикации. Также легко увлечься только контентом, забыв про личное общение с теми, кто откликнулся.\",\n      \"knowledge_card_keys\": [\"steady-content\", \"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Вернуть бывших клиентов",
+      "summary": "Лично напишите нескольким бывшим клиентам каждую неделю, чтобы напомнить о себе и предложить пробную тренировку.",
+      "rationale": "У вас большая база людей, которые уже знают вас и доверяют вашему подходу. Это самый прямой путь к новым занятиям, так как не нужно тратить время на поиск и знакомство с новыми людьми.",
+      "expected_effect": "Постепенно начнутся диалоги, часть из них приведёт к записи на пробную тренировку. Вы восстановите связь с людьми, которые уже были вашими клиентами.",
+      "resource_requirements": "Около 1-2 часов в неделю на подготовку списка и личное общение в мессенджерах. Нужно будет аккуратно вести список, чтобы не писать одному человеку дважды.",
+      "risks": "Некоторые могут не ответить или отказаться. Важно не быть навязчивым и писать с искренним интересом к их самочувствию.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую решает главное узкое место — неиспользуемую базу. Она соответствует вашему опыту, не требует много времени и использует ваш самый сильный актив."
+     },
+     {
+      "label": "B",
+      "name": "Стабильное присутствие в ВК и работа с откликами",
+      "summary": "Регулярно публиковать посты и истории в вашей группе ВК, а затем внимательно работать с каждым, кто проявит интерес.",
+      "rationale": "Ваш канал ВК — это ваша визитная карточка. Регулярный контент напоминает о вас не только бывшим, но и их друзьям. Это создаёт поток заинтересованных людей, с которыми можно начать диалог.",
+      "expected_effect": "Увеличится узнаваемость и доверие. Появятся новые вопросы и заявки в сообщениях. Важно будет каждый такой контакт доводить до обсуждения тренировки.",
+      "resource_requirements": "Потребуется 2-3 часа в неделю на создание простого контента (фото, короткие видео, полезные советы) и оперативные ответы на комментарии и личные сообщения.",
+      "risks": "Первое время откликов может быть мало. Нужно проявить терпение и не бросать регулярные публикации. Также легко увлечься только контентом, забыв про личное общение с теми, кто откликнулся.",
+      "knowledge_card_keys": [
+       "steady-content",
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9796,
+   "tokens_in": 2496,
+   "tokens_out": 481,
+   "cost_rub": 0.18076482,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"Вы чётко определили специализацию — персональные тренировки, и у вас есть готовое предложение для первого знакомства — пробное занятие.\",\n    \"Вы готовы уделять поиску клиентов от 2 до 5 часов в неделю, это хороший стартовый объём времени.\",\n    \"Вы уже выбрали удобный для вас канал общения — Telegram.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"no_base\",\n      \"text\": \"У вас пока нет базы бывших клиентов, поэтому начинать придётся с нуля, с поиска новых людей.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"О вас пока мало кто знает. За последнюю неделю не было новых контактов — это сигнал, что нужно активнее заявлять о себе.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Сейчас самое время сосредоточиться на том, чтобы вас заметили. Можно начать с создания простого контента о вашем подходе к тренировкам или рассказа о себе в местных чатах.\",\n    \"Ваше предложение с пробным занятием — сильная сторона. Можно сделать акцент на нём, когда вы начинаете общение с новыми людьми.\"\n  ],\n  \"opportunities\": [\n    \"Вы только сертифицировались — это отличная история для начала. Новые клиенты часто ищут свежий, современный подход, который вы можете предложить.\",\n    \"Поскольку у вас есть время и чёткое предложение, можно спланировать первые шаги по привлечению внимания именно в вашем районе или онлайн-сообществах.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать лично и знакомиться с новыми людьми через Telegram.\",\n    \"Вы планируете использовать пробное занятие как основной способ заинтересовать потенциальных клиентов.\"\n  ],\n  \"questions\": [],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "Вы чётко определили специализацию — персональные тренировки, и у вас есть готовое предложение для первого знакомства — пробное занятие.",
+     "Вы готовы уделять поиску клиентов от 2 до 5 часов в неделю, это хороший стартовый объём времени.",
+     "Вы уже выбрали удобный для вас канал общения — Telegram."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "У вас пока нет базы бывших клиентов, поэтому начинать придётся с нуля, с поиска новых людей."
+     },
+     {
+      "code": "low_visibility",
+      "text": "О вас пока мало кто знает. За последнюю неделю не было новых контактов — это сигнал, что нужно активнее заявлять о себе."
+     }
+    ],
+    "hypotheses": [
+     "Сейчас самое время сосредоточиться на том, чтобы вас заметили. Можно начать с создания простого контента о вашем подходе к тренировкам или рассказа о себе в местных чатах.",
+     "Ваше предложение с пробным занятием — сильная сторона. Можно сделать акцент на нём, когда вы начинаете общение с новыми людьми."
+    ],
+    "opportunities": [
+     "Вы только сертифицировались — это отличная история для начала. Новые клиенты часто ищут свежий, современный подход, который вы можете предложить.",
+     "Поскольку у вас есть время и чёткое предложение, можно спланировать первые шаги по привлечению внимания именно в вашем районе или онлайн-сообществах."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать лично и знакомиться с новыми людьми через Telegram.",
+     "Вы планируете использовать пробное занятие как основной способ заинтересовать потенциальных клиентов."
+    ],
+    "questions": [],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16414,
+   "tokens_in": 1477,
+   "tokens_out": 716,
+   "cost_rub": 0.20813573999999999,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга и аккуратного профиля\",\n      \"summary\": \"Постепенно рассказывать знакомым о своей работе через личные сообщения и простые посты в Telegram. Цель — получить первые пробные занятия от тех, кто уже вас знает и доверяет.\",\n      \"rationale\": \"У вас пока нет своей базы клиентов, но есть готовность начать и канал для общения. Эта стратегия использует ваш самый доступный ресурс — круг знакомых. Она соответствует вашему текущему времени (2–5 часов в неделю) и не требует сложных действий.\",\n      \"expected_effect\": \"Первые диалоги о тренировках, несколько пробных занятий и постепенное формирование начального опыта работы с клиентами. Улучшится ваша уверенность в предложении.\",\n      \"resource_requirements\": \"Несколько часов в неделю на обдуманное написание сообщений 5–10 знакомым и подготовку 2–3 простых постов или историй в Telegram о вашем подходе к тренировкам.\",\n      \"risks\": \"Не все знакомые могут быть заинтересованы в фитнесе прямо сейчас. Может потребоваться время, чтобы найти первых клиентов.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"steady-content\", \"offer-and-booking\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую решает главное узкое место — отсутствие базы, используя самый естественный и этичный способ старта. Она посильна при вашей доступности и закладывает основу для дальнейшего роста.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Создать видимость через локальные связи\",\n      \"summary\": \"Найти 1–2 партнёра рядом (например, массажиста, йога-студию или магазин спортивного питания) и договориться о взаимных рекомендациях или простом упоминании ваших услуг.\",\n      \"rationale\": \"Помимо круга знакомых, можно привлечь внимание через смежные услуги в вашей сфере. У вас достаточно часов в неделю, чтобы наладить такие контакты. Это расширяет аудиторию за пределы личных знакомств.\",\n      \"expected_effect\": \"Увеличение числа людей, которые узнают о ваших услугах. Возможность получить заявки от новых для вас людей, которым порекомендовал партнёр.\",\n      \"resource_requirements\": \"Время на поиск подходящих мест или специалистов, подготовку краткого предложения о сотрудничестве и проведение нескольких встреч или звонков.\",\n      \"risks\": \"Не все потенциальные партнёры могут быть сразу открыты к сотрудничеству. Нужно чётко формулировать взаимную выгоду.\",\n      \"knowledge_card_keys\": [\"local-partners\", \"offer-and-booking\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга и аккуратного профиля",
+      "summary": "Постепенно рассказывать знакомым о своей работе через личные сообщения и простые посты в Telegram. Цель — получить первые пробные занятия от тех, кто уже вас знает и доверяет.",
+      "rationale": "У вас пока нет своей базы клиентов, но есть готовность начать и канал для общения. Эта стратегия использует ваш самый доступный ресурс — круг знакомых. Она соответствует вашему текущему времени (2–5 часов в неделю) и не требует сложных действий.",
+      "expected_effect": "Первые диалоги о тренировках, несколько пробных занятий и постепенное формирование начального опыта работы с клиентами. Улучшится ваша уверенность в предложении.",
+      "resource_requirements": "Несколько часов в неделю на обдуманное написание сообщений 5–10 знакомым и подготовку 2–3 простых постов или историй в Telegram о вашем подходе к тренировкам.",
+      "risks": "Не все знакомые могут быть заинтересованы в фитнесе прямо сейчас. Может потребоваться время, чтобы найти первых клиентов.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "steady-content",
+       "offer-and-booking"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую решает главное узкое место — отсутствие базы, используя самый естественный и этичный способ старта. Она посильна при вашей доступности и закладывает основу для дальнейшего роста."
+     },
+     {
+      "label": "B",
+      "name": "Создать видимость через локальные связи",
+      "summary": "Найти 1–2 партнёра рядом (например, массажиста, йога-студию или магазин спортивного питания) и договориться о взаимных рекомендациях или простом упоминании ваших услуг.",
+      "rationale": "Помимо круга знакомых, можно привлечь внимание через смежные услуги в вашей сфере. У вас достаточно часов в неделю, чтобы наладить такие контакты. Это расширяет аудиторию за пределы личных знакомств.",
+      "expected_effect": "Увеличение числа людей, которые узнают о ваших услугах. Возможность получить заявки от новых для вас людей, которым порекомендовал партнёр.",
+      "resource_requirements": "Время на поиск подходящих мест или специалистов, подготовку краткого предложения о сотрудничестве и проведение нескольких встреч или звонков.",
+      "risks": "Не все потенциальные партнёры могут быть сразу открыты к сотрудничеству. Нужно чётко формулировать взаимную выгоду.",
+      "knowledge_card_keys": [
+       "local-partners",
+       "offer-and-booking",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 10592,
+   "tokens_in": 2493,
+   "tokens_out": 551,
+   "cost_rub": 0.19419084,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть чёткое предложение для первого знакомства — пробная тренировка, это понятно и удобно для новых клиентов.\",\n    \"Вы готовы выделять на поиск клиентов 2–5 часов в неделю — это хороший регулярный объём для старта.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"no_base\",\n      \"text\": \"У вас небольшая база бывших клиентов или её нет совсем, поэтому начинать придётся с нуля, с поиска новых людей.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Вы сами отмечаете, что мало кого знаете в теме. Новых контактов за неделю нет — значит, о вас пока мало кто узнаёт.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать регулярно знакомиться с новыми людьми в Telegram, можно постепенно набрать первые заявки.\",\n    \"Пробная тренировка как предложение может хорошо работать, когда вы найдёте, кому её показать.\"\n  ],\n  \"opportunities\": [\n    \"У вас уже есть канал для общения — Telegram. С него можно начать систематически расширять круг знакомств.\",\n    \"Поскольку вы готовы тратить несколько часов в неделю, можно сразу выделить это время на поиск и общение в мессенджере.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать лично новым людям в Telegram, чтобы предложить пробную тренировку.\",\n    \"Вы планируете действовать умеренно, без спешки, так как срочность у вас обычная.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"how_start\",\n      \"text\": \"Как вы обычно находите новых людей для разговора в Telegram? Например, через общие чаты, по рекомендациям или ищете самостоятельно?\",\n      \"why\": \"Это поможет понять, какой способ знакомства вам ближе и на что опереться в плане на неделю.\",\n      \"options\": [\"Через общие тематические чаты\", \"По рекомендациям знакомых\", \"Ищу сам(а) по интересам\", \"Другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть чёткое предложение для первого знакомства — пробная тренировка, это понятно и удобно для новых клиентов.",
+     "Вы готовы выделять на поиск клиентов 2–5 часов в неделю — это хороший регулярный объём для старта."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "У вас небольшая база бывших клиентов или её нет совсем, поэтому начинать придётся с нуля, с поиска новых людей."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Вы сами отмечаете, что мало кого знаете в теме. Новых контактов за неделю нет — значит, о вас пока мало кто узнаёт."
+     }
+    ],
+    "hypotheses": [
+     "Если начать регулярно знакомиться с новыми людьми в Telegram, можно постепенно набрать первые заявки.",
+     "Пробная тренировка как предложение может хорошо работать, когда вы найдёте, кому её показать."
+    ],
+    "opportunities": [
+     "У вас уже есть канал для общения — Telegram. С него можно начать систематически расширять круг знакомств.",
+     "Поскольку вы готовы тратить несколько часов в неделю, можно сразу выделить это время на поиск и общение в мессенджере."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать лично новым людям в Telegram, чтобы предложить пробную тренировку.",
+     "Вы планируете действовать умеренно, без спешки, так как срочность у вас обычная."
+    ],
+    "questions": [
+     {
+      "key": "how_start",
+      "text": "Как вы обычно находите новых людей для разговора в Telegram? Например, через общие чаты, по рекомендациям или ищете самостоятельно?",
+      "why": "Это поможет понять, какой способ знакомства вам ближе и на что опереться в плане на неделю.",
+      "options": [
+       "Через общие тематические чаты",
+       "По рекомендациям знакомых",
+       "Ищу сам(а) по интересам",
+       "Другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 13756,
+   "tokens_in": 1306,
+   "tokens_out": 663,
+   "cost_rub": 0.18673193999999999,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга и аккуратного профиля\",\n      \"summary\": \"Постепенно расскажите о себе в Telegram знакомым и их друзьям. Создайте аккуратный профиль с примерами тренировок и начните общаться с теми, кто уже вас знает.\",\n      \"rationale\": \"У вас небольшая база и пока низкая узнаваемость. Эта стратегия начинается с безопасного и естественного круга общения, что хорошо подходит при вашей текущей ситуации и умеренной нагрузке.\",\n      \"expected_effect\": \"Постепенно увеличится число людей, которые знают, чем вы занимаетесь. Появятся первые диалоги о тренировках и, как следствие, пробные занятия.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю на подготовку профиля, написание нескольких постов и общение в мессенджере.\",\n      \"risks\": \"Знакомые могут не быть вашей целевой аудиторией. Процесс роста узнаваемости будет медленным.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"steady-content\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую работает с главным узким местом — низкой узнаваемостью — и идеально соответствует вашему текущему профилю (маленькая база, Telegram, умеренная нагрузка). Она этична, посильна по времени и создаёт фундамент для дальнейшего роста.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Фокус на регулярных коротких публикациях\",\n      \"summary\": \"Сделайте Telegram вашей основной площадкой для регулярного контента. Публикуйте короткие полезные заметки, истории о тренировочном процессе и отвечайте на комментарии.\",\n      \"rationale\": \"Ваш профиль уже указывает на возможность вести короткие публикации. Эта стратегия усиливает ваше постоянное присутствие в сети, что постепенно привлекает внимание даже незнакомых людей через сарафанное радио.\",\n      \"expected_effect\": \"Повысится ваша видимость как эксперта. Подписчики начнут узнавать вас и рекомендовать другим. Увеличится поток органических вопросов о тренировках.\",\n      \"resource_requirements\": \"2-3 часа в неделю на планирование, создание и публикацию контента, а также на взаимодействие с аудиторией.\",\n      \"risks\": \"Требует дисциплины и постоянства. Эффект на первых порах может быть почти незаметным, что демотивирует.\",\n      \"knowledge_card_keys\": [\"steady-content\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга и аккуратного профиля",
+      "summary": "Постепенно расскажите о себе в Telegram знакомым и их друзьям. Создайте аккуратный профиль с примерами тренировок и начните общаться с теми, кто уже вас знает.",
+      "rationale": "У вас небольшая база и пока низкая узнаваемость. Эта стратегия начинается с безопасного и естественного круга общения, что хорошо подходит при вашей текущей ситуации и умеренной нагрузке.",
+      "expected_effect": "Постепенно увеличится число людей, которые знают, чем вы занимаетесь. Появятся первые диалоги о тренировках и, как следствие, пробные занятия.",
+      "resource_requirements": "Около 1-2 часов в неделю на подготовку профиля, написание нескольких постов и общение в мессенджере.",
+      "risks": "Знакомые могут не быть вашей целевой аудиторией. Процесс роста узнаваемости будет медленным.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "steady-content"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую работает с главным узким местом — низкой узнаваемостью — и идеально соответствует вашему текущему профилю (маленькая база, Telegram, умеренная нагрузка). Она этична, посильна по времени и создаёт фундамент для дальнейшего роста."
+     },
+     {
+      "label": "B",
+      "name": "Фокус на регулярных коротких публикациях",
+      "summary": "Сделайте Telegram вашей основной площадкой для регулярного контента. Публикуйте короткие полезные заметки, истории о тренировочном процессе и отвечайте на комментарии.",
+      "rationale": "Ваш профиль уже указывает на возможность вести короткие публикации. Эта стратегия усиливает ваше постоянное присутствие в сети, что постепенно привлекает внимание даже незнакомых людей через сарафанное радио.",
+      "expected_effect": "Повысится ваша видимость как эксперта. Подписчики начнут узнавать вас и рекомендовать другим. Увеличится поток органических вопросов о тренировках.",
+      "resource_requirements": "2-3 часа в неделю на планирование, создание и публикацию контента, а также на взаимодействие с аудиторией.",
+      "risks": "Требует дисциплины и постоянства. Эффект на первых порах может быть почти незаметным, что демотивирует.",
+      "knowledge_card_keys": [
+       "steady-content",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 14986,
+   "tokens_in": 2509,
+   "tokens_out": 787,
+   "cost_rub": 0.24114948,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.\",\n    \"Вы предлагаете пробное занятие, что понятно и привлекательно для первого знакомства.\",\n    \"Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для начала.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но новые контакты за неделю — ноль. Начать с них будет быстрее, чем искать незнакомых людей.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"О вас мало кто знает: нет новых контактов за неделю. Можно усилить активность в вашем канале (Telegram) или добавить другие способы рассказать о себе.\"\n    },\n    {\n      \"code\": \"weak_offer\",\n      \"text\": \"Вы сами отмечаете, что не знаете, как сформулировать предложение. Это может мешать превращать разговоры в записи.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если вы напишете нескольким бывшим клиентам лично с напоминанием о себе и предложением пробного занятия, это может дать первые разговоры без долгого поиска.\",\n    \"Если вы сформулируете чёткое предложение (что именно входит в пробное занятие, какие проблемы решает), то сможете увереннее отвечать на вопросы и приглашать на запись.\",\n    \"Если вы начнёте регулярно делиться полезными советами или историями в Telegram, это привлечёт внимание новых людей.\"\n  ],\n  \"opportunities\": [\n    \"Начать с малого: выбрать 5–10 человек из базы и написать им персональное сообщение в Telegram на этой неделе.\",\n    \"Потратить час, чтобы записать на бумаге, что клиент получает на пробной тренировке и почему это выгодно ему.\",\n    \"Попробовать сделать один пост в Telegram за неделю о пользе персональных тренировок для конкретной цели (например, для спины).\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично в Telegram.\",\n    \"Вы можете выделить время, чтобы продумать и записать своё предложение.\",\n    \"Ваша цель — 4 новых клиента в месяц — достижима, если начать с базы и усилить предложение.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"last_contact_base\",\n      \"text\": \"Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов? Это поможет понять, насколько они «тёплые».\",\n      \"why\": \"Если контакт был недавно, ответ может быть быстрым. Если давно — нужно более аккуратное возобновление разговора.\",\n      \"options\": [\"В последние 2–3 месяца\", \"Полгода–год назад\", \"Больше года назад\", \"Не помню / никогда не писал\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.",
+     "Вы предлагаете пробное занятие, что понятно и привлекательно для первого знакомства.",
+     "Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для начала."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но новые контакты за неделю — ноль. Начать с них будет быстрее, чем искать незнакомых людей."
+     },
+     {
+      "code": "low_visibility",
+      "text": "О вас мало кто знает: нет новых контактов за неделю. Можно усилить активность в вашем канале (Telegram) или добавить другие способы рассказать о себе."
+     },
+     {
+      "code": "weak_offer",
+      "text": "Вы сами отмечаете, что не знаете, как сформулировать предложение. Это может мешать превращать разговоры в записи."
+     }
+    ],
+    "hypotheses": [
+     "Если вы напишете нескольким бывшим клиентам лично с напоминанием о себе и предложением пробного занятия, это может дать первые разговоры без долгого поиска.",
+     "Если вы сформулируете чёткое предложение (что именно входит в пробное занятие, какие проблемы решает), то сможете увереннее отвечать на вопросы и приглашать на запись.",
+     "Если вы начнёте регулярно делиться полезными советами или историями в Telegram, это привлечёт внимание новых людей."
+    ],
+    "opportunities": [
+     "Начать с малого: выбрать 5–10 человек из базы и написать им персональное сообщение в Telegram на этой неделе.",
+     "Потратить час, чтобы записать на бумаге, что клиент получает на пробной тренировке и почему это выгодно ему.",
+     "Попробовать сделать один пост в Telegram за неделю о пользе персональных тренировок для конкретной цели (например, для спины)."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично в Telegram.",
+     "Вы можете выделить время, чтобы продумать и записать своё предложение.",
+     "Ваша цель — 4 новых клиента в месяц — достижима, если начать с базы и усилить предложение."
+    ],
+    "questions": [
+     {
+      "key": "last_contact_base",
+      "text": "Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов? Это поможет понять, насколько они «тёплые».",
+      "why": "Если контакт был недавно, ответ может быть быстрым. Если давно — нужно более аккуратное возобновление разговора.",
+      "options": [
+       "В последние 2–3 месяца",
+       "Полгода–год назад",
+       "Больше года назад",
+       "Не помню / никогда не писал"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 18578,
+   "tokens_in": 1396,
+   "tokens_out": 926,
+   "cost_rub": 0.24166836,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Сначала предложение и запись\",\n      \"summary\": \"Сделать ваше предложение и страницу записи максимально понятными для тех, с кем вы уже общаетесь. Это поможет превратить больше диалогов в пробные занятия.\",\n      \"rationale\": \"В вашем профиле указано, что вы не знаете, как сформулировать предложение, а в узких местах это подтверждается. У вас уже есть диалоги в работе, но они могут не доходить до записи из-за неясного предложения. Эта стратегия напрямую решает главную проблему.\",\n      \"expected_effect\": \"Больше диалогов будут заканчиваться записью на пробное занятие. Вы будете чувствовать себя увереннее, когда будете рассказывать о своих услугах.\",\n      \"resource_requirements\": \"Примерно 2-3 часа в первую неделю на то, чтобы сформулировать текст предложения и проверить, как работает запись. Затем — несколько минут на проверку в каждом новом диалоге.\",\n      \"risks\": \"Может показаться, что вы просто меняете слова, а результат не придёт сразу. Нужно дать время и пробовать разные формулировки.\",\n      \"knowledge_card_keys\": [\"offer-and-booking\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Она напрямую работает с вашим главным узким местом — неясным предложением. Это посильная задача при вашей загрузке (2-5 часов в неделю) и может быстро дать результат, так как у вас уже есть диалоги.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Вернуть бывших клиентов\",\n      \"summary\": \"Лично написать нескольким бывшим клиентам из вашей базы, чтобы предложить вернуться к тренировкам.\",\n      \"rationale\": \"У вас есть база от 10 до 30 человек, которая, вероятно, не используется. Это готовые люди, которые уже знают вас и ваш подход. Это может быть быстрым способом получить записи, параллельно с улучшением предложения.\",\n      \"expected_effect\": \"Появятся диалоги с людьми, которые уже доверяют вам. Это может привести к нескольким повторным тренировкам в ближайшие недели.\",\n      \"resource_requirements\": \"Примерно 1-2 часа в неделю на то, чтобы выбрать несколько человек и написать им персональные сообщения.\",\n      \"risks\": \"Не все ответят. Нужно быть готовым к тому, что некоторые не вернутся, и это нормально. Важно писать мягко, без давления.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Система напоминаний в диалогах\",\n      \"summary\": \"Ввести простой порядок: если диалог затих, через несколько дней мягко напомнить о себе и предложении.\",\n      \"rationale\": \"У вас уже есть диалоги. Иногда люди просто отвлекаются или забывают ответить. Регулярное, ненавязчивое напоминание помогает довести больше разговоров до конца.\",\n      \"expected_effect\": \"Меньше диалогов будет теряться. Вы будете больше контролировать процесс общения и чаще получать ответы.\",\n      \"resource_requirements\": \"Небольшое время на организацию (например, пометки в чатах) и 10-15 минут в день на отправку 2-3 напоминаний.\",\n      \"risks\": \"Можно показаться навязчивым, если перестараться. Важно соблюдать паузу и тон сообщений.\",\n      \"knowledge_card_keys\": [\"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Сначала предложение и запись",
+      "summary": "Сделать ваше предложение и страницу записи максимально понятными для тех, с кем вы уже общаетесь. Это поможет превратить больше диалогов в пробные занятия.",
+      "rationale": "В вашем профиле указано, что вы не знаете, как сформулировать предложение, а в узких местах это подтверждается. У вас уже есть диалоги в работе, но они могут не доходить до записи из-за неясного предложения. Эта стратегия напрямую решает главную проблему.",
+      "expected_effect": "Больше диалогов будут заканчиваться записью на пробное занятие. Вы будете чувствовать себя увереннее, когда будете рассказывать о своих услугах.",
+      "resource_requirements": "Примерно 2-3 часа в первую неделю на то, чтобы сформулировать текст предложения и проверить, как работает запись. Затем — несколько минут на проверку в каждом новом диалоге.",
+      "risks": "Может показаться, что вы просто меняете слова, а результат не придёт сразу. Нужно дать время и пробовать разные формулировки.",
+      "knowledge_card_keys": [
+       "offer-and-booking"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Она напрямую работает с вашим главным узким местом — неясным предложением. Это посильная задача при вашей загрузке (2-5 часов в неделю) и может быстро дать результат, так как у вас уже есть диалоги."
+     },
+     {
+      "label": "B",
+      "name": "Вернуть бывших клиентов",
+      "summary": "Лично написать нескольким бывшим клиентам из вашей базы, чтобы предложить вернуться к тренировкам.",
+      "rationale": "У вас есть база от 10 до 30 человек, которая, вероятно, не используется. Это готовые люди, которые уже знают вас и ваш подход. Это может быть быстрым способом получить записи, параллельно с улучшением предложения.",
+      "expected_effect": "Появятся диалоги с людьми, которые уже доверяют вам. Это может привести к нескольким повторным тренировкам в ближайшие недели.",
+      "resource_requirements": "Примерно 1-2 часа в неделю на то, чтобы выбрать несколько человек и написать им персональные сообщения.",
+      "risks": "Не все ответят. Нужно быть готовым к тому, что некоторые не вернутся, и это нормально. Важно писать мягко, без давления.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Система напоминаний в диалогах",
+      "summary": "Ввести простой порядок: если диалог затих, через несколько дней мягко напомнить о себе и предложении.",
+      "rationale": "У вас уже есть диалоги. Иногда люди просто отвлекаются или забывают ответить. Регулярное, ненавязчивое напоминание помогает довести больше разговоров до конца.",
+      "expected_effect": "Меньше диалогов будет теряться. Вы будете больше контролировать процесс общения и чаще получать ответы.",
+      "resource_requirements": "Небольшое время на организацию (например, пометки в чатах) и 10-15 минут в день на отправку 2-3 напоминаний.",
+      "risks": "Можно показаться навязчивым, если перестараться. Важно соблюдать паузу и тон сообщений.",
+      "knowledge_card_keys": [
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t06_weekly_follow_up",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16620,
+   "tokens_in": 2581,
+   "tokens_out": 857,
+   "cost_rub": 0.26151552,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для возобновления контактов.\",\n    \"Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого шага.\",\n    \"Вы готовы тратить на поиск клиентов 2–5 часов в неделю — это достаточный ресурс для системной работы.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но активных касаний с ними мало. С них можно начать быстрее всего.\"\n    },\n    {\n      \"code\": \"no_follow_up\",\n      \"text\": \"Разговоры с потенциальными клиентами затухают без напоминаний — много диалогов зависло «в работе».\"\n    },\n    {\n      \"code\": \"irregular_activity\",\n      \"text\": \"План выполняется неравномерно — половина задач сделана, а напоминания пропущены. Ровный темп даст больше результатов.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать писать бывшим клиентам лично и предложить пробное занятие, часть из них вернётся.\",\n    \"Если внедрить напоминания по зависшим диалогам, больше разговоров дойдёт до записи.\",\n    \"Если распределить задачи равномернее по неделе, будет проще выполнять план целиком.\"\n  ],\n  \"opportunities\": [\n    \"Начать с базы: написать 5–10 бывшим клиентам на этой неделе с персональным предложением.\",\n    \"Разобрать зависшие диалоги: потратить час, чтобы напомнить о себе 8 контактам, которые уже в работе.\",\n    \"Скорректировать план: запланировать меньше задач, но с обязательными напоминаниями, чтобы выполнять его полностью.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично в Telegram.\",\n    \"Вы хотите вернуть именно своих прошлых клиентов, поэтому стратегия «Вернуть бывших» выбрана верно.\",\n    \"Пропуск напоминаний связан с тем, что их легко забыть в потоке других дел.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"follow_up_block\",\n      \"text\": \"Что обычно мешает вам отправлять напоминания по зависшим диалогам? Не хватает времени, сложно формулировать или что-то ещё?\",\n      \"why\": \"Это поможет понять причину пропуска и подобрать способ, который будет работать именно для вас.\",\n      \"options\": [\"Не хватает времени\", \"Не знаю, что писать\", \"Забываю\", \"Кажется навязчивым\", \"Другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"follow_up_gap\",\n      \"text\": \"На прошлой неделе вы пропустили все задачи по напоминаниям (тип strategy.follow_up), при этом у вас накопилось 8 зависших диалогов. Если добавить напоминания, больше контактов может перейти в клиентов.\"\n    },\n    {\n      \"topic\": \"plan_fit\",\n      \"text\": \"Вы выполнили только половину запланированных задач (3 из 6). Возможно, план был слишком плотным или задачи распределены неравномерно по дням. Лучше планировать меньше, но выполнять полностью.\"\n    }\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для возобновления контактов.",
+     "Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого шага.",
+     "Вы готовы тратить на поиск клиентов 2–5 часов в неделю — это достаточный ресурс для системной работы."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но активных касаний с ними мало. С них можно начать быстрее всего."
+     },
+     {
+      "code": "no_follow_up",
+      "text": "Разговоры с потенциальными клиентами затухают без напоминаний — много диалогов зависло «в работе»."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "План выполняется неравномерно — половина задач сделана, а напоминания пропущены. Ровный темп даст больше результатов."
+     }
+    ],
+    "hypotheses": [
+     "Если начать писать бывшим клиентам лично и предложить пробное занятие, часть из них вернётся.",
+     "Если внедрить напоминания по зависшим диалогам, больше разговоров дойдёт до записи.",
+     "Если распределить задачи равномернее по неделе, будет проще выполнять план целиком."
+    ],
+    "opportunities": [
+     "Начать с базы: написать 5–10 бывшим клиентам на этой неделе с персональным предложением.",
+     "Разобрать зависшие диалоги: потратить час, чтобы напомнить о себе 8 контактам, которые уже в работе.",
+     "Скорректировать план: запланировать меньше задач, но с обязательными напоминаниями, чтобы выполнять его полностью."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично в Telegram.",
+     "Вы хотите вернуть именно своих прошлых клиентов, поэтому стратегия «Вернуть бывших» выбрана верно.",
+     "Пропуск напоминаний связан с тем, что их легко забыть в потоке других дел."
+    ],
+    "questions": [
+     {
+      "key": "follow_up_block",
+      "text": "Что обычно мешает вам отправлять напоминания по зависшим диалогам? Не хватает времени, сложно формулировать или что-то ещё?",
+      "why": "Это поможет понять причину пропуска и подобрать способ, который будет работать именно для вас.",
+      "options": [
+       "Не хватает времени",
+       "Не знаю, что писать",
+       "Забываю",
+       "Кажется навязчивым",
+       "Другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "follow_up_gap",
+      "text": "На прошлой неделе вы пропустили все задачи по напоминаниям (тип strategy.follow_up), при этом у вас накопилось 8 зависших диалогов. Если добавить напоминания, больше контактов может перейти в клиентов."
+     },
+     {
+      "topic": "plan_fit",
+      "text": "Вы выполнили только половину запланированных задач (3 из 6). Возможно, план был слишком плотным или задачи распределены неравномерно по дням. Лучше планировать меньше, но выполнять полностью."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t07_weekly_load_mismatch",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 17806,
+   "tokens_in": 2546,
+   "tokens_out": 693,
+   "cost_rub": 0.22525878,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.\",\n    \"Вы готовы тратить на поиск клиентов больше 5 часов в неделю — это серьёзный ресурс времени.\",\n    \"Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"На этой неделе не появилось новых контактов. Это значит, о вас пока мало кто узнаёт.\"\n    },\n    {\n      \"code\": \"irregular_activity\",\n      \"text\": \"Из 8 запланированных задач выполнена только одна. Работа рывками замедляет движение к цели.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если сделать план на неделю реалистичным и выполнять его шаг за шагом, можно стабильно увеличивать количество знакомств.\",\n    \"Возможно, контентная стратегия требует корректировки: либо другой формат, либо дополнительные каналы для распространения.\"\n  ],\n  \"opportunities\": [\n    \"Начать с базы бывших клиентов: написать нескольким лично, напомнить о себе и предложить пробное занятие.\",\n    \"Использовать высвободившееся время (вы отработали 40 минут из многих запланированных часов) на личное общение с теми, кто уже знает вас.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично в Telegram.\",\n    \"Вы сосредоточены на персональных тренировках и хотите вернуть старых или найти новых клиентов.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"content_approach\",\n      \"text\": \"Что помешало выполнить большую часть запланированных задач по контенту на прошлой неделе?\",\n      \"why\": \"Это поможет понять, сделать ли план проще или найти другой способ работы.\",\n      \"options\": [\"Не хватило времени из-за других дел\", \"Не знал, о чём именно писать\", \"Кажется, что это не работает\", \"Технические сложности\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"plan_fit\",\n      \"text\": \"План был выполнен только на 12%. Часто такое бывает, когда задачи слишком масштабные или не привязаны к конкретному времени. Можно разбить большие задачи на маленькие шаги, которые точно выполнишь.\"\n    },\n    {\n      \"topic\": \"load\",\n      \"text\": \"Вы отработали над поиском клиентов всего 40 минут, хотя готовы тратить больше 5 часов в неделю. Это говорит о большом резерве времени, который можно использовать эффективнее.\"\n    }\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.",
+     "Вы готовы тратить на поиск клиентов больше 5 часов в неделю — это серьёзный ресурс времени.",
+     "Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства."
+    ],
+    "bottlenecks": [
+     {
+      "code": "low_visibility",
+      "text": "На этой неделе не появилось новых контактов. Это значит, о вас пока мало кто узнаёт."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "Из 8 запланированных задач выполнена только одна. Работа рывками замедляет движение к цели."
+     }
+    ],
+    "hypotheses": [
+     "Если сделать план на неделю реалистичным и выполнять его шаг за шагом, можно стабильно увеличивать количество знакомств.",
+     "Возможно, контентная стратегия требует корректировки: либо другой формат, либо дополнительные каналы для распространения."
+    ],
+    "opportunities": [
+     "Начать с базы бывших клиентов: написать нескольким лично, напомнить о себе и предложить пробное занятие.",
+     "Использовать высвободившееся время (вы отработали 40 минут из многих запланированных часов) на личное общение с теми, кто уже знает вас."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично в Telegram.",
+     "Вы сосредоточены на персональных тренировках и хотите вернуть старых или найти новых клиентов."
+    ],
+    "questions": [
+     {
+      "key": "content_approach",
+      "text": "Что помешало выполнить большую часть запланированных задач по контенту на прошлой неделе?",
+      "why": "Это поможет понять, сделать ли план проще или найти другой способ работы.",
+      "options": [
+       "Не хватило времени из-за других дел",
+       "Не знал, о чём именно писать",
+       "Кажется, что это не работает",
+       "Технические сложности"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "plan_fit",
+      "text": "План был выполнен только на 12%. Часто такое бывает, когда задачи слишком масштабные или не привязаны к конкретному времени. Можно разбить большие задачи на маленькие шаги, которые точно выполнишь."
+     },
+     {
+      "topic": "load",
+      "text": "Вы отработали над поиском клиентов всего 40 минут, хотя готовы тратить больше 5 часов в неделю. Это говорит о большом резерве времени, который можно использовать эффективнее."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t08_profile_change_allowed",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 25870,
+   "tokens_in": 2575,
+   "tokens_out": 1198,
+   "cost_rub": 0.32332709862,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.\",\n    \"Вы готовы тратить на поиск клиентов больше 5 часов в неделю — это серьёзный ресурс времени.\",\n    \"Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"За неделю не появилось новых контактов. Возможно, о вас сейчас мало кто узнаёт.\"\n    },\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но, судя по цифрам, вы с ними на этой неделе не работали.\"\n    },\n    {\n      \"code\": \"irregular_activity\",\n      \"text\": \"План выполнен только на 20%. Действия были, но их было мало и, возможно, несистемно.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать писать бывшим клиентам лично, можно быстро получить первые разговоры, не тратя время на поиск новых людей.\",\n    \"Стратегия «Контент» за три недели не привела к новым контактам. Возможно, стоит временно сместить фокус на прямую работу с базой, чтобы использовать ваше время эффективнее.\",\n    \"Выделенное большое количество часов — это возможность. Если распределить их на конкретные небольшие задачи (например, «написать 5 бывшим клиентам в день»), план будет выполняться стабильнее.\"\n  ],\n  \"opportunities\": [\n    \"У вас уже есть канал (Telegram) и предложение. Можно потратить часть ваших часов на то, чтобы написать 10–15 бывшим клиентам с персональным сообщением о пробном занятии.\",\n    \"Один новый клиент за неделю — это уже результат. Можно понять, откуда он пришёл, и удвоить усилия в этом направлении.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично в Telegram.\",\n    \"Вы хотите, чтобы ваше время тратилось на задачи, которые прямо ведут к разговорам и записям.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"hours_usage\",\n      \"text\": \"На что ушло больше всего времени из тех >5 часов на поиск клиентов на прошлой неделе?\",\n      \"why\": \"Это поможет понять, почему план выполнен лишь частично, и распределить время на следующую неделю эффективнее.\",\n      \"options\": [\"Создание контента (посты, сторис)\", \"Административные задачи (планирование, учёт)\", \"Общение в соцсетях (не связанное с клиентами)\", \"Что-то другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    },\n    {\n      \"key\": \"content_block\",\n      \"text\": \"Что мешало создавать или публиковать контент по плану?\",\n      \"why\": \"Стратегия была на контенте, но новых контактов нет. Понимание препятствий поможет скорректировать подход.\",\n      \"options\": [\"Не знал, о чём писать\", \"Тратил время на подготовку, но не публиковал\", \"Публиковал, но не видел отклика и потерял мотивацию\", \"Другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"plan_fit\",\n      \"text\": \"Из 10 запланированных задач выполнено только 2. Это большая разница. Возможно, план был слишком объёмным или задачи — слишком размытыми. На следующей неделе можно попробовать ставить 3–4 конкретных, небольших, но важных действия.\"\n    },\n    {\n      \"topic\": \"load\",\n      \"text\": \"Вы готовы тратить >5 часов, а по факту на задачи ушло около 50 минут. Получается, время есть, но оно не направлено на конкретные шаги по привлечению. Это возможность — можно перераспределить эти часы.\"\n    },\n    {\n      \"topic\": \"base_usage\",\n      \"text\": \"У вас есть база 10–30 человек, но по фактам нет работы с ней (in_progress = 0). При этом у вас уже есть канал для общения (TG). Написание даже нескольким бывшим клиентам могло бы сразу дать разговоры.\"\n    }\n  ],\n  \"profile_change_proposals\": [\n    {\n      \"field\": \"hours_per_week\",\n      \"current_value\": \"gt5\",\n      \"proposed_value\": \"2_5\",\n      \"reason\": \"Факты показывают, что на задачи по привлечению уходит значительно меньше времени (50 минут). Установка реалистичного диапазона 2–5 часов поможет планировать конкретные дела и избежать чувства, что план не выполнен.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.",
+     "Вы готовы тратить на поиск клиентов больше 5 часов в неделю — это серьёзный ресурс времени.",
+     "Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства."
+    ],
+    "bottlenecks": [
+     {
+      "code": "low_visibility",
+      "text": "За неделю не появилось новых контактов. Возможно, о вас сейчас мало кто узнаёт."
+     },
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но, судя по цифрам, вы с ними на этой неделе не работали."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "План выполнен только на 20%. Действия были, но их было мало и, возможно, несистемно."
+     }
+    ],
+    "hypotheses": [
+     "Если начать писать бывшим клиентам лично, можно быстро получить первые разговоры, не тратя время на поиск новых людей.",
+     "Стратегия «Контент» за три недели не привела к новым контактам. Возможно, стоит временно сместить фокус на прямую работу с базой, чтобы использовать ваше время эффективнее.",
+     "Выделенное большое количество часов — это возможность. Если распределить их на конкретные небольшие задачи (например, «написать 5 бывшим клиентам в день»), план будет выполняться стабильнее."
+    ],
+    "opportunities": [
+     "У вас уже есть канал (Telegram) и предложение. Можно потратить часть ваших часов на то, чтобы написать 10–15 бывшим клиентам с персональным сообщением о пробном занятии.",
+     "Один новый клиент за неделю — это уже результат. Можно понять, откуда он пришёл, и удвоить усилия в этом направлении."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично в Telegram.",
+     "Вы хотите, чтобы ваше время тратилось на задачи, которые прямо ведут к разговорам и записям."
+    ],
+    "questions": [
+     {
+      "key": "hours_usage",
+      "text": "На что ушло больше всего времени из тех >5 часов на поиск клиентов на прошлой неделе?",
+      "why": "Это поможет понять, почему план выполнен лишь частично, и распределить время на следующую неделю эффективнее.",
+      "options": [
+       "Создание контента (посты, сторис)",
+       "Административные задачи (планирование, учёт)",
+       "Общение в соцсетях (не связанное с клиентами)",
+       "Что-то другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     },
+     {
+      "key": "content_block",
+      "text": "Что мешало создавать или публиковать контент по плану?",
+      "why": "Стратегия была на контенте, но новых контактов нет. Понимание препятствий поможет скорректировать подход.",
+      "options": [
+       "Не знал, о чём писать",
+       "Тратил время на подготовку, но не публиковал",
+       "Публиковал, но не видел отклика и потерял мотивацию",
+       "Другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "plan_fit",
+      "text": "Из 10 запланированных задач выполнено только 2. Это большая разница. Возможно, план был слишком объёмным или задачи — слишком размытыми. На следующей неделе можно попробовать ставить 3–4 конкретных, небольших, но важных действия."
+     },
+     {
+      "topic": "load",
+      "text": "Вы готовы тратить >5 часов, а по факту на задачи ушло около 50 минут. Получается, время есть, но оно не направлено на конкретные шаги по привлечению. Это возможность — можно перераспределить эти часы."
+     },
+     {
+      "topic": "base_usage",
+      "text": "У вас есть база 10–30 человек, но по фактам нет работы с ней (in_progress = 0). При этом у вас уже есть канал для общения (TG). Написание даже нескольким бывшим клиентам могло бы сразу дать разговоры."
+     }
+    ],
+    "profile_change_proposals": [
+     {
+      "field": "hours_per_week",
+      "current_value": "gt5",
+      "proposed_value": "2_5",
+      "reason": "Факты показывают, что на задачи по привлечению уходит значительно меньше времени (50 минут). Установка реалистичного диапазона 2–5 часов поможет планировать конкретные дела и избежать чувства, что план не выполнен."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t09_profile_change_forbidden",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16361,
+   "tokens_in": 2521,
+   "tokens_out": 630,
+   "cost_rub": 0.20930321999999998,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.\",\n    \"Вы готовы тратить на поиск больше 5 часов в неделю — это серьёзный ресурс для активных действий.\",\n    \"Ваше предложение — пробная тренировка — понятное и удобное для первого знакомства.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но за неделю новых контактов с ними не было. Начать с нескольких личных сообщений — самый быстрый путь к первым разговорам.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"За неделю не появилось новых знакомств или заявок извне. Пока о вас мало кто знает помимо старой базы.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать писать бывшим клиентам лично, можно быстро получить первые разговоры и записи на пробные тренировки.\",\n    \"Если добавить активность в профиль Telegram или рассказать о себе в знакомых чатах, можно привлечь внимание новых людей.\"\n  ],\n  \"opportunities\": [\n    \"База уже знает вас — с неё проще начать диалог, чем с незнакомцами.\",\n    \"Выделенные часы позволяют спланировать и провести первую волну сообщений уже на этой неделе.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично в Telegram.\",\n    \"Вы можете выделить время в ближайшие дни, чтобы написать 5–10 персональных сообщений.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"base_activity_recent\",\n      \"text\": \"Когда вы в последний раз писали или общались с кем-то из своей базы бывших клиентов?\",\n      \"why\": \"Это поможет понять, насколько тёплые ещё контакты и как лучше начать разговор.\",\n      \"options\": [\"В последний месяц\", \"Несколько месяцев назад\", \"Больше полугода назад\", \"Не помню\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"base_usage\",\n      \"text\": \"За неделю вы потратили 30 минут на поиск клиентов, но стратегия «База» предполагает активные касания. Похоже, план работы с базой на этой неделе не был реализован.\"\n    }\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрого возвращения.",
+     "Вы готовы тратить на поиск больше 5 часов в неделю — это серьёзный ресурс для активных действий.",
+     "Ваше предложение — пробная тренировка — понятное и удобное для первого знакомства."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но за неделю новых контактов с ними не было. Начать с нескольких личных сообщений — самый быстрый путь к первым разговорам."
+     },
+     {
+      "code": "low_visibility",
+      "text": "За неделю не появилось новых знакомств или заявок извне. Пока о вас мало кто знает помимо старой базы."
+     }
+    ],
+    "hypotheses": [
+     "Если начать писать бывшим клиентам лично, можно быстро получить первые разговоры и записи на пробные тренировки.",
+     "Если добавить активность в профиль Telegram или рассказать о себе в знакомых чатах, можно привлечь внимание новых людей."
+    ],
+    "opportunities": [
+     "База уже знает вас — с неё проще начать диалог, чем с незнакомцами.",
+     "Выделенные часы позволяют спланировать и провести первую волну сообщений уже на этой неделе."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично в Telegram.",
+     "Вы можете выделить время в ближайшие дни, чтобы написать 5–10 персональных сообщений."
+    ],
+    "questions": [
+     {
+      "key": "base_activity_recent",
+      "text": "Когда вы в последний раз писали или общались с кем-то из своей базы бывших клиентов?",
+      "why": "Это поможет понять, насколько тёплые ещё контакты и как лучше начать разговор.",
+      "options": [
+       "В последний месяц",
+       "Несколько месяцев назад",
+       "Больше полугода назад",
+       "Не помню"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "base_usage",
+      "text": "За неделю вы потратили 30 минут на поиск клиентов, но стратегия «База» предполагает активные касания. Похоже, план работы с базой на этой неделе не был реализован."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t10_final_round_no_questions",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 13130,
+   "tokens_in": 2495,
+   "tokens_out": 503,
+   "cost_rub": 0.18705623999999998,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.\",\n    \"Вы предлагаете пробную тренировку — это понятное и привлекательное предложение для первого знакомства.\",\n    \"Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для системной работы.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но активных контактов с ними сейчас нет. С неё можно начать, чтобы быстрее получить первые записи.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Новых контактов за неделю не появляется. Значит, о вас сейчас мало кто узнаёт. Можно добавить способы, чтобы вас находили.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать писать бывшим клиентам лично в Telegram с предложением пробной тренировки, можно получить первые записи в течение 1–2 недель.\",\n    \"Если добавить простой способ для новых людей узнавать о вас (например, короткие посты или рассказ о себе в профиле), можно начать получать заявки извне.\"\n  ],\n  \"opportunities\": [\n    \"Начать с базы: выбрать 5–10 человек, которым вы больше всего помогли, и написать им персонально.\",\n    \"Использовать готовое предложение (пробная тренировка) и канал (Telegram), где вы уже общались с клиентами — это удобно и привычно для них.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам лично и напоминать о себе.\",\n    \"Вы можете выделить время в течение недели на такие личные сообщения.\",\n    \"Новые люди могут найти вас, если вы немного расскажете о себе там, где они ищут тренера.\"\n  ],\n  \"questions\": [],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт для быстрых результатов.",
+     "Вы предлагаете пробную тренировку — это понятное и привлекательное предложение для первого знакомства.",
+     "Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для системной работы."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но активных контактов с ними сейчас нет. С неё можно начать, чтобы быстрее получить первые записи."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Новых контактов за неделю не появляется. Значит, о вас сейчас мало кто узнаёт. Можно добавить способы, чтобы вас находили."
+     }
+    ],
+    "hypotheses": [
+     "Если начать писать бывшим клиентам лично в Telegram с предложением пробной тренировки, можно получить первые записи в течение 1–2 недель.",
+     "Если добавить простой способ для новых людей узнавать о вас (например, короткие посты или рассказ о себе в профиле), можно начать получать заявки извне."
+    ],
+    "opportunities": [
+     "Начать с базы: выбрать 5–10 человек, которым вы больше всего помогли, и написать им персонально.",
+     "Использовать готовое предложение (пробная тренировка) и канал (Telegram), где вы уже общались с клиентами — это удобно и привычно для них."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам лично и напоминать о себе.",
+     "Вы можете выделить время в течение недели на такие личные сообщения.",
+     "Новые люди могут найти вас, если вы немного расскажете о себе там, где они ищут тренера."
+    ],
+    "questions": [],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t24_onboarding_empty_fields",
+   "agent": "diagnose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16570,
+   "tokens_in": 2529,
+   "tokens_out": 721,
+   "cost_rub": 0.2296044,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 бывших клиентов — это хороший старт, они уже знают вас и ваш подход.\",\n    \"Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства.\",\n    \"Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для системной работы.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база бывших клиентов, но с ними сейчас нет контакта. Начать с них — самый быстрый путь к первым записям.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Нет новых контактов за неделю. О вас мало кто узнаёт, потому что не видно, где вы общаетесь с людьми.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если вы начнёте писать бывшим клиентам лично, часть из них может вернуться или порекомендовать вас.\",\n    \"Если определите, где удобнее всего общаться с клиентами (в соцсетях или мессенджере), сможете настроить первый канал для привлечения.\"\n  ],\n  \"opportunities\": [\n    \"Выбрать один основной канал для общения и сделать там простое объявление о наборе.\",\n    \"Написать 5–10 бывшим клиентам с персональным предложением — вспомнить о вас и записаться на пробное.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Вы готовы писать бывшим клиентам личные сообщения.\",\n    \"Вы ведёте персональные тренировки и ищете клиентов на них.\",\n    \"Пробное занятие — это ваше основное предложение для первого контакта.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"channels\",\n      \"text\": \"В каких соцсетях или мессенджерах вы чаще всего общаетесь с клиентами?\",\n      \"why\": \"Чтобы понять, где вам удобнее всего отвечать на вопросы и принимать заявки, и сосредоточить усилия там.\",\n      \"options\": [\"vk\", \"ok\", \"tg\", \"max\"],\n      \"allow_free_text\": false,\n      \"profile_field\": \"channels\"\n    },\n    {\n      \"key\": \"contact_recency\",\n      \"text\": \"Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов?\",\n      \"why\": \"Это поможет оценить, насколько свежи контакты и как лучше начать разговор — с напоминания о себе или с новостей.\",\n      \"options\": [\"В последние пару месяцев\", \"Полгода-год назад\", \"Больше года назад\", \"Не помню/не записывал\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У вас есть база из 10–30 бывших клиентов — это хороший старт, они уже знают вас и ваш подход.",
+     "Вы предлагаете пробное занятие — это понятное и привлекательное предложение для первого знакомства.",
+     "Вы готовы уделять 2–5 часов в неделю на поиск клиентов — это реалистичный объём для системной работы."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база бывших клиентов, но с ними сейчас нет контакта. Начать с них — самый быстрый путь к первым записям."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Нет новых контактов за неделю. О вас мало кто узнаёт, потому что не видно, где вы общаетесь с людьми."
+     }
+    ],
+    "hypotheses": [
+     "Если вы начнёте писать бывшим клиентам лично, часть из них может вернуться или порекомендовать вас.",
+     "Если определите, где удобнее всего общаться с клиентами (в соцсетях или мессенджере), сможете настроить первый канал для привлечения."
+    ],
+    "opportunities": [
+     "Выбрать один основной канал для общения и сделать там простое объявление о наборе.",
+     "Написать 5–10 бывшим клиентам с персональным предложением — вспомнить о вас и записаться на пробное."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Вы готовы писать бывшим клиентам личные сообщения.",
+     "Вы ведёте персональные тренировки и ищете клиентов на них.",
+     "Пробное занятие — это ваше основное предложение для первого контакта."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "В каких соцсетях или мессенджерах вы чаще всего общаетесь с клиентами?",
+      "why": "Чтобы понять, где вам удобнее всего отвечать на вопросы и принимать заявки, и сосредоточить усилия там.",
+      "options": [
+       "vk",
+       "ok",
+       "tg",
+       "max"
+      ],
+      "allow_free_text": false,
+      "profile_field": "channels"
+     },
+     {
+      "key": "contact_recency",
+      "text": "Когда вы в последний раз писали или общались с кем-то из вашей базы бывших клиентов?",
+      "why": "Это поможет оценить, насколько свежи контакты и как лучше начать разговор — с напоминания о себе или с новостей.",
+      "options": [
+       "В последние пару месяцев",
+       "Полгода-год назад",
+       "Больше года назад",
+       "Не помню/не записывал"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t11_propose_two_ok",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 18297,
+   "tokens_in": 1292,
+   "tokens_out": 747,
+   "cost_rub": 0.20009309862,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга и простого предложения\",\n      \"summary\": \"Постепенно рассказать знакомым о своих тренировках, предложить бесплатную пробную сессию и сделать запись максимально простой.\",\n      \"rationale\": \"У вас нет базы, но есть тёплый круг и готовность начать с малого. Эта стратегия начинается с безопасного и естественного шага — общения с теми, кто вас уже знает. Она учитывает ваше ограниченное время (меньше 2 часов в неделю) и не требует активных действий в незнакомой среде.\",\n      \"expected_effect\": \"Появится несколько первых диалогов с заинтересованными людьми. Вы сможете провести пробные тренировки, получить обратную связь и первые результаты. Это создаст основу для дальнейшего роста.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю на подготовку простого сообщения для знакомых, общение в мессенджере и поддержание аккуратного профиля в Telegram.\",\n      \"risks\": \"Знакомые могут не проявить активного интереса сразу. Может потребоваться время, чтобы первые разговоры переросли в пробные занятия.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"offer-and-booking\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую работает с главным узким местом — отсутствием базы — используя вашу сильную сторону (тёплый круг) и соответствует вашему текущему ритму работы. Она этична, посильна и создаёт фундамент для дальнейших действий.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Сфокусироваться на одном канале и своём профиле\",\n      \"summary\": \"Привести в порядок свой Telegram-канал или профиль, чтобы он чётко рассказывал о ваших тренировках, и мягко делиться этим контентом в своём круге.\",\n      \"rationale\": \"Ваш основной канал — Telegram. Усилив его, вы повысите свою видимость для тех, кто уже с вами знаком, и для их друзей. Это менее активная, но устойчивая стратегия, которая хорошо сочетается с небольшими временными затратами.\",\n      \"expected_effect\": \"Ваш профиль станет понятнее для потенциальных клиентов. Знакомые, видя вашу регулярную активность, могут начать рекомендовать вас. Увеличится доверие и профессиональное восприятие.\",\n      \"resource_requirements\": \"Несколько часов на первоначальное оформление профиля и затем 30-60 минут в неделю на поддержание: публикация полезных коротких постов или историй о тренировках.\",\n      \"risks\": \"Эффект может быть отсроченным, так как эта стратегия больше работает на узнаваемость, чем на немедленные диалоги. Требует регулярности, даже минимальной.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"offer-and-booking\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга и простого предложения",
+      "summary": "Постепенно рассказать знакомым о своих тренировках, предложить бесплатную пробную сессию и сделать запись максимально простой.",
+      "rationale": "У вас нет базы, но есть тёплый круг и готовность начать с малого. Эта стратегия начинается с безопасного и естественного шага — общения с теми, кто вас уже знает. Она учитывает ваше ограниченное время (меньше 2 часов в неделю) и не требует активных действий в незнакомой среде.",
+      "expected_effect": "Появится несколько первых диалогов с заинтересованными людьми. Вы сможете провести пробные тренировки, получить обратную связь и первые результаты. Это создаст основу для дальнейшего роста.",
+      "resource_requirements": "Около 1-2 часов в неделю на подготовку простого сообщения для знакомых, общение в мессенджере и поддержание аккуратного профиля в Telegram.",
+      "risks": "Знакомые могут не проявить активного интереса сразу. Может потребоваться время, чтобы первые разговоры переросли в пробные занятия.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "offer-and-booking"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую работает с главным узким местом — отсутствием базы — используя вашу сильную сторону (тёплый круг) и соответствует вашему текущему ритму работы. Она этична, посильна и создаёт фундамент для дальнейших действий."
+     },
+     {
+      "label": "B",
+      "name": "Сфокусироваться на одном канале и своём профиле",
+      "summary": "Привести в порядок свой Telegram-канал или профиль, чтобы он чётко рассказывал о ваших тренировках, и мягко делиться этим контентом в своём круге.",
+      "rationale": "Ваш основной канал — Telegram. Усилив его, вы повысите свою видимость для тех, кто уже с вами знаком, и для их друзей. Это менее активная, но устойчивая стратегия, которая хорошо сочетается с небольшими временными затратами.",
+      "expected_effect": "Ваш профиль станет понятнее для потенциальных клиентов. Знакомые, видя вашу регулярную активность, могут начать рекомендовать вас. Увеличится доверие и профессиональное восприятие.",
+      "resource_requirements": "Несколько часов на первоначальное оформление профиля и затем 30-60 минут в неделю на поддержание: публикация полезных коротких постов или историй о тренировках.",
+      "risks": "Эффект может быть отсроченным, так как эта стратегия больше работает на узнаваемость, чем на немедленные диалоги. Требует регулярности, даже минимальной.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "offer-and-booking"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t12_ethics_restriction",
+   "agent": "propose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16509,
+   "tokens_in": 1294,
+   "tokens_out": 718,
+   "cost_rub": 0.19458,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга знакомых\",\n      \"summary\": \"Постепенно рассказывать о своих тренировках знакомым и друзьям, которые уже знают вас. Аккуратно вести профиль в Telegram, чтобы они видели вашу деятельность.\",\n      \"rationale\": \"У вас нет базы клиентов, но есть знакомые — это самый естественный и безопасный способ начать. Стратегия соответствует вашему времени (2–5 часов в неделю) и не требует холодных обращений, что важно с точки зрения этики.\",\n      \"expected_effect\": \"Появятся первые диалоги о тренировках с людьми, которые вам доверяют. Это создаст основу для первых пробных занятий и постепенно повысит вашу видимость как тренера.\",\n      \"resource_requirements\": \"Около 2–3 часов в неделю на общение в мессенджерах и поддержание актуального профиля в Telegram (например, 2–3 поста или истории в неделю).\",\n      \"risks\": \"Круг знакомых может быть небольшим или не все будут заинтересованы в фитнесе. Процесс будет медленным, но это нормально для начала.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"steady-content\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую работает с главным узким местом — отсутствием базы, используя ваши текущие возможности (знакомые и канал). Она посильна по времени, этична и создаёт устойчивый фундамент для дальнейшего роста.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Фокус на регулярном контенте в одном канале\",\n      \"summary\": \"Сделать Telegram вашей основной площадкой. Регулярно публиковать полезные посты и истории о тренировках, здоровье и своих принципах работы, чтобы привлекать внимание постепенно.\",\n      \"rationale\": \"У вас уже есть канал в Telegram — это ваша сильная сторона. Регулярное присутствие поможет вам стать заметнее для вашей текущей аудитории и постепенно привлечёт интерес от новых людей через сарафанное радио.\",\n      \"expected_effect\": \"Увеличится узнаваемость и доверие к вам как к специалисту. Это может привести к спонтанным вопросам о тренировках от подписчиков и их знакомых.\",\n      \"resource_requirements\": \"Потребуется планирование: около 3–4 часов в неделю на создание и публикацию контента (например, 3–4 качественных материала).\",\n      \"risks\": \"Без активного общения вне контента первые результаты могут появиться не сразу. Важно сочетать публикации с личным общением, чтобы диалоги переходили в записи.\",\n      \"knowledge_card_keys\": [\"steady-content\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга знакомых",
+      "summary": "Постепенно рассказывать о своих тренировках знакомым и друзьям, которые уже знают вас. Аккуратно вести профиль в Telegram, чтобы они видели вашу деятельность.",
+      "rationale": "У вас нет базы клиентов, но есть знакомые — это самый естественный и безопасный способ начать. Стратегия соответствует вашему времени (2–5 часов в неделю) и не требует холодных обращений, что важно с точки зрения этики.",
+      "expected_effect": "Появятся первые диалоги о тренировках с людьми, которые вам доверяют. Это создаст основу для первых пробных занятий и постепенно повысит вашу видимость как тренера.",
+      "resource_requirements": "Около 2–3 часов в неделю на общение в мессенджерах и поддержание актуального профиля в Telegram (например, 2–3 поста или истории в неделю).",
+      "risks": "Круг знакомых может быть небольшим или не все будут заинтересованы в фитнесе. Процесс будет медленным, но это нормально для начала.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "steady-content",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую работает с главным узким местом — отсутствием базы, используя ваши текущие возможности (знакомые и канал). Она посильна по времени, этична и создаёт устойчивый фундамент для дальнейшего роста."
+     },
+     {
+      "label": "B",
+      "name": "Фокус на регулярном контенте в одном канале",
+      "summary": "Сделать Telegram вашей основной площадкой. Регулярно публиковать полезные посты и истории о тренировках, здоровье и своих принципах работы, чтобы привлекать внимание постепенно.",
+      "rationale": "У вас уже есть канал в Telegram — это ваша сильная сторона. Регулярное присутствие поможет вам стать заметнее для вашей текущей аудитории и постепенно привлечёт интерес от новых людей через сарафанное радио.",
+      "expected_effect": "Увеличится узнаваемость и доверие к вам как к специалисту. Это может привести к спонтанным вопросам о тренировках от подписчиков и их знакомых.",
+      "resource_requirements": "Потребуется планирование: около 3–4 часов в неделю на создание и публикацию контента (например, 3–4 качественных материала).",
+      "risks": "Без активного общения вне контента первые результаты могут появиться не сразу. Важно сочетать публикации с личным общением, чтобы диалоги переходили в записи.",
+      "knowledge_card_keys": [
+       "steady-content",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t13_decompose_first_plan",
+   "agent": "decompose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 15649,
+   "tokens_in": 1381,
+   "tokens_out": 729,
+   "cost_rub": 0.23142047999999998,
+   "content": "{\n  \"milestones\": [\n    {\n      \"position\": 1,\n      \"title\": \"Собрать базу бывших клиентов\",\n      \"week\": 1,\n      \"success_criteria\": [\n        {\n          \"metric\": \"contacts_added\",\n          \"min\": 5,\n          \"task_type\": \"strategy.base_collect\"\n       \n       \n    \n   \n\n\n  ,\n  \"source\": \"strategy.base_collect\"\n        }\n      ]\n    },\n    {\n      \"position\": 2,\n      \"title\": \"Начать диалоги с бывшими клиентами\",\n      \"week\": 3,\n      \"success_criteria\": [\n        {\n          \"metric\": \"dialogs_started\",\n          \"min\":   3,\n          \"task_type\": \"strategy.base_reactivate\"\n       \n    \n   \n\n\n  ,\n  \"source\": \"strategy.base_reactivate\"\n        }\n      ]\n    },\n    {\n      \"position\": 3,\n      \"title\": \"Получить первые заявки на пробное занятие\",\n      \"week\": 6,\n      \"success_criteria\": [\n        {\n          \"metric\": \"leads_new\",\n          \"min\": 2,\n          \"task_type\": \"strategy.base_reactivate\"\n       \n    \n   \n\n\n  ,\n  \"source\": \"strategy.base_reactivate\"\n        }\n      ]\n    }\n  ],\n  \"plan_rationale\": \"План на первую неделю закладывает основу для стратегии «Вернуть бывших». Сначала нужно систематизировать контакты, затем начать общение и напоминания. Объём задач соответствует лёгкой интенсивности и укладывается в лимит времени.\",\n  \"items\": [\n    {\n      \"key\": \"base_collect_first_week\",\n      \"type\": \"strategy.base_collect\",\n      \"title\": \"Внесите в CRM 5 бывших клиентов\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 15,\n      \"milestone_position\": 1,\n      \"hint\": \"Начните с тех, с кем расстались хорошо. Добавьте их имена и контакты в раздел CRM.\"\n    },\n    {\n      \"key\": \"base_reactivate_weekly\",\n      \"type\": \"strategy.base_reactivate\",\n      \"title\": \"Напишите 2–3 людям из старой базы\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\": 20,\n      \"milestone_position\": 2,\n      \"hint\": \"Пишите лично, не рассылкой. Спросите, как дела, и мягко напомните о себе.\"\n    },\n    {\n      \"key\": \"follow_up_weekly\",\n      \"type\": \"strategy.follow_up\",\n      \"title\": \"Напомните о себе тем, кто не ответил\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\": 10,\n      \"milestone_position\": null,\n      \"hint\": \"Одно напоминание через 3–5 дней после первого сообщения.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Собрать базу бывших клиентов",
+      "week": 1,
+      "success_criteria": [
+       {
+        "metric": "contacts_added",
+        "min": 5,
+        "task_type": "strategy.base_collect",
+        "source": "strategy.base_collect"
+       }
+      ]
+     },
+     {
+      "position": 2,
+      "title": "Начать диалоги с бывшими клиентами",
+      "week": 3,
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 3,
+        "task_type": "strategy.base_reactivate",
+        "source": "strategy.base_reactivate"
+       }
+      ]
+     },
+     {
+      "position": 3,
+      "title": "Получить первые заявки на пробное занятие",
+      "week": 6,
+      "success_criteria": [
+       {
+        "metric": "leads_new",
+        "min": 2,
+        "task_type": "strategy.base_reactivate",
+        "source": "strategy.base_reactivate"
+       }
+      ]
+     }
+    ],
+    "plan_rationale": "План на первую неделю закладывает основу для стратегии «Вернуть бывших». Сначала нужно систематизировать контакты, затем начать общение и напоминания. Объём задач соответствует лёгкой интенсивности и укладывается в лимит времени.",
+    "items": [
+     {
+      "key": "base_collect_first_week",
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 5 бывших клиентов",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 15,
+      "milestone_position": 1,
+      "hint": "Начните с тех, с кем расстались хорошо. Добавьте их имена и контакты в раздел CRM."
+     },
+     {
+      "key": "base_reactivate_weekly",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 2,
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и мягко напомните о себе."
+     },
+     {
+      "key": "follow_up_weekly",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "milestone_position": null,
+      "hint": "Одно напоминание через 3–5 дней после первого сообщения."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t14_decompose_weekly_adjust",
+   "agent": "decompose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9762,
+   "tokens_in": 1339,
+   "tokens_out": 360,
+   "cost_rub": 0.12991458,
+   "content": "{\n  \"milestones\": [],\n  \"plan_rationale\": \"На прошлой неделе выполнена только треть плана, и напоминания не делались. На этой неделе сохраним основную задачу — написать бывшим клиентам, но добавим напоминания тем, кто не ответил, чтобы повысить шансы на отклик. Объём остаётся умеренным, в рамках доступного времени.\",\n  \"items\": [\n    {\n      \"key\": \"write_to_old_base\",\n      \"type\": \"strategy.base_reactivate\",\n      \"title\": \"Напишите 2–3 людям из старой базы\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\":   20,\n      \"milestone_position\": 1,\n      \"hint\": \"Пишите лично, не рассылкой. Спросите, как дела, и предложите бесплатную пробную тренировку.\"\n    },\n    {\n      \"key\": \"send_reminders\",\n      \"type\": \"strategy.follow_up\",\n      \"title\": \"Напомните о себе тем, кто не ответил на прошлые сообщения\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\":   15,\n      \"milestone_position\": null,\n      \"hint\": \"Одно напоминание через 3–5 дней после первого сообщения. Можно коротко переспросить или добавить новую причину для связи.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [],
+    "plan_rationale": "На прошлой неделе выполнена только треть плана, и напоминания не делались. На этой неделе сохраним основную задачу — написать бывшим клиентам, но добавим напоминания тем, кто не ответил, чтобы повысить шансы на отклик. Объём остаётся умеренным, в рамках доступного времени.",
+    "items": [
+     {
+      "key": "write_to_old_base",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 1,
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и предложите бесплатную пробную тренировку."
+     },
+     {
+      "key": "send_reminders",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил на прошлые сообщения",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 15,
+      "milestone_position": null,
+      "hint": "Одно напоминание через 3–5 дней после первого сообщения. Можно коротко переспросить или добавить новую причину для связи."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t15_review_on_track_zero_clients",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 12286,
+   "tokens_in": 1089,
+   "tokens_out": 407,
+   "cost_rub": 0.1498266,
+   "content": "{\n  \"status\": \"on_track\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Вы начали диалоги с бывшими клиентами: 3 разговора за неделю. Это соответствует критерию успеха первой вехи.\",\n    \"План выполнен на 83%. Вы делаете задачи регулярно и приближаетесь к цели.\",\n    \"Появилась одна новая заявка (лид) — это сигнал интереса от базы.\"\n  ],\n  \"what_does_not\": [\n    \"Пока нет новых клиентов из базы. Это ожидаемо на старте, но стоит отслеживать, как диалоги переходят в предложения.\",\n    \"Одна задача из плана не сделана. Небольшое отставание может накапливаться, если его не компенсировать.\"\n  ],\n  \"suggestions\": [\n    \"В следующих диалогах пробуйте мягко напоминать о вашей ценности и предлагать разовую консультацию или пробную тренировку.\",\n    \"Проверьте, все ли контакты из базы, которым отправили сообщения, получили их и был ли ответ. Может, нужно изменить время отправки или тон сообщения.\",\n    \"Запланируйте на следующую неделю чуть меньше задач, чтобы уверенно закрывать план и не выгорать.\"\n  ]\n  ,\n  \"explanation\": \"Стратегия «Вернуть бывших» работает: первая веха выполнена, диалоги начаты, план в основном делается. Пока рано менять курс — нужно дать больше времени на развитие контактов и переход от разговоров к продажам. Рекомендуется продолжать с небольшими корректировками в тактике общения.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Вы начали диалоги с бывшими клиентами: 3 разговора за неделю. Это соответствует критерию успеха первой вехи.",
+     "План выполнен на 83%. Вы делаете задачи регулярно и приближаетесь к цели.",
+     "Появилась одна новая заявка (лид) — это сигнал интереса от базы."
+    ],
+    "what_does_not": [
+     "Пока нет новых клиентов из базы. Это ожидаемо на старте, но стоит отслеживать, как диалоги переходят в предложения.",
+     "Одна задача из плана не сделана. Небольшое отставание может накапливаться, если его не компенсировать."
+    ],
+    "suggestions": [
+     "В следующих диалогах пробуйте мягко напоминать о вашей ценности и предлагать разовую консультацию или пробную тренировку.",
+     "Проверьте, все ли контакты из базы, которым отправили сообщения, получили их и был ли ответ. Может, нужно изменить время отправки или тон сообщения.",
+     "Запланируйте на следующую неделю чуть меньше задач, чтобы уверенно закрывать план и не выгорать."
+    ],
+    "explanation": "Стратегия «Вернуть бывших» работает: первая веха выполнена, диалоги начаты, план в основном делается. Пока рано менять курс — нужно дать больше времени на развитие контактов и переход от разговоров к продажам. Рекомендуется продолжать с небольшими корректировками в тактике общения."
+   },
+   "expect_misses": [
+    "jargon"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t16_review_not_failed_on_clients",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8369,
+   "tokens_in": 1083,
+   "tokens_out": 334,
+   "cost_rub": 0.10825134,
+   "content": "{\n  \"status\": \"on_track\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Выполнение плана: все 10 запланированных задач сделаны.\",\n    \"Регулярность: веха по регулярности выполнена досрочно (10 задач при плане 8).\",\n    \"Начато 2 новых диалога с потенциальными клиентами.\"\n  ],\n  \"what_does_not\": [\n    \"Нет новых заявок (leads) на этой неделе.\"\n  ],\n  \"suggestions\": [\n    \"Продолжайте в том же темпе, чтобы закрепить привычку регулярного создания контента.\",\n    \"Проанализируйте, какие типы постов или темы вызывают больше отклика и диалогов, чтобы делать больше такого контента.\",\n    \"Попробуйте в следующих постах добавить более явный призыв к действию (например, задать вопрос или предложить бесплатную консультацию), чтобы стимулировать переход от просмотра к диалогу.\"\n  ]\n  ,\n  \"explanation\": \"Стратегия выполняется стабильно и по плану. Веха достигнута. Основной зазор — пока нет заявок, но это ожидаемо на ранних этапах контент1ной стратегии. Рекомендуется продолжать, фокусируясь на качестве контента и вовлечении аудитории.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Выполнение плана: все 10 запланированных задач сделаны.",
+     "Регулярность: веха по регулярности выполнена досрочно (10 задач при плане 8).",
+     "Начато 2 новых диалога с потенциальными клиентами."
+    ],
+    "what_does_not": [
+     "Нет новых заявок (leads) на этой неделе."
+    ],
+    "suggestions": [
+     "Продолжайте в том же темпе, чтобы закрепить привычку регулярного создания контента.",
+     "Проанализируйте, какие типы постов или темы вызывают больше отклика и диалогов, чтобы делать больше такого контента.",
+     "Попробуйте в следующих постах добавить более явный призыв к действию (например, задать вопрос или предложить бесплатную консультацию), чтобы стимулировать переход от просмотра к диалогу."
+    ],
+    "explanation": "Стратегия выполняется стабильно и по плану. Веха достигнута. Основной зазор — пока нет заявок, но это ожидаемо на ранних этапах контент1ной стратегии. Рекомендуется продолжать, фокусируясь на качестве контента и вовлечении аудитории."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t17_decompose_intense_two_cards",
+   "agent": "decompose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 27194,
+   "tokens_in": 2276,
+   "tokens_out": 1478,
+   "cost_rub": 0.40822883862,
+   "content": "{\n  \"milestones\": [\n    {\n      \"position\": 1,\n      \"title\": \"Подготовить каналы и предложение\",\n      \"week\": 1,\n      \"success_criteria\": [\n        {\n          \"metric\": \"tasks_done\",\n          \"min\": 4,\n          \"task_type\": \"strategy.social_profile,strategy.offer_setup,strategy.link_share,strategy.base_collect\"\n       ,\n          \"source\": \"plan\"\n        }\n      ]\n    },\n    {\n      \"position\": 2,\n      \"title\": \"Начать регулярные разговоры и публикации\",\n      \"week\":   3,\n      \"success_criteria\": [\n        {\n          \"metric\": \"dialogs_started\",\n          \"min\": 10,\n          \"task_type\": \"strategy.base_reactivate\",\n          \"source\": \"plan\"\n        },\n        {\n          \"metric\": \"tasks_done\",\n          \"min\": 6,\n          \"task_type\": \"strategy.content_post,strategy.content_short\",\n          \"source\": \"plan\"\n        }\n      ]\n    },\n    {\n      \"position\": 3,\n      \"title\": \"Получить первые заявки на пробное занятие\",\n      \"week\": 6,\n      \"success_criteria\": [\n        {\n          \"metric\": \"leads_new\",\n          \"min\": 4,\n          \"task_type\": \"strategy.follow_up,strategy.link_share\",\n          \"source\": \"plan\"\n        }\n      ]\n    }\n  ],\n  \"plan_rationale\": \"План на первую неделю фокусируется на подготовке: внести базу знакомых, оформить профиль и предложение для быстрого старта. Это основа для последующих активных действий по общению и контенту. Минуты распределены с запасом для интенсивного темпа.\",\n  \"items\": [\n    {\n      \"key\": \"base_collect_15\",\n      \"type\": \"strategy.base_collect\",\n      \"title\": \"Внесите в CRM 15 знакомых, кому может быть интересно\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 30,\n      \"milestone_position\": 1,\n      \"hint\": \"Друзья, коллеги, знакомые по залу, родители из школы — все, кто знает вас лично.\"\n    },\n    {\n      \"key\": \"social_profile_setup\",\n      \"type\": \"strategy.social_profile\",\n      \"title\": \"Оформите профиль в соцсети: кто вы и как записаться\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 20,\n      \"milestone_position\": 1,\n      \"hint\": \"В первой строке — для кого вы и с чем помогаете. Ссылка на запись — в шапке.\"\n    },\n    {\n      \"key\": \"offer_setup_check\",\n      \"type\": \"strategy.offer_setup\",\n      \"title\": \"Сформулируйте предложение и проверьте страницу записи\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 30,\n      \"milestone_position\": 1,\n      \"hint\": \"Одна фраза: для кого → что получит → как начать. Пройдите запись сами с телефона.\"\n    },\n    {\n      \"key\": \"link_share_profile\",\n      \"type\": \"strategy.link_share\",\n      \"title\": \"Поставьте ссылку на запись в профиль и подпись сообщений\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 10,\n      \"milestone_position\": 1,\n      \"hint\": \"Человек, которому интересно, должен записаться в один клик.\"\n    },\n    {\n      \"key\": \"base_reactivate_3x\",\n      \"type\": \"strategy.base_reactivate\",\n      \"title\": \"Расскажите 5 знакомым, чем вы теперь занимаетесь\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 3\n      },\n      \"minutes\": 20,\n      \"milestone_position\": null,\n      \"hint\": \"Расскажите и попросите совета или рекомендации. Не прикладывайте прайс в первом сообщении.\"\n    },\n    {\n      \"key\": \"content_post_weekly\",\n      \"type\": \"strategy.content_post\",\n      \"title\": \"Опубликуйте пост о своём подходе или результате клиента\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\": 30,\n      \"milestone_position\": null,\n      \"hint\": \"Один пост — одна мысль. Результат клиента — только с его согласия.\"\n    },\n    {\n      \"key\": \"content_short_3x\",\n      \"type\": \"strategy.content_short\",\n      \"title\": \"Выложите короткую историю о своей работе\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 3\n      },\n      \"minutes\": 10,\n      \"milestone_position\": null,\n      \"hint\": \"Фото или кружок и одна фраза. Регулярность важнее красоты.\"\n    },\n    {\n      \"key\": \"follow_up_2x\",\n      \"type\": \"strategy.follow_up\",\n      \"title\": \"Ответьте и напомните тем, кто проявил интерес\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 2\n      },\n      \"minutes\": 10,\n      \"milestone_position\": null,\n      \"hint\": \"Одно напоминание через 3–5 дней нормально. Не отвечают дважды — оставьте в покое.\"\n    },\n    {\n      \"key\": \"link_share_in_content\",\n      \"type\": \"strategy.link_share\",\n      \"title\": \"Добавьте ссылку на запись в пост или ответ\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 3\n      },\n      \"minutes\": 5,\n      \"milestone_position\": null,\n      \"hint\": \"Заканчивайте полезный пост одной фразой и ссылкой — без давления.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Подготовить каналы и предложение",
+      "week": 1,
+      "success_criteria": [
+       {
+        "metric": "tasks_done",
+        "min": 4,
+        "task_type": "strategy.social_profile,strategy.offer_setup,strategy.link_share,strategy.base_collect",
+        "source": "plan"
+       }
+      ]
+     },
+     {
+      "position": 2,
+      "title": "Начать регулярные разговоры и публикации",
+      "week": 3,
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 10,
+        "task_type": "strategy.base_reactivate",
+        "source": "plan"
+       },
+       {
+        "metric": "tasks_done",
+        "min": 6,
+        "task_type": "strategy.content_post,strategy.content_short",
+        "source": "plan"
+       }
+      ]
+     },
+     {
+      "position": 3,
+      "title": "Получить первые заявки на пробное занятие",
+      "week": 6,
+      "success_criteria": [
+       {
+        "metric": "leads_new",
+        "min": 4,
+        "task_type": "strategy.follow_up,strategy.link_share",
+        "source": "plan"
+       }
+      ]
+     }
+    ],
+    "plan_rationale": "План на первую неделю фокусируется на подготовке: внести базу знакомых, оформить профиль и предложение для быстрого старта. Это основа для последующих активных действий по общению и контенту. Минуты распределены с запасом для интенсивного темпа.",
+    "items": [
+     {
+      "key": "base_collect_15",
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 15 знакомых, кому может быть интересно",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "milestone_position": 1,
+      "hint": "Друзья, коллеги, знакомые по залу, родители из школы — все, кто знает вас лично."
+     },
+     {
+      "key": "social_profile_setup",
+      "type": "strategy.social_profile",
+      "title": "Оформите профиль в соцсети: кто вы и как записаться",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 20,
+      "milestone_position": 1,
+      "hint": "В первой строке — для кого вы и с чем помогаете. Ссылка на запись — в шапке."
+     },
+     {
+      "key": "offer_setup_check",
+      "type": "strategy.offer_setup",
+      "title": "Сформулируйте предложение и проверьте страницу записи",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "milestone_position": 1,
+      "hint": "Одна фраза: для кого → что получит → как начать. Пройдите запись сами с телефона."
+     },
+     {
+      "key": "link_share_profile",
+      "type": "strategy.link_share",
+      "title": "Поставьте ссылку на запись в профиль и подпись сообщений",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 10,
+      "milestone_position": 1,
+      "hint": "Человек, которому интересно, должен записаться в один клик."
+     },
+     {
+      "key": "base_reactivate_3x",
+      "type": "strategy.base_reactivate",
+      "title": "Расскажите 5 знакомым, чем вы теперь занимаетесь",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 20,
+      "milestone_position": null,
+      "hint": "Расскажите и попросите совета или рекомендации. Не прикладывайте прайс в первом сообщении."
+     },
+     {
+      "key": "content_post_weekly",
+      "type": "strategy.content_post",
+      "title": "Опубликуйте пост о своём подходе или результате клиента",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 30,
+      "milestone_position": null,
+      "hint": "Один пост — одна мысль. Результат клиента — только с его согласия."
+     },
+     {
+      "key": "content_short_3x",
+      "type": "strategy.content_short",
+      "title": "Выложите короткую историю о своей работе",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 10,
+      "milestone_position": null,
+      "hint": "Фото или кружок и одна фраза. Регулярность важнее красоты."
+     },
+     {
+      "key": "follow_up_2x",
+      "type": "strategy.follow_up",
+      "title": "Ответьте и напомните тем, кто проявил интерес",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 10,
+      "milestone_position": null,
+      "hint": "Одно напоминание через 3–5 дней нормально. Не отвечают дважды — оставьте в покое."
+     },
+     {
+      "key": "link_share_in_content",
+      "type": "strategy.link_share",
+      "title": "Добавьте ссылку на запись в пост или ответ",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 5,
+      "milestone_position": null,
+      "hint": "Заканчивайте полезный пост одной фразой и ссылкой — без давления."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t18_decompose_weekly_continue",
+   "agent": "decompose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 6405,
+   "tokens_in": 1456,
+   "tokens_out": 426,
+   "cost_rub": 0.15034548,
+   "content": "{\n  \"milestones\": [],\n  \"plan_rationale\": \"План на неделю продолжает стратегию регулярного контента в соцсетях. Прошлая неделя выполнена хорошо, поэтому сохраняем текущий ритм публикаций и общения, укладываясь в лимит времени.\",\n  \"items\": [\n    {\n      \"key\": \"content_post_1\",\n      \"type\": \"strategy.content_post\",\n      \"title\": \"Опубликуйте пост\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\":   2\n      },\n      \"minutes\": 30,\n      \"milestone_position\": null,\n      \"hint\": \"Чередуйте пользу и себя — сегодня совет, в следующий раз история клиента (с согласия) или как вы работаете.\"\n    },\n    {\n      \"key\": \"content_short_1\",\n      \"type\": \"strategy.content_short\",\n      \"title\": \"Выложите короткую историю\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\":   2\n      },\n      \"minutes\": 10,\n      \"milestone_position\": null,\n      \"hint\": \"Фото или кружок и одна фраза. Регулярность важнее красоты.\"\n    },\n    {\n      \"key\": \"community_engage_1\",\n      \"type\": \"strategy.community_engage\",\n      \"title\": \"Ответьте на вопрос в местном чате или сообществе\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\":   1\n      },\n      \"minutes\": 15,\n      \"milestone_position\": null,\n      \"hint\": \"Помогите по существу, без рекламы. Ссылка на себя — только если правила чата разрешают.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [],
+    "plan_rationale": "План на неделю продолжает стратегию регулярного контента в соцсетях. Прошлая неделя выполнена хорошо, поэтому сохраняем текущий ритм публикаций и общения, укладываясь в лимит времени.",
+    "items": [
+     {
+      "key": "content_post_1",
+      "type": "strategy.content_post",
+      "title": "Опубликуйте пост",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 30,
+      "milestone_position": null,
+      "hint": "Чередуйте пользу и себя — сегодня совет, в следующий раз история клиента (с согласия) или как вы работаете."
+     },
+     {
+      "key": "content_short_1",
+      "type": "strategy.content_short",
+      "title": "Выложите короткую историю",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 10,
+      "milestone_position": null,
+      "hint": "Фото или кружок и одна фраза. Регулярность важнее красоты."
+     },
+     {
+      "key": "community_engage_1",
+      "type": "strategy.community_engage",
+      "title": "Ответьте на вопрос в местном чате или сообществе",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 15,
+      "milestone_position": null,
+      "hint": "Помогите по существу, без рекламы. Ссылка на себя — только если правила чата разрешают."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t19_decompose_light_cap",
+   "agent": "decompose",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 26779,
+   "tokens_in": 1641,
+   "tokens_out": 2200,
+   "cost_rub": 0.50752949862,
+   "content": "{\n  \"milestones\": [\n    {\n      \"position\": 1,\n      \"title\": \"Собрать базу для контактов\",\n      \"week\": 1,\n      \"success_criteria\": [\n        {\n          \"metric\": \"tasks_done\",\n          \"min\": 1,\n          \"task_type\": \"strategy.base_collect\"\n       \n       \n       \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n       \n        \n",
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "invalid_json:Expecting ',' delimiter"
+   ]
+  },
+  {
+   "case": "t20_review_too_early",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3984,
+   "tokens_in": 1090,
+   "tokens_out": 227,
+   "cost_rub": 0.08580978,
+   "content": "{\n  \"status\": \"too_early\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Вы начали работу: выполнена 1 задача из плана.\"\n  ],\n  \"what_does_not\": [\n    \"Пока мало данных для оценки (прошло менее недели).\",\n    \"Выполнение плана на этой неделе низкое (25%).\",\n    \"Диалоги с бывшими клиентами пока не начались.\"\n  ],\n  \"suggestions\": [\n    \"Сконцентрируйтесь на выполнении запланированных задач на следующей неделе.\",\n    \"Проверьте, все ли контакты бывших клиентов актуальны и готовы к общению.\",\n    \"Подготовьте простой и тёплый шаблон первого сообщения, чтобы упростить старт диалогов.\"\n  ]\n  ,\n  \"explanation\": \"Стратегия только началась, данных для выводов недостаточно. Пока важно наладить регулярность действий.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "too_early",
+    "recommendation": "continue",
+    "what_works": [
+     "Вы начали работу: выполнена 1 задача из плана."
+    ],
+    "what_does_not": [
+     "Пока мало данных для оценки (прошло менее недели).",
+     "Выполнение плана на этой неделе низкое (25%).",
+     "Диалоги с бывшими клиентами пока не начались."
+    ],
+    "suggestions": [
+     "Сконцентрируйтесь на выполнении запланированных задач на следующей неделе.",
+     "Проверьте, все ли контакты бывших клиентов актуальны и готовы к общению.",
+     "Подготовьте простой и тёплый шаблон первого сообщения, чтобы упростить старт диалогов."
+    ],
+    "explanation": "Стратегия только началась, данных для выводов недостаточно. Пока важно наладить регулярность действий."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t21_review_behind_low_done",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 7290,
+   "tokens_in": 1091,
+   "tokens_out": 375,
+   "cost_rub": 0.11259696,
+   "content": "{\n  \"status\": \"behind\",\n  \"recommendation\": \"adjust\",\n  \"what_works\": [\n    \"Вы начали работу по стратегии: сделано 2 задачи из запланированных.\"\n  ],\n  \"what_does_not\": [\n    \"Отставание по вехе 'Первые сообщения': нужно было 4 задачи, выполнено 2.\",\n    \"Общее выполнение плана за неделю низкое (13%).\",\n    \"Пока нет диалогов и заявок от бывших клиентов.\"\n  ],\n  \"suggestions\": [\n    \"Пересмотрите план на неделю: возможно, 15 задач — слишком много. Уменьшите объём до 3-5 конкретных, выполнимых действий (например, написать 3 сообщения).\",\n    \"Сосредоточьтесь на качестве контакта: вместо массовой рассылки выберите 2-3 самых вероятных кандидата и напишите персональные сообщения.\",\n    \"Проверьте, используете ли вы рекомендации из карточки знаний 'reactivate-old-base' (например, правильный тон, предложение).\"\n  ]\n  ,\n  \"explanation\": \"Стратегия 'Вернуть бывших' требует систематического, но необъёмного контакта. Сейчас нагрузка, судя по плану (15 задач), может быть высокой, что мешает выполнению. Рекомендуется скорректировать план, снизив количество задач, но повысив их значимость и персональность, чтобы начать диалоги. Стратегию менять рано — нужно дать ей шанс при более реалистичном плане.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "behind",
+    "recommendation": "adjust",
+    "what_works": [
+     "Вы начали работу по стратегии: сделано 2 задачи из запланированных."
+    ],
+    "what_does_not": [
+     "Отставание по вехе 'Первые сообщения': нужно было 4 задачи, выполнено 2.",
+     "Общее выполнение плана за неделю низкое (13%).",
+     "Пока нет диалогов и заявок от бывших клиентов."
+    ],
+    "suggestions": [
+     "Пересмотрите план на неделю: возможно, 15 задач — слишком много. Уменьшите объём до 3-5 конкретных, выполнимых действий (например, написать 3 сообщения).",
+     "Сосредоточьтесь на качестве контакта: вместо массовой рассылки выберите 2-3 самых вероятных кандидата и напишите персональные сообщения.",
+     "Проверьте, используете ли вы рекомендации из карточки знаний 'reactivate-old-base' (например, правильный тон, предложение)."
+    ],
+    "explanation": "Стратегия 'Вернуть бывших' требует систематического, но необъёмного контакта. Сейчас нагрузка, судя по плану (15 задач), может быть высокой, что мешает выполнению. Рекомендуется скорректировать план, снизив количество задач, но повысив их значимость и персональность, чтобы начать диалоги. Стратегию менять рано — нужно дать ей шанс при более реалистичном плане."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t22_review_done_no_results",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9112,
+   "tokens_in": 1093,
+   "tokens_out": 417,
+   "cost_rub": 0.12297456,
+   "content": "{\n  \"status\": \"failed\",\n  \"recommendation\": \"change_strategy\",\n  \"what_works\": [\n    \"Высокое выполнение плана: 92% задач сделано. Это показывает хорошую работоспособность и дисциплину.\"\n  ],\n  \"what_does_not\": [\n    \"Веха 'Пошли ответы' (цель — 4 диалога) просрочена, и прогресс по ней равен нулю. За 5 недель стратегии не начато ни одного диалога с бывшими клиентами.\",\n    \"Нет промежуточных результатов: 0 диалогов и 0 заявок. Это означает, что текущие действия не приводят к контакту с целевой аудиторией.\"\n  ],\n  \"suggestions\": [\n    \"Срочно провести анализ: почему сообщения не вызывают отклика? Возможно, текст не цепляет, время отправки неверное или контакты устарели.\",\n    \"Рассмотреть смену подхода: вместо массовых рассылок попробовать персональные короткие аудиосообщения или предложить конкретную, ограниченную по времени скидку для возвращения.\",\n    \"Если после тестов новых тактик в течение 1-2 недель диалоги не появятся, стратегию 'Вернуть бывших' стоит заменить на фокус на других каналах привлечения.\"\n  ]\n  ,\n  \"explanation\": \"Стратегия выполняется систематически (92% задач), но ключевой промежуточный результат — диалоги — полностью отсутствует на протяжении 5 недель. Это указывает на фундаментальную проблему в методе взаимодействия или в самой базе контактов. Стратегия не работает, несмотря на хорошее выполнение плана действий, поэтому требуется её изменение.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "failed",
+    "recommendation": "change_strategy",
+    "what_works": [
+     "Высокое выполнение плана: 92% задач сделано. Это показывает хорошую работоспособность и дисциплину."
+    ],
+    "what_does_not": [
+     "Веха 'Пошли ответы' (цель — 4 диалога) просрочена, и прогресс по ней равен нулю. За 5 недель стратегии не начато ни одного диалога с бывшими клиентами.",
+     "Нет промежуточных результатов: 0 диалогов и 0 заявок. Это означает, что текущие действия не приводят к контакту с целевой аудиторией."
+    ],
+    "suggestions": [
+     "Срочно провести анализ: почему сообщения не вызывают отклика? Возможно, текст не цепляет, время отправки неверное или контакты устарели.",
+     "Рассмотреть смену подхода: вместо массовых рассылок попробовать персональные короткие аудиосообщения или предложить конкретную, ограниченную по времени скидку для возвращения.",
+     "Если после тестов новых тактик в течение 1-2 недель диалоги не появятся, стратегию 'Вернуть бывших' стоит заменить на фокус на других каналах привлечения."
+    ],
+    "explanation": "Стратегия выполняется систематически (92% задач), но ключевой промежуточный результат — диалоги — полностью отсутствует на протяжении 5 недель. Это указывает на фундаментальную проблему в методе взаимодействия или в самой базе контактов. Стратегия не работает, несмотря на хорошее выполнение плана действий, поэтому требуется её изменение."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t23_review_with_clients",
+   "agent": "review",
+   "run": 1,
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 6513,
+   "tokens_in": 1092,
+   "tokens_out": 303,
+   "cost_rub": 0.09865206,
+   "content": "{\n  \"status\": \"on_track\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Новых клиентов: 2\",\n    \"Вы начали 6 диалогов с бывшими клиентами, что превышает цель вехи (4 диалога).\",\n    \"План выполнен на 86% — хороший темп работы.\"\n  ],\n  \"what_does_not\": [\n    \"Не все запланированные задачи выполнены (12 из 14). Небольшое отставание может накапливаться.\"\n  ],\n  \"suggestions\": [\n    \"Продолжайте действовать по текущему плану, фокусируясь на завершении всех задач недели.\",\n    \"Проанализируйте, какие задачи остались невыполненными, и упростите их или перенесите, чтобы не перегружать график.\",\n    \"Поддерживайте контакт с теми, с кем уже начали диалоги, чтобы перевести разговор в предложение о возвращении к тренировкам.\"\n  ]\n  ,\n  \"explanation\": \"Стратегия работает: вы достигли промежуточной цели по диалогам и получили первых вернувшихся клиентов. Небольшое отставание по задачам не критично и корректируется настройкой плана.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Новых клиентов: 2",
+     "Вы начали 6 диалогов с бывшими клиентами, что превышает цель вехи (4 диалога).",
+     "План выполнен на 86% — хороший темп работы."
+    ],
+    "what_does_not": [
+     "Не все запланированные задачи выполнены (12 из 14). Небольшое отставание может накапливаться."
+    ],
+    "suggestions": [
+     "Продолжайте действовать по текущему плану, фокусируясь на завершении всех задач недели.",
+     "Проанализируйте, какие задачи остались невыполненными, и упростите их или перенесите, чтобы не перегружать график.",
+     "Поддерживайте контакт с теми, с кем уже начали диалоги, чтобы перевести разговор в предложение о возвращении к тренировкам."
+    ],
+    "explanation": "Стратегия работает: вы достигли промежуточной цели по диалогам и получили первых вернувшихся клиентов. Небольшое отставание по задачам не критично и корректируется настройкой плана."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}

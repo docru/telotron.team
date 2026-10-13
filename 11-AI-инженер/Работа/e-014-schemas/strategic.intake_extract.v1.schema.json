@@ -1,0 +1,72 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "strategic_intake_extract",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "specialization": { "type": ["string", "null"], "maxLength": 120 },
+        "services": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["workouts", "nutrition", "complex"] }
+        },
+        "goal_clients_per_month": { "type": ["integer", "null"], "minimum": 1, "maximum": 50 },
+        "old_base_size": {
+          "type": ["string", "null"],
+          "enum": ["none", "lt10", "10_30", "gt30", null]
+        },
+        "channels": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["vk", "ok", "tg", "max"] }
+        },
+        "hours_per_week": {
+          "type": ["string", "null"],
+          "enum": ["lt2", "2_5", "gt5", null]
+        },
+        "urgency": {
+          "type": ["string", "null"],
+          "enum": ["urgent", "normal", "no_rush", null]
+        },
+        "offer": {
+          "type": ["string", "null"],
+          "enum": ["free_trial", "paid_trial", "consultation", null]
+        },
+        "offer_note": { "type": ["string", "null"], "maxLength": 300 },
+        "about": { "type": ["string", "null"], "maxLength": 600 },
+        "unclear": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "specialization",
+              "services",
+              "goal_clients_per_month",
+              "old_base_size",
+              "channels",
+              "hours_per_week",
+              "urgency",
+              "offer",
+              "offer_note",
+              "about"
+            ]
+          }
+        }
+      },
+      "required": [
+        "specialization",
+        "services",
+        "goal_clients_per_month",
+        "old_base_size",
+        "channels",
+        "hours_per_week",
+        "urgency",
+        "offer",
+        "offer_note",
+        "about",
+        "unclear"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,1247 @@
+{
+ "model": "just-ai/openai-proxy/gpt-4o-mini",
+ "tag": "v1-gpt4omini",
+ "summary": {
+  "total": 37,
+  "agents": {
+   "decompose": {
+    "n": 2,
+    "valid_pct": 100.0,
+    "expect_pct": 100.0,
+    "latency_ms_avg": 3531,
+    "cost_rub_sum": 0.1072
+   },
+   "diagnose": {
+    "n": 10,
+    "valid_pct": 100.0,
+    "expect_pct": 60.0,
+    "latency_ms_avg": 3245,
+    "cost_rub_sum": 0.5117
+   },
+   "intake": {
+    "n": 16,
+    "valid_pct": 0.0,
+    "expect_pct": 0.0,
+    "latency_ms_avg": 760,
+    "cost_rub_sum": 0
+   },
+   "propose": {
+    "n": 7,
+    "valid_pct": 0.0,
+    "expect_pct": 0.0,
+    "latency_ms_avg": 832,
+    "cost_rub_sum": 0
+   },
+   "review": {
+    "n": 2,
+    "valid_pct": 100.0,
+    "expect_pct": 100.0,
+    "latency_ms_avg": 1861,
+    "cost_rub_sum": 0.0518
+   }
+  },
+  "cost_rub_total": 0.6707,
+  "expect_pct_all": 27.0
+ },
+ "results": [
+  {
+   "case": "s01_clear_base_mid",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 768,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s02_clear_large_base_urgent",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 667,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s03_sparse",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 646,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s04_only_niche",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 622,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s05_contradiction_base",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 599,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s06_pii_phone_name",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 626,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s07_pii_multiple_names",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 730,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s08_pii_email_nick",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 630,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s09_no_base_start",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 731,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s10_small_base",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 601,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s11_multi_channel_unclear_primary",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 2002,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s12_consultation_offer",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 720,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s13_hours_lt2",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 618,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s14_goal_explicit",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 823,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s15_complex_services",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 653,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "s16_ambiguous_hours",
+   "agent": "intake",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 737,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_intake_extract': In context=('properties', 'services'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3288,
+   "tokens_in": 1447,
+   "tokens_out": 336,
+   "cost_rub": 0.05199632999999999,
+   "content": "{\"data_quality\":\"partial\",\"strengths\":[\"Наличие базы из 10-30 контактов, что позволяет начать работу с уже знакомыми людьми.\",\"Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"База не использовалась для контактов в последние 30 дней, что снижает вероятность повторного обращения клиентов.\"}],\"hypotheses\":[\"Клиенты из старой базы могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о себе.\",\"Низкая активность в каналах связи может быть связана с недостатком времени на общение.\"],\"opportunities\":[\"Можно начать с личных сообщений к старым контактам, чтобы восстановить связь и предложить бесплатный пробный урок.\",\"Использование Telegram для общения с клиентами может быть эффективным, если активизировать базу.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов начать общение с базой, несмотря на длительное отсутствие контактов.\",\"Клиенты из старой базы могут быть заинтересованы в возвращении, если им предложить привлекательное предложение.\"],\"questions\":[{\"key\":\"old_base_size\",\"text\":\"Как давно вы последний раз общались с вашей старой базой?\",\"why\":\"Это поможет понять, насколько актуальны контакты и как лучше подойти к ним.\",\"options\":[\"менее месяца\",\"1-3 месяца\",\"более 3 месяцев\"],\"allow_free_text\":false,\"profile_field\":\"old_base_size\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "Наличие базы из 10-30 контактов, что позволяет начать работу с уже знакомыми людьми.",
+     "Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База не использовалась для контактов в последние 30 дней, что снижает вероятность повторного обращения клиентов."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты из старой базы могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о себе.",
+     "Низкая активность в каналах связи может быть связана с недостатком времени на общение."
+    ],
+    "opportunities": [
+     "Можно начать с личных сообщений к старым контактам, чтобы восстановить связь и предложить бесплатный пробный урок.",
+     "Использование Telegram для общения с клиентами может быть эффективным, если активизировать базу."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов начать общение с базой, несмотря на длительное отсутствие контактов.",
+     "Клиенты из старой базы могут быть заинтересованы в возвращении, если им предложить привлекательное предложение."
+    ],
+    "questions": [
+     {
+      "key": "old_base_size",
+      "text": "Как давно вы последний раз общались с вашей старой базой?",
+      "why": "Это поможет понять, насколько актуальны контакты и как лучше подойти к ним.",
+      "options": [
+       "менее месяца",
+       "1-3 месяца",
+       "более 3 месяцев"
+      ],
+      "allow_free_text": false,
+      "profile_field": "old_base_size"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 659,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2907,
+   "tokens_in": 1444,
+   "tokens_out": 301,
+   "cost_rub": 0.04933224,
+   "content": "{\"data_quality\":\"partial\",\"strengths\":[\"Существующая база из более 30 контактов, что позволяет быстрее начать взаимодействие.\",\"Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"С базой из 40 контактов почти не было взаимодействия за последний месяц.\"}],\"hypotheses\":[\"Клиенты могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о предложении.\",\"Низкая активность в канале VK может быть причиной недостаточного привлечения новых клиентов.\"],\"opportunities\":[\"Можно начать с личных сообщений к бывшим клиентам из базы, чтобы возобновить интерес.\",\"Использовать бесплатное пробное занятие как инструмент для привлечения новых клиентов.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов активно взаимодействовать с базой клиентов через личные сообщения.\",\"Клиенты из базы могут быть заинтересованы в возвращении к тренировкам.\"],\"questions\":[{\"key\":\"channels\",\"text\":\"Как вы планируете использовать канал VK для привлечения клиентов?\",\"why\":\"Понимание стратегии использования канала поможет определить, как улучшить видимость предложения.\",\"options\":[\"Публикации о тренировках\",\"Личные сообщения\",\"Реклама в VK\"],\"allow_free_text\":true,\"profile_field\":\"channels\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "Существующая база из более 30 контактов, что позволяет быстрее начать взаимодействие.",
+     "Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "С базой из 40 контактов почти не было взаимодействия за последний месяц."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о предложении.",
+     "Низкая активность в канале VK может быть причиной недостаточного привлечения новых клиентов."
+    ],
+    "opportunities": [
+     "Можно начать с личных сообщений к бывшим клиентам из базы, чтобы возобновить интерес.",
+     "Использовать бесплатное пробное занятие как инструмент для привлечения новых клиентов."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов активно взаимодействовать с базой клиентов через личные сообщения.",
+     "Клиенты из базы могут быть заинтересованы в возвращении к тренировкам."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "Как вы планируете использовать канал VK для привлечения клиентов?",
+      "why": "Понимание стратегии использования канала поможет определить, как улучшить видимость предложения.",
+      "options": [
+       "Публикации о тренировках",
+       "Личные сообщения",
+       "Реклама в VK"
+      ],
+      "allow_free_text": true,
+      "profile_field": "channels"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 1340,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3797,
+   "tokens_in": 1426,
+   "tokens_out": 391,
+   "cost_rub": 0.055703699999999995,
+   "content": "{\"data_quality\":\"insufficient\",\"strengths\":[\"Специализация на персональных тренировках позволяет индивидуально подходить к каждому клиенту.\",\"Предложение бесплатного пробного занятия может привлечь новых клиентов.\",\"Наличие канала в Telegram для коммуникации с потенциальными клиентами.\"],\"bottlenecks\":[{\"code\":\"no_base\",\"text\":\"Отсутствие базы клиентов затрудняет привлечение новых.\"},{\"code\":\"low_visibility\",\"text\":\"Низкая видимость в каналах может ограничивать охват аудитории.\"}],\"hypotheses\":[\"Потенциальные клиенты могут быть заинтересованы в бесплатном пробном занятии, если о нем будет больше информации.\",\"Использование других каналов для привлечения клиентов может повысить видимость и интерес к услугам.\"],\"opportunities\":[\"Можно начать с активного продвижения бесплатного пробного занятия в Telegram.\",\"Разработка контента для привлечения внимания к услугам через социальные сети.\"],\"skill_gaps\":[\"Необходимость в улучшении навыков маркетинга и продвижения услуг.\"],\"assumptions\":[\"Тренер готов активно работать над привлечением клиентов через Telegram.\",\"Тренер открыт к изучению новых методов привлечения клиентов.\"],\"questions\":[{\"key\":\"channels\",\"text\":\"Какие дополнительные каналы вы готовы использовать для привлечения клиентов?\",\"why\":\"Это поможет расширить охват и привлечь больше клиентов.\",\"options\":[\"Instagram\",\"Facebook\",\"ВКонтакте\",\"YouTube\"],\"allow_free_text\":true,\"profile_field\":null},{\"key\":\"urgency\",\"text\":\"Как вы оцениваете свою готовность к активному привлечению клиентов в ближайшие недели?\",\"why\":\"Это поможет понять, насколько вы готовы к активным действиям.\",\"options\":[\"Высокая\",\"Средняя\",\"Низкая\"],\"allow_free_text\":false,\"profile_field\":\"urgency\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "insufficient",
+    "strengths": [
+     "Специализация на персональных тренировках позволяет индивидуально подходить к каждому клиенту.",
+     "Предложение бесплатного пробного занятия может привлечь новых клиентов.",
+     "Наличие канала в Telegram для коммуникации с потенциальными клиентами."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "Отсутствие базы клиентов затрудняет привлечение новых."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Низкая видимость в каналах может ограничивать охват аудитории."
+     }
+    ],
+    "hypotheses": [
+     "Потенциальные клиенты могут быть заинтересованы в бесплатном пробном занятии, если о нем будет больше информации.",
+     "Использование других каналов для привлечения клиентов может повысить видимость и интерес к услугам."
+    ],
+    "opportunities": [
+     "Можно начать с активного продвижения бесплатного пробного занятия в Telegram.",
+     "Разработка контента для привлечения внимания к услугам через социальные сети."
+    ],
+    "skill_gaps": [
+     "Необходимость в улучшении навыков маркетинга и продвижения услуг."
+    ],
+    "assumptions": [
+     "Тренер готов активно работать над привлечением клиентов через Telegram.",
+     "Тренер открыт к изучению новых методов привлечения клиентов."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "Какие дополнительные каналы вы готовы использовать для привлечения клиентов?",
+      "why": "Это поможет расширить охват и привлечь больше клиентов.",
+      "options": [
+       "Instagram",
+       "Facebook",
+       "ВКонтакте",
+       "YouTube"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     },
+     {
+      "key": "urgency",
+      "text": "Как вы оцениваете свою готовность к активному привлечению клиентов в ближайшие недели?",
+      "why": "Это поможет понять, насколько вы готовы к активным действиям.",
+      "options": [
+       "Высокая",
+       "Средняя",
+       "Низкая"
+      ],
+      "allow_free_text": false,
+      "profile_field": "urgency"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 1363,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3102,
+   "tokens_in": 1422,
+   "tokens_out": 327,
+   "cost_rub": 0.05085989999999999,
+   "content": "{\"data_quality\":\"insufficient\",\"strengths\":[\"Специализация на персональных тренировках позволяет предлагать индивидуальный подход к каждому клиенту.\",\"Наличие бесплатного пробного предложения может привлечь новых клиентов.\",\"Умеренная интенсивность тренировок может быть привлекательной для широкой аудитории.\"],\"bottlenecks\":[{\"code\":\"no_base\",\"text\":\"Отсутствие базы клиентов затрудняет привлечение новых клиентов.\"},{\"code\":\"low_visibility\",\"text\":\"Низкая видимость в каналах коммуникации ограничивает возможности для привлечения клиентов.\"}],\"hypotheses\":[\"Клиенты могут быть заинтересованы в бесплатном пробном предложении, если о нем будет больше информации.\",\"Увеличение активности в каналах, таких как Telegram, может помочь в привлечении новых контактов.\"],\"opportunities\":[\"Можно начать с активного продвижения бесплатного пробного предложения в Telegram.\",\"Создание контента, который демонстрирует результаты тренировок, может повысить интерес к услугам.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов активно использовать Telegram для привлечения клиентов.\",\"Тренер может создать контент, который будет интересен потенциальным клиентам.\"],\"questions\":[{\"key\":\"channels\",\"text\":\"Как вы планируете использовать Telegram для привлечения клиентов?\",\"why\":\"Это поможет понять, насколько активно вы готовы работать в этом канале.\",\"options\":[\"Создание контента\",\"Проведение акций\",\"Общение с подписчиками\"],\"allow_free_text\":true,\"profile_field\":\"channels\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "insufficient",
+    "strengths": [
+     "Специализация на персональных тренировках позволяет предлагать индивидуальный подход к каждому клиенту.",
+     "Наличие бесплатного пробного предложения может привлечь новых клиентов.",
+     "Умеренная интенсивность тренировок может быть привлекательной для широкой аудитории."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "Отсутствие базы клиентов затрудняет привлечение новых клиентов."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Низкая видимость в каналах коммуникации ограничивает возможности для привлечения клиентов."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты могут быть заинтересованы в бесплатном пробном предложении, если о нем будет больше информации.",
+     "Увеличение активности в каналах, таких как Telegram, может помочь в привлечении новых контактов."
+    ],
+    "opportunities": [
+     "Можно начать с активного продвижения бесплатного пробного предложения в Telegram.",
+     "Создание контента, который демонстрирует результаты тренировок, может повысить интерес к услугам."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов активно использовать Telegram для привлечения клиентов.",
+     "Тренер может создать контент, который будет интересен потенциальным клиентам."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "Как вы планируете использовать Telegram для привлечения клиентов?",
+      "why": "Это поможет понять, насколько активно вы готовы работать в этом канале.",
+      "options": [
+       "Создание контента",
+       "Проведение акций",
+       "Общение с подписчиками"
+      ],
+      "allow_free_text": true,
+      "profile_field": "channels"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 621,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3407,
+   "tokens_in": 1437,
+   "tokens_out": 355,
+   "cost_rub": 0.053225909999999994,
+   "content": "{\"data_quality\":\"partial\",\"strengths\":[\"Наличие базы из 10-30 контактов, что позволяет начать работу с уже знакомыми людьми.\",\"Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"База контактов не использовалась для привлечения клиентов.\"},{\"code\":\"no_base\",\"text\":\"Отсутствие новых контактов за последние 7 дней.\"},{\"code\":\"low_conversion\",\"text\":\"Нет новых клиентов за последние 7 дней, что указывает на низкую конверсию.\"}],\"hypotheses\":[\"Клиенты могут быть заинтересованы в предложении бесплатного пробного занятия, но не знают о нем.\",\"Необходима проработка формулировки предложения, чтобы оно стало более привлекательным.\"],\"opportunities\":[\"Можно начать с личных сообщений к существующим контактам, чтобы предложить бесплатный пробный урок.\",\"Разработать более четкое и привлекательное предложение для привлечения новых клиентов.\"],\"skill_gaps\":[\"Необходимость в навыках формулирования привлекательного предложения.\"],\"assumptions\":[\"Клиенты из базы могут быть заинтересованы в бесплатном пробном занятии, если им правильно донести информацию.\"],\"questions\":[{\"key\":\"offer\",\"text\":\"Как вы планируете сформулировать ваше предложение для клиентов?\",\"why\":\"Это поможет понять, насколько вы готовы к привлечению клиентов и какие изменения могут быть необходимы.\",\"options\":[\"Я уже имею готовое предложение\",\"Мне нужно время для разработки\",\"Я не знаю, как это сделать\"],\"allow_free_text\":true,\"profile_field\":\"offer\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "Наличие базы из 10-30 контактов, что позволяет начать работу с уже знакомыми людьми.",
+     "Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База контактов не использовалась для привлечения клиентов."
+     },
+     {
+      "code": "no_base",
+      "text": "Отсутствие новых контактов за последние 7 дней."
+     },
+     {
+      "code": "low_conversion",
+      "text": "Нет новых клиентов за последние 7 дней, что указывает на низкую конверсию."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты могут быть заинтересованы в предложении бесплатного пробного занятия, но не знают о нем.",
+     "Необходима проработка формулировки предложения, чтобы оно стало более привлекательным."
+    ],
+    "opportunities": [
+     "Можно начать с личных сообщений к существующим контактам, чтобы предложить бесплатный пробный урок.",
+     "Разработать более четкое и привлекательное предложение для привлечения новых клиентов."
+    ],
+    "skill_gaps": [
+     "Необходимость в навыках формулирования привлекательного предложения."
+    ],
+    "assumptions": [
+     "Клиенты из базы могут быть заинтересованы в бесплатном пробном занятии, если им правильно донести информацию."
+    ],
+    "questions": [
+     {
+      "key": "offer",
+      "text": "Как вы планируете сформулировать ваше предложение для клиентов?",
+      "why": "Это поможет понять, насколько вы готовы к привлечению клиентов и какие изменения могут быть необходимы.",
+      "options": [
+       "Я уже имею готовое предложение",
+       "Мне нужно время для разработки",
+       "Я не знаю, как это сделать"
+      ],
+      "allow_free_text": true,
+      "profile_field": "offer"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 627,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t06_weekly_follow_up",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2695,
+   "tokens_in": 1501,
+   "tokens_out": 270,
+   "cost_rub": 0.04808402999999999,
+   "content": "{\"data_quality\":\"partial\",\"strengths\":[\"Наличие базы из 10-30 бывших клиентов, что позволяет быстрее начать взаимодействие.\",\"Использование канала Telegram для общения с клиентами, что может быть эффективным для привлечения внимания.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"База бывших клиентов не используется активно для привлечения новых заявок.\"},{\"code\":\"irregular_activity\",\"text\":\"Низкая активность в диалогах и взаимодействии с клиентами.\"}],\"hypotheses\":[\"Бывшие клиенты могут быть заинтересованы в возвращении, если им предложить привлекательное предложение.\"],\"opportunities\":[\"Можно начать с личных сообщений бывшим клиентам, чтобы узнать их интерес к возвращению.\"],\"skill_gaps\":[],\"assumptions\":[\"Бывшие клиенты могут быть открыты к предложениям о возвращении, если они будут персонализированными.\"],\"questions\":[{\"key\":\"follow_up\",\"text\":\"Как часто вы планируете взаимодействовать с бывшими клиентами?\",\"why\":\"Это поможет понять, насколько активно вы готовы работать с базой.\",\"options\":[\"Ежедневно\",\"Раз в неделю\",\"Раз в месяц\"],\"allow_free_text\":false,\"profile_field\":\"urgency\"}],\"observations\":[],\"profile_change_proposals\":[]}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "Наличие базы из 10-30 бывших клиентов, что позволяет быстрее начать взаимодействие.",
+     "Использование канала Telegram для общения с клиентами, что может быть эффективным для привлечения внимания."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База бывших клиентов не используется активно для привлечения новых заявок."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "Низкая активность в диалогах и взаимодействии с клиентами."
+     }
+    ],
+    "hypotheses": [
+     "Бывшие клиенты могут быть заинтересованы в возвращении, если им предложить привлекательное предложение."
+    ],
+    "opportunities": [
+     "Можно начать с личных сообщений бывшим клиентам, чтобы узнать их интерес к возвращению."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Бывшие клиенты могут быть открыты к предложениям о возвращении, если они будут персонализированными."
+    ],
+    "questions": [
+     {
+      "key": "follow_up",
+      "text": "Как часто вы планируете взаимодействовать с бывшими клиентами?",
+      "why": "Это поможет понять, насколько активно вы готовы работать с базой.",
+      "options": [
+       "Ежедневно",
+       "Раз в неделю",
+       "Раз в месяц"
+      ],
+      "allow_free_text": false,
+      "profile_field": "urgency"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "observation_topic_missing"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t07_weekly_load_mismatch",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3464,
+   "tokens_in": 1470,
+   "tokens_out": 356,
+   "cost_rub": 0.05391522,
+   "content": "{\"data_quality\":\"sufficient\",\"strengths\":[\"Наличие базы из 10-30 клиентов, что позволяет начать работу с уже знакомыми людьми.\",\"Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход.\",\"Предложение бесплатного пробного занятия, что может повысить интерес потенциальных клиентов.\"],\"bottlenecks\":[{\"code\":\"no_base\",\"text\":\"Отсутствие новых контактов за последнюю неделю, что затрудняет привлечение клиентов.\"},{\"code\":\"irregular_activity\",\"text\":\"Низкая активность в выполнении плана, что может снизить видимость и интерес к услугам.\"}],\"hypotheses\":[\"Клиенты могут быть неактивны из-за недостатка коммуникации или предложений.\",\"Необходима более активная работа с базой клиентов для повышения вовлеченности.\"],\"opportunities\":[\"Можно начать с личных сообщений к бывшим клиентам из базы, чтобы вернуть их интерес.\",\"Использовать бесплатное пробное занятие как инструмент для привлечения новых клиентов через социальные сети.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов активно работать с базой клиентов и привлекать их через личные сообщения.\",\"Есть возможность улучшить видимость предложений через активное использование каналов коммуникации.\"],\"questions\":[{\"key\":\"channels\",\"text\":\"Какие каналы вы планируете использовать для привлечения новых клиентов?\",\"why\":\"Это поможет понять, как вы собираетесь расширять свою аудиторию.\",\"options\":[\"Социальные сети\",\"Реклама\",\"Личное общение\",\"Партнерства\"],\"allow_free_text\":true,\"profile_field\":\"channels\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "Наличие базы из 10-30 клиентов, что позволяет начать работу с уже знакомыми людьми.",
+     "Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход.",
+     "Предложение бесплатного пробного занятия, что может повысить интерес потенциальных клиентов."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "Отсутствие новых контактов за последнюю неделю, что затрудняет привлечение клиентов."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "Низкая активность в выполнении плана, что может снизить видимость и интерес к услугам."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты могут быть неактивны из-за недостатка коммуникации или предложений.",
+     "Необходима более активная работа с базой клиентов для повышения вовлеченности."
+    ],
+    "opportunities": [
+     "Можно начать с личных сообщений к бывшим клиентам из базы, чтобы вернуть их интерес.",
+     "Использовать бесплатное пробное занятие как инструмент для привлечения новых клиентов через социальные сети."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов активно работать с базой клиентов и привлекать их через личные сообщения.",
+     "Есть возможность улучшить видимость предложений через активное использование каналов коммуникации."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "Какие каналы вы планируете использовать для привлечения новых клиентов?",
+      "why": "Это поможет понять, как вы собираетесь расширять свою аудиторию.",
+      "options": [
+       "Социальные сети",
+       "Реклама",
+       "Личное общение",
+       "Партнерства"
+      ],
+      "allow_free_text": true,
+      "profile_field": "channels"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "observation_topic_missing",
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t08_profile_change_allowed",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3952,
+   "tokens_in": 1474,
+   "tokens_out": 370,
+   "cost_rub": 0.055033019999999995,
+   "content": "{\"data_quality\":\"partial\",\"strengths\":[\"Наличие базы из 10-30 клиентов, что позволяет быстрее начать работу.\",\"Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"low_visibility\",\"text\":\"Низкая видимость предложений и услуг, что может ограничивать приток новых клиентов.\"},{\"code\":\"irregular_activity\",\"text\":\"Нерегулярная активность в привлечении клиентов, что может снижать эффективность текущей стратегии.\"}],\"hypotheses\":[\"Увеличение активности в канале Telegram может привести к росту новых контактов.\",\"Проведение акций или мероприятий может повысить интерес к бесплатным пробным тренировкам.\"],\"opportunities\":[\"Можно использовать существующую базу для повторного контакта и предложения бесплатных пробных тренировок.\",\"Разработка контента, который будет интересен текущей базе, может увеличить вовлеченность.\"],\"skill_gaps\":[],\"assumptions\":[\"Текущая стратегия контентного маркетинга требует большей активности для достижения целей.\",\"База клиентов может быть заинтересована в повторных предложениях, если они будут персонализированы.\"],\"questions\":[{\"key\":\"urgency\",\"text\":\"Как вы оцениваете свою готовность к активному взаимодействию с базой клиентов в ближайшие недели?\",\"why\":\"Это поможет понять, насколько вы готовы к изменениям в стратегии.\",\"options\":[\"Высокая\",\"Средняя\",\"Низкая\"],\"allow_free_text\":false,\"profile_field\":\"urgency\"}],\"observations\":[],\"profile_change_proposals\":[{\"field\":\"hours_per_week\",\"current_value\":\"gt5\",\"proposed_value\":\"5-10\",\"reason\":\"Уточнение рабочего времени может помочь в планировании более регулярной активности.\"}]}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "Наличие базы из 10-30 клиентов, что позволяет быстрее начать работу.",
+     "Специализация на персональных тренировках, что привлекает клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "low_visibility",
+      "text": "Низкая видимость предложений и услуг, что может ограничивать приток новых клиентов."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "Нерегулярная активность в привлечении клиентов, что может снижать эффективность текущей стратегии."
+     }
+    ],
+    "hypotheses": [
+     "Увеличение активности в канале Telegram может привести к росту новых контактов.",
+     "Проведение акций или мероприятий может повысить интерес к бесплатным пробным тренировкам."
+    ],
+    "opportunities": [
+     "Можно использовать существующую базу для повторного контакта и предложения бесплатных пробных тренировок.",
+     "Разработка контента, который будет интересен текущей базе, может увеличить вовлеченность."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Текущая стратегия контентного маркетинга требует большей активности для достижения целей.",
+     "База клиентов может быть заинтересована в повторных предложениях, если они будут персонализированы."
+    ],
+    "questions": [
+     {
+      "key": "urgency",
+      "text": "Как вы оцениваете свою готовность к активному взаимодействию с базой клиентов в ближайшие недели?",
+      "why": "Это поможет понять, насколько вы готовы к изменениям в стратегии.",
+      "options": [
+       "Высокая",
+       "Средняя",
+       "Низкая"
+      ],
+      "allow_free_text": false,
+      "profile_field": "urgency"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": [
+     {
+      "field": "hours_per_week",
+      "current_value": "gt5",
+      "proposed_value": "5-10",
+      "reason": "Уточнение рабочего времени может помочь в планировании более регулярной активности."
+     }
+    ]
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t09_profile_change_forbidden",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3192,
+   "tokens_in": 1448,
+   "tokens_out": 305,
+   "cost_rub": 0.04970484,
+   "content": "{\"data_quality\":\"sufficient\",\"strengths\":[\"Существующая база клиентов из 10-30 человек, что дает возможность для повторного обращения.\",\"Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"База клиентов не использовалась для привлечения новых клиентов.\"},{\"code\":\"no_base\",\"text\":\"Нет новых контактов за последнюю неделю, что указывает на отсутствие активности в привлечении.\"}],\"hypotheses\":[\"Клиенты из старой базы могут быть заинтересованы в повторных тренировках, если им предложить специальные условия.\"],\"opportunities\":[\"Можно начать с обращения к бывшим клиентам через доступные каналы, например, Telegram.\",\"Предложение бесплатного пробного занятия может повысить интерес к услугам.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов активизировать работу с существующей базой клиентов.\",\"Тренер может использовать Telegram для коммуникации с клиентами.\"],\"questions\":[{\"key\":\"channels\",\"text\":\"Как вы планируете использовать Telegram для привлечения клиентов?\",\"why\":\"Это поможет понять, насколько активно вы используете доступные каналы для работы с базой.\",\"options\":[\"Планирую писать сообщения\",\"Создам контент для канала\",\"Не знаю, как использовать\"],\"allow_free_text\":true,\"profile_field\":\"channels\"}],\"observations\":[],\"profile_change_proposals\":[] }",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "Существующая база клиентов из 10-30 человек, что дает возможность для повторного обращения.",
+     "Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База клиентов не использовалась для привлечения новых клиентов."
+     },
+     {
+      "code": "no_base",
+      "text": "Нет новых контактов за последнюю неделю, что указывает на отсутствие активности в привлечении."
+     }
+    ],
+    "hypotheses": [
+     "Клиенты из старой базы могут быть заинтересованы в повторных тренировках, если им предложить специальные условия."
+    ],
+    "opportunities": [
+     "Можно начать с обращения к бывшим клиентам через доступные каналы, например, Telegram.",
+     "Предложение бесплатного пробного занятия может повысить интерес к услугам."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов активизировать работу с существующей базой клиентов.",
+     "Тренер может использовать Telegram для коммуникации с клиентами."
+    ],
+    "questions": [
+     {
+      "key": "channels",
+      "text": "Как вы планируете использовать Telegram для привлечения клиентов?",
+      "why": "Это поможет понять, насколько активно вы используете доступные каналы для работы с базой.",
+      "options": [
+       "Планирую писать сообщения",
+       "Создам контент для канала",
+       "Не знаю, как использовать"
+      ],
+      "allow_free_text": true,
+      "profile_field": "channels"
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t10_final_round_no_questions",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2652,
+   "tokens_in": 1426,
+   "tokens_out": 232,
+   "cost_rub": 0.043855019999999995,
+   "content": "{\"data_quality\":\"sufficient\",\"strengths\":[\"Наличие базы из 10-30 клиентов, что позволяет начать работу с уже знакомыми людьми.\",\"Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход.\"],\"bottlenecks\":[{\"code\":\"base_untouched\",\"text\":\"База клиентов не использовалась для привлечения новых клиентов.\"}],\"hypotheses\":[\"Потенциальные клиенты могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о тренере.\",\"Существующие контакты в базе могут быть активированы через личные сообщения.\"],\"opportunities\":[\"Можно начать с рассылки личных сообщений по базе клиентов, чтобы вернуть интерес к тренировкам.\",\"Использование канала Telegram для активного общения с клиентами и продвижения бесплатного пробного занятия.\"],\"skill_gaps\":[],\"assumptions\":[\"Тренер готов активировать свою базу клиентов через личные сообщения.\",\"Клиенты из базы могут быть заинтересованы в возвращении к тренировкам.\"],\"questions\":[],\"observations\":[],\"profile_change_proposals\":[]}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "Наличие базы из 10-30 клиентов, что позволяет начать работу с уже знакомыми людьми.",
+     "Специализация на персональных тренировках, что может привлечь клиентов, ищущих индивидуальный подход."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База клиентов не использовалась для привлечения новых клиентов."
+     }
+    ],
+    "hypotheses": [
+     "Потенциальные клиенты могут быть заинтересованы в бесплатном пробном занятии, если им напомнить о тренере.",
+     "Существующие контакты в базе могут быть активированы через личные сообщения."
+    ],
+    "opportunities": [
+     "Можно начать с рассылки личных сообщений по базе клиентов, чтобы вернуть интерес к тренировкам.",
+     "Использование канала Telegram для активного общения с клиентами и продвижения бесплатного пробного занятия."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Тренер готов активировать свою базу клиентов через личные сообщения.",
+     "Клиенты из базы могут быть заинтересованы в возвращении к тренировкам."
+    ],
+    "questions": [],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t11_propose_two_ok",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 612,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t12_ethics_restriction",
+   "agent": "propose",
+   "ok_http": false,
+   "error": "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}",
+   "latency_ms": 605,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "http_400: {\"code\":\"mlp.open.ai.bad.request\",\"message\":\"Bad request Invalid schema for response_format 'strategic_propose': In context=('properties', 'strategies', 'items', 'properties', 'knowledge_card_keys'), 'uniqueItems' is not permitted.\"}"
+   ]
+  },
+  {
+   "case": "t13_decompose_first_plan",
+   "agent": "decompose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4220,
+   "tokens_in": 1458,
+   "tokens_out": 431,
+   "cost_rub": 0.05928066,
+   "content": "{\"milestones\":[{\"position\":1,\"title\":\"Собрать базу бывших клиентов\",\"week\":1,\"success_criteria\":[{\"metric\":\"tasks_done\",\"min\":1,\"task_type\":\"strategy.base_collect\",\"source\":null}]},{\"position\":2,\"title\":\"Начать общение с бывшими клиентами\",\"week\":2,\"success_criteria\":[{\"metric\":\"contacts_added\",\"min\":2,\"task_type\":\"strategy.base_reactivate\",\"source\":null}]},{\"position\":3,\"title\":\"Напомнить о себе\",\"week\":3,\"success_criteria\":[{\"metric\":\"dialogs_started\",\"min\":1,\"task_type\":\"strategy.follow_up\",\"source\":null}]},{\"position\":4,\"title\":\"Получить обратную связь от бывших клиентов\",\"week\":4,\"success_criteria\":[{\"metric\":\"leads_new\",\"min\":1,\"task_type\":\"null\",\"source\":null}]}],\"plan_rationale\":\"Этот план на первую неделю поможет вам начать работу с бывшими клиентами, собрав их контакты и установив с ними связь. Это создаст основу для дальнейшего взаимодействия и увеличит шансы на возвращение клиентов.\",\"items\":[{\"key\":\"collect_old_clients\",\"type\":\"strategy.base_collect\",\"title\":\"Внесите в CRM 5 бывших клиентов\",\"frequency\":{\"kind\":\"once\",\"times_per_week\":null},\"minutes\":15,\"milestone_position\":1,\"hint\":\"Начните с тех, с кем расстались хорошо.\"},{\"key\":\"reactivate_old_clients\",\"type\":\"strategy.base_reactivate\",\"title\":\"Напишите 2–3 людям из старой базы\",\"frequency\":{\"kind\":\"times_per_week\",\"times_per_week\":1},\"minutes\":20,\"milestone_position\":2,\"hint\":\"Пишите лично, не рассылкой.\"},{\"key\":\"follow_up_old_clients\",\"type\":\"strategy.follow_up\",\"title\":\"Напомните о себе тем, кто не ответил\",\"frequency\":{\"kind\":\"times_per_week\",\"times_per_week\":1},\"minutes\":10,\"milestone_position\":3,\"hint\":\"Одно напоминание через 3–5 дней.\"}]}",
+   "valid": true,
+   "parsed": {
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Собрать базу бывших клиентов",
+      "week": 1,
+      "success_criteria": [
+       {
+        "metric": "tasks_done",
+        "min": 1,
+        "task_type": "strategy.base_collect",
+        "source": null
+       }
+      ]
+     },
+     {
+      "position": 2,
+      "title": "Начать общение с бывшими клиентами",
+      "week": 2,
+      "success_criteria": [
+       {
+        "metric": "contacts_added",
+        "min": 2,
+        "task_type": "strategy.base_reactivate",
+        "source": null
+       }
+      ]
+     },
+     {
+      "position": 3,
+      "title": "Напомнить о себе",
+      "week": 3,
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 1,
+        "task_type": "strategy.follow_up",
+        "source": null
+       }
+      ]
+     },
+     {
+      "position": 4,
+      "title": "Получить обратную связь от бывших клиентов",
+      "week": 4,
+      "success_criteria": [
+       {
+        "metric": "leads_new",
+        "min": 1,
+        "task_type": "null",
+        "source": null
+       }
+      ]
+     }
+    ],
+    "plan_rationale": "Этот план на первую неделю поможет вам начать работу с бывшими клиентами, собрав их контакты и установив с ними связь. Это создаст основу для дальнейшего взаимодействия и увеличит шансы на возвращение клиентов.",
+    "items": [
+     {
+      "key": "collect_old_clients",
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 5 бывших клиентов",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 15,
+      "milestone_position": 1,
+      "hint": "Начните с тех, с кем расстались хорошо."
+     },
+     {
+      "key": "reactivate_old_clients",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 2,
+      "hint": "Пишите лично, не рассылкой."
+     },
+     {
+      "key": "follow_up_old_clients",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "milestone_position": 3,
+      "hint": "Одно напоминание через 3–5 дней."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t14_decompose_weekly_adjust",
+   "agent": "decompose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2843,
+   "tokens_in": 1421,
+   "tokens_out": 288,
+   "cost_rub": 0.04793499,
+   "content": "{\"milestones\":[],\"plan_rationale\":\"На этой неделе мы сосредоточимся на активизации контактов из старой базы. Учитывая, что часть задач не была выполнена в прошлый раз, мы усилим акцент на напоминаниях и активных сообщениях. Это поможет увеличить шансы на возврат клиентов и достичь цели по количеству новых клиентов в месяц.\",\"items\":[{\"key\":\"reactivate_old_base\",\"type\":\"strategy.base_reactivate\",\"title\":\"Напишите 3–4 людям из старой базы\",\"frequency\":{\"kind\":\"times_per_week\",\"times_per_week\":1},\"minutes\":20,\"milestone_position\":1,\"hint\":\"Пишите лично, не рассылкой.\"},{\"key\":\"follow_up_reminders\",\"type\":\"strategy.follow_up\",\"title\":\"Напомните о себе тем, кто не ответил\",\"frequency\":{\"kind\":\"times_per_week\",\"times_per_week\":1},\"minutes\":10,\"milestone_position\":1,\"hint\":\"Одно напоминание через 3–5 дней.\"},{\"key\":\"increase_reactivation_attempts\",\"type\":\"strategy.base_reactivate\",\"title\":\"Попробуйте написать ещё 1-2 людям из старой базы\",\"frequency\":{\"kind\":\"times_per_week\",\"times_per_week\":1},\"minutes\":20,\"milestone_position\":1,\"hint\":\"Сфокусируйтесь на тех, с кем был хороший контакт.\"}]}",
+   "valid": true,
+   "parsed": {
+    "milestones": [],
+    "plan_rationale": "На этой неделе мы сосредоточимся на активизации контактов из старой базы. Учитывая, что часть задач не была выполнена в прошлый раз, мы усилим акцент на напоминаниях и активных сообщениях. Это поможет увеличить шансы на возврат клиентов и достичь цели по количеству новых клиентов в месяц.",
+    "items": [
+     {
+      "key": "reactivate_old_base",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 3–4 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 1,
+      "hint": "Пишите лично, не рассылкой."
+     },
+     {
+      "key": "follow_up_reminders",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "milestone_position": 1,
+      "hint": "Одно напоминание через 3–5 дней."
+     },
+     {
+      "key": "increase_reactivation_attempts",
+      "type": "strategy.base_reactivate",
+      "title": "Попробуйте написать ещё 1-2 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 1,
+      "hint": "Сфокусируйтесь на тех, с кем был хороший контакт."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t15_review_on_track_zero_clients",
+   "agent": "review",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1938,
+   "tokens_in": 895,
+   "tokens_out": 139,
+   "cost_rub": 0.027032129999999994,
+   "content": "{\"status\":\"on_track\",\"recommendation\":\"continue\",\"what_works\":[\"Завершены первые сообщения, что подтверждается успешным стартом диалогов.\",\"Выполнение плана на уровне 83%, что говорит о высокой активности в работе.\"],\"what_does_not\":[],\"suggestions\":[\"Продолжайте активное взаимодействие с базой, возможно, стоит увеличить количество касаний.\",\"Рассмотрите возможность использования различных форматов сообщений для повышения вовлеченности.\"] ,\"explanation\":\"Стратегия показывает положительные результаты на начальном этапе, с выполнением первого этапа и активным началом диалогов. Это создает хорошую основу для дальнейшей работы.\"}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Завершены первые сообщения, что подтверждается успешным стартом диалогов.",
+     "Выполнение плана на уровне 83%, что говорит о высокой активности в работе."
+    ],
+    "what_does_not": [],
+    "suggestions": [
+     "Продолжайте активное взаимодействие с базой, возможно, стоит увеличить количество касаний.",
+     "Рассмотрите возможность использования различных форматов сообщений для повышения вовлеченности."
+    ],
+    "explanation": "Стратегия показывает положительные результаты на начальном этапе, с выполнением первого этапа и активным началом диалогов. Это создает хорошую основу для дальнейшей работы."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t16_review_not_failed_on_clients",
+   "agent": "review",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1784,
+   "tokens_in": 892,
+   "tokens_out": 109,
+   "cost_rub": 0.024740639999999998,
+   "content": "{\"status\":\"on_track\",\"recommendation\":\"continue\",\"what_works\":[\"Регулярность выполнения задач достигнута, выполнено 10 из 10 запланированных задач.\"],\"what_does_not\":[],\"suggestions\":[\"Продолжайте поддерживать регулярность постов и диалогов.\",\"Увеличьте количество взаимодействий с аудиторией для повышения вовлеченности.\"],\"explanation\":\"Стратегия показывает хорошие результаты в плане выполнения задач, что свидетельствует о высокой организованности и приверженности к плану.\"}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Регулярность выполнения задач достигнута, выполнено 10 из 10 запланированных задач."
+    ],
+    "what_does_not": [],
+    "suggestions": [
+     "Продолжайте поддерживать регулярность постов и диалогов.",
+     "Увеличьте количество взаимодействий с аудиторией для повышения вовлеченности."
+    ],
+    "explanation": "Стратегия показывает хорошие результаты в плане выполнения задач, что свидетельствует о высокой организованности и приверженности к плану."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}

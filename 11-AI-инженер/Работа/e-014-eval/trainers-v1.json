@@ -1,0 +1,2901 @@
+[
+ {
+  "id": "t01_onboarding_base_untouched",
+  "description": "Онбординг: база 10–30, касаний нет → bottleneck base_untouched",
+  "tags": [
+   "onboarding",
+   "base_untouched"
+  ],
+  "agents": [
+   "diagnose",
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Было человек пятнадцать, давно никому не писала.",
+   "intensity": "light"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "lt2",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Было человек пятнадцать, давно никому не писала.",
+     "intensity": "light"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0,
+     "legacy_base_contacts": 2,
+     "legacy_touches_30d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "base_untouched"
+    ],
+    "data_quality_any": [
+     "sufficient",
+     "partial"
+    ],
+    "questions_max": 3,
+    "no_client_zero_phrase": true
+   }
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "lt2",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Было человек пятнадцать, давно никому не писала.",
+     "intensity": "light"
+    },
+    "diagnosis": {
+     "data_quality": "partial",
+     "strengths": [
+      "Есть база людей, которые вас уже знают."
+     ],
+     "bottlenecks": [
+      {
+       "code": "base_untouched",
+       "text": "Базу можно снова включить в работу."
+      }
+     ],
+     "hypotheses": [
+      "Давно не было повода написать."
+     ],
+     "opportunities": [
+      "Несколько личных сообщений бывшим."
+     ],
+     "skill_gaps": [],
+     "assumptions": [
+      "Готовы писать лично."
+     ],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "reactivate-old-base",
+      "kind": "algorithm",
+      "title": "Вернуть бывших клиентов",
+      "summary_for_trainer": "Собрать базу и писать бывшим лично по несколько человек в неделю.",
+      "fit": {
+       "old_base_size": [
+        "10_30",
+        "gt30"
+       ]
+      },
+      "bottlenecks": [
+       "base_untouched",
+       "no_follow_up"
+      ]
+     },
+     {
+      "key": "follow-up-routine",
+      "kind": "tactic",
+      "title": "Доводить разговоры до записи",
+      "summary_for_trainer": "Регулярные мягкие напоминания замолчавшим.",
+      "fit": {},
+      "bottlenecks": [
+       "no_follow_up",
+       "low_conversion",
+       "slow_response"
+      ]
+     },
+     {
+      "key": "offer-and-booking",
+      "kind": "tactic",
+      "title": "Понятное предложение и простая запись",
+      "summary_for_trainer": "Сформулировать оффер и проверить страницу записи.",
+      "fit": {},
+      "bottlenecks": [
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "strategies_max": 3,
+    "recommended_cards_any": [
+     "reactivate-old-base"
+    ],
+    "forbidden_card_keys": []
+   }
+  }
+ },
+ {
+  "id": "t02_large_base_vk",
+  "description": "Большая база, ВК — реактивация уместна",
+  "tags": [
+   "onboarding",
+   "base_untouched"
+  ],
+  "agents": [
+   "diagnose",
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "gt30",
+   "channels": [
+    "vk"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "gt30",
+     "channels": [
+      "vk"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 1,
+     "in_progress": 1,
+     "clients_new_7d": 0,
+     "legacy_base_contacts": 40,
+     "legacy_touches_30d": 1
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "base_untouched",
+     "no_follow_up"
+    ],
+    "no_client_zero_phrase": true
+   }
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "gt30",
+     "channels": [
+      "vk"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Большая база бывших клиентов.",
+      "Есть канал ВК."
+     ],
+     "bottlenecks": [
+      {
+       "code": "base_untouched",
+       "text": "База почти не в работе."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Системные касания по базе."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "reactivate-old-base",
+      "kind": "algorithm",
+      "title": "Вернуть бывших клиентов",
+      "summary_for_trainer": "Собрать базу и писать бывшим лично по несколько человек в неделю.",
+      "fit": {
+       "old_base_size": [
+        "10_30",
+        "gt30"
+       ]
+      },
+      "bottlenecks": [
+       "base_untouched",
+       "no_follow_up"
+      ]
+     },
+     {
+      "key": "steady-content",
+      "kind": "algorithm",
+      "title": "Регулярное присутствие в соцсети",
+      "summary_for_trainer": "Одна соцсеть, посты и истории по графику.",
+      "fit": {},
+      "bottlenecks": [
+       "low_visibility",
+       "irregular_activity"
+      ]
+     },
+     {
+      "key": "follow-up-routine",
+      "kind": "tactic",
+      "title": "Доводить разговоры до записи",
+      "summary_for_trainer": "Регулярные мягкие напоминания замолчавшим.",
+      "fit": {},
+      "bottlenecks": [
+       "no_follow_up",
+       "low_conversion",
+       "slow_response"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "recommended_cards_any": [
+     "reactivate-old-base"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t03_no_base_warm_circle",
+  "description": "Нет базы → не предлагать reactivate-old-base",
+  "tags": [
+   "onboarding",
+   "no_base"
+  ],
+  "agents": [
+   "diagnose",
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "none",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Только сертифицировалась, клиентов не было.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Только сертифицировалась, клиентов не было.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "no_base",
+     "low_visibility"
+    ],
+    "no_client_zero_phrase": true
+   }
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Только сертифицировалась, клиентов не было.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Есть канал и готовность начать."
+     ],
+     "bottlenecks": [
+      {
+       "code": "no_base",
+       "text": "Своей базы пока нет — старт с круга знакомых."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Тёплый круг и аккуратный профиль."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "warm-circle-start",
+      "kind": "algorithm",
+      "title": "Старт с тёплого круга",
+      "summary_for_trainer": "Начать со знакомых и аккуратного профиля в соцсети.",
+      "fit": {
+       "old_base_size": [
+        "none",
+        "lt10"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "steady-content",
+      "kind": "algorithm",
+      "title": "Регулярное присутствие в соцсети",
+      "summary_for_trainer": "Одна соцсеть, посты и истории по графику.",
+      "fit": {},
+      "bottlenecks": [
+       "low_visibility",
+       "irregular_activity"
+      ]
+     },
+     {
+      "key": "offer-and-booking",
+      "kind": "tactic",
+      "title": "Понятное предложение и простая запись",
+      "summary_for_trainer": "Сформулировать оффер и проверить страницу записи.",
+      "fit": {},
+      "bottlenecks": [
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "local-partners",
+      "kind": "tactic",
+      "title": "Партнёры рядом",
+      "summary_for_trainer": "Договориться с массажистом, клубом, магазином рядом.",
+      "fit": {
+       "hours_per_week": [
+        "2_5",
+        "gt5"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "recommended_cards_any": [
+     "warm-circle-start",
+     "steady-content"
+    ],
+    "forbidden_card_keys": [
+     "reactivate-old-base"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t04_small_base_visibility",
+  "description": "Маленькая база / низкая видимость",
+  "tags": [
+   "onboarding",
+   "low_visibility"
+  ],
+  "agents": [
+   "diagnose",
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "lt10",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Мало кого знаю в теме.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "lt10",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Мало кого знаю в теме.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "no_base",
+     "low_visibility"
+    ]
+   }
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "lt10",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Мало кого знаю в теме.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "partial",
+     "strengths": [
+      "Есть Telegram."
+     ],
+     "bottlenecks": [
+      {
+       "code": "low_visibility",
+       "text": "О вас пока мало кто знает."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Профиль и короткие публикации."
+     ],
+     "skill_gaps": [],
+     "assumptions": [
+      "База совсем небольшая."
+     ],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "warm-circle-start",
+      "kind": "algorithm",
+      "title": "Старт с тёплого круга",
+      "summary_for_trainer": "Начать со знакомых и аккуратного профиля в соцсети.",
+      "fit": {
+       "old_base_size": [
+        "none",
+        "lt10"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "steady-content",
+      "kind": "algorithm",
+      "title": "Регулярное присутствие в соцсети",
+      "summary_for_trainer": "Одна соцсеть, посты и истории по графику.",
+      "fit": {},
+      "bottlenecks": [
+       "low_visibility",
+       "irregular_activity"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "recommended_cards_any": [
+     "warm-circle-start",
+     "steady-content"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t05_weak_offer",
+  "description": "Слабое предложение / запись",
+  "tags": [
+   "onboarding",
+   "weak_offer"
+  ],
+  "agents": [
+   "diagnose",
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Не знаю, как сформулировать предложение.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Не знаю, как сформулировать предложение.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 2,
+     "clients_new_7d": 0,
+     "booking_page_leads_30d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "weak_offer",
+     "base_untouched",
+     "no_follow_up"
+    ]
+   }
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Не знаю, как сформулировать предложение.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Уже есть диалоги в работе."
+     ],
+     "bottlenecks": [
+      {
+       "code": "weak_offer",
+       "text": "Предложение и запись можно сделать понятнее."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Короткий оффер и ссылка на запись."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "offer-and-booking",
+      "kind": "tactic",
+      "title": "Понятное предложение и простая запись",
+      "summary_for_trainer": "Сформулировать оффер и проверить страницу записи.",
+      "fit": {},
+      "bottlenecks": [
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "reactivate-old-base",
+      "kind": "algorithm",
+      "title": "Вернуть бывших клиентов",
+      "summary_for_trainer": "Собрать базу и писать бывшим лично по несколько человек в неделю.",
+      "fit": {
+       "old_base_size": [
+        "10_30",
+        "gt30"
+       ]
+      },
+      "bottlenecks": [
+       "base_untouched",
+       "no_follow_up"
+      ]
+     },
+     {
+      "key": "follow-up-routine",
+      "kind": "tactic",
+      "title": "Доводить разговоры до записи",
+      "summary_for_trainer": "Регулярные мягкие напоминания замолчавшим.",
+      "fit": {},
+      "bottlenecks": [
+       "no_follow_up",
+       "low_conversion",
+       "slow_response"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "recommended_cards_any": [
+     "offer-and-booking"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t06_weekly_follow_up",
+  "description": "Совещание: диалоги затухают — вопросы шире допустимы",
+  "tags": [
+   "weekly",
+   "no_follow_up"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "weekly",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": {
+     "tasks_done": 3,
+     "tasks_planned": 6,
+     "dialogs_started": 1,
+     "leads_new": 0,
+     "clients_new": 0,
+     "in_progress_stale": 8
+    },
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": {
+     "name": "Вернуть бывших",
+     "weeks_elapsed": 2
+    },
+    "week_plan_performance": {
+     "done_ratio": 0.5,
+     "skipped_types": [
+      "strategy.follow_up"
+     ]
+    },
+    "askable_fields": []
+   },
+   "expect": {
+    "bottleneck_any": [
+     "no_follow_up",
+     "low_conversion",
+     "irregular_activity"
+    ],
+    "questions_max": 3,
+    "no_client_zero_phrase": true,
+    "observations_topics_any": [
+     "follow_up_gap",
+     "plan_fit",
+     "base_usage"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t07_weekly_load_mismatch",
+  "description": "Заявлено gt5, факт выполнения как light — наблюдение load",
+  "tags": [
+   "weekly",
+   "load"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "gt5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "intense"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "weekly",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "gt5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "intense"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": {
+     "tasks_done": 1,
+     "tasks_planned": 8,
+     "minutes_done": 40,
+     "clients_new": 0
+    },
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": {
+     "name": "Контент",
+     "weeks_elapsed": 1
+    },
+    "week_plan_performance": {
+     "done_ratio": 0.12
+    },
+    "askable_fields": []
+   },
+   "expect": {
+    "profile_change_empty": true,
+    "observations_topics_any": [
+     "load",
+     "plan_fit",
+     "irregular_activity"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t08_profile_change_allowed",
+  "description": "mismatch_flags hours_per_week 2+ недель — можно proposal",
+  "tags": [
+   "weekly",
+   "profile_change"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "gt5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "intense"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "weekly",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "gt5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "intense"
+    },
+    "profile_allowed": {
+     "hours_per_week": [
+      "lt2",
+      "2_5",
+      "gt5"
+     ]
+    },
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": {
+     "tasks_done": 2,
+     "tasks_planned": 10,
+     "minutes_done": 50,
+     "clients_new": 1
+    },
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [
+     "hours_per_week"
+    ],
+    "current_strategy": {
+     "name": "Контент",
+     "weeks_elapsed": 3
+    },
+    "week_plan_performance": {
+     "done_ratio": 0.2
+    },
+    "askable_fields": [
+     "hours_per_week"
+    ]
+   },
+   "expect": {
+    "profile_change_fields_any": [
+     "hours_per_week"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t09_profile_change_forbidden",
+  "description": "Без mismatch_flags proposals должны быть пусты (проверка кода отбросит)",
+  "tags": [
+   "weekly",
+   "profile_change"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "gt5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "weekly",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "gt5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": {
+     "minutes_done": 30,
+     "clients_new": 0
+    },
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": {
+     "name": "База",
+     "weeks_elapsed": 4
+    },
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "profile_change_empty": true,
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t10_final_round_no_questions",
+  "description": "final_round=true → questions запрещены",
+  "tags": [
+   "onboarding",
+   "final_round"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": true,
+    "round": 1,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {},
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": []
+   },
+   "expect": {
+    "questions_forbidden": true,
+    "questions_max": 0
+   }
+  }
+ },
+ {
+  "id": "t24_onboarding_empty_fields",
+  "description": "Пустые поля анкеты: вопрос вида А только по askable_fields",
+  "tags": [
+   "onboarding",
+   "questions"
+  ],
+  "agents": [
+   "diagnose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [],
+   "hours_per_week": "2_5",
+   "urgency": null,
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "diagnose": {
+   "input": {
+    "mode": "strategy_run",
+    "final_round": false,
+    "round": 0,
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [],
+     "hours_per_week": "2_5",
+     "urgency": null,
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "profile_allowed": {
+     "channels": [
+      "vk",
+      "ok",
+      "tg",
+      "max"
+     ],
+     "urgency": [
+      "urgent",
+      "normal",
+      "no_rush"
+     ]
+    },
+    "funnel": {
+     "new_contacts_7d": 0,
+     "in_progress": 0,
+     "clients_new_7d": 0
+    },
+    "facts": null,
+    "clarification_answers": [],
+    "observations_active": [],
+    "observations_dismissed": [],
+    "mismatch_flags": [],
+    "current_strategy": null,
+    "week_plan_performance": null,
+    "askable_fields": [
+     "channels",
+     "urgency"
+    ]
+   },
+   "expect": {
+    "question_fields_any": [
+     "urgency",
+     "channels"
+    ],
+    "questions_max": 3
+   }
+  }
+ },
+ {
+  "id": "t11_propose_two_ok",
+  "description": "Мало ресурсов — достаточно 2 стратегий, не натягивать третью",
+  "tags": [
+   "propose"
+  ],
+  "agents": [
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "none",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "light"
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "lt2",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "light"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Готовность начать с малого."
+     ],
+     "bottlenecks": [
+      {
+       "code": "no_base",
+       "text": "Базы нет."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Тёплый круг."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "warm-circle-start",
+      "kind": "algorithm",
+      "title": "Старт с тёплого круга",
+      "summary_for_trainer": "Начать со знакомых и аккуратного профиля в соцсети.",
+      "fit": {
+       "old_base_size": [
+        "none",
+        "lt10"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "offer-and-booking",
+      "kind": "tactic",
+      "title": "Понятное предложение и простая запись",
+      "summary_for_trainer": "Сформулировать оффер и проверить страницу записи.",
+      "fit": {},
+      "bottlenecks": [
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "strategies_max": 3,
+    "recommended_cards_any": [
+     "warm-circle-start"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t12_ethics_restriction",
+  "description": "Restriction ethics всегда во входе; стратегии без холодных рассылок",
+  "tags": [
+   "propose",
+   "ethics"
+  ],
+  "agents": [
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "none",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Есть канал."
+     ],
+     "bottlenecks": [
+      {
+       "code": "no_base",
+       "text": "Базы нет."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Знакомые и контент."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "warm-circle-start",
+      "kind": "algorithm",
+      "title": "Старт с тёплого круга",
+      "summary_for_trainer": "Начать со знакомых и аккуратного профиля в соцсети.",
+      "fit": {
+       "old_base_size": [
+        "none",
+        "lt10"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "steady-content",
+      "kind": "algorithm",
+      "title": "Регулярное присутствие в соцсети",
+      "summary_for_trainer": "Одна соцсеть, посты и истории по графику.",
+      "fit": {},
+      "bottlenecks": [
+       "low_visibility",
+       "irregular_activity"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "must_not_contain": [
+     "незнакомым",
+     "холодн",
+     "спам",
+     "куплю базу",
+     "парсинг"
+    ],
+    "recommended_cards_any": [
+     "warm-circle-start",
+     "steady-content"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t13_decompose_first_plan",
+  "description": "Первый план после выбора реактивации, light, cap 100",
+  "tags": [
+   "decompose",
+   "first_plan"
+  ],
+  "agents": [
+   "decompose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "light"
+  },
+  "decompose": {
+   "input": {
+    "phase": "first_plan",
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Письма бывшим клиентам.",
+     "knowledge_card_keys": [
+      "reactivate-old-base",
+      "ethics-and-law"
+     ],
+     "horizon_weeks": 6
+    },
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "lt2",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "light"
+    },
+    "default_tasks": [
+     {
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 5 бывших клиентов",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 15,
+      "when": "first_week",
+      "hint": "Начните с тех, с кем расстались хорошо."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой."
+     },
+     {
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Одно напоминание через 3–5 дней."
+     }
+    ],
+    "allowed_types": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "weekly_minutes_cap": 100,
+    "milestones_existing": [],
+    "previous_plan_performance": null,
+    "monitor_recommendation": null
+   },
+   "expect": {
+    "items_min": 1,
+    "items_max": 10,
+    "minutes_cap": 100,
+    "milestones_min": 1,
+    "types_only_from": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "must_not_contain": [
+     "Марин",
+     "+7"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t14_decompose_weekly_adjust",
+  "description": "Недельный план при recommendation=adjust, cap 180",
+  "tags": [
+   "decompose",
+   "weekly"
+  ],
+  "agents": [
+   "decompose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "decompose": {
+   "input": {
+    "phase": "weekly",
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Письма бывшим.",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ],
+     "horizon_weeks": 6
+    },
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "default_tasks": [
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой."
+     },
+     {
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Одно напоминание через 3–5 дней."
+     }
+    ],
+    "allowed_types": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "weekly_minutes_cap": 180,
+    "milestones_existing": [
+     {
+      "position": 1,
+      "title": "Первые сообщения",
+      "status": "pending"
+     }
+    ],
+    "previous_plan_performance": {
+     "done_ratio": 0.3,
+     "skipped_types": [
+      "strategy.follow_up"
+     ]
+    },
+    "monitor_recommendation": "adjust"
+   },
+   "expect": {
+    "items_min": 1,
+    "items_max": 10,
+    "minutes_cap": 180,
+    "milestones_min": 0,
+    "types_only_from": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t15_review_on_track_zero_clients",
+  "description": "Задачи делаются, диалоги есть, clients_new=0 → не failed, не писать про 0 клиентов",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "База",
+     "started_on": "2026-09-01",
+     "horizon_ends_on": "2026-10-13",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Первые сообщения",
+      "due_on": "2026-09-15",
+      "status": "done",
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 2
+       }
+      ],
+      "progress": {
+       "dialogs_started": 3
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 5,
+     "tasks_planned": 6,
+     "dialogs_started": 3,
+     "leads_new": 1,
+     "clients_new": 0
+    },
+    "plan_performance": {
+     "done_ratio": 0.83
+    },
+    "weeks_elapsed": 2
+   },
+   "expect": {
+    "status_any": [
+     "on_track",
+     "behind"
+    ],
+    "recommendation_any": [
+     "continue",
+     "adjust"
+    ],
+    "forbid_status": [
+     "failed"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t16_review_not_failed_on_clients",
+  "description": "Выполнение задач высокое, клиентов 0 — failed запрещён",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Контент",
+     "summary": "Посты",
+     "started_on": "2026-08-01",
+     "horizon_ends_on": "2026-09-12",
+     "knowledge_card_keys": [
+      "steady-content"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 2,
+      "title": "Регулярность",
+      "due_on": "2026-09-01",
+      "status": "done",
+      "success_criteria": [
+       {
+        "metric": "tasks_done",
+        "min": 8
+       }
+      ],
+      "progress": {
+       "tasks_done": 10
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 10,
+     "tasks_planned": 10,
+     "dialogs_started": 2,
+     "leads_new": 0,
+     "clients_new": 0
+    },
+    "plan_performance": {
+     "done_ratio": 1.0
+    },
+    "weeks_elapsed": 5
+   },
+   "expect": {
+    "forbid_status": [
+     "failed"
+    ],
+    "recommendation_not": [
+     "change_strategy"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t17_decompose_intense_two_cards",
+  "description": "Первый план intense: тёплый круг + предложение, cap 360, вехи обязательны",
+  "tags": [
+   "decompose",
+   "first_plan"
+  ],
+  "agents": [
+   "decompose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "none",
+   "channels": [
+    "vk"
+   ],
+   "hours_per_week": "gt5",
+   "urgency": "urgent",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "intense"
+  },
+  "decompose": {
+   "input": {
+    "phase": "first_plan",
+    "strategy": {
+     "name": "Старт с тёплого круга",
+     "summary": "Знакомые, профиль, понятное предложение.",
+     "knowledge_card_keys": [
+      "warm-circle-start",
+      "offer-and-booking",
+      "ethics-and-law"
+     ],
+     "horizon_weeks": 6
+    },
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "vk"
+     ],
+     "hours_per_week": "gt5",
+     "urgency": "urgent",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "intense"
+    },
+    "default_tasks": [
+     {
+      "type": "strategy.social_profile",
+      "title": "Оформите профиль в соцсети: кто вы и как записаться",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 20,
+      "when": "first_week",
+      "hint": "В первой строке — для кого вы и с чем помогаете. Ссылка на запись — в шапке."
+     },
+     {
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 15 знакомых, кому может быть интересно",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "when": "first_week",
+      "hint": "Друзья, коллеги, знакомые по залу, родители из школы — все, кто знает вас лично."
+     },
+     {
+      "type": "strategy.link_share",
+      "title": "Поставьте ссылку на запись в профиль и подпись сообщений",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 10,
+      "when": "first_week",
+      "hint": "Человек, которому интересно, должен записаться в один клик."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Расскажите 5 знакомым, чем вы теперь занимаетесь",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 20,
+      "when": "every_week",
+      "hint": "Расскажите и попросите совета или рекомендации. Не прикладывайте прайс в первом сообщении."
+     },
+     {
+      "type": "strategy.content_post",
+      "title": "Опубликуйте пост о своём подходе или результате клиента",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 30,
+      "when": "every_week",
+      "hint": "Один пост — одна мысль. Результат клиента — только с его согласия."
+     },
+     {
+      "type": "strategy.content_short",
+      "title": "Выложите короткую историю о своей работе",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Фото или кружок и одна фраза. Регулярность важнее красоты."
+     },
+     {
+      "type": "strategy.follow_up",
+      "title": "Ответьте и напомните тем, кто проявил интерес",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Одно напоминание через 3–5 дней нормально. Не отвечают дважды — оставьте в покое."
+     },
+     {
+      "type": "strategy.offer_setup",
+      "title": "Сформулируйте предложение и проверьте страницу записи",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "when": "first_week",
+      "hint": "Одна фраза: для кого → что получит → как начать. Пройдите запись сами с телефона."
+     },
+     {
+      "type": "strategy.social_profile",
+      "title": "Перенесите предложение в шапку профиля",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 20,
+      "when": "first_week",
+      "hint": "Шапка — это то же предложение, только короче. Ссылка на запись — рядом."
+     },
+     {
+      "type": "strategy.link_share",
+      "title": "Поставьте ссылку на запись в профиль и подпись сообщений",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 10,
+      "when": "first_week",
+      "hint": "Человек, которому интересно, должен записаться в один клик."
+     },
+     {
+      "type": "strategy.link_share",
+      "title": "Добавьте ссылку на запись в пост или ответ",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 3
+      },
+      "minutes": 5,
+      "when": "every_week",
+      "hint": "Заканчивайте полезный пост одной фразой и ссылкой — без давления."
+     },
+     {
+      "type": "strategy.review_collect",
+      "title": "Попросите отзыв у клиента для страницы записи",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Попросите рассказать своими словами, что изменилось. Публикуйте только с согласия, без фамилии."
+     }
+    ],
+    "allowed_types": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "weekly_minutes_cap": 360,
+    "milestones_existing": [],
+    "previous_plan_performance": null,
+    "monitor_recommendation": null
+   },
+   "expect": {
+    "items_min": 3,
+    "items_max": 10,
+    "minutes_cap": 360,
+    "milestones_min": 1,
+    "types_only_from": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t18_decompose_weekly_continue",
+  "description": "Недельный план при continue: контент, moderate, cap 180, без новых вех",
+  "tags": [
+   "decompose",
+   "weekly"
+  ],
+  "agents": [
+   "decompose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "decompose": {
+   "input": {
+    "phase": "weekly",
+    "strategy": {
+     "name": "Регулярно в соцсети",
+     "summary": "Посты и истории по графику.",
+     "knowledge_card_keys": [
+      "steady-content",
+      "ethics-and-law"
+     ],
+     "horizon_weeks": 6
+    },
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "10_30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "default_tasks": [
+     {
+      "type": "strategy.content_post",
+      "title": "Опубликуйте пост",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 30,
+      "when": "every_week",
+      "hint": "Чередуйте пользу и себя — сегодня совет, в следующий раз история клиента (с согласия) или как вы работаете."
+     },
+     {
+      "type": "strategy.content_short",
+      "title": "Выложите короткую историю",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Фото или кружок и одна фраза. Регулярность важнее красоты."
+     },
+     {
+      "type": "strategy.community_engage",
+      "title": "Ответьте на вопрос в местном чате или сообществе",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 15,
+      "when": "every_week",
+      "hint": "Помогите по существу, без рекламы. Ссылка на себя — только если правила чата разрешают."
+     }
+    ],
+    "allowed_types": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "weekly_minutes_cap": 180,
+    "milestones_existing": [
+     {
+      "position": 1,
+      "title": "Публикации пошли",
+      "status": "done"
+     }
+    ],
+    "previous_plan_performance": {
+     "done_ratio": 0.9,
+     "skipped_types": []
+    },
+    "monitor_recommendation": "continue"
+   },
+   "expect": {
+    "items_min": 1,
+    "items_max": 10,
+    "minutes_cap": 180,
+    "milestones_max": 0,
+    "types_only_from": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t19_decompose_light_cap",
+  "description": "Light с двумя карточками: набор шире потолка — уложиться в 100 минут",
+  "tags": [
+   "decompose",
+   "first_plan",
+   "cap"
+  ],
+  "agents": [
+   "decompose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "gt30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "lt2",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "light"
+  },
+  "decompose": {
+   "input": {
+    "phase": "first_plan",
+    "strategy": {
+     "name": "Вернуть бывших и доводить разговоры",
+     "summary": "Старая база и напоминания.",
+     "knowledge_card_keys": [
+      "reactivate-old-base",
+      "follow-up-routine",
+      "ethics-and-law"
+     ],
+     "horizon_weeks": 6
+    },
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "gt30",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "lt2",
+     "urgency": "normal",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "light"
+    },
+    "default_tasks": [
+     {
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 5 бывших клиентов",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 15,
+      "when": "first_week",
+      "hint": "Начните с тех, с кем расстались хорошо и кто занимался дольше месяца. Телефон или ник в соцсети — достаточно."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и одной фразой скажите, чем вы сейчас занимаетесь."
+     },
+     {
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Одно напоминание через 3–5 дней — нормально. Второе уже лишнее."
+     },
+     {
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто замолчал",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 2
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Напоминание — не «ну что, решили?», а новый повод — вопрос, совет, свободное время на неделе."
+     },
+     {
+      "type": "strategy.trial_convert",
+      "title": "Предложите продолжение тем, кто был на пробной",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "when": "every_week",
+      "hint": "Напомните, что получилось на пробной, и предложите конкретный формат и время следующего занятия."
+     }
+    ],
+    "allowed_types": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ],
+    "weekly_minutes_cap": 100,
+    "milestones_existing": [],
+    "previous_plan_performance": null,
+    "monitor_recommendation": null
+   },
+   "expect": {
+    "items_min": 1,
+    "items_max": 10,
+    "minutes_cap": 100,
+    "milestones_min": 1,
+    "types_only_from": [
+     "strategy.base_collect",
+     "strategy.base_reactivate",
+     "strategy.follow_up",
+     "strategy.trial_convert",
+     "strategy.referral_ask",
+     "strategy.offer_setup",
+     "strategy.link_share",
+     "strategy.social_profile",
+     "strategy.content_post",
+     "strategy.content_short",
+     "strategy.community_engage",
+     "strategy.partner_outreach",
+     "strategy.review_collect"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t20_review_too_early",
+  "description": "Первая неделя, данных мало → too_early, без смены стратегии",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Вернуть бывших",
+     "started_on": "2026-09-01",
+     "horizon_ends_on": "2026-10-13",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Первые сообщения",
+      "due_on": "2026-09-15",
+      "status": "pending",
+      "success_criteria": [
+       {
+        "metric": "contacts_added",
+        "min": 5
+       }
+      ],
+      "progress": {
+       "contacts_added": 2
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 1,
+     "tasks_planned": 4,
+     "dialogs_started": 0,
+     "leads_new": 0,
+     "clients_new": 0
+    },
+    "plan_performance": {
+     "done_ratio": 0.25
+    },
+    "weeks_elapsed": 0
+   },
+   "expect": {
+    "status_any": [
+     "too_early"
+    ],
+    "recommendation_not": [
+     "change_strategy"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t21_review_behind_low_done",
+  "description": "Задачи почти не делались 3 недели → behind + adjust, а не «стратегия плохая»",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Вернуть бывших",
+     "started_on": "2026-09-01",
+     "horizon_ends_on": "2026-10-13",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 1,
+      "title": "Первые сообщения",
+      "due_on": "2026-09-15",
+      "status": "missed",
+      "success_criteria": [
+       {
+        "metric": "tasks_done",
+        "min": 4
+       }
+      ],
+      "progress": {
+       "tasks_done": 2
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 2,
+     "tasks_planned": 15,
+     "dialogs_started": 0,
+     "leads_new": 0,
+     "clients_new": 0
+    },
+    "plan_performance": {
+     "done_ratio": 0.13
+    },
+    "weeks_elapsed": 3
+   },
+   "expect": {
+    "status_any": [
+     "behind"
+    ],
+    "recommendation_any": [
+     "adjust"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t22_review_done_no_results",
+  "description": "Выполнение высокое, но диалогов и заявок нет 5 недель → смена допустима",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Вернуть бывших",
+     "started_on": "2026-09-01",
+     "horizon_ends_on": "2026-10-13",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 2,
+      "title": "Пошли ответы",
+      "due_on": "2026-09-29",
+      "status": "missed",
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 4
+       }
+      ],
+      "progress": {
+       "dialogs_started": 0
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 22,
+     "tasks_planned": 24,
+     "dialogs_started": 0,
+     "leads_new": 0,
+     "clients_new": 0
+    },
+    "plan_performance": {
+     "done_ratio": 0.92
+    },
+    "weeks_elapsed": 5
+   },
+   "expect": {
+    "status_any": [
+     "behind",
+     "failed"
+    ],
+    "recommendation_any": [
+     "adjust",
+     "change_strategy"
+    ],
+    "no_client_zero_phrase": true
+   }
+  }
+ },
+ {
+  "id": "t23_review_with_clients",
+  "description": "Есть 2 новых клиента — упоминание допустимо, статус on_track",
+  "tags": [
+   "review"
+  ],
+  "agents": [
+   "review"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "10_30",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "normal",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "review": {
+   "input": {
+    "strategy": {
+     "name": "Вернуть бывших",
+     "summary": "Вернуть бывших",
+     "started_on": "2026-09-01",
+     "horizon_ends_on": "2026-10-13",
+     "knowledge_card_keys": [
+      "reactivate-old-base"
+     ]
+    },
+    "milestones": [
+     {
+      "position": 2,
+      "title": "Пошли ответы",
+      "due_on": "2026-09-29",
+      "status": "done",
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 4
+       }
+      ],
+      "progress": {
+       "dialogs_started": 6
+      }
+     }
+    ],
+    "facts": {
+     "tasks_done": 12,
+     "tasks_planned": 14,
+     "dialogs_started": 6,
+     "leads_new": 2,
+     "clients_new": 2
+    },
+    "plan_performance": {
+     "done_ratio": 0.86
+    },
+    "weeks_elapsed": 3
+   },
+   "expect": {
+    "status_any": [
+     "on_track"
+    ],
+    "recommendation_any": [
+     "continue"
+    ]
+   }
+  }
+ }
+]

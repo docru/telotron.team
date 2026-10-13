@@ -1,0 +1,52 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "strategic_propose",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "strategies": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string", "enum": ["A", "B", "C"] },
+              "name": { "type": "string", "maxLength": 60 },
+              "summary": { "type": "string", "maxLength": 300 },
+              "rationale": { "type": "string", "maxLength": 400 },
+              "expected_effect": { "type": "string", "maxLength": 300 },
+              "resource_requirements": { "type": "string", "maxLength": 300 },
+              "risks": { "type": "string", "maxLength": 300 },
+              "knowledge_card_keys": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 5,
+                "items": { "type": "string", "maxLength": 64 }
+              },
+              "is_recommended": { "type": "boolean" },
+              "recommendation_why": { "type": ["string", "null"], "maxLength": 300 }
+            },
+            "required": [
+              "label",
+              "name",
+              "summary",
+              "rationale",
+              "expected_effect",
+              "resource_requirements",
+              "risks",
+              "knowledge_card_keys",
+              "is_recommended",
+              "recommendation_why"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["strategies"],
+      "additionalProperties": false
+    }
+  }
+}

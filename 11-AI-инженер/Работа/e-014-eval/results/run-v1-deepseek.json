@@ -1,0 +1,1848 @@
+{
+ "model": "just-ai/open-router/deepseek/deepseek-v3.2",
+ "tag": "v1-deepseek",
+ "summary": {
+  "total": 37,
+  "agents": {
+   "decompose": {
+    "n": 2,
+    "valid_pct": 100.0,
+    "expect_pct": 100.0,
+    "latency_ms_avg": 11306,
+    "cost_rub_sum": 0.3937
+   },
+   "diagnose": {
+    "n": 10,
+    "valid_pct": 90.0,
+    "expect_pct": 60.0,
+    "latency_ms_avg": 20094,
+    "cost_rub_sum": 1.817
+   },
+   "intake": {
+    "n": 16,
+    "valid_pct": 100.0,
+    "expect_pct": 87.5,
+    "latency_ms_avg": 3234,
+    "cost_rub_sum": 1.2483
+   },
+   "propose": {
+    "n": 7,
+    "valid_pct": 100.0,
+    "expect_pct": 100.0,
+    "latency_ms_avg": 19975,
+    "cost_rub_sum": 1.7663
+   },
+   "review": {
+    "n": 2,
+    "valid_pct": 100.0,
+    "expect_pct": 100.0,
+    "latency_ms_avg": 7854,
+    "cost_rub_sum": 0.2294
+   }
+  },
+  "cost_rub_total": 5.4547,
+  "expect_pct_all": 83.8
+ },
+ "results": [
+  {
+   "case": "s01_clear_base_mid",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4898,
+   "tokens_in": 1173,
+   "tokens_out": 191,
+   "cost_rub": 0.11324556,
+   "content": "{\n  \"specialization\": \"Тренер по силовым тренировкам в зале и онлайн\",\n  \"services\": [\"workouts\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер по силовым тренировкам, работает в зале и онлайн. Имеет базу бывших клиентов, которым давно не писала. Готов уделять несколько часов в неделю. Ищет клиентов без спешки, предлагает бесплатную пробную тренировку. Основной канал для работы — Telegram.\",\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер по силовым тренировкам в зале и онлайн",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер по силовым тренировкам, работает в зале и онлайн. Имеет базу бывших клиентов, которым давно не писала. Готов уделять несколько часов в неделю. Ищет клиентов без спешки, предлагает бесплатную пробную тренировку. Основной канал для работы — Telegram.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s02_clear_large_base_urgent",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2929,
+   "tokens_in": 1174,
+   "tokens_out": 168,
+   "cost_rub": 0.07770228,
+   "content": "{\n  \"specialization\": \"Персональный тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": \"Работаю персональным тренером уже пять лет. В телефоне больше сорока бывших клиентов. Нужны новые срочно — кредиты. Пишу во ВКонтакте. Предлагаю платную пробную тренировку. Могу уделять больше пяти часов в неделю.\",\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Персональный тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": "Работаю персональным тренером уже пять лет. В телефоне больше сорока бывших клиентов. Нужны новые срочно — кредиты. Пишу во ВКонтакте. Предлагаю платную пробную тренировку. Могу уделять больше пяти часов в неделю.",
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s03_sparse",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2218,
+   "tokens_in": 1116,
+   "tokens_out": 112,
+   "cost_rub": 0.06304392,
+   "content": "{\n  \"specialization\": \"тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": null,\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\", \"goal_clients_per_month\", \"old_base_size\", \"channels\", \"hours_per_week\", \"urgency\", \"offer\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": null,
+    "offer": null,
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services",
+     "goal_clients_per_month",
+     "old_base_size",
+     "channels",
+     "hours_per_week",
+     "urgency",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s04_only_niche",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2367,
+   "tokens_in": 1122,
+   "tokens_out": 142,
+   "cost_rub": 0.06927048,
+   "content": "{\n  \"specialization\": \"Помогает женщинам после родов вернуться в форму, онлайн\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [],\n  \"hours_per_week\": null,\n  \"urgency\": null,\n  \"offer\": null,\n  \"offer_note\": null,\n  \"about\": \"Помогаю женщинам после родов вернуться в форму, онлайн.\",\n  \"unclear\": [\"services\", \"goal_clients_per_month\", \"old_base_size\", \"channels\", \"hours_per_week\", \"urgency\", \"offer\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Помогает женщинам после родов вернуться в форму, онлайн",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [],
+    "hours_per_week": null,
+    "urgency": null,
+    "offer": null,
+    "offer_note": null,
+    "about": "Помогаю женщинам после родов вернуться в форму, онлайн.",
+    "unclear": [
+     "services",
+     "goal_clients_per_month",
+     "old_base_size",
+     "channels",
+     "hours_per_week",
+     "urgency",
+     "offer"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s05_contradiction_base",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3401,
+   "tokens_in": 1155,
+   "tokens_out": 107,
+   "cost_rub": 0.06460056,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": null,\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\", \"services\", \"goal_clients_per_month\", \"old_base_size\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": null,
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month",
+     "old_base_size"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s06_pii_phone_name",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2448,
+   "tokens_in": 1168,
+   "tokens_out": 119,
+   "cost_rub": 0.0677787,
+   "content": "{\n  \"specialization\": \"Нутрициолог\",\n  \"services\": [\"nutrition\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\"ok\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Я нутрициолог. Клиентка очень довольна.\",\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Я нутрициолог. Клиентка очень довольна.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [
+    "channels_missing_['max']"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "s07_pii_multiple_names",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4854,
+   "tokens_in": 1175,
+   "tokens_out": 159,
+   "cost_rub": 0.07601592,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": 5,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Знакомые спрашивали про тренировки. Обещали привести других людей. Своей базы почти нет. Веду в Telegram. Часа три в неделю. Хочу пятерых клиентов в месяц. Срочности нет. Бесплатная пробная.\",\n  \"unclear\": [\"specialization\", \"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": 5,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Знакомые спрашивали про тренировки. Обещали привести других людей. Своей базы почти нет. Веду в Telegram. Часа три в неделю. Хочу пятерых клиентов в месяц. Срочности нет. Бесплатная пробная.",
+    "unclear": [
+     "specialization",
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s08_pii_email_nick",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2456,
+   "tokens_in": 1160,
+   "tokens_out": 97,
+   "cost_rub": 0.06297906,
+   "content": "{\n  \"specialization\": \"тренер по йоге\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "тренер по йоге",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s09_no_base_start",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2810,
+   "tokens_in": 1159,
+   "tokens_out": 161,
+   "cost_rub": 0.07536732,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"vk\", \"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Только получила сертификат. Клиентов ещё не было. Буду вести в ВК и телеге. Часа четыре в неделю. Хочу набрать первых. Бесплатная пробная. Без сильной спешки.\",\n  \"unclear\": [\"specialization\", \"services\", \"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "vk",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Только получила сертификат. Клиентов ещё не было. Буду вести в ВК и телеге. Часа четыре в неделю. Хочу набрать первых. Бесплатная пробная. Без сильной спешки.",
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s10_small_base",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2599,
+   "tokens_in": 1156,
+   "tokens_out": 105,
+   "cost_rub": 0.06427626,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\"ok\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\", \"services\", \"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "lt10",
+    "channels": [
+     "ok"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization",
+     "services",
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s11_multi_channel_unclear_primary",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 4637,
+   "tokens_in": 1164,
+   "tokens_out": 179,
+   "cost_rub": 0.07919406,
+   "content": "{\n  \"specialization\": \"Силовые и функциональные тренировки\",\n  \"services\": [\"workouts\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"vk\", \"tg\", \"max\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер по силовым и функциональным тренировкам. Работает в нескольких каналах, но не определился с выбором. Готов уделять более пяти часов в неделю. Срочно нужны клиенты. Предлагает бесплатную пробную тренировку.\",\n  \"unclear\": [\"goal_clients_per_month\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Силовые и функциональные тренировки",
+    "services": [
+     "workouts"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk",
+     "tg",
+     "max"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер по силовым и функциональным тренировкам. Работает в нескольких каналах, но не определился с выбором. Готов уделять более пяти часов в неделю. Срочно нужны клиенты. Предлагает бесплатную пробную тренировку.",
+    "unclear": [
+     "goal_clients_per_month"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s12_consultation_offer",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 3523,
+   "tokens_in": 1143,
+   "tokens_out": 154,
+   "cost_rub": 0.0729675,
+   "content": "{\n  \"specialization\": \"Нутрициолог, разборы питания\",\n  \"services\": [\"nutrition\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": \"Нутрициолог, веду разборы питания. Базы нет. Работаю через Telegram. Готов уделять два-пять часов в неделю. Темп спокойный, без спешки. Предлагаю консультацию.\",\n  \"unclear\": []\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Нутрициолог, разборы питания",
+    "services": [
+     "nutrition"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": "Нутрициолог, веду разборы питания. Базы нет. Работаю через Telegram. Готов уделять два-пять часов в неделю. Темп спокойный, без спешки. Предлагаю консультацию.",
+    "unclear": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s13_hours_lt2",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2795,
+   "tokens_in": 1146,
+   "tokens_out": 157,
+   "cost_rub": 0.07374582,
+   "content": "{\n  \"specialization\": \"Тренер в зале\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"gt30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": \"lt2\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": \"Тренер зала. Бывших клиентов много — больше тридцати. Работает через ВКонтакте. Свободного времени почти нет, меньше двух часов в неделю. Не горит срочностью. Предлагает бесплатную пробную.\",\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер в зале",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "gt30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": "lt2",
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": "Тренер зала. Бывших клиентов много — больше тридцати. Работает через ВКонтакте. Свободного времени почти нет, меньше двух часов в неделю. Не горит срочностью. Предлагает бесплатную пробную.",
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s14_goal_explicit",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 1941,
+   "tokens_in": 1152,
+   "tokens_out": 100,
+   "cost_rub": 0.06304392,
+   "content": "{\n  \"specialization\": \"Онлайн-тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": 10,\n  \"old_base_size\": \"lt10\",\n  \"channels\": [\"tg\"],\n  \"hours_per_week\": \"gt5\",\n  \"urgency\": \"urgent\",\n  \"offer\": \"paid_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Онлайн-тренер",
+    "services": [],
+    "goal_clients_per_month": 10,
+    "old_base_size": "lt10",
+    "channels": [
+     "tg"
+    ],
+    "hours_per_week": "gt5",
+    "urgency": "urgent",
+    "offer": "paid_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services"
+    ]
+   },
+   "expect_misses": [
+    "old_base_lt10"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "s15_complex_services",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 5476,
+   "tokens_in": 1138,
+   "tokens_out": 99,
+   "cost_rub": 0.16046363862,
+   "content": "{\n  \"specialization\": null,\n  \"services\": [\"complex\"],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"none\",\n  \"channels\": [\"max\", \"tg\"],\n  \"hours_per_week\": \"2_5\",\n  \"urgency\": \"no_rush\",\n  \"offer\": \"consultation\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"specialization\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": null,
+    "services": [
+     "complex"
+    ],
+    "goal_clients_per_month": null,
+    "old_base_size": "none",
+    "channels": [
+     "max",
+     "tg"
+    ],
+    "hours_per_week": "2_5",
+    "urgency": "no_rush",
+    "offer": "consultation",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "specialization"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "s16_ambiguous_hours",
+   "agent": "intake",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 2394,
+   "tokens_in": 1149,
+   "tokens_out": 109,
+   "cost_rub": 0.06460056,
+   "content": "{\n  \"specialization\": \"Тренер\",\n  \"services\": [],\n  \"goal_clients_per_month\": null,\n  \"old_base_size\": \"10_30\",\n  \"channels\": [\"vk\"],\n  \"hours_per_week\": null,\n  \"urgency\": \"no_rush\",\n  \"offer\": \"free_trial\",\n  \"offer_note\": null,\n  \"about\": null,\n  \"unclear\": [\"services\", \"goal_clients_per_month\", \"hours_per_week\"]\n}",
+   "valid": true,
+   "parsed": {
+    "specialization": "Тренер",
+    "services": [],
+    "goal_clients_per_month": null,
+    "old_base_size": "10_30",
+    "channels": [
+     "vk"
+    ],
+    "hours_per_week": null,
+    "urgency": "no_rush",
+    "offer": "free_trial",
+    "offer_note": null,
+    "about": null,
+    "unclear": [
+     "services",
+     "goal_clients_per_month",
+     "hours_per_week"
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 15374,
+   "tokens_in": 1168,
+   "tokens_out": 671,
+   "cost_rub": 0.20631966,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У вас есть база из 10–30 человек, с которой можно начать работу без поиска новых контактов с нуля.\",\n    \"Вы предлагаете бесплатную пробную тренировку — это сильный инструмент для привлечения и снижения барьера для первых обращений.\",\n    \"Специализация на персональных тренировках позволяет создать ценное предложение для клиентов, которым важны индивидуальный подход и внимание.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"База из 10–30 человек не получала касаний более 30 дней. Это возможность для быстрого запуска диалогов и напоминания о себе.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Активность ограничена одним каналом (Telegram) при малом количестве часов в неделю (<2). Это возможность структурировать даже небольшое время для системной работы с базой.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Персональное обращение к нескольким людям из базы может дать первые заявки на бесплатную пробную тренировку.\",\n    \"Даже при небольшом времени (<2 часа в неделю) можно добиться прогресса, если сфокусироваться на повторном вовлечении существующей базы.\"\n  ],\n  \"opportunities\": [\n    \"Начать с малого: выделить 30 минут в неделю, чтобы написать 5–10 персональных сообщений людям из базы, напомнить о себе и предложить бесплатную пробную тренировку.\",\n    \"Использовать историю («Было человек пятнадцать») как основу для возобновления контакта — спросить, как дела, интересуются ли они сейчас тренировками.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы готовы писать личные сообщения людям из своей базы.\",\n    \"Предполагаю, что бесплатная пробная тренировка актуальна как предложение для возобновления контакта.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"base_contact_intent\",\n      \"text\": \"Планировали ли вы в ближайшее время возобновить контакт с кем-то из своей старой базы (например, написать, позвонить)?\",\n      \"why\": \"Это поможет понять, насколько близка вам тактика работы с существующими контактами, или стоит рассмотреть другие первоначальные шаги.\",\n      \"options\": [\"Да, планировал(а)\", \"Нет, не планировал(а)\", \"Ещё не решил(а)\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У вас есть база из 10–30 человек, с которой можно начать работу без поиска новых контактов с нуля.",
+     "Вы предлагаете бесплатную пробную тренировку — это сильный инструмент для привлечения и снижения барьера для первых обращений.",
+     "Специализация на персональных тренировках позволяет создать ценное предложение для клиентов, которым важны индивидуальный подход и внимание."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База из 10–30 человек не получала касаний более 30 дней. Это возможность для быстрого запуска диалогов и напоминания о себе."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Активность ограничена одним каналом (Telegram) при малом количестве часов в неделю (<2). Это возможность структурировать даже небольшое время для системной работы с базой."
+     }
+    ],
+    "hypotheses": [
+     "Персональное обращение к нескольким людям из базы может дать первые заявки на бесплатную пробную тренировку.",
+     "Даже при небольшом времени (<2 часа в неделю) можно добиться прогресса, если сфокусироваться на повторном вовлечении существующей базы."
+    ],
+    "opportunities": [
+     "Начать с малого: выделить 30 минут в неделю, чтобы написать 5–10 персональных сообщений людям из базы, напомнить о себе и предложить бесплатную пробную тренировку.",
+     "Использовать историю («Было человек пятнадцать») как основу для возобновления контакта — спросить, как дела, интересуются ли они сейчас тренировками."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы готовы писать личные сообщения людям из своей базы.",
+     "Предполагаю, что бесплатная пробная тренировка актуальна как предложение для возобновления контакта."
+    ],
+    "questions": [
+     {
+      "key": "base_contact_intent",
+      "text": "Планировали ли вы в ближайшее время возобновить контакт с кем-то из своей старой базы (например, написать, позвонить)?",
+      "why": "Это поможет понять, насколько близка вам тактика работы с существующими контактами, или стоит рассмотреть другие первоначальные шаги.",
+      "options": [
+       "Да, планировал(а)",
+       "Нет, не планировал(а)",
+       "Ещё не решил(а)"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t01_onboarding_base_untouched",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 25213,
+   "tokens_in": 1222,
+   "tokens_out": 1079,
+   "cost_rub": 0.28921074,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Вернуть бывших клиентов через личные сообщения\",\n      \"summary\": \"Вы пишете нескольким бывшим клиентам из базы лично в Telegram, напоминая о себе и предлагая бесплатную пробную тренировку. Это самый прямой путь, так как люди вас уже знают и доверяют вам.\",\n      \"rationale\": \"У вас есть база 10-30 человек, которые вас знают, но вы давно с ними не общались. Главный bottleneck — неиспользуемая база. Эта стратегия напрямую его закрывает, используя вашу готовность писать лично и подходящий оффер (бесплатная пробная).\",\n      \"expected_effect\": \"Вы возобновите диалоги с людьми, которые уже знакомы с вашим подходом. Это может привести к первым записям на пробные тренировки и постепенно вернёт регулярность в общении.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю. Вам нужно будет выбрать несколько человек из базы, подготовить персональное сообщение и написать им.\",\n      \"risks\": \"Некоторые могут не ответить сразу или отказаться, так как прошло много времени. Важно не воспринимать это как личную неудачу и продолжать планомерно выходить на контакт.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия наиболее точно соответствует вашему профилю (есть база, готовы писать лично) и напрямую решает главный bottleneck (base_untouched). Она реалистична при вашей низкой загрузке (lt2 часа в неделю) и не требует новых сложных навыков.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Улучшить предложение и упростить запись\",\n      \"summary\": \"Вы проверяете и улучшаете формулировку своего предложения (бесплатная пробная тренировка) и процесс записи, чтобы новым и вернувшимся клиентам было проще сказать «да».\",\n      \"rationale\": \"Даже при обращении к бывшим клиентам важно, чтобы ваше предложение было понятным, а запись — максимально простой. Это снижает барьер для принятия решения и повышает вероятность согласия.\",\n      \"expected_effect\": \"Вы сделаете свой оффер более ясным и привлекательным. Это повысит конверсию в диалогах как с бывшими клиентами, так и с потенциально новыми знакомыми, которые появятся позже.\",\n      \"resource_requirements\": \"Около 1 часа на первоначальную работу по анализу и корректировке текстов предложения и ссылки/процедуры записи. Далее — минимальные затраты времени.\",\n      \"risks\": \"Само по себе улучшение предложения не принесёт клиентов, если не будет активного общения. Нужно сочетать эту работу с выходом на людей.\",\n      \"knowledge_card_keys\": [\"offer-and-booking\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Наладить рутину мягкого напоминания\",\n      \"summary\": \"Вы создаёте привычку мягко напоминать о себе тем, кто проявил интерес или начал диалог, но не записался, чтобы доводить разговоры до результата.\",\n      \"rationale\": \"Когда вы начнёте писать бывшим клиентам, некоторые ответят, но могут замедлиться с решением. Эта стратегия готовит вас к следующему шагу — эффективному ведению начатых диалогов, предотвращая потерю интереса.\",\n      \"expected_effect\": \"Вы увеличите процент завершённых диалогов, которые превращаются в записи. Это поможет вам не упускать возможности, которые появятся после первого контакта с базой.\",\n      \"resource_requirements\": \"Около 30 минут в неделю на отслеживание активных диалогов и отправку одного-двух вежливых follow-up сообщений.\",\n      \"risks\": \"Если не налажена первичная коммуникация (как в стратегии A), то напоминать будет некому. Есть риск показаться навязчивым, если не соблюдать баланс и паузы.\",\n      \"knowledge_card_keys\": [\"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Вернуть бывших клиентов через личные сообщения",
+      "summary": "Вы пишете нескольким бывшим клиентам из базы лично в Telegram, напоминая о себе и предлагая бесплатную пробную тренировку. Это самый прямой путь, так как люди вас уже знают и доверяют вам.",
+      "rationale": "У вас есть база 10-30 человек, которые вас знают, но вы давно с ними не общались. Главный bottleneck — неиспользуемая база. Эта стратегия напрямую его закрывает, используя вашу готовность писать лично и подходящий оффер (бесплатная пробная).",
+      "expected_effect": "Вы возобновите диалоги с людьми, которые уже знакомы с вашим подходом. Это может привести к первым записям на пробные тренировки и постепенно вернёт регулярность в общении.",
+      "resource_requirements": "Около 1-2 часов в неделю. Вам нужно будет выбрать несколько человек из базы, подготовить персональное сообщение и написать им.",
+      "risks": "Некоторые могут не ответить сразу или отказаться, так как прошло много времени. Важно не воспринимать это как личную неудачу и продолжать планомерно выходить на контакт.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия наиболее точно соответствует вашему профилю (есть база, готовы писать лично) и напрямую решает главный bottleneck (base_untouched). Она реалистична при вашей низкой загрузке (lt2 часа в неделю) и не требует новых сложных навыков."
+     },
+     {
+      "label": "B",
+      "name": "Улучшить предложение и упростить запись",
+      "summary": "Вы проверяете и улучшаете формулировку своего предложения (бесплатная пробная тренировка) и процесс записи, чтобы новым и вернувшимся клиентам было проще сказать «да».",
+      "rationale": "Даже при обращении к бывшим клиентам важно, чтобы ваше предложение было понятным, а запись — максимально простой. Это снижает барьер для принятия решения и повышает вероятность согласия.",
+      "expected_effect": "Вы сделаете свой оффер более ясным и привлекательным. Это повысит конверсию в диалогах как с бывшими клиентами, так и с потенциально новыми знакомыми, которые появятся позже.",
+      "resource_requirements": "Около 1 часа на первоначальную работу по анализу и корректировке текстов предложения и ссылки/процедуры записи. Далее — минимальные затраты времени.",
+      "risks": "Само по себе улучшение предложения не принесёт клиентов, если не будет активного общения. Нужно сочетать эту работу с выходом на людей.",
+      "knowledge_card_keys": [
+       "offer-and-booking"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Наладить рутину мягкого напоминания",
+      "summary": "Вы создаёте привычку мягко напоминать о себе тем, кто проявил интерес или начал диалог, но не записался, чтобы доводить разговоры до результата.",
+      "rationale": "Когда вы начнёте писать бывшим клиентам, некоторые ответят, но могут замедлиться с решением. Эта стратегия готовит вас к следующему шагу — эффективному ведению начатых диалогов, предотвращая потерю интереса.",
+      "expected_effect": "Вы увеличите процент завершённых диалогов, которые превращаются в записи. Это поможет вам не упускать возможности, которые появятся после первого контакта с базой.",
+      "resource_requirements": "Около 30 минут в неделю на отслеживание активных диалогов и отправку одного-двух вежливых follow-up сообщений.",
+      "risks": "Если не налажена первичная коммуникация (как в стратегии A), то напоминать будет некому. Есть риск показаться навязчивым, если не соблюдать баланс и паузы.",
+      "knowledge_card_keys": [
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 11510,
+   "tokens_in": 1162,
+   "tokens_out": 624,
+   "cost_rub": 0.16565243999999998,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база из более чем 30 бывших клиентов — это ценный актив для быстрого старта.\",\n    \"Вы уже определили канал для работы (VK) и предлагаете пробное занятие, что снижает барьер для новых клиентов.\",\n    \"Ваша цель — 4 клиента в месяц — реалистична и достижима с имеющимися ресурсами.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"База из 40+ бывших клиентов почти не задействована: за 30 дней было лишь одно касание. Начать общение с ними — самый быстрый путь к первым клиентам.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Новых контактов поступает мало (1 за неделю). Работа в VK может быть неактивной или охват недостаточным.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать регулярно и лично обращаться к бывшим клиентам, можно быстро получить несколько первых заявок.\",\n    \"Повышение активности в VK (посты, сторис, прямые эфиры) может увеличить поток новых контактов.\"\n  ],\n  \"opportunities\": [\n    \"Начать с личных сообщений 5-10 бывшим клиентам в неделю с предложением вернуться к тренировкам или пройти пробное занятие.\",\n    \"Проанализировать, какие форматы контента в VK привлекают внимание вашей аудитории, и увеличить частоту публикаций.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы готовы тратить 2-5 часов в неделю на активные действия по привлечению.\",\n    \"Предполагаю, что бывшие клиенты в целом положительно относятся к вам и могут вернуться при правильном подходе.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"base_contact_style\",\n      \"text\": \"Как вы обычно обращались к бывшим клиентам в последние месяцы? Это были массовые рассылки или личные сообщения?\",\n      \"why\": \"Это поможет понять, какой подход был неэффективен и как его скорректировать для лучшего отклика.\",\n      \"options\": [\"Только массовые рассылки (посты, истории)\", \"В основном личные сообщения\", \"Не обращался вообще\", \"Другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база из более чем 30 бывших клиентов — это ценный актив для быстрого старта.",
+     "Вы уже определили канал для работы (VK) и предлагаете пробное занятие, что снижает барьер для новых клиентов.",
+     "Ваша цель — 4 клиента в месяц — реалистична и достижима с имеющимися ресурсами."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База из 40+ бывших клиентов почти не задействована: за 30 дней было лишь одно касание. Начать общение с ними — самый быстрый путь к первым клиентам."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Новых контактов поступает мало (1 за неделю). Работа в VK может быть неактивной или охват недостаточным."
+     }
+    ],
+    "hypotheses": [
+     "Если начать регулярно и лично обращаться к бывшим клиентам, можно быстро получить несколько первых заявок.",
+     "Повышение активности в VK (посты, сторис, прямые эфиры) может увеличить поток новых контактов."
+    ],
+    "opportunities": [
+     "Начать с личных сообщений 5-10 бывшим клиентам в неделю с предложением вернуться к тренировкам или пройти пробное занятие.",
+     "Проанализировать, какие форматы контента в VK привлекают внимание вашей аудитории, и увеличить частоту публикаций."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы готовы тратить 2-5 часов в неделю на активные действия по привлечению.",
+     "Предполагаю, что бывшие клиенты в целом положительно относятся к вам и могут вернуться при правильном подходе."
+    ],
+    "questions": [
+     {
+      "key": "base_contact_style",
+      "text": "Как вы обычно обращались к бывшим клиентам в последние месяцы? Это были массовые рассылки или личные сообщения?",
+      "why": "Это поможет понять, какой подход был неэффективен и как его скорректировать для лучшего отклика.",
+      "options": [
+       "Только массовые рассылки (посты, истории)",
+       "В основном личные сообщения",
+       "Не обращался вообще",
+       "Другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t02_large_base_vk",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 25910,
+   "tokens_in": 1200,
+   "tokens_out": 1211,
+   "cost_rub": 0.29271318,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Вернуть бывших клиентов через личные сообщения\",\n      \"summary\": \"Системно писать бывшим клиентам из вашей большой базы в ВК, предлагая бесплатную пробную тренировку. Начните с нескольких человек в неделю, чтобы восстановить контакт и обсудить их текущие цели.\",\n      \"rationale\": \"У вас есть большая база бывших клиентов, которая сейчас не используется — это ваш главный неиспользуемый ресурс. Карточка методики идеально подходит под ваш размер базы (gt30). Личное обращение к знакомым людям этично и соответствует вашему предложению (бесплатная пробная).\",\n      \"expected_effect\": \"Увеличится количество диалогов с заинтересованными людьми, которые уже знают ваш подход. Это может привести к первым пробным тренировкам и, как следствие, к новым регулярным занятиям.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю на подготовку списка и ведение персональных, нешаблонных диалогов в ВК. Нужно будет аккуратно вести учёт, чтобы не писать людям повторно.\",\n      \"risks\": \"Некоторые клиенты могут не ответить или отказаться, потому что их жизненные обстоятельства изменились. Важно не воспринимать это как личную неудачу, а продолжать системную работу.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую закрывает главный bottleneck (base_untouched), используя ваш самый сильный актив — большую базу бывших клиентов. Она реалистична при вашей загрузке (2-5 часов в неделю) и умеренной интенсивности, так как не требует создания нового контента или освоения незнакомых каналов.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Регулярное присутствие в ВК для подогрева интереса\",\n      \"summary\": \"Начать вести ваш канал ВК по простому графику: выкладывать посты и истории о тренировках, пользе движения, отвечать на комментарии. Это сделает вас видимым для базы и новых людей.\",\n      \"rationale\": \"У вас уже есть канал ВК, но, вероятно, активность нерегулярна. Регулярное присутствие повысит вашу видимость, напомнит о вас бывшим клиентам и создаст поводы для начала диалогов. Это хороший фон для любой другой активности.\",\n      \"expected_effect\": \"Увеличится узнаваемость и доверие к вам как к эксперту. Появятся новые подписчики и, как следствие, вопросы в личные сообщения. База бывших клиентов будет видеть вашу активность.\",\n      \"resource_requirements\": \"Около -2 часов в неделю на создание простого контента (фото с тренировок, короткие советы, ответы) и его публикацию. Можно начать с малого — 2.3 поста и несколько историй в неделю.\",\n      \"risks\": \"Первое время отклик может быть небольшим. Важно не бросить это дело из-за отсутствия мгновенного результата. Контент должен быть полезным, а не только рекламным.\",\n      \"knowledge_card_keys\": [\"steady-content\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Наладить процесс доведения диалогов до записи\",\n      \"summary\": \"Сфокусироваться на качестве общения с теми, кто уже проявляет интерес. Внедрить мягкую систему напоминаний и уточнений для тех, кто замолчал после первого контакта, чтобы повысить конверсию в пробные тренировки.\",\n      \"rationale\": \"Даже при запуске контактов с базой или привлечении новых людей часть диалогов обрывается. Эта стратегия направлена на то, чтобы доводить такие разговоры до логического конца — записи на пробную тренировку, повышая эффективность ваших усилий.\",\n      \"expected_effect\": \"Увеличится процент тех, кто из простого интереса переходит к конкретному шагу — записи на бесплатную пробную. Вы станете реже терять потенциальных клиентов на этапе обсуждения.\",\n      \"resource_requirements\": \"Требует внимательности и дисциплины в ведении диалогов. Около 30 минут в день или 1-2 часа в неделю на проверку чатов и отправку аккуратных, ненавязчивых follow-up сообщений.\",\n      \"risks\": \"Нужно тонко чувствовать грань между настойчивостью и навязчивостью, чтобы не отпугнуть человека. Требует некоторой организованности в учёте диалогов.\",\n      \"knowledge_card_keys\": [\"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Вернуть бывших клиентов через личные сообщения",
+      "summary": "Системно писать бывшим клиентам из вашей большой базы в ВК, предлагая бесплатную пробную тренировку. Начните с нескольких человек в неделю, чтобы восстановить контакт и обсудить их текущие цели.",
+      "rationale": "У вас есть большая база бывших клиентов, которая сейчас не используется — это ваш главный неиспользуемый ресурс. Карточка методики идеально подходит под ваш размер базы (gt30). Личное обращение к знакомым людям этично и соответствует вашему предложению (бесплатная пробная).",
+      "expected_effect": "Увеличится количество диалогов с заинтересованными людьми, которые уже знают ваш подход. Это может привести к первым пробным тренировкам и, как следствие, к новым регулярным занятиям.",
+      "resource_requirements": "Около 1-2 часов в неделю на подготовку списка и ведение персональных, нешаблонных диалогов в ВК. Нужно будет аккуратно вести учёт, чтобы не писать людям повторно.",
+      "risks": "Некоторые клиенты могут не ответить или отказаться, потому что их жизненные обстоятельства изменились. Важно не воспринимать это как личную неудачу, а продолжать системную работу.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую закрывает главный bottleneck (base_untouched), используя ваш самый сильный актив — большую базу бывших клиентов. Она реалистична при вашей загрузке (2-5 часов в неделю) и умеренной интенсивности, так как не требует создания нового контента или освоения незнакомых каналов."
+     },
+     {
+      "label": "B",
+      "name": "Регулярное присутствие в ВК для подогрева интереса",
+      "summary": "Начать вести ваш канал ВК по простому графику: выкладывать посты и истории о тренировках, пользе движения, отвечать на комментарии. Это сделает вас видимым для базы и новых людей.",
+      "rationale": "У вас уже есть канал ВК, но, вероятно, активность нерегулярна. Регулярное присутствие повысит вашу видимость, напомнит о вас бывшим клиентам и создаст поводы для начала диалогов. Это хороший фон для любой другой активности.",
+      "expected_effect": "Увеличится узнаваемость и доверие к вам как к эксперту. Появятся новые подписчики и, как следствие, вопросы в личные сообщения. База бывших клиентов будет видеть вашу активность.",
+      "resource_requirements": "Около -2 часов в неделю на создание простого контента (фото с тренировок, короткие советы, ответы) и его публикацию. Можно начать с малого — 2.3 поста и несколько историй в неделю.",
+      "risks": "Первое время отклик может быть небольшим. Важно не бросить это дело из-за отсутствия мгновенного результата. Контент должен быть полезным, а не только рекламным.",
+      "knowledge_card_keys": [
+       "steady-content"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Наладить процесс доведения диалогов до записи",
+      "summary": "Сфокусироваться на качестве общения с теми, кто уже проявляет интерес. Внедрить мягкую систему напоминаний и уточнений для тех, кто замолчал после первого контакта, чтобы повысить конверсию в пробные тренировки.",
+      "rationale": "Даже при запуске контактов с базой или привлечении новых людей часть диалогов обрывается. Эта стратегия направлена на то, чтобы доводить такие разговоры до логического конца — записи на пробную тренировку, повышая эффективность ваших усилий.",
+      "expected_effect": "Увеличится процент тех, кто из простого интереса переходит к конкретному шагу — записи на бесплатную пробную. Вы станете реже терять потенциальных клиентов на этапе обсуждения.",
+      "resource_requirements": "Требует внимательности и дисциплины в ведении диалогов. Около 30 минут в день или 1-2 часа в неделю на проверку чатов и отправку аккуратных, ненавязчивых follow-up сообщений.",
+      "risks": "Нужно тонко чувствовать грань между настойчивостью и навязчивостью, чтобы не отпугнуть человека. Требует некоторой организованности в учёте диалогов.",
+      "knowledge_card_keys": [
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 16181,
+   "tokens_in": 1141,
+   "tokens_out": 869,
+   "cost_rub": 0.21196248,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У вас есть чёткая специализация — персональные тренировки, что помогает сфокусировать предложение.\",\n    \"Вы предлагаете пробное занятие (free_trial) — это сильный инструмент для привлечения новичков, снижающий барьер входа.\",\n    \"Вы готовы уделять работе 2–5 часов в неделю — это хороший стартовый ресурс для системных действий.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"no_base\",\n      \"text\": \"Нет накопленной базы контактов для быстрого старта. Это одновременно и чистый лист, и возможность сразу выстроить системную работу с новыми людьми.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Канал продвижения (Telegram) пока не приносит новых контактов. Возможно, его использование можно сделать более целенаправленным или дополнить другими точками входа.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Пробное занятие может хорошо работать через личные рекомендации или целевые посты в локальных чатах, если вы покажете свою экспертизу и подход.\",\n    \"Сертификация — это сильный сигнал для новичков, который стоит подчеркнуть в коммуникации, чтобы компенсировать отсутствие опыта работы с клиентами.\"\n  ],\n  \"opportunities\": [\n    \"Сфокусироваться на одном канале (Telegram), но перейти от пассивного присутствия к активному поиску и вовлечению в тематических чатах или через контент о первых шагах в фитнесе.\",\n    \"Проработать и структурировать ваше пробное занятие так, чтобы оно давало максимальную ценность и чёткий следующий шаг для клиента, превращаясь в первую платную тренировку.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы готовы писать личные сообщения и вести диалоги в Telegram, так как это основной заявленный канал.\",\n    \"Предполагаю, что цель в 4 клиента в месяц относится к платным занятиям после пробного.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"tg_activity_type\",\n      \"text\": \"Как именно вы используете Telegram для привлечения? Это публичный канал/бот, активность в чужих чатах или что-то ещё?\",\n      \"why\": \"Это поможет понять, в каком направлении усиливать канал: создавать контент, искать чаты для нетворкинга или настраивать рекламу.\",\n      \"options\": [\"личный канал/бот\", \"активность в тематических чатах\", \"реклама в каналах\", \"прямые сообщения знакомым\", \"другое\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    },\n    {\n      \"key\": \"first_client_source\",\n      \"text\": \"Откуда вы ожидаете прийти первым 1–2 клиентам? Есть ли круг знакомых, коллег или мест, где вас могут порекомендовать?\",\n      \"why\": \"Понимание ближайшего социального окружения поможет запустить сарафанное радио и получить первые отзывы, что критично в начале.\",\n      \"options\": [\"друзья/знакомые\", \"коллеги-тренеры\", \"бывшие однокурсники\", \"местный фитнес-клуб\", \"соцсети без конкретики\"],\n      \"allow_free_text\": true,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У вас есть чёткая специализация — персональные тренировки, что помогает сфокусировать предложение.",
+     "Вы предлагаете пробное занятие (free_trial) — это сильный инструмент для привлечения новичков, снижающий барьер входа.",
+     "Вы готовы уделять работе 2–5 часов в неделю — это хороший стартовый ресурс для системных действий."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "Нет накопленной базы контактов для быстрого старта. Это одновременно и чистый лист, и возможность сразу выстроить системную работу с новыми людьми."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Канал продвижения (Telegram) пока не приносит новых контактов. Возможно, его использование можно сделать более целенаправленным или дополнить другими точками входа."
+     }
+    ],
+    "hypotheses": [
+     "Пробное занятие может хорошо работать через личные рекомендации или целевые посты в локальных чатах, если вы покажете свою экспертизу и подход.",
+     "Сертификация — это сильный сигнал для новичков, который стоит подчеркнуть в коммуникации, чтобы компенсировать отсутствие опыта работы с клиентами."
+    ],
+    "opportunities": [
+     "Сфокусироваться на одном канале (Telegram), но перейти от пассивного присутствия к активному поиску и вовлечению в тематических чатах или через контент о первых шагах в фитнесе.",
+     "Проработать и структурировать ваше пробное занятие так, чтобы оно давало максимальную ценность и чёткий следующий шаг для клиента, превращаясь в первую платную тренировку."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы готовы писать личные сообщения и вести диалоги в Telegram, так как это основной заявленный канал.",
+     "Предполагаю, что цель в 4 клиента в месяц относится к платным занятиям после пробного."
+    ],
+    "questions": [
+     {
+      "key": "tg_activity_type",
+      "text": "Как именно вы используете Telegram для привлечения? Это публичный канал/бот, активность в чужих чатах или что-то ещё?",
+      "why": "Это поможет понять, в каком направлении усиливать канал: создавать контент, искать чаты для нетворкинга или настраивать рекламу.",
+      "options": [
+       "личный канал/бот",
+       "активность в тематических чатах",
+       "реклама в каналах",
+       "прямые сообщения знакомым",
+       "другое"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     },
+     {
+      "key": "first_client_source",
+      "text": "Откуда вы ожидаете прийти первым 1–2 клиентам? Есть ли круг знакомых, коллег или мест, где вас могут порекомендовать?",
+      "why": "Понимание ближайшего социального окружения поможет запустить сарафанное радио и получить первые отзывы, что критично в начале.",
+      "options": [
+       "друзья/знакомые",
+       "коллеги-тренеры",
+       "бывшие однокурсники",
+       "местный фитнес-клуб",
+       "соцсети без конкретики"
+      ],
+      "allow_free_text": true,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t03_no_base_warm_circle",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 22247,
+   "tokens_in": 1281,
+   "tokens_out": 1336,
+   "cost_rub": 0.32228933862,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Старт с тёплого круга и аккуратного профиля\",\n      \"summary\": \"Начните с того, чтобы рассказать о своей новой деятельности знакомым и друзьям в Telegram, предложив им пробную тренировку. Параллельно создайте аккуратный и понятный профиль, где будет видно, чем вы занимаетесь.\",\n      \"rationale\": \"У вас нет своей базы клиентов, но есть тёплый круг знакомых и канал в Telegram. Эта стратегия использует ваши текущие сильные стороны — готовность начать и существующий канал связи. Карточка 'warm-circle-start' идеально подходит под ваш профиль (old_base_size: none) и закрывает главный bottleneck 'no_base'.\",\n      \"expected_effect\": \"Появятся первые диалоги с заинтересованными людьми из вашего окружения. Вы получите обратную связь и, возможно, первых клиентов на пробные занятия. Ваш профиль станет более профессиональным и понятным для новых знакомых.\",\n      \"resource_requirements\": \"Потребуется время на составление личных сообщений знакомым (не спам) и оформление профиля в Telegram (описание, фото, закреплённое сообщение с предложением). Около 2-3 часов в первую неделю, затем поддержание активности.\",\n      \"risks\": \"Не все знакомые могут быть заинтересованы в фитнесе. Может потребоваться время, чтобы перевести разговор в деловое русло. Важно не быть навязчивым.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"steady-content\", \"offer-and-booking\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия наиболее реалистична при вашей загрузке (2-5 часов в неделю) и умеренной интенсивности. Она напрямую атакует главную проблему — отсутствие базы ('no_base'), используя имеющиеся ресурсы (знакомые, Telegram) и не требуя сложных действий. Это естественный и этичный старт для нового тренера.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Фокус на локальное партнёрство\",\n      \"summary\": \"Найдите в своём районе или городе смежные бизнесы (массажист, wellness-клуб, магазин спортивного питания) и предложите взаимовыгодное сотрудничество, например, взаимные рекомендации клиентов.\",\n      \"rationale\": \"У вас достаточно часов в неделю (2-5) для налаживания контактов. Партнёрство позволяет быстро выйти на новую аудиторию, минуя этап холодных знакомств. Карточка 'local-partners' хорошо подходит под ваш уровень доступного времени и также борется с bottleneck 'no_base' и 'low_visibility'.\",\n      \"expected_effect\": \"Расширится круг людей, которые узнают о ваших услугах. Появятся первые запросы от заинтересованной аудитории через рекомендации партнёров. Увеличится видимость вашей деятельности в локальном сообществе.\",\n      \"resource_requirements\": \"Потребуется время на поиск потенциальных партнёров, подготовку чёткого предложения о сотрудничестве и проведение встреч или переписок. Это может занять 3-4 часа в неделю на начальном этапе.\",\n      \"risks\": \"Не все предприниматели могут быть открыты к сотрудничеству с новым специалистом. Может потребоваться несколько попыток, чтобы найти подходящего партнёра. Нужно чётко формулировать ценность взаимного обмена.\",\n      \"knowledge_card_keys\": [\"local-partners\", \"offer-and-booking\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Регулярный контент и понятное предложение\",\n      \"summary\": \"Сделайте акцент на регулярную публикацию полезного контента в вашем Telegram-канале (упражнения, советы по разминке) и чётко оформите предложение о бесплатной пробной тренировке с простой инструкцией, как записаться.\",\n      \"rationale\": \"Эта стратегия работает на создание экспертного образа и снижение барьера для первой записи. Она подходит, если вы хотите сначала укрепить свой профиль, прежде чем активно обращаться к знакомым. Карточки 'steady-content' и 'offer-and-booking' помогают бороться с 'low_visibility' и потенциальным 'weak_offer'.\",\n      \"expected_effect\": \"Ваш канал станет более живым и привлекательным для подписчиков. Новые люди, которые найдут ваш профиль, будут чётко понимать, что вы предлагаете и как начать. Увеличится вероятность, что знакомые, увидев ваш активный профиль, сами проявят интерес.\",\n      \"resource_requirements\": \"Потребуется время на планирование и создание контента (короткие посты, истории) 2-3 раза в неделю, а также на оформление страницы с предложением. Около -2-3 часов в неделю на постоянной основе.\",\n      \"risks\": \"Эффект от накопления экспертного образа может быть отсроченным. Без активного распространения информации (как в стратегии A) первые клиенты могут появиться не так быстро.\",\n      \"knowledge_card_keys\": [\"steady-content\", \"offer-and-booking\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Старт с тёплого круга и аккуратного профиля",
+      "summary": "Начните с того, чтобы рассказать о своей новой деятельности знакомым и друзьям в Telegram, предложив им пробную тренировку. Параллельно создайте аккуратный и понятный профиль, где будет видно, чем вы занимаетесь.",
+      "rationale": "У вас нет своей базы клиентов, но есть тёплый круг знакомых и канал в Telegram. Эта стратегия использует ваши текущие сильные стороны — готовность начать и существующий канал связи. Карточка 'warm-circle-start' идеально подходит под ваш профиль (old_base_size: none) и закрывает главный bottleneck 'no_base'.",
+      "expected_effect": "Появятся первые диалоги с заинтересованными людьми из вашего окружения. Вы получите обратную связь и, возможно, первых клиентов на пробные занятия. Ваш профиль станет более профессиональным и понятным для новых знакомых.",
+      "resource_requirements": "Потребуется время на составление личных сообщений знакомым (не спам) и оформление профиля в Telegram (описание, фото, закреплённое сообщение с предложением). Около 2-3 часов в первую неделю, затем поддержание активности.",
+      "risks": "Не все знакомые могут быть заинтересованы в фитнесе. Может потребоваться время, чтобы перевести разговор в деловое русло. Важно не быть навязчивым.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "steady-content",
+       "offer-and-booking"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия наиболее реалистична при вашей загрузке (2-5 часов в неделю) и умеренной интенсивности. Она напрямую атакует главную проблему — отсутствие базы ('no_base'), используя имеющиеся ресурсы (знакомые, Telegram) и не требуя сложных действий. Это естественный и этичный старт для нового тренера."
+     },
+     {
+      "label": "B",
+      "name": "Фокус на локальное партнёрство",
+      "summary": "Найдите в своём районе или городе смежные бизнесы (массажист, wellness-клуб, магазин спортивного питания) и предложите взаимовыгодное сотрудничество, например, взаимные рекомендации клиентов.",
+      "rationale": "У вас достаточно часов в неделю (2-5) для налаживания контактов. Партнёрство позволяет быстро выйти на новую аудиторию, минуя этап холодных знакомств. Карточка 'local-partners' хорошо подходит под ваш уровень доступного времени и также борется с bottleneck 'no_base' и 'low_visibility'.",
+      "expected_effect": "Расширится круг людей, которые узнают о ваших услугах. Появятся первые запросы от заинтересованной аудитории через рекомендации партнёров. Увеличится видимость вашей деятельности в локальном сообществе.",
+      "resource_requirements": "Потребуется время на поиск потенциальных партнёров, подготовку чёткого предложения о сотрудничестве и проведение встреч или переписок. Это может занять 3-4 часа в неделю на начальном этапе.",
+      "risks": "Не все предприниматели могут быть открыты к сотрудничеству с новым специалистом. Может потребоваться несколько попыток, чтобы найти подходящего партнёра. Нужно чётко формулировать ценность взаимного обмена.",
+      "knowledge_card_keys": [
+       "local-partners",
+       "offer-and-booking",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Регулярный контент и понятное предложение",
+      "summary": "Сделайте акцент на регулярную публикацию полезного контента в вашем Telegram-канале (упражнения, советы по разминке) и чётко оформите предложение о бесплатной пробной тренировке с простой инструкцией, как записаться.",
+      "rationale": "Эта стратегия работает на создание экспертного образа и снижение барьера для первой записи. Она подходит, если вы хотите сначала укрепить свой профиль, прежде чем активно обращаться к знакомым. Карточки 'steady-content' и 'offer-and-booking' помогают бороться с 'low_visibility' и потенциальным 'weak_offer'.",
+      "expected_effect": "Ваш канал станет более живым и привлекательным для подписчиков. Новые люди, которые найдут ваш профиль, будут чётко понимать, что вы предлагаете и как начать. Увеличится вероятность, что знакомые, увидев ваш активный профиль, сами проявят интерес.",
+      "resource_requirements": "Потребуется время на планирование и создание контента (короткие посты, истории) 2-3 раза в неделю, а также на оформление страницы с предложением. Около -2-3 часов в неделю на постоянной основе.",
+      "risks": "Эффект от накопления экспертного образа может быть отсроченным. Без активного распространения информации (как в стратегии A) первые клиенты могут появиться не так быстро.",
+      "knowledge_card_keys": [
+       "steady-content",
+       "offer-and-booking",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 13859,
+   "tokens_in": 1138,
+   "tokens_out": 646,
+   "cost_rub": 0.16837656,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У Вас есть чёткая специализация — персональные тренировки, что позволяет сфокусировать предложение.\",\n    \"Вы определили реалистичную цель по клиентам (4 в месяц) и готовы уделять работе 2–5 часов в неделю.\",\n    \"Используете канал Telegram, который хорошо подходит для личного общения и быстрых ответов.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"no_base\",\n      \"text\": \"База знакомых и прошлых контактов небольшая (менее 10 человек). Это означает, что старт нужно делать через привлечение новых людей, а не через работу с уже знакомыми.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Нет новых контактов за последнюю неделю. Это говорит о том, что текущие действия в Telegram не приводят к видимости для новой аудитории.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Бесплатная пробная тренировка (free_trial) — сильное предложение для холодного привлечения, но о нём может быть неизвестно.\",\n    \"С учётом небольшого времени (2–5 часов в неделю) эффективнее будет сфокусироваться на одном канале и одном типе активности.\"\n  ],\n  \"opportunities\": [\n    \"Можно протестировать публичные активности в Telegram (короткие посты о тренировках, ответы в тематических чатах) для увеличения видимости.\",\n    \"Бесплатную пробную тренировку можно позиционировать как способ начать без обязательств, что снижает барьер для новичков.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что в Telegram Вы ведёте личную страницу или канал, но не используете его активно для привлечения.\",\n    \"Предполагаю, что интенсивность 'moderate' означает готовность к системным, но не ежедневным действиям.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"tg_activity_type\",\n      \"text\": \"Как именно Вы используете Telegram для привлечения клиентов сейчас?\",\n      \"why\": \"Это поможет понять, нужно ли менять формат активности (например, с личных сообщений на публичный контент) или усиливать текущий.\",\n      \"options\": [\"Только личные сообщения знакомым\", \"Публичные посты/сторис в своём канале\", \"Участие в тематических группах/чатах\", \"Пока не использую для привлечения\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У Вас есть чёткая специализация — персональные тренировки, что позволяет сфокусировать предложение.",
+     "Вы определили реалистичную цель по клиентам (4 в месяц) и готовы уделять работе 2–5 часов в неделю.",
+     "Используете канал Telegram, который хорошо подходит для личного общения и быстрых ответов."
+    ],
+    "bottlenecks": [
+     {
+      "code": "no_base",
+      "text": "База знакомых и прошлых контактов небольшая (менее 10 человек). Это означает, что старт нужно делать через привлечение новых людей, а не через работу с уже знакомыми."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Нет новых контактов за последнюю неделю. Это говорит о том, что текущие действия в Telegram не приводят к видимости для новой аудитории."
+     }
+    ],
+    "hypotheses": [
+     "Бесплатная пробная тренировка (free_trial) — сильное предложение для холодного привлечения, но о нём может быть неизвестно.",
+     "С учётом небольшого времени (2–5 часов в неделю) эффективнее будет сфокусироваться на одном канале и одном типе активности."
+    ],
+    "opportunities": [
+     "Можно протестировать публичные активности в Telegram (короткие посты о тренировках, ответы в тематических чатах) для увеличения видимости.",
+     "Бесплатную пробную тренировку можно позиционировать как способ начать без обязательств, что снижает барьер для новичков."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что в Telegram Вы ведёте личную страницу или канал, но не используете его активно для привлечения.",
+     "Предполагаю, что интенсивность 'moderate' означает готовность к системным, но не ежедневным действиям."
+    ],
+    "questions": [
+     {
+      "key": "tg_activity_type",
+      "text": "Как именно Вы используете Telegram для привлечения клиентов сейчас?",
+      "why": "Это поможет понять, нужно ли менять формат активности (например, с личных сообщений на публичный контент) или усиливать текущий.",
+      "options": [
+       "Только личные сообщения знакомым",
+       "Публичные посты/сторис в своём канале",
+       "Участие в тематических группах/чатах",
+       "Пока не использую для привлечения"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t04_small_base_visibility",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 15610,
+   "tokens_in": 1110,
+   "tokens_out": 709,
+   "cost_rub": 0.18919662,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга и аккуратного профиля\",\n      \"summary\": \"Постепенно заявить о себе среди знакомых и их окружения через аккуратный и понятный профиль в Telegram, без активного поиска незнакомых людей.\",\n      \"rationale\": \"У вас небольшая база и низкая видимость, но есть Telegram. Эта стратегия соответствует вашему текущему положению («Мало кого знаю в теме») и этическим нормам, так как начинается с естественного круга общения.\",\n      \"expected_effect\": \"Постепенное увеличение узнаваемости среди знакомых, первые запросы на консультации от людей, которые уже вам доверяют. Улучшится качество профиля как визитной карточки.\",\n      \"resource_requirements\": \"Около 1-2 часов в неделю на подготовку и публикацию нескольких постов или историй в Telegram, а также на аккуратное общение с теми, кто проявит интерес.\",\n      \"risks\": \"Знакомых может оказаться мало или они не заинтересуются фитнесом. Процесс роста видимости будет медленным.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия наиболее реалистична при вашей доступности (2-5 часов в неделю) и умеренной интенсивности. Она напрямую атакует главный bottleneck — низкую видимость (low_visibility) — с учётом вашей небольшой базы и этических ограничений, предлагая безопасный и последовательный старт.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Регулярное контент-присутствие в Telegram\",\n      \"summary\": \"Систематически публиковать полезный контент о тренировках в своём Telegram-канале или через истории, чтобы постепенно привлекать внимание и демонстрировать экспертизу.\",\n      \"rationale\": \"Низкая видимость часто связана с отсутствием регулярной активности. Ваш канал в Telegram — это готовый инструмент. Эта стратегия поможет вам стать более заметным для своей текущей небольшой аудитории и её окружения.\",\n      \"expected_effect\": \"Увеличение вовлечённости подписчиков, рост узнаваемости как специалиста. Появление первых диалогов на основе опубликованного контента.\",\n      \"resource_requirements\": \"Около -2-3 часов в неделю на планирование, создание и публикацию контента (короткие видео, тексты, ответы на комментарии).\",\n      \"risks\": \"Контент может не находить отклика, если аудитория слишком мала или темы подобраны неверно. Требует дисциплины для регулярности.\",\n      \"knowledge_card_keys\": [\"steady-content\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга и аккуратного профиля",
+      "summary": "Постепенно заявить о себе среди знакомых и их окружения через аккуратный и понятный профиль в Telegram, без активного поиска незнакомых людей.",
+      "rationale": "У вас небольшая база и низкая видимость, но есть Telegram. Эта стратегия соответствует вашему текущему положению («Мало кого знаю в теме») и этическим нормам, так как начинается с естественного круга общения.",
+      "expected_effect": "Постепенное увеличение узнаваемости среди знакомых, первые запросы на консультации от людей, которые уже вам доверяют. Улучшится качество профиля как визитной карточки.",
+      "resource_requirements": "Около 1-2 часов в неделю на подготовку и публикацию нескольких постов или историй в Telegram, а также на аккуратное общение с теми, кто проявит интерес.",
+      "risks": "Знакомых может оказаться мало или они не заинтересуются фитнесом. Процесс роста видимости будет медленным.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия наиболее реалистична при вашей доступности (2-5 часов в неделю) и умеренной интенсивности. Она напрямую атакует главный bottleneck — низкую видимость (low_visibility) — с учётом вашей небольшой базы и этических ограничений, предлагая безопасный и последовательный старт."
+     },
+     {
+      "label": "B",
+      "name": "Регулярное контент-присутствие в Telegram",
+      "summary": "Систематически публиковать полезный контент о тренировках в своём Telegram-канале или через истории, чтобы постепенно привлекать внимание и демонстрировать экспертизу.",
+      "rationale": "Низкая видимость часто связана с отсутствием регулярной активности. Ваш канал в Telegram — это готовый инструмент. Эта стратегия поможет вам стать более заметным для своей текущей небольшой аудитории и её окружения.",
+      "expected_effect": "Увеличение вовлечённости подписчиков, рост узнаваемости как специалиста. Появление первых диалогов на основе опубликованного контента.",
+      "resource_requirements": "Около -2-3 часов в неделю на планирование, создание и публикацию контента (короткие видео, тексты, ответы на комментарии).",
+      "risks": "Контент может не находить отклика, если аудитория слишком мала или темы подобраны неверно. Требует дисциплины для регулярности.",
+      "knowledge_card_keys": [
+       "steady-content"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 14334,
+   "tokens_in": 1154,
+   "tokens_out": 634,
+   "cost_rub": 0.16707936,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У вас есть база потенциальных клиентов (10–30 человек), с которой можно начать работу без поиска новых контактов.\",\n    \"Вы работаете через Telegram — удобный и личный канал для общения.\",\n    \"Вы предлагаете пробное занятие, что снижает барьер для первой встречи с клиентом.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"Есть база, но активной работы с ней, судя по данным, не ведётся. Это возможность быстро получить первых клиентов, начав с личного контакта.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Нет новых контактов и заявок с посадочной страницы. Можно усилить присутствие в Telegram или добавить один понятный канал привлечения.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать систематически писать людям из базы с персональным предложением о пробной тренировке, можно быстро получить первых клиентов.\",\n    \"Недостаточно чёткое предложение может снижать отклик. Его проработка повысит конверсию в диалогах.\"\n  ],\n  \"opportunities\": [\n    \"Начать с малого: выбрать 5–10 человек из базы и в течение недели написать каждому лично, предложив пробное занятие.\",\n    \"Сформулировать простое и выгодное предложение для размещения в своём Telegram. Например, «Персональная тренировка с анализом осанки — бесплатно для первого занятия».\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы готовы писать людям из базы лично, но не знаете, с чего начать или что сказать.\",\n    \"Предполагаю, что в вашем Telegram есть аудитория, которой можно показывать ваше предложение.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"base_contact_recent\",\n      \"text\": \"Писали ли вы людям из своей базы (10–30 человек) с предложением тренировок за последние 2–3 месяца?\",\n      \"why\": \"Это поможет понять, является ли база «холодной» или часть людей уже знакома с вашим предложением, что влияет на подход к первому контакту.\",\n      \"options\": [\"Да, писал(а) многим\", \"Писал(а) только некоторым\", \"Нет, не писал(а)\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У вас есть база потенциальных клиентов (10–30 человек), с которой можно начать работу без поиска новых контактов.",
+     "Вы работаете через Telegram — удобный и личный канал для общения.",
+     "Вы предлагаете пробное занятие, что снижает барьер для первой встречи с клиентом."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "Есть база, но активной работы с ней, судя по данным, не ведётся. Это возможность быстро получить первых клиентов, начав с личного контакта."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Нет новых контактов и заявок с посадочной страницы. Можно усилить присутствие в Telegram или добавить один понятный канал привлечения."
+     }
+    ],
+    "hypotheses": [
+     "Если начать систематически писать людям из базы с персональным предложением о пробной тренировке, можно быстро получить первых клиентов.",
+     "Недостаточно чёткое предложение может снижать отклик. Его проработка повысит конверсию в диалогах."
+    ],
+    "opportunities": [
+     "Начать с малого: выбрать 5–10 человек из базы и в течение недели написать каждому лично, предложив пробное занятие.",
+     "Сформулировать простое и выгодное предложение для размещения в своём Telegram. Например, «Персональная тренировка с анализом осанки — бесплатно для первого занятия»."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы готовы писать людям из базы лично, но не знаете, с чего начать или что сказать.",
+     "Предполагаю, что в вашем Telegram есть аудитория, которой можно показывать ваше предложение."
+    ],
+    "questions": [
+     {
+      "key": "base_contact_recent",
+      "text": "Писали ли вы людям из своей базы (10–30 человек) с предложением тренировок за последние 2–3 месяца?",
+      "why": "Это поможет понять, является ли база «холодной» или часть людей уже знакома с вашим предложением, что влияет на подход к первому контакту.",
+      "options": [
+       "Да, писал(а) многим",
+       "Писал(а) только некоторым",
+       "Нет, не писал(а)"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t05_weak_offer",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 22070,
+   "tokens_in": 1200,
+   "tokens_out": 1088,
+   "cost_rub": 0.26877984,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Сделать предложение и запись простыми\",\n      \"summary\": \"Сформулировать короткое понятное предложение и проверить, что запись работает в один клик. Это поможет сразу переводить заинтересованных в диалогах на пробную тренировку.\",\n      \"rationale\": \"Диагноз указывает на главное узкое место — предложение и запись можно сделать понятнее. У вас уже есть диалоги в работе, и есть возможность улучшить короткий оффер и ссылку на запись. Эта стратегия напрямую закрывает основной bottleneck.\",\n      \"expected_effect\": \"Увеличится конверсия из диалогов в записи, так как потенциальным клиентам будет сразу понятно, что вы предлагаете и как записаться. Это может привести к более регулярным заявкам.\",\n      \"resource_requirements\": \"Требует около 1-2 часов в неделю на то, чтобы сформулировать и отточить текст предложения, проверить и упростить процесс записи (например, в Telegram).\",\n      \"risks\": \"Может потребоваться несколько итераций, чтобы найти формулировку, которая лучше всего откликается у вашей аудитории. Также есть риск, что улучшение оффера само по себе не решит проблему, если диалогов слишком мало.\",\n      \"knowledge_card_keys\": [\"offer-and-booking\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую атакует главный выявленный bottleneck (weak_offer), использует вашу текущую активность (диалоги в работе) и соответствует вашему уровню доступного времени (2-5 часов в неделю). Она реалистична и даст быстрый, измеримый эффект на конверсию.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Вернуть бывших клиентов\",\n      \"summary\": \"Лично написать нескольким бывшим клиентам из вашей базы, предложить вернуться к тренировкам. Это даст быстрые результаты, так как они уже знают вас и ваш подход.\",\n      \"rationale\": \"У вас есть база бывших клиентов (10-30 человек), которая пока не задействована. Эта стратегия использует этот актив и соответствует карточке методики. Она отличается от стратегии A, так как фокусируется на другой аудитории и другом действии.\",\n      \"expected_effect\": \"Появление новых диалогов и, как следствие, записей на тренировки от людей, которые уже доверяют вам. Это может быстро увеличить количество клиентов в текущем месяце.\",\n      \"resource_requirements\": \"Требует около -2 часов в неделю на то, чтобы составить список и писать личные сообщения по 3-5 человек в неделю, соблюдая этику (писать только знакомым).\",\n      \"risks\": \"Не все бывшие клиенты будут готовы вернуться сразу. Нужно быть готовым к отказам и мягко поддерживать диалог. Также важно не превратить это в спам.\",\n      \"knowledge_card_keys\": [\"reactivate-old-base\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    },\n    {\n      \"label\": \"C\",\n      \"name\": \"Наладить регулярное ведение диалогов\",\n      \"summary\": \"Внедрить рутину мягкого напоминания о себе тем, кто начал диалог, но замолчал. Это поможет доводить больше контактов до записи.\",\n      \"rationale\": \"У вас уже есть диалоги в работе, но диагноз не исключает проблем с конверсией или потерей интереса. Эта стратегия дополняет стратегию A, фокусируясь на этапе после первого контакта, чтобы повысить итоговую эффективность общения.\",\n      \"expected_effect\": \"Уменьшится количество \\\"потерянных\\\" потенциальных клиентов. Вы будете доводить больше начатых разговоров до логического завершения — записи на пробную тренировку.\",\n      \"resource_requirements\": \"Требует около 1 часа в неделю на организацию системы (например, пометки в чатах) и отправку 1-2 мягких напоминаний в неделю тем, кто перестал отвечать.\",\n      \"risks\": \"Излишняя настойчивость может вызвать раздражение. Важно сохранять тактичность и предлагать ценность в каждом сообщении.\",\n      \"knowledge_card_keys\": [\"follow-up-routine\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Сделать предложение и запись простыми",
+      "summary": "Сформулировать короткое понятное предложение и проверить, что запись работает в один клик. Это поможет сразу переводить заинтересованных в диалогах на пробную тренировку.",
+      "rationale": "Диагноз указывает на главное узкое место — предложение и запись можно сделать понятнее. У вас уже есть диалоги в работе, и есть возможность улучшить короткий оффер и ссылку на запись. Эта стратегия напрямую закрывает основной bottleneck.",
+      "expected_effect": "Увеличится конверсия из диалогов в записи, так как потенциальным клиентам будет сразу понятно, что вы предлагаете и как записаться. Это может привести к более регулярным заявкам.",
+      "resource_requirements": "Требует около 1-2 часов в неделю на то, чтобы сформулировать и отточить текст предложения, проверить и упростить процесс записи (например, в Telegram).",
+      "risks": "Может потребоваться несколько итераций, чтобы найти формулировку, которая лучше всего откликается у вашей аудитории. Также есть риск, что улучшение оффера само по себе не решит проблему, если диалогов слишком мало.",
+      "knowledge_card_keys": [
+       "offer-and-booking"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую атакует главный выявленный bottleneck (weak_offer), использует вашу текущую активность (диалоги в работе) и соответствует вашему уровню доступного времени (2-5 часов в неделю). Она реалистична и даст быстрый, измеримый эффект на конверсию."
+     },
+     {
+      "label": "B",
+      "name": "Вернуть бывших клиентов",
+      "summary": "Лично написать нескольким бывшим клиентам из вашей базы, предложить вернуться к тренировкам. Это даст быстрые результаты, так как они уже знают вас и ваш подход.",
+      "rationale": "У вас есть база бывших клиентов (10-30 человек), которая пока не задействована. Эта стратегия использует этот актив и соответствует карточке методики. Она отличается от стратегии A, так как фокусируется на другой аудитории и другом действии.",
+      "expected_effect": "Появление новых диалогов и, как следствие, записей на тренировки от людей, которые уже доверяют вам. Это может быстро увеличить количество клиентов в текущем месяце.",
+      "resource_requirements": "Требует около -2 часов в неделю на то, чтобы составить список и писать личные сообщения по 3-5 человек в неделю, соблюдая этику (писать только знакомым).",
+      "risks": "Не все бывшие клиенты будут готовы вернуться сразу. Нужно быть готовым к отказам и мягко поддерживать диалог. Также важно не превратить это в спам.",
+      "knowledge_card_keys": [
+       "reactivate-old-base",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     },
+     {
+      "label": "C",
+      "name": "Наладить регулярное ведение диалогов",
+      "summary": "Внедрить рутину мягкого напоминания о себе тем, кто начал диалог, но замолчал. Это поможет доводить больше контактов до записи.",
+      "rationale": "У вас уже есть диалоги в работе, но диагноз не исключает проблем с конверсией или потерей интереса. Эта стратегия дополняет стратегию A, фокусируясь на этапе после первого контакта, чтобы повысить итоговую эффективность общения.",
+      "expected_effect": "Уменьшится количество \"потерянных\" потенциальных клиентов. Вы будете доводить больше начатых разговоров до логического завершения — записи на пробную тренировку.",
+      "resource_requirements": "Требует около 1 часа в неделю на организацию системы (например, пометки в чатах) и отправку 1-2 мягких напоминаний в неделю тем, кто перестал отвечать.",
+      "risks": "Излишняя настойчивость может вызвать раздражение. Важно сохранять тактичность и предлагать ценность в каждом сообщении.",
+      "knowledge_card_keys": [
+       "follow-up-routine"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t06_weekly_follow_up",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 26282,
+   "tokens_in": 1226,
+   "tokens_out": 988,
+   "cost_rub": 0.24270612,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база бывших клиентов (10–30 человек), с которой можно работать быстрее, чем с холодными контактами.\",\n    \"Вы определили конкретную цель — 4 клиента в месяц, это помогает фокусироваться.\",\n    \"Текущая стратегия «Вернуть бывших» логична и соответствует вашим ресурсам.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"База бывших клиентов пока не задействована активно: за неделю начат только 1 диалог.\"\n    },\n    {\n      \"code\": \"no_follow_up\",\n      \"text\": \"В плане на прошлую неделю были пропущены действия по поддержанию контакта (follow-up), что важно для возврата клиентов.\"\n    },\n    {\n      \"code\": \"irregular_activity\",\n      \"text\": \"Активность может быть нерегулярной: из 6 запланированных задач выполнено 3.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если систематически обращаться к базе с персональным предложением (бесплатная пробная), можно активировать несколько человек в неделю.\",\n    \"Внедрение регулярного follow-up после первого контакта повысит шансы на возврат.\",\n    \"Более чёткое планирование и выполнение задач поможет сделать активность стабильной.\"\n  ],\n  \"opportunities\": [\n    \"Начать с малого: запланировать и провести 5–7 персональных обращений к бывшим клиентам на этой неделе.\",\n    \"Добавить в план блок «follow-up» для тех, кто уже проявил интерес.\",\n    \"Проанализировать, какие типы задач срываются чаще, и скорректировать план, чтобы он был реалистичнее.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы готовы вести диалоги лично в Telegram, так как это ваш основной канал.\",\n    \"Предполагаю, что бывшие клиенты знают вас и могут быть лояльны, если получить актуальное предложение.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"base_contact_recent\",\n      \"text\": \"Выписывали ли вы в последние месяцы список бывших клиентов и причины, по которым они перестали заниматься?\",\n      \"why\": \"Это поможет понять, к кому и с каким аргументом обращаться в первую очередь, чтобы сделать контакты более эффективными.\",\n      \"options\": [\"Да, есть список и понимание причин\", \"Нет, не выписывал(а)\", \"Частично, по памяти\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    },\n    {\n      \"key\": \"follow_up_plan\",\n      \"text\": \"Как вы планируете организовать follow-up (поддержание контакта) на этой неделе для тех, кто уже проявил интерес?\",\n      \"why\": \"Чтобы убедиться, что эта важная часть стратегии не будет снова пропущена, и помочь структурировать процесс.\",\n      \"options\": [\"Запланирую конкретные дни и сообщения\", \"Буду реагировать по ситуации\", \"Пока не определился(ась)\", \"Использую инструменты (напоминалки, таблицы)\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"plan_fit\",\n      \"text\": \"План на прошлую неделю был выполнен на 50%. Пропущен блок follow-up. Возможно, план был слишком объёмным или нечётким для текущего темпа работы (2–5 часов в неделю).\"\n    },\n    {\n      \"topic\": \"base_usage\",\n      \"text\": \"При наличии базы 10–30 человек и стратегии «Вернуть бывших» показатель «dialogs_started: 1» за неделю указывает на неиспользованный потенциал. Даже 2–3 новых диалога в неделю могут дать движение.\"\n    }\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база бывших клиентов (10–30 человек), с которой можно работать быстрее, чем с холодными контактами.",
+     "Вы определили конкретную цель — 4 клиента в месяц, это помогает фокусироваться.",
+     "Текущая стратегия «Вернуть бывших» логична и соответствует вашим ресурсам."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База бывших клиентов пока не задействована активно: за неделю начат только 1 диалог."
+     },
+     {
+      "code": "no_follow_up",
+      "text": "В плане на прошлую неделю были пропущены действия по поддержанию контакта (follow-up), что важно для возврата клиентов."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "Активность может быть нерегулярной: из 6 запланированных задач выполнено 3."
+     }
+    ],
+    "hypotheses": [
+     "Если систематически обращаться к базе с персональным предложением (бесплатная пробная), можно активировать несколько человек в неделю.",
+     "Внедрение регулярного follow-up после первого контакта повысит шансы на возврат.",
+     "Более чёткое планирование и выполнение задач поможет сделать активность стабильной."
+    ],
+    "opportunities": [
+     "Начать с малого: запланировать и провести 5–7 персональных обращений к бывшим клиентам на этой неделе.",
+     "Добавить в план блок «follow-up» для тех, кто уже проявил интерес.",
+     "Проанализировать, какие типы задач срываются чаще, и скорректировать план, чтобы он был реалистичнее."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы готовы вести диалоги лично в Telegram, так как это ваш основной канал.",
+     "Предполагаю, что бывшие клиенты знают вас и могут быть лояльны, если получить актуальное предложение."
+    ],
+    "questions": [
+     {
+      "key": "base_contact_recent",
+      "text": "Выписывали ли вы в последние месяцы список бывших клиентов и причины, по которым они перестали заниматься?",
+      "why": "Это поможет понять, к кому и с каким аргументом обращаться в первую очередь, чтобы сделать контакты более эффективными.",
+      "options": [
+       "Да, есть список и понимание причин",
+       "Нет, не выписывал(а)",
+       "Частично, по памяти"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     },
+     {
+      "key": "follow_up_plan",
+      "text": "Как вы планируете организовать follow-up (поддержание контакта) на этой неделе для тех, кто уже проявил интерес?",
+      "why": "Чтобы убедиться, что эта важная часть стратегии не будет снова пропущена, и помочь структурировать процесс.",
+      "options": [
+       "Запланирую конкретные дни и сообщения",
+       "Буду реагировать по ситуации",
+       "Пока не определился(ась)",
+       "Использую инструменты (напоминалки, таблицы)"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "plan_fit",
+      "text": "План на прошлую неделю был выполнен на 50%. Пропущен блок follow-up. Возможно, план был слишком объёмным или нечётким для текущего темпа работы (2–5 часов в неделю)."
+     },
+     {
+      "topic": "base_usage",
+      "text": "При наличии базы 10–30 человек и стратегии «Вернуть бывших» показатель «dialogs_started: 1» за неделю указывает на неиспользованный потенциал. Даже 2–3 новых диалога в неделю могут дать движение."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [
+    "fail_text_promise"
+   ],
+   "expect_ok": false
+  },
+  {
+   "case": "t07_weekly_load_mismatch",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 24118,
+   "tokens_in": 1191,
+   "tokens_out": 1135,
+   "cost_rub": 0.26696375862,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У вас есть база бывших клиентов (10–30 человек), с которой можно возобновить контакт — это самый быстрый путь к новым заказам.\",\n    \"Вы готовы работать интенсивно и выделяете на продвижение более 5 часов в неделю — это хороший ресурс для активности.\",\n    \"Специализация на персональных тренировках и предложение бесплатной пробной тренировки — это чёткое и привлекательное предложение для заинтересованных.\"\n  ],\n  \"bottlenecks\": [\n    {\"code\": \"base_untouched\", \"text\": \"База бывших клиентов не задействована — с неё можно начать получать отклики быстрее, чем с холодного контента.\"},\n    {\"code\": \"low_visibility\", \"text\": \"Новых контактов за неделю нет — текущий канал (Telegram) не приносит видимости новым людям.\"},\n    {\"code\": \"irregular_activity\", \"text\": \"План на неделю выполнен лишь на 12% — это говорит о том, что запланированные действия не превращаются в реальные шаги.\"}\n  ],\n  \"hypotheses\": [\n    \"Если начать персональную коммуникацию с бывшими клиентами, можно получить первые заявки в течение 1–2 недель.\",\n    \"Если сосредоточиться на выполнении хотя бы 2–3 ключевых пунктов плана вместо 8, эффективность может вырасти.\",\n    \"Если текущий контент в Telegram не работает, возможно, стоит проверить его формат или добавить личные приглашения в истории.\"\n  ],\n  \"opportunities\": [\n    \"Запланировать и провести 5–10 персональных сообщений бывшим клиентам на этой неделе — это займёт 1–2 часа.\",\n    \"Пересмотреть план: оставить 3 самых важных действия (например: 2 поста, 5 сообщений базе, 1 коллаборация) и сфокусироваться на них.\",\n    \"Использовать интенсивность: выделить 2–3 часа в один день для массовой рассылки приглашений на пробную тренировку.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Бывшие клиенты знают ваш уровень и доверяют вам — поэтому отклик от них будет выше, чем от незнакомых.\",\n    \"Вы готовы писать личные сообщения, так как используете Telegram как основной канал.\",\n    \"Низкое выполнение плана может быть связано с его перегруженностью или несоответствием вашим текущим приоритетам.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"plan_relevance\",\n      \"text\": \"Какие пункты из запланированных 8 задач на прошлой неделе были для вас самыми ценными, а какие оказались сложными или нерелевантными?\",\n      \"why\": \"Это поможет скорректировать план на следующую неделю, сделав его более реалистичным и сфокусированным на действиях, которые действительно продвигают к цели.\",\n      \"options\": [\"Ценными были контент-задачи\", \"Ценными были задачи по общению с базой\", \"Ценными были организационные задачи\", \"Большинство задач оказались сложными/нерелевантными\", \"Затрудняюсь выделить\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    },\n    {\n      \"key\": \"content_feedback\",\n      \"text\": \"Получали ли вы какую-либо обратную связь (лайки, вопросы, сообщения) на ваш контент в Telegram за последнюю неделю?\",\n      \"why\": \"Понимание реакции аудитории покажет, работает ли текущий контент на вовлечение или нуждается в корректировке.\",\n      \"options\": [\"Да, были реакции\", \"Нет, реакции не было\", \"Не публиковал(а) контент\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\"topic\": \"plan_fit\", \"text\": \"План из 8 задач выполнен лишь на 12%. Возможно, он был слишком объёмным или не соответствовал вашим текущим энергетическим и временным ресурсам. Фокус на меньшем количестве, но ключевых действиях может повысить результативность.\"},\n    {\"topic\": \"base_usage\", \"text\": \"При наличии базы 10–30 бывших клиентов и нулевых новых контактах извне, работа с базой выглядит самым прямым и быстрым способом сдвинуть ситуацию. Это не требует создания нового контента или привлечения незнакомой аудитории.\"}\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У вас есть база бывших клиентов (10–30 человек), с которой можно возобновить контакт — это самый быстрый путь к новым заказам.",
+     "Вы готовы работать интенсивно и выделяете на продвижение более 5 часов в неделю — это хороший ресурс для активности.",
+     "Специализация на персональных тренировках и предложение бесплатной пробной тренировки — это чёткое и привлекательное предложение для заинтересованных."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База бывших клиентов не задействована — с неё можно начать получать отклики быстрее, чем с холодного контента."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Новых контактов за неделю нет — текущий канал (Telegram) не приносит видимости новым людям."
+     },
+     {
+      "code": "irregular_activity",
+      "text": "План на неделю выполнен лишь на 12% — это говорит о том, что запланированные действия не превращаются в реальные шаги."
+     }
+    ],
+    "hypotheses": [
+     "Если начать персональную коммуникацию с бывшими клиентами, можно получить первые заявки в течение 1–2 недель.",
+     "Если сосредоточиться на выполнении хотя бы 2–3 ключевых пунктов плана вместо 8, эффективность может вырасти.",
+     "Если текущий контент в Telegram не работает, возможно, стоит проверить его формат или добавить личные приглашения в истории."
+    ],
+    "opportunities": [
+     "Запланировать и провести 5–10 персональных сообщений бывшим клиентам на этой неделе — это займёт 1–2 часа.",
+     "Пересмотреть план: оставить 3 самых важных действия (например: 2 поста, 5 сообщений базе, 1 коллаборация) и сфокусироваться на них.",
+     "Использовать интенсивность: выделить 2–3 часа в один день для массовой рассылки приглашений на пробную тренировку."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Бывшие клиенты знают ваш уровень и доверяют вам — поэтому отклик от них будет выше, чем от незнакомых.",
+     "Вы готовы писать личные сообщения, так как используете Telegram как основной канал.",
+     "Низкое выполнение плана может быть связано с его перегруженностью или несоответствием вашим текущим приоритетам."
+    ],
+    "questions": [
+     {
+      "key": "plan_relevance",
+      "text": "Какие пункты из запланированных 8 задач на прошлой неделе были для вас самыми ценными, а какие оказались сложными или нерелевантными?",
+      "why": "Это поможет скорректировать план на следующую неделю, сделав его более реалистичным и сфокусированным на действиях, которые действительно продвигают к цели.",
+      "options": [
+       "Ценными были контент-задачи",
+       "Ценными были задачи по общению с базой",
+       "Ценными были организационные задачи",
+       "Большинство задач оказались сложными/нерелевантными",
+       "Затрудняюсь выделить"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     },
+     {
+      "key": "content_feedback",
+      "text": "Получали ли вы какую-либо обратную связь (лайки, вопросы, сообщения) на ваш контент в Telegram за последнюю неделю?",
+      "why": "Понимание реакции аудитории покажет, работает ли текущий контент на вовлечение или нуждается в корректировке.",
+      "options": [
+       "Да, были реакции",
+       "Нет, реакции не было",
+       "Не публиковал(а) контент"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "plan_fit",
+      "text": "План из 8 задач выполнен лишь на 12%. Возможно, он был слишком объёмным или не соответствовал вашим текущим энергетическим и временным ресурсам. Фокус на меньшем количестве, но ключевых действиях может повысить результативность."
+     },
+     {
+      "topic": "base_usage",
+      "text": "При наличии базы 10–30 бывших клиентов и нулевых новых контактах извне, работа с базой выглядит самым прямым и быстрым способом сдвинуть ситуацию. Это не требует создания нового контента или привлечения незнакомой аудитории."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t08_profile_change_allowed",
+   "agent": "diagnose",
+   "ok_http": false,
+   "error": "RemoteDisconnected: Remote end closed connection without response",
+   "latency_ms": 50244,
+   "tokens_in": null,
+   "tokens_out": null,
+   "cost_rub": null,
+   "content": null,
+   "valid": false,
+   "expect_ok": false,
+   "expect_misses": [
+    "RemoteDisconnected: Remote end closed connection without response"
+   ]
+  },
+  {
+   "case": "t09_profile_change_forbidden",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 20256,
+   "tokens_in": 1166,
+   "tokens_out": 1007,
+   "cost_rub": 0.2383605,
+   "content": "{\n  \"data_quality\": \"partial\",\n  \"strengths\": [\n    \"У вас есть база бывших клиентов (10–30 человек), с которой можно возобновить контакт — это самый быстрый путь к первым заказам.\",\n    \"Вы готовы уделять более 5 часов в неделю на привлечение, что даёт хороший ресурс для активности.\",\n    \"Специализация на персональных тренировках и предложение бесплатной пробной тренировки — это сильное и понятное предложение для старта.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"База бывших клиентов не задействована: за неделю не было новых контактов. С неё можно начать получать отклики быстрее, чем с холодного привлечения.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Активность в единственном канале (Telegram) не приносит новых контактов. Возможно, стоит уточнить, как именно вы его используете, или добавить ещё один способ связи с аудиторией.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать персональную коммуникацию с бывшими клиентами, можно получить первые заявки в течение 1–2 недель.\",\n    \"Возможно, в Telegram вы публикуете контент, но не делаете прямых предложений или личных сообщений — тогда фокус на личные касания может дать результат.\"\n  ],\n  \"opportunities\": [\n    \"Выделить 1–2 часа на то, чтобы написать 10–15 бывшим клиентам с персональным предложением (вспомнить их цели, предложить пробную тренировку).\",\n    \"Проанализировать, какие посты или активности в Telegram вызывали отклик раньше, и повторить успешный формат с чётким призывом к действию.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что вы не писали бывшим клиентам в последнее время — поэтому контактов нет.\",\n    \"Предполагаю, что активность в Telegram идёт, но, возможно, без чёткого фокуса на привлечение новых контактов.\"\n  ],\n  \"questions\": [\n    {\n      \"key\": \"tg_activity_type\",\n      \"text\": \"Как именно вы используете Telegram для привлечения: делаете личные рассылки, публикуете посты в канале/группе или общаетесь в чатах?\",\n      \"why\": \"Это поможет понять, почему нет новых контактов, и скорректировать активность в канале.\",\n      \"options\": [\"Личные сообщения базе\", \"Публичные посты\", \"Участие в чатах\", \"Не использую активно\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    },\n    {\n      \"key\": \"base_contact_recency\",\n      \"text\": \"Когда в последний раз вы связывались с кем-то из бывших клиентов с предложением тренировок?\",\n      \"why\": \"Чтобы оценить, насколько «тёплая» база и нужно ли обновить контакт перед прямым предложением.\",\n      \"options\": [\"В последний месяц\", \"1–3 месяца назад\", \"Более 3 месяцев назад\", \"Не помню/не связывался\"],\n      \"allow_free_text\": false,\n      \"profile_field\": null\n    }\n  ],\n  \"observations\": [\n    {\n      \"topic\": \"base_usage\",\n      \"text\": \"Стратегия «База» работает 4 недели, но новых контактов за отчётную неделю нет. Возможно, план действий по стратегии не был конкретизирован или выполнен. Стоит пересмотреть, какие именно шаги по базе были запланированы и сделаны.\"\n    },\n    {\n      \"topic\": \"channel_performance\",\n      \"text\": \"Канал Telegram пока не приносит контактов. Если вы публикуете контент, стоит добавить явный призыв написать вам лично для консультации или пробной тренировки. Если делаете рассылки — проверить, доходят ли они и есть ли ответы.\"\n    }\n  ],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "partial",
+    "strengths": [
+     "У вас есть база бывших клиентов (10–30 человек), с которой можно возобновить контакт — это самый быстрый путь к первым заказам.",
+     "Вы готовы уделять более 5 часов в неделю на привлечение, что даёт хороший ресурс для активности.",
+     "Специализация на персональных тренировках и предложение бесплатной пробной тренировки — это сильное и понятное предложение для старта."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База бывших клиентов не задействована: за неделю не было новых контактов. С неё можно начать получать отклики быстрее, чем с холодного привлечения."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Активность в единственном канале (Telegram) не приносит новых контактов. Возможно, стоит уточнить, как именно вы его используете, или добавить ещё один способ связи с аудиторией."
+     }
+    ],
+    "hypotheses": [
+     "Если начать персональную коммуникацию с бывшими клиентами, можно получить первые заявки в течение 1–2 недель.",
+     "Возможно, в Telegram вы публикуете контент, но не делаете прямых предложений или личных сообщений — тогда фокус на личные касания может дать результат."
+    ],
+    "opportunities": [
+     "Выделить 1–2 часа на то, чтобы написать 10–15 бывшим клиентам с персональным предложением (вспомнить их цели, предложить пробную тренировку).",
+     "Проанализировать, какие посты или активности в Telegram вызывали отклик раньше, и повторить успешный формат с чётким призывом к действию."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что вы не писали бывшим клиентам в последнее время — поэтому контактов нет.",
+     "Предполагаю, что активность в Telegram идёт, но, возможно, без чёткого фокуса на привлечение новых контактов."
+    ],
+    "questions": [
+     {
+      "key": "tg_activity_type",
+      "text": "Как именно вы используете Telegram для привлечения: делаете личные рассылки, публикуете посты в канале/группе или общаетесь в чатах?",
+      "why": "Это поможет понять, почему нет новых контактов, и скорректировать активность в канале.",
+      "options": [
+       "Личные сообщения базе",
+       "Публичные посты",
+       "Участие в чатах",
+       "Не использую активно"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     },
+     {
+      "key": "base_contact_recency",
+      "text": "Когда в последний раз вы связывались с кем-то из бывших клиентов с предложением тренировок?",
+      "why": "Чтобы оценить, насколько «тёплая» база и нужно ли обновить контакт перед прямым предложением.",
+      "options": [
+       "В последний месяц",
+       "1–3 месяца назад",
+       "Более 3 месяцев назад",
+       "Не помню/не связывался"
+      ],
+      "allow_free_text": false,
+      "profile_field": null
+     }
+    ],
+    "observations": [
+     {
+      "topic": "base_usage",
+      "text": "Стратегия «База» работает 4 недели, но новых контактов за отчётную неделю нет. Возможно, план действий по стратегии не был конкретизирован или выполнен. Стоит пересмотреть, какие именно шаги по базе были запланированы и сделаны."
+     },
+     {
+      "topic": "channel_performance",
+      "text": "Канал Telegram пока не приносит контактов. Если вы публикуете контент, стоит добавить явный призыв написать вам лично для консультации или пробной тренировки. Если делаете рассылки — проверить, доходят ли они и есть ли ответы."
+     }
+    ],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t10_final_round_no_questions",
+   "agent": "diagnose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 8789,
+   "tokens_in": 1140,
+   "tokens_out": 538,
+   "cost_rub": 0.14956716,
+   "content": "{\n  \"data_quality\": \"sufficient\",\n  \"strengths\": [\n    \"У Вас есть база бывших клиентов (10–30 человек) — это готовый ресурс для быстрого старта.\",\n    \"Вы предлагаете пробное занятие — это сильный инструмент для снижения барьера входа у потенциальных клиентов.\",\n    \"Вы работаете в персональном формате, что позволяет создавать высокую ценность для клиента.\"\n  ],\n  \"bottlenecks\": [\n    {\n      \"code\": \"base_untouched\",\n      \"text\": \"База бывших клиентов не используется активно. С неё можно начать получать первые результаты быстрее, чем с холодного привлечения.\"\n    },\n    {\n      \"code\": \"low_visibility\",\n      \"text\": \"Работа ведётся только в одном канале (Telegram). Расширение точек контакта может увеличить поток заинтересованных людей.\"\n    }\n  ],\n  \"hypotheses\": [\n    \"Если начать систематически обращаться к бывшим клиентам с персональным предложением, можно получить первых новых клиентов в течение 2–3 недель.\",\n    \"Если добавить ещё один канал для демонстрации экспертизы (например, короткие видео с упражнениями), можно привлечь новую аудиторию, заинтересованную в персональных тренировках.\"\n  ],\n  \"opportunities\": [\n    \"Запустить кампанию по реанимации базы: написать 5–10 личных сообщений в неделю бывшим клиентам, напомнить о себе и предложить пробную сессию.\",\n    \"Использовать текущие 2–5 часов в неделю не только на ведение канала, но и на создание простого контента-приманки (например, «3 типичные ошибки в приседе») для привлечения внимания в Telegram.\"\n  ],\n  \"skill_gaps\": [],\n  \"assumptions\": [\n    \"Предполагаю, что у Вас есть время и готовность писать личные сообщения бывшим клиентам.\",\n    \"Предполагаю, что пробное занятие Вы проводите очно или онлайн, и это включено в Ваше текущее предложение.\"\n  ],\n  \"questions\": [],\n  \"observations\": [],\n  \"profile_change_proposals\": []\n}",
+   "valid": true,
+   "parsed": {
+    "data_quality": "sufficient",
+    "strengths": [
+     "У Вас есть база бывших клиентов (10–30 человек) — это готовый ресурс для быстрого старта.",
+     "Вы предлагаете пробное занятие — это сильный инструмент для снижения барьера входа у потенциальных клиентов.",
+     "Вы работаете в персональном формате, что позволяет создавать высокую ценность для клиента."
+    ],
+    "bottlenecks": [
+     {
+      "code": "base_untouched",
+      "text": "База бывших клиентов не используется активно. С неё можно начать получать первые результаты быстрее, чем с холодного привлечения."
+     },
+     {
+      "code": "low_visibility",
+      "text": "Работа ведётся только в одном канале (Telegram). Расширение точек контакта может увеличить поток заинтересованных людей."
+     }
+    ],
+    "hypotheses": [
+     "Если начать систематически обращаться к бывшим клиентам с персональным предложением, можно получить первых новых клиентов в течение 2–3 недель.",
+     "Если добавить ещё один канал для демонстрации экспертизы (например, короткие видео с упражнениями), можно привлечь новую аудиторию, заинтересованную в персональных тренировках."
+    ],
+    "opportunities": [
+     "Запустить кампанию по реанимации базы: написать 5–10 личных сообщений в неделю бывшим клиентам, напомнить о себе и предложить пробную сессию.",
+     "Использовать текущие 2–5 часов в неделю не только на ведение канала, но и на создание простого контента-приманки (например, «3 типичные ошибки в приседе») для привлечения внимания в Telegram."
+    ],
+    "skill_gaps": [],
+    "assumptions": [
+     "Предполагаю, что у Вас есть время и готовность писать личные сообщения бывшим клиентам.",
+     "Предполагаю, что пробное занятие Вы проводите очно или онлайн, и это включено в Ваше текущее предложение."
+    ],
+    "questions": [],
+    "observations": [],
+    "profile_change_proposals": []
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t11_propose_two_ok",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 13447,
+   "tokens_in": 1096,
+   "tokens_out": 752,
+   "cost_rub": 0.19458,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Старт с тёплого круга и аккуратного профиля\",\n      \"summary\": \"Начните с людей, которые уже знают вас. Аккуратно оформите свой Telegram-канал или профиль, чтобы показать свою экспертность и предложение. Затем напишите нескольким знакомым, расскажите о своих тренировках и предложите бесплатную пробную сессию.\",\n      \"rationale\": \"У вас нет базы клиентов, но есть тёплый круг знакомых. Это самый естественный и этичный способ начать. Карточка 'warm-circle-start' идеально подходит под ваш профиль (база отсутствует) и закрывает главный bottleneck 'no_base'.\",\n      \"expected_effect\": \"Появятся первые диалоги о тренировках, возможно, первые пробные занятия. Вы начнёте формировать своё присутствие в Telegram как специалиста.\",\n      \"resource_requirements\": \"Требует немного времени (менее 2 часов в неделю): нужно подготовить несколько фотографий и текстов для профиля, а затем написать 5-10 знакомым в течение недели.\",\n      \"risks\": \"Знакомые могут быть не готовы к тренировкам прямо сейчас или вежливо отказать. Важно не настаивать и сохранять отношения.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую решает основную проблему — отсутствие базы, используя ваши текущие возможности (тёплый круг, Telegram) и соответствует вашему доступному времени. Она этична и реалистична для старта.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Чёткое предложение и упрощение записи\",\n      \"summary\": \"Сфокусируйтесь на том, чтобы ваше предложение о бесплатной пробной тренировке было предельно ясным и привлекательным. Проверьте и упростите процесс, как потенциальный клиент может записаться к вам в Telegram.\",\n      \"rationale\": \"Даже при обращении к тёплому кругу или в будущем, сильное и простое предложение увеличивает шанс на согласие. Это фундаментальный навык, который пригодится на любом этапе. Стратегия работает на улучшение конверсии любых контактов в клиентов.\",\n      \"expected_effect\": \"Вы отточите формулировку своего предложения. В диалогах с потенциальными клиентами будет меньше недопонимания и больше уверенности с вашей стороны.\",\n      \"resource_requirements\": \"Требует минимальных временных затрат: анализ и написание 2-3 вариантов текста предложения, проверка удобства записи через ваш Telegram.\",\n      \"risks\": \"Можно увлечься совершенствованием текста, но так и не начать общаться с людьми. Это подготовительный шаг, который нужно быстро завершить и перейти к действиям.\",\n      \"knowledge_card_keys\": [\"offer-and-booking\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Старт с тёплого круга и аккуратного профиля",
+      "summary": "Начните с людей, которые уже знают вас. Аккуратно оформите свой Telegram-канал или профиль, чтобы показать свою экспертность и предложение. Затем напишите нескольким знакомым, расскажите о своих тренировках и предложите бесплатную пробную сессию.",
+      "rationale": "У вас нет базы клиентов, но есть тёплый круг знакомых. Это самый естественный и этичный способ начать. Карточка 'warm-circle-start' идеально подходит под ваш профиль (база отсутствует) и закрывает главный bottleneck 'no_base'.",
+      "expected_effect": "Появятся первые диалоги о тренировках, возможно, первые пробные занятия. Вы начнёте формировать своё присутствие в Telegram как специалиста.",
+      "resource_requirements": "Требует немного времени (менее 2 часов в неделю): нужно подготовить несколько фотографий и текстов для профиля, а затем написать 5-10 знакомым в течение недели.",
+      "risks": "Знакомые могут быть не готовы к тренировкам прямо сейчас или вежливо отказать. Важно не настаивать и сохранять отношения.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую решает основную проблему — отсутствие базы, используя ваши текущие возможности (тёплый круг, Telegram) и соответствует вашему доступному времени. Она этична и реалистична для старта."
+     },
+     {
+      "label": "B",
+      "name": "Чёткое предложение и упрощение записи",
+      "summary": "Сфокусируйтесь на том, чтобы ваше предложение о бесплатной пробной тренировке было предельно ясным и привлекательным. Проверьте и упростите процесс, как потенциальный клиент может записаться к вам в Telegram.",
+      "rationale": "Даже при обращении к тёплому кругу или в будущем, сильное и простое предложение увеличивает шанс на согласие. Это фундаментальный навык, который пригодится на любом этапе. Стратегия работает на улучшение конверсии любых контактов в клиентов.",
+      "expected_effect": "Вы отточите формулировку своего предложения. В диалогах с потенциальными клиентами будет меньше недопонимания и больше уверенности с вашей стороны.",
+      "resource_requirements": "Требует минимальных временных затрат: анализ и написание 2-3 вариантов текста предложения, проверка удобства записи через ваш Telegram.",
+      "risks": "Можно увлечься совершенствованием текста, но так и не начать общаться с людьми. Это подготовительный шаг, который нужно быстро завершить и перейти к действиям.",
+      "knowledge_card_keys": [
+       "offer-and-booking"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t12_ethics_restriction",
+   "agent": "propose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 15331,
+   "tokens_in": 1098,
+   "tokens_out": 828,
+   "cost_rub": 0.20949779999999998,
+   "content": "{\n  \"strategies\": [\n    {\n      \"label\": \"A\",\n      \"name\": \"Начать с тёплого круга знакомых\",\n      \"summary\": \"Постепенно заявить о себе как о тренере среди знакомых, друзей и коллег, аккуратно оформляя профиль в Telegram. Это создаст первое ядро заинтересованных людей и безопасный старт.\",\n      \"rationale\": \"У вас есть знакомые и канал в Telegram, но нет базы клиентов. Эта стратегия идеально подходит для начала с нуля, так как позволяет использовать ваши сильные стороны (знакомые, канал) и соответствует ограничениям по этике — вы будете общаться только с теми, кто вас знает.\",\n      \"expected_effect\": \"Появятся первые диалоги о тренировках, повысится ваша видимость в близком кругу. Это создаст основу для будущих рекомендаций и переходов к более широкому охвату.\",\n      \"resource_requirements\": \"Требует около 1-2 часов в неделю на обдуманное обновление профиля в Telegram, подготовку нескольких постов о вашем подходе и аккуратные, личные сообщения нескольким самым близким знакомым.\",\n      \"risks\": \"Знакомые могут воспринять это как неформальное общение, а не профессиональное предложение. Некоторые могут не проявить интереса, что потребует терпения и поиска других точек входа.\",\n      \"knowledge_card_keys\": [\"warm-circle-start\", \"ethics-and-law\"],\n      \"is_recommended\": true,\n      \"recommendation_why\": \"Эта стратегия напрямую решает главный bottleneck — отсутствие базы (no_base) — самым безопасным и реалистичным способом, учитывая ваше доступное время (2-5 часов в неделю) и ограничения по этике. Она использует ваши возможности (знакомые) и не требует навыков, которых у вас пока нет.\"\n    },\n    {\n      \"label\": \"B\",\n      \"name\": \"Регулярный контент в Telegram-канале\",\n      \"summary\": \"Систематически публиковать полезный контент о тренировках, здоровье и вашем подходе в своём Telegram-канале по чёткому, но несложному графику. Это привлечёт внимание и сформирует образ эксперта.\",\n      \"rationale\": \"У вас уже есть канал — это ваша площадка. Регулярное наполнение его качественным контентом повысит вашу видимость и профессиональный авторитет, что со временем может привлечь первых клиентов даже без активного прямого поиска.\",\n      \"expected_effect\": \"Канал станет более живым и привлекательным, что увеличит шансы на то, что ваши посты увидят и начнут обсуждать. Это создаст фон для будущих предложений и укрепит доверие.\",\n      \"resource_requirements\": \"Потребует планирования и 1-2 часов в неделю на создание контента (короткие тексты, фото, видео). Важно придерживаться графика, например, 2-3 поста в неделю.\",\n      \"risks\": \"Эффект от контента проявляется не сразу, требуется постоянство. Без активного продвижения канала аудитория может расти медленно. Есть риск потратить время без немедленной отдачи в виде клиентов.\",\n      \"knowledge_card_keys\": [\"steady-content\", \"ethics-and-law\"],\n      \"is_recommended\": false,\n      \"recommendation_why\": null\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "strategies": [
+     {
+      "label": "A",
+      "name": "Начать с тёплого круга знакомых",
+      "summary": "Постепенно заявить о себе как о тренере среди знакомых, друзей и коллег, аккуратно оформляя профиль в Telegram. Это создаст первое ядро заинтересованных людей и безопасный старт.",
+      "rationale": "У вас есть знакомые и канал в Telegram, но нет базы клиентов. Эта стратегия идеально подходит для начала с нуля, так как позволяет использовать ваши сильные стороны (знакомые, канал) и соответствует ограничениям по этике — вы будете общаться только с теми, кто вас знает.",
+      "expected_effect": "Появятся первые диалоги о тренировках, повысится ваша видимость в близком кругу. Это создаст основу для будущих рекомендаций и переходов к более широкому охвату.",
+      "resource_requirements": "Требует около 1-2 часов в неделю на обдуманное обновление профиля в Telegram, подготовку нескольких постов о вашем подходе и аккуратные, личные сообщения нескольким самым близким знакомым.",
+      "risks": "Знакомые могут воспринять это как неформальное общение, а не профессиональное предложение. Некоторые могут не проявить интереса, что потребует терпения и поиска других точек входа.",
+      "knowledge_card_keys": [
+       "warm-circle-start",
+       "ethics-and-law"
+      ],
+      "is_recommended": true,
+      "recommendation_why": "Эта стратегия напрямую решает главный bottleneck — отсутствие базы (no_base) — самым безопасным и реалистичным способом, учитывая ваше доступное время (2-5 часов в неделю) и ограничения по этике. Она использует ваши возможности (знакомые) и не требует навыков, которых у вас пока нет."
+     },
+     {
+      "label": "B",
+      "name": "Регулярный контент в Telegram-канале",
+      "summary": "Систематически публиковать полезный контент о тренировках, здоровье и вашем подходе в своём Telegram-канале по чёткому, но несложному графику. Это привлечёт внимание и сформирует образ эксперта.",
+      "rationale": "У вас уже есть канал — это ваша площадка. Регулярное наполнение его качественным контентом повысит вашу видимость и профессиональный авторитет, что со временем может привлечь первых клиентов даже без активного прямого поиска.",
+      "expected_effect": "Канал станет более живым и привлекательным, что увеличит шансы на то, что ваши посты увидят и начнут обсуждать. Это создаст фон для будущих предложений и укрепит доверие.",
+      "resource_requirements": "Потребует планирования и 1-2 часов в неделю на создание контента (короткие тексты, фото, видео). Важно придерживаться графика, например, 2-3 поста в неделю.",
+      "risks": "Эффект от контента проявляется не сразу, требуется постоянство. Без активного продвижения канала аудитория может расти медленно. Есть риск потратить время без немедленной отдачи в виде клиентов.",
+      "knowledge_card_keys": [
+       "steady-content",
+       "ethics-and-law"
+      ],
+      "is_recommended": false,
+      "recommendation_why": null
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t13_decompose_first_plan",
+   "agent": "decompose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 13079,
+   "tokens_in": 1306,
+   "tokens_out": 810,
+   "cost_rub": 0.24231696,
+   "content": "{\n  \"milestones\": [\n    {\n      \"position\": 1,\n      \"title\": \"База из 5 бывших клиентов в CRM\",\n      \"week\": 1,\n      \"success_criteria\": [\n        {\n          \"metric\": \"tasks_done\",\n          \"min\": 1,\n          \"task_type\": \"strategy.base_collect\"\n       \n       \n        \n      ,\n      \"source\": \"strategy\"\n    },\n    {\n      \"metric\": \"contacts_added\",\n      \"min\": 5,\n      \"task_type\": null\n   \n        \n      ,\n      \"source\": \"strategy\"\n    }\n      ]\n    },\n    {\n      \"position\": 2,\n      \"title\": \"Первые диалоги с бывшими клиентами\",\n      \"week\":   3,\n      \"success_criteria\": [\n        {\n          \"metric\": \"dialogs_started\",\n          \"min\": 3,\n          \"task_type\": \"strategy.base_reactivate\"\n       \n        \n      ,\n      \"source\": \"strategy\"\n    }\n      ]\n    },\n    {\n      \"position\": 3,\n      \"title\": \"Первые заявки на пробную тренировку\",\n      \"week\":   6,\n      \"success_criteria\": [\n        {\n          \"metric\": \"leads_new\",\n          \"min\": 2,\n          \"task_type\": \"strategy.trial_convert\"\n       \n        \n      ,\n      \"source\": \"strategy\"\n    }\n      ]\n    }\n  ],\n  \"plan_rationale\": \"План на первую неделю фокусируется на закладке основы для стратегии «Вернуть бывших». Сначала нужно систематизировать контакты, затем начать аккуратные персональные обращения и настроить процесс напоминаний, чтобы не потерять потенциальные контакты. Объём задач соответствует лёгкой интенсивности и укладывается в лимит времени.\",\n  \"items\": [\n    {\n      \"key\": \"base_collect_initial\",\n      \"type\": \"strategy.base_collect\",\n      \"title\": \"Внесите в CRM 5 бывших клиентов\",\n      \"frequency\": {\n        \"kind\": \"once\",\n        \"times_per_week\": null\n      },\n      \"minutes\": 15,\n      \"milestone_position\": 1,\n      \"hint\": \"Начните с тех, с кем расстались хорошо. Внесите имя, контакт (Telegram) и дату последнего занятия.\"\n    },\n    {\n      \"key\": \"base_reactivate_weekly\",\n      \"type\": \"strategy.base_reactivate\",\n      \"title\": \"Напишите 2–3 людям из старой базы\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\": 20,\n      \"milestone_position\": 2,\n      \"hint\": \"Пишите лично, не рассылкой. Спросите, как дела, упомяните, что обновили программу или есть выгодное предложение для возвращения.\"\n    },\n    {\n      \"key\": \"follow_up_weekly\",\n      \"type\": \"strategy.follow_up\",\n      \"title\": \"Напомните о себе тем, кто не ответил\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\": 10,\n      \"milestone_position\": null,\n      \"hint\": \"Одно напоминание через 3–5 дней. Можно отправить короткое сообщение или полезный контент по теме тренировок.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [
+     {
+      "position": 1,
+      "title": "База из 5 бывших клиентов в CRM",
+      "week": 1,
+      "success_criteria": [
+       {
+        "metric": "tasks_done",
+        "min": 1,
+        "task_type": "strategy.base_collect",
+        "source": "strategy"
+       },
+       {
+        "metric": "contacts_added",
+        "min": 5,
+        "task_type": null,
+        "source": "strategy"
+       }
+      ]
+     },
+     {
+      "position": 2,
+      "title": "Первые диалоги с бывшими клиентами",
+      "week": 3,
+      "success_criteria": [
+       {
+        "metric": "dialogs_started",
+        "min": 3,
+        "task_type": "strategy.base_reactivate",
+        "source": "strategy"
+       }
+      ]
+     },
+     {
+      "position": 3,
+      "title": "Первые заявки на пробную тренировку",
+      "week": 6,
+      "success_criteria": [
+       {
+        "metric": "leads_new",
+        "min": 2,
+        "task_type": "strategy.trial_convert",
+        "source": "strategy"
+       }
+      ]
+     }
+    ],
+    "plan_rationale": "План на первую неделю фокусируется на закладке основы для стратегии «Вернуть бывших». Сначала нужно систематизировать контакты, затем начать аккуратные персональные обращения и настроить процесс напоминаний, чтобы не потерять потенциальные контакты. Объём задач соответствует лёгкой интенсивности и укладывается в лимит времени.",
+    "items": [
+     {
+      "key": "base_collect_initial",
+      "type": "strategy.base_collect",
+      "title": "Внесите в CRM 5 бывших клиентов",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 15,
+      "milestone_position": 1,
+      "hint": "Начните с тех, с кем расстались хорошо. Внесите имя, контакт (Telegram) и дату последнего занятия."
+     },
+     {
+      "key": "base_reactivate_weekly",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 2,
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, упомяните, что обновили программу или есть выгодное предложение для возвращения."
+     },
+     {
+      "key": "follow_up_weekly",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "milestone_position": null,
+      "hint": "Одно напоминание через 3–5 дней. Можно отправить короткое сообщение или полезный контент по теме тренировок."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t14_decompose_weekly_adjust",
+   "agent": "decompose",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9534,
+   "tokens_in": 1264,
+   "tokens_out": 474,
+   "cost_rub": 0.15138324,
+   "content": "{\n  \"milestones\": [],\n  \"plan_rationale\": \"На прошлой неделе выполнена только треть плана, пропущены напоминания. На этой неделе сохраняем основную задачу по контакту с бывшими клиентами, но добавляем напоминание и небольшую задачу по подготовке базы, чтобы усилить регулярность и системность в рамках умеренной интенсивности.\",\n  \"items\": [\n    {\n      \"key\": \"base_reactivate_weekly\",\n      \"type\": \"strategy.base_reactivate\",\n      \"title\": \"Напишите 2–3 людям из старой базы\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\":   20,\n      \"milestone_position\": 1,\n      \"hint\": \"Пишите лично, не рассылкой. Начните с тех, с кем у вас были хорошие отношения.\"\n    },\n    {\n      \"key\": \"follow_up_weekly\",\n      \"type\": \"strategy.follow_up\",\n      \"title\": \"Напомните о себе тем, кто не ответил\",\n      \"frequency\": {\n        \"kind\": \"times_per_week\",\n        \"times_per_week\": 1\n      },\n      \"minutes\":   10,\n      \"milestone_position\": 1,\n      \"hint\": \"Одно напоминание через 3–5 дней после первого сообщения. Можно коротко спросить, получили ли они ваше предложение.\"\n    },\n    {\n      \"key\": \"base_collect_once\",\n      \"type\": \"strategy.base_collect\",\n      \"title\": \"Подготовьте список бывших клиентов для контакта\",\n      \"frequency\": {\n        \"kind\": \"once\"\n      ,\n        \"times_per_week\": null\n      },\n      \"minutes\":   30,\n      \"milestone_position\": null,\n      \"hint\": \"Выпишите 10–15 имён и контактов из вашей памяти или старых записей. Отметьте, когда и почему они прекратили тренировки.\"\n    }\n  ]\n}",
+   "valid": true,
+   "parsed": {
+    "milestones": [],
+    "plan_rationale": "На прошлой неделе выполнена только треть плана, пропущены напоминания. На этой неделе сохраняем основную задачу по контакту с бывшими клиентами, но добавляем напоминание и небольшую задачу по подготовке базы, чтобы усилить регулярность и системность в рамках умеренной интенсивности.",
+    "items": [
+     {
+      "key": "base_reactivate_weekly",
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 2–3 людям из старой базы",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 20,
+      "milestone_position": 1,
+      "hint": "Пишите лично, не рассылкой. Начните с тех, с кем у вас были хорошие отношения."
+     },
+     {
+      "key": "follow_up_weekly",
+      "type": "strategy.follow_up",
+      "title": "Напомните о себе тем, кто не ответил",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 10,
+      "milestone_position": 1,
+      "hint": "Одно напоминание через 3–5 дней после первого сообщения. Можно коротко спросить, получили ли они ваше предложение."
+     },
+     {
+      "key": "base_collect_once",
+      "type": "strategy.base_collect",
+      "title": "Подготовьте список бывших клиентов для контакта",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "milestone_position": null,
+      "hint": "Выпишите 10–15 имён и контактов из вашей памяти или старых записей. Отметьте, когда и почему они прекратили тренировки."
+     }
+    ]
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t15_review_on_track_zero_clients",
+   "agent": "review",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 6648,
+   "tokens_in": 859,
+   "tokens_out": 323,
+   "cost_rub": 0.11856408,
+   "content": "{\n  \"status\": \"on_track\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Вы успешно выполнили первую веху «Первые сообщения», начав 3 диалога при плане в 2.\",\n    \"Высокая дисциплина по задачам: выполнено 5 из 6 запланированных действий (83%).\",\n    \"Появился первый новый лид, что показывает отклик от базы.\"\n  ],\n  \"what_does_not\": [\n    \"Небольшое отставание по выполнению всех запланированных задач (одна задача не сделана).\"\n  ],\n  \"suggestions\": [\n    \"Сконцентрируйтесь на завершении оставшейся задачи из текущего плана.\",\n    \"Проанализируйте, какие типы сообщений или контакты привели к начатым диалогам, и повторите этот подход.\",\n    \"Продолжайте регулярную работу с базой согласно стратегии, поддерживая текущий темп.\"\n  ],\n  \"explanation\": \"За две недели стратегия «Вернуть бывших» показывает хороший прогресс. Веха выполнена досрочно и с превышением плана по диалогам. Дисциплина выполнения задач высокая, что говорит о работоспособности плана. Появление нового лида — положительный промежуточный результат. Стратегия работает, курс следует держать.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Вы успешно выполнили первую веху «Первые сообщения», начав 3 диалога при плане в 2.",
+     "Высокая дисциплина по задачам: выполнено 5 из 6 запланированных действий (83%).",
+     "Появился первый новый лид, что показывает отклик от базы."
+    ],
+    "what_does_not": [
+     "Небольшое отставание по выполнению всех запланированных задач (одна задача не сделана)."
+    ],
+    "suggestions": [
+     "Сконцентрируйтесь на завершении оставшейся задачи из текущего плана.",
+     "Проанализируйте, какие типы сообщений или контакты привели к начатым диалогам, и повторите этот подход.",
+     "Продолжайте регулярную работу с базой согласно стратегии, поддерживая текущий темп."
+    ],
+    "explanation": "За две недели стратегия «Вернуть бывших» показывает хороший прогресс. Веха выполнена досрочно и с превышением плана по диалогам. Дисциплина выполнения задач высокая, что говорит о работоспособности плана. Появление нового лида — положительный промежуточный результат. Стратегия работает, курс следует держать."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "t16_review_not_failed_on_clients",
+   "agent": "review",
+   "ok_http": true,
+   "error": null,
+   "latency_ms": 9060,
+   "tokens_in": 853,
+   "tokens_out": 392,
+   "cost_rub": 0.11084573862,
+   "content": "{\n  \"status\": \"on_track\",\n  \"recommendation\": \"continue\",\n  \"what_works\": [\n    \"Выполнение задач по плану на 100%: все 10 запланированных задач сделаны.\",\n    \"Достигнута веха 'Регулярность' (требовалось минимум 8 задач, выполнено 10).\"\n  ],\n  \"what_does_not\": [\n    \"Низкая активность в диалогах: за неделю начато всего 2 диалога.\",\n    \"Нет новых лидов (leads_new: 0).\"\n  ],\n  \"suggestions\": [\n    \"Продолжать поддерживать регулярность публикаций контента, так как это основа стратегии.\",\n    \"Добавить в план на следующую неделю конкретные действия для увеличения вовлечённости: например, задачу на активный комментарий под постами или прямое обращение к подписчикам с вопросами.\",\n    \"Проанализировать, какой тип контента вызвал 2 начатых диалога, и создать больше подобных материалов.\"\n  ],\n  \"explanation\": \"Стратегия 'Контент' выполняется по плану: задачи делаются регулярно, ключевая веха достигнута. Это говорит о дисциплине и следовании стратегии. Однако промежуточные метрики вовлечения (диалоги, лиды) пока низкие. Поскольку стратегия работает на долгосрочный эффект и прошло уже 5 недель, рано менять курс. Рекомендуется продолжать, скорректировав акцент в плане на увеличение взаимодействия с аудиторией, не нарушая регулярности контента.\"\n}",
+   "valid": true,
+   "parsed": {
+    "status": "on_track",
+    "recommendation": "continue",
+    "what_works": [
+     "Выполнение задач по плану на 100%: все 10 запланированных задач сделаны.",
+     "Достигнута веха 'Регулярность' (требовалось минимум 8 задач, выполнено 10)."
+    ],
+    "what_does_not": [
+     "Низкая активность в диалогах: за неделю начато всего 2 диалога.",
+     "Нет новых лидов (leads_new: 0)."
+    ],
+    "suggestions": [
+     "Продолжать поддерживать регулярность публикаций контента, так как это основа стратегии.",
+     "Добавить в план на следующую неделю конкретные действия для увеличения вовлечённости: например, задачу на активный комментарий под постами или прямое обращение к подписчикам с вопросами.",
+     "Проанализировать, какой тип контента вызвал 2 начатых диалога, и создать больше подобных материалов."
+    ],
+    "explanation": "Стратегия 'Контент' выполняется по плану: задачи делаются регулярно, ключевая веха достигнута. Это говорит о дисциплине и следовании стратегии. Однако промежуточные метрики вовлечения (диалоги, лиды) пока низкие. Поскольку стратегия работает на долгосрочный эффект и прошло уже 5 недель, рано менять курс. Рекомендуется продолжать, скорректировав акцент в плане на увеличение взаимодействия с аудиторией, не нарушая регулярности контента."
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}
