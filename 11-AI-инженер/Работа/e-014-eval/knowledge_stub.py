@@ -85,6 +85,14 @@ CARDS = [
         "bottlenecks": ["no_base", "low_visibility"],
     },
     {
+        "key": "service-listings",
+        "kind": "tactic",
+        "title": "Анкета на площадках услуг",
+        "summary_for_trainer": "Анкета на Авито Услуги или Профи.ру и ответы на обращения.",
+        "fit": {},
+        "bottlenecks": ["no_base", "low_visibility", "weak_offer"],
+    },
+    {
         "key": "ethics-and-law",
         "kind": "restriction",
         "title": "Этика и закон",
@@ -92,34 +100,22 @@ CARDS = [
         "fit": {},
         "bottlenecks": [],
     },
+    {
+        "key": "mvp-scope-exclusions",
+        "kind": "restriction",
+        "title": "Что помощник пока не предлагает",
+        "summary_for_trainer": (
+            "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, "
+            "Авито/Профи. Платной рекламы, набора через зал клуба и многодневных "
+            "челленджей в план сам не ставит."
+        ),
+        "fit": {},
+        "bottlenecks": [],
+    },
 ]
 
-DEFAULT_TASKS_LIGHT_REACTIVATE = [
-    {
-        "type": "strategy.base_collect",
-        "title": "Внесите в CRM 5 бывших клиентов",
-        "frequency": {"kind": "once", "times_per_week": None},
-        "minutes": 15,
-        "when": "first_week",
-        "hint": "Начните с тех, с кем расстались хорошо.",
-    },
-    {
-        "type": "strategy.base_reactivate",
-        "title": "Напишите 2–3 людям из старой базы",
-        "frequency": {"kind": "times_per_week", "times_per_week": 1},
-        "minutes": 20,
-        "when": "every_week",
-        "hint": "Пишите лично, не рассылкой.",
-    },
-    {
-        "type": "strategy.follow_up",
-        "title": "Напомните о себе тем, кто не ответил",
-        "frequency": {"kind": "times_per_week", "times_per_week": 1},
-        "minutes": 10,
-        "when": "every_week",
-        "hint": "Одно напоминание через 3–5 дней.",
-    },
-]
+# Актуальные default_tasks light для reactivate — из файла карточки (T-140).
+DEFAULT_TASKS_LIGHT_REACTIVATE = default_tasks("reactivate-old-base", "light")
 
 ALLOWED_TYPES = [
     "strategy.base_collect",
@@ -130,6 +126,7 @@ ALLOWED_TYPES = [
     "strategy.offer_setup",
     "strategy.link_share",
     "strategy.social_profile",
+    "strategy.listing_setup",
     "strategy.content_post",
     "strategy.content_short",
     "strategy.community_engage",
@@ -141,6 +138,7 @@ ALLOWED_TYPES = [
 def cards_for(*keys: str) -> list[dict]:
     by_key = {c["key"]: c for c in CARDS}
     out = [by_key[k] for k in keys if k in by_key]
-    if "ethics-and-law" not in keys:
-        out.append(by_key["ethics-and-law"])
+    for always in ("ethics-and-law", "mvp-scope-exclusions"):
+        if always not in keys and always in by_key:
+            out.append(by_key[always])
     return out

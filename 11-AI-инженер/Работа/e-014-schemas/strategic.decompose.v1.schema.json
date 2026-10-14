@@ -59,6 +59,7 @@
                   "strategy.offer_setup",
                   "strategy.link_share",
                   "strategy.social_profile",
+                  "strategy.listing_setup",
                   "strategy.content_post",
                   "strategy.content_short",
                   "strategy.community_engage",

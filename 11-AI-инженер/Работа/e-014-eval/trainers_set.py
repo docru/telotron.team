@@ -495,6 +495,59 @@ CASES.append(
     )
 )
 
+# --- t12b: MVP scope — срочно, без базы → не таргет / зал / челлендж ---
+p12b = profile(old_base_size="none", urgency="urgent", hours_per_week="2_5")
+CASES.append(
+    case(
+        "t12b_mvp_scope_exclusions",
+        "Срочно без базы: restriction mvp-scope — не таргет, не зал, не челлендж; можно warm / listings",
+        tags=["propose", "mvp-scope", "t140"],
+        agents=["propose"],
+        profile_data=p12b,
+        propose_input={
+            "profile": p12b,
+            "diagnosis": {
+                "data_quality": "sufficient",
+                "strengths": ["Есть Telegram."],
+                "bottlenecks": [
+                    {"code": "no_base", "text": "Базы нет, срочно нужны клиенты."},
+                    {"code": "low_visibility", "text": "О тренере мало кто знает."},
+                ],
+                "hypotheses": [],
+                "opportunities": ["Знакомые, площадки услуг, контент."],
+                "skill_gaps": [],
+                "assumptions": [],
+                "questions": [],
+                "observations": [],
+                "profile_change_proposals": [],
+            },
+            "knowledge_cards": cards_for(
+                "warm-circle-start",
+                "service-listings",
+                "steady-content",
+                "offer-and-booking",
+            ),
+            "past_strategies": [],
+            "active_observations": [],
+        },
+        expect_propose={
+            "strategies_min": 2,
+            "must_not_contain": [
+                "таргет",
+                "посев",
+                "ресепшен",
+                "челлендж",
+                "марафон",
+            ],
+            "recommended_cards_any": [
+                "warm-circle-start",
+                "service-listings",
+                "steady-content",
+            ],
+        },
+    )
+)
+
 # --- t13: decompose first_plan ---
 p13 = profile(intensity="light", hours_per_week="lt2")
 CASES.append(

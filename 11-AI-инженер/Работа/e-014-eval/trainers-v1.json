@@ -168,6 +168,14 @@
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
       "fit": {},
       "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
+      "fit": {},
+      "bottlenecks": []
      }
     ],
     "past_strategies": [],
@@ -344,6 +352,14 @@
       "kind": "restriction",
       "title": "Этика и закон",
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
       "fit": {},
       "bottlenecks": []
      }
@@ -533,6 +549,14 @@
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
       "fit": {},
       "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
+      "fit": {},
+      "bottlenecks": []
      }
     ],
     "past_strategies": [],
@@ -697,6 +721,14 @@
       "kind": "restriction",
       "title": "Этика и закон",
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
       "fit": {},
       "bottlenecks": []
      }
@@ -871,6 +903,14 @@
       "kind": "restriction",
       "title": "Этика и закон",
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
       "fit": {},
       "bottlenecks": []
      }
@@ -1487,6 +1527,14 @@
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
       "fit": {},
       "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
+      "fit": {},
+      "bottlenecks": []
      }
     ],
     "past_strategies": [],
@@ -1603,6 +1651,14 @@
       "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
       "fit": {},
       "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
+      "fit": {},
+      "bottlenecks": []
      }
     ],
     "past_strategies": [],
@@ -1619,6 +1675,165 @@
     ],
     "recommended_cards_any": [
      "warm-circle-start",
+     "steady-content"
+    ]
+   }
+  }
+ },
+ {
+  "id": "t12b_mvp_scope_exclusions",
+  "description": "Срочно без базы: restriction mvp-scope — не таргет, не зал, не челлендж; можно warm / listings",
+  "tags": [
+   "propose",
+   "mvp-scope",
+   "t140"
+  ],
+  "agents": [
+   "propose"
+  ],
+  "profile": {
+   "specialization": "персональные тренировки",
+   "services": [
+    "workouts"
+   ],
+   "goal_clients_per_month": 4,
+   "old_base_size": "none",
+   "channels": [
+    "tg"
+   ],
+   "hours_per_week": "2_5",
+   "urgency": "urgent",
+   "offer": "free_trial",
+   "offer_note": null,
+   "about": "Тренер, есть бывшие клиенты.",
+   "intensity": "moderate"
+  },
+  "propose": {
+   "input": {
+    "profile": {
+     "specialization": "персональные тренировки",
+     "services": [
+      "workouts"
+     ],
+     "goal_clients_per_month": 4,
+     "old_base_size": "none",
+     "channels": [
+      "tg"
+     ],
+     "hours_per_week": "2_5",
+     "urgency": "urgent",
+     "offer": "free_trial",
+     "offer_note": null,
+     "about": "Тренер, есть бывшие клиенты.",
+     "intensity": "moderate"
+    },
+    "diagnosis": {
+     "data_quality": "sufficient",
+     "strengths": [
+      "Есть Telegram."
+     ],
+     "bottlenecks": [
+      {
+       "code": "no_base",
+       "text": "Базы нет, срочно нужны клиенты."
+      },
+      {
+       "code": "low_visibility",
+       "text": "О тренере мало кто знает."
+      }
+     ],
+     "hypotheses": [],
+     "opportunities": [
+      "Знакомые, площадки услуг, контент."
+     ],
+     "skill_gaps": [],
+     "assumptions": [],
+     "questions": [],
+     "observations": [],
+     "profile_change_proposals": []
+    },
+    "knowledge_cards": [
+     {
+      "key": "warm-circle-start",
+      "kind": "algorithm",
+      "title": "Старт с тёплого круга",
+      "summary_for_trainer": "Начать со знакомых и аккуратного профиля в соцсети.",
+      "fit": {
+       "old_base_size": [
+        "none",
+        "lt10"
+       ]
+      },
+      "bottlenecks": [
+       "no_base",
+       "low_visibility"
+      ]
+     },
+     {
+      "key": "service-listings",
+      "kind": "tactic",
+      "title": "Анкета на площадках услуг",
+      "summary_for_trainer": "Анкета на Авито Услуги или Профи.ру и ответы на обращения.",
+      "fit": {},
+      "bottlenecks": [
+       "no_base",
+       "low_visibility",
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "steady-content",
+      "kind": "algorithm",
+      "title": "Регулярное присутствие в соцсети",
+      "summary_for_trainer": "Одна соцсеть, посты и истории по графику.",
+      "fit": {},
+      "bottlenecks": [
+       "low_visibility",
+       "irregular_activity"
+      ]
+     },
+     {
+      "key": "offer-and-booking",
+      "kind": "tactic",
+      "title": "Понятное предложение и простая запись",
+      "summary_for_trainer": "Сформулировать оффер и проверить страницу записи.",
+      "fit": {},
+      "bottlenecks": [
+       "weak_offer"
+      ]
+     },
+     {
+      "key": "ethics-and-law",
+      "kind": "restriction",
+      "title": "Этика и закон",
+      "summary_for_trainer": "Писать только тем, кто знает вас или сам проявил интерес.",
+      "fit": {},
+      "bottlenecks": []
+     },
+     {
+      "key": "mvp-scope-exclusions",
+      "kind": "restriction",
+      "title": "Что помощник пока не предлагает",
+      "summary_for_trainer": "Пока бесплатные способы: база, знакомые, соцсети, партнёры, запись, Авито/Профи. Платной рекламы, набора через зал клуба и многодневных челленджей в план сам не ставит.",
+      "fit": {},
+      "bottlenecks": []
+     }
+    ],
+    "past_strategies": [],
+    "active_observations": []
+   },
+   "expect": {
+    "strategies_min": 2,
+    "must_not_contain": [
+     "таргет",
+     "посев",
+     "ресепшен",
+     "челлендж",
+     "марафон"
+    ],
+    "recommended_cards_any": [
+     "warm-circle-start",
+     "service-listings",
      "steady-content"
     ]
    }
@@ -1690,18 +1905,29 @@
       },
       "minutes": 15,
       "when": "first_week",
-      "hint": "Начните с тех, с кем расстались хорошо."
+      "hint": "Начните с тех, с кем расстались хорошо и кто занимался дольше месяца. Телефон или ник в соцсети — достаточно."
      },
      {
-      "type": "strategy.base_reactivate",
-      "title": "Напишите 2–3 людям из старой базы",
+      "type": "strategy.base_collect",
+      "title": "Добавьте в CRM ещё 3 бывших клиента",
       "frequency": {
        "kind": "times_per_week",
        "times_per_week": 1
       },
-      "minutes": 20,
+      "minutes": 10,
       "when": "every_week",
-      "hint": "Пишите лично, не рассылкой."
+      "hint": "Список должен расти вместе с сообщениями — иначе к 3–4 неделе писать будет некому."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 3 людям из старой базы за неделю",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 25,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и одной фразой скажите, чем вы сейчас занимаетесь. Число в названии — итог на неделю."
      },
      {
       "type": "strategy.follow_up",
@@ -1712,7 +1938,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Одно напоминание через 3–5 дней."
+      "hint": "Одно напоминание через 3–5 дней — нормально. Если снова тишина, больше не пишите — человек вернётся, когда будет готов."
      }
     ],
     "allowed_types": [
@@ -1724,6 +1950,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -1749,6 +1976,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -1819,15 +2047,26 @@
     },
     "default_tasks": [
      {
-      "type": "strategy.base_reactivate",
-      "title": "Напишите 2–3 людям из старой базы",
+      "type": "strategy.base_collect",
+      "title": "Добавьте в CRM ещё 3 бывших клиента",
       "frequency": {
        "kind": "times_per_week",
        "times_per_week": 1
       },
-      "minutes": 20,
+      "minutes": 10,
       "when": "every_week",
-      "hint": "Пишите лично, не рассылкой."
+      "hint": "Список должен расти вместе с сообщениями — иначе к 3–4 неделе писать будет некому."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 3 людям из старой базы за неделю",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 25,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и одной фразой скажите, чем вы сейчас занимаетесь. Число в названии — итог на неделю."
      },
      {
       "type": "strategy.follow_up",
@@ -1838,7 +2077,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Одно напоминание через 3–5 дней."
+      "hint": "Одно напоминание через 3–5 дней — нормально. Если снова тишина, больше не пишите — человек вернётся, когда будет готов."
      }
     ],
     "allowed_types": [
@@ -1850,6 +2089,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -1886,6 +2126,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2124,13 +2365,24 @@
       "hint": "В первой строке — для кого вы и с чем помогаете. Ссылка на запись — в шапке."
      },
      {
+      "type": "strategy.content_post",
+      "title": "Расскажите в личной соцсети, что теперь ведёте тренировки",
+      "frequency": {
+       "kind": "once",
+       "times_per_week": null
+      },
+      "minutes": 30,
+      "when": "first_week",
+      "hint": "Для кого вы, с чем помогаете, как записаться. Один пост или история в начале — самый заметный шаг."
+     },
+     {
       "type": "strategy.base_collect",
       "title": "Внесите в CRM 15 знакомых, кому может быть интересно",
       "frequency": {
        "kind": "once",
        "times_per_week": null
       },
-      "minutes": 30,
+      "minutes": 25,
       "when": "first_week",
       "hint": "Друзья, коллеги, знакомые по залу, родители из школы — все, кто знает вас лично."
      },
@@ -2146,15 +2398,26 @@
       "hint": "Человек, которому интересно, должен записаться в один клик."
      },
      {
-      "type": "strategy.base_reactivate",
-      "title": "Расскажите 5 знакомым, чем вы теперь занимаетесь",
+      "type": "strategy.base_collect",
+      "title": "Добавьте в CRM ещё 5 знакомых",
       "frequency": {
        "kind": "times_per_week",
-       "times_per_week": 3
+       "times_per_week": 1
       },
-      "minutes": 20,
+      "minutes": 15,
       "when": "every_week",
-      "hint": "Расскажите и попросите совета или рекомендации. Не прикладывайте прайс в первом сообщении."
+      "hint": "Список должен расти — иначе к 3–4 неделе писать будет некому."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Расскажите 5 знакомым за неделю, чем вы теперь занимаетесь",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 25,
+      "when": "every_week",
+      "hint": "Расскажите и попросите совета или рекомендации. Не прикладывайте прайс. Число — итог на неделю."
      },
      {
       "type": "strategy.content_post",
@@ -2172,7 +2435,7 @@
       "title": "Выложите короткую историю о своей работе",
       "frequency": {
        "kind": "times_per_week",
-       "times_per_week": 3
+       "times_per_week": 2
       },
       "minutes": 10,
       "when": "every_week",
@@ -2187,7 +2450,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Одно напоминание через 3–5 дней нормально. Не отвечают дважды — оставьте в покое."
+      "hint": "Одно напоминание через 3–5 дней — нормально. Не отвечают дважды — больше не пишите."
      },
      {
       "type": "strategy.offer_setup",
@@ -2254,6 +2517,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2279,6 +2543,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2369,7 +2634,7 @@
      },
      {
       "type": "strategy.community_engage",
-      "title": "Ответьте на вопрос в местном чате или сообществе",
+      "title": "Ответьте на вопрос в тематическом или местном чате",
       "frequency": {
        "kind": "times_per_week",
        "times_per_week": 1
@@ -2388,6 +2653,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2422,6 +2688,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2502,15 +2769,26 @@
       "hint": "Начните с тех, с кем расстались хорошо и кто занимался дольше месяца. Телефон или ник в соцсети — достаточно."
      },
      {
-      "type": "strategy.base_reactivate",
-      "title": "Напишите 2–3 людям из старой базы",
+      "type": "strategy.base_collect",
+      "title": "Добавьте в CRM ещё 3 бывших клиента",
       "frequency": {
        "kind": "times_per_week",
        "times_per_week": 1
       },
-      "minutes": 20,
+      "minutes": 10,
       "when": "every_week",
-      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и одной фразой скажите, чем вы сейчас занимаетесь."
+      "hint": "Список должен расти вместе с сообщениями — иначе к 3–4 неделе писать будет некому."
+     },
+     {
+      "type": "strategy.base_reactivate",
+      "title": "Напишите 3 людям из старой базы за неделю",
+      "frequency": {
+       "kind": "times_per_week",
+       "times_per_week": 1
+      },
+      "minutes": 25,
+      "when": "every_week",
+      "hint": "Пишите лично, не рассылкой. Спросите, как дела, и одной фразой скажите, чем вы сейчас занимаетесь. Число в названии — итог на неделю."
      },
      {
       "type": "strategy.follow_up",
@@ -2521,7 +2799,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Одно напоминание через 3–5 дней — нормально. Второе уже лишнее."
+      "hint": "Одно напоминание через 3–5 дней — нормально. Если снова тишина, больше не пишите — человек вернётся, когда будет готов."
      },
      {
       "type": "strategy.follow_up",
@@ -2532,7 +2810,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Напоминание — не «ну что, решили?», а новый повод — вопрос, совет, свободное время на неделе."
+      "hint": "Пишите не «ну что, решили?», а с новым поводом: вопрос, полезный совет, свободное время на этой неделе. Если таких людей сейчас нет — задача выполнена."
      },
      {
       "type": "strategy.trial_convert",
@@ -2543,7 +2821,7 @@
       },
       "minutes": 10,
       "when": "every_week",
-      "hint": "Напомните, что получилось на пробной, и предложите конкретный формат и время следующего занятия."
+      "hint": "Напомните, что получилось на пробной, и предложите конкретный формат и время. Если пробных не было — задача выполнена."
      }
     ],
     "allowed_types": [
@@ -2555,6 +2833,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",
@@ -2580,6 +2859,7 @@
      "strategy.offer_setup",
      "strategy.link_share",
      "strategy.social_profile",
+     "strategy.listing_setup",
      "strategy.content_post",
      "strategy.content_short",
      "strategy.community_engage",

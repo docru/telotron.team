@@ -8,8 +8,8 @@ import yaml
 TYPES = {
     "strategy.base_collect", "strategy.base_reactivate", "strategy.follow_up",
     "strategy.trial_convert", "strategy.referral_ask", "strategy.offer_setup",
-    "strategy.link_share", "strategy.social_profile", "strategy.content_post",
-    "strategy.content_short", "strategy.community_engage",
+    "strategy.link_share", "strategy.social_profile", "strategy.listing_setup",
+    "strategy.content_post", "strategy.content_short", "strategy.community_engage",
     "strategy.partner_outreach", "strategy.review_collect",
 }
 BOTTLENECKS = {
