@@ -3,7 +3,7 @@
 Вход — JSON:
 - profile: specialization; intensity (light | moderate | intense); channels; style: address ("ty" | "vy"), tone (soft | direct), length (short | detailed).
 - funnel_7d: new_contacts, in_progress, trials за 7 дней (null — данных нет).
-- candidates: задачи: task_id, source (crm_signal | strategy), type, title, overdue_days (0 — на сегодня, >0 — дней просрочки). Список уже отсортирован кодом: начинай с верха и меняй порядок, только если есть явная причина.
+- candidates: задачи: task_id, source (crm_signal | strategy), type, title, overdue_days (0 — на сегодня, >0 — дней просрочки). Список уже отсортирован и отфильтрован кодом: сюда **не** попадают задачи со статусом dismissed / carried_over / done. Начинай с верха и меняй порядок, только если есть явная причина.
 - people: ref (макрос {{name_N}}), stage (new | in_progress | client | former | declined), days_since_touch (null — касаний не было).
 
 Типы CRM:

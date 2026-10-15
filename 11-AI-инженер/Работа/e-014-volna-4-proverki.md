@@ -97,6 +97,7 @@
 | C9 | `task_type` в критерии null или ∈ strategy.* | отклонить |
 | C10 | Нет `crm_contact_id` / имён в title | отклонить |
 | C11 | G3–G5 | отклонить |
+| C12 | На `weekly`: код во входе `previous_plan_performance` обязан считать `dismissed` и `carried_over` как **не выполнено** (вместе со skipped / undone); модель не решает статусы задач | контракт входа · оркестратор |
 
 ---
 
@@ -123,7 +124,7 @@
 | intake | `story`, `allowed` |
 | diagnose | `mode`, `final_round`, `round`, `profile`, агрегаты, `mismatch_flags` (хотя бы []), `askable_fields` (пустые поля анкеты + `mismatch_flags`), `profile_allowed` — только для `askable_fields` |
 | propose | `profile`, `diagnosis`, `knowledge_cards` |
-| decompose | `phase`, `strategy`, `profile`, `default_tasks`, `allowed_types`, `weekly_minutes_cap` |
+| decompose | `phase`, `strategy`, `profile`, `default_tasks`, `allowed_types`, `weekly_minutes_cap`; на weekly — `previous_plan_performance` с учётом `dismissed` / `carried_over` как невыполненных |
 | review | `strategy`, `milestones`, `facts` (с `clients_new`), `plan_performance`, `weeks_elapsed` |
 
 ---

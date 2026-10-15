@@ -1,0 +1,31 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "sales_tools_draft_message_v2",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "drafts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "person_ref": { "type": ["string", "null"] },
+              "body": { "type": "string" },
+              "alt_body": { "type": ["string", "null"] }
+            },
+            "required": ["person_ref", "body", "alt_body"],
+            "additionalProperties": false
+          }
+        },
+        "why_so": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["drafts", "why_so"],
+      "additionalProperties": false
+    }
+  }
+}

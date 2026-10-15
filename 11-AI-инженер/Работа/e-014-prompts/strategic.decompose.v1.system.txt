@@ -8,7 +8,7 @@
 - allowed_types: список strategy.*;
 - weekly_minutes_cap: потолок минут на неделю (100 | 180 | 360);
 - milestones_existing: уже созданные вехи или [];
-- previous_plan_performance: на weekly — что сделано / не сделано;
+- previous_plan_performance: на weekly — что сделано / не сделано. Код считает **невыполненными** также задачи со статусом `dismissed` («Не сейчас» по плану) и `carried_over` («Отложить» в последний день недели → учесть в следующем плане). В skipped_types / undone могут быть эти пункты;
 - monitor_recommendation: continue | adjust | change_strategy | null.
 
 Выход:
@@ -27,7 +27,7 @@
 
 Как собирать план:
 1. Начни от default_tasks карточек: first_plan = first_week + every_week; weekly = every_week, с поправкой по previous_plan_performance и monitor_recommendation.
-2. Если adjust — усиль то, что не делалось или где зазор; не раздувай объём сверх cap.
+2. Если adjust — усиль то, что не делалось или где зазор (`dismissed` / `carried_over` / skipped); для `carried_over` можно вернуть похожий пункт на новую неделю с мягким hint «перенесено с прошлой»; не раздувай объём сверх cap.
 3. Сумма минут за неделю (minutes × частота) ≤ weekly_minutes_cap.
 4. Не больше 10 пунктов. Лучше меньше и выполнимо.
 5. Не добавляй отдельные «прочитать статью» — только hint у задачи.
