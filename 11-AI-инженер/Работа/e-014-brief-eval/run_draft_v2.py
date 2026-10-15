@@ -27,6 +27,15 @@ MACRO_RE = re.compile(r"\{\{name_\d+\}\}")
 PROMISE_RE = re.compile(
     r"гарантир|точно (придут|получите)|\b\d+\s+(нов\w*\s+)?(клиент|заяв)", re.I
 )
+ASK_CONTACTS_RE = re.compile(
+    r"(дай(те)?|пришли(те)?|скинь(те)?|назов(и|ите))\s+(мне\s+)?(телефон|контакт|номер|список)",
+    re.I,
+)
+CONSENT_RE = re.compile(
+    r"соглас|не\s+против|можно\s+ли\s+опублик|опублик|публикац",
+    re.I,
+)
+COMMISSION_RE = re.compile(r"комисс|процент\s+с\s+кажд|за\s+каждого\s+клиента\s+плачу", re.I)
 TY_RE = re.compile(r"\b(ты|тебе|тебя|твой|твоя|напиши|ответь)\b", re.I)
 VY_RE = re.compile(r"\b(вы|вам|вас|ваш\w*|напишите|ответьте)\b", re.I)
 
@@ -101,6 +110,23 @@ def expect_checks(data: dict, inp: dict, exp: dict) -> list[str]:
         blob = " ".join(d["body"] for d in drafts) + " " + " ".join(data.get("why_so") or [])
         if PROMISE_RE.search(blob):
             misses.append("promise")
+    if exp.get("forbid_ask_contacts"):
+        blob = " ".join(d["body"] for d in drafts)
+        if ASK_CONTACTS_RE.search(blob):
+            misses.append("ask_contacts")
+    if exp.get("must_consent"):
+        blob = " ".join(d["body"] for d in drafts) + " " + " ".join(d.get("alt_body") or "" for d in drafts)
+        if not CONSENT_RE.search(blob):
+            misses.append("no_consent")
+    if exp.get("forbid_commission"):
+        blob = " ".join(d["body"] for d in drafts)
+        if COMMISSION_RE.search(blob):
+            misses.append("commission")
+    if exp.get("mention_any"):
+        for d in drafts:
+            low = d["body"].lower()
+            if not any(w in low for w in exp["mention_any"]):
+                misses.append(f"no_profile_fact_{d['person_ref']}")
     if exp.get("address") == "ty":
         for d in drafts:
             if VY_RE.search(d["body"]):

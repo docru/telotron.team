@@ -155,6 +155,99 @@ CASES = [
             "manual": "в body нет обещания числа клиентов",
         },
     ),
+    case(
+        "d07_referral_ask",
+        "Просьба рекомендовать клиента — без запроса контактов знакомых",
+        [person(1, source="other", stage="client", days=3)],
+        {
+            "type": "strategy.referral_ask",
+            "goal": "попросить порекомендовать и предложить короткий текст для пересылки",
+            "title": "Попросите довольного клиента порекомендовать вас",
+        },
+        expect={
+            "drafts_count": 1,
+            "refs": ["{{name_1}}"],
+            "must_macro": True,
+            "forbid_ask_contacts": True,
+        },
+    ),
+    case(
+        "d08_review_collect",
+        "Просьба отзыва — упомянуть согласие на публикацию",
+        [person(1, source="other", stage="client", days=7)],
+        {
+            "type": "strategy.review_collect",
+            "goal": "попросить отзыв своими словами и уточнить согласие на публикацию",
+            "title": "Попросите отзыв у клиента",
+        },
+        expect={
+            "drafts_count": 1,
+            "refs": ["{{name_1}}"],
+            "must_macro": True,
+            "must_consent": True,
+        },
+    ),
+    case(
+        "d09_partner",
+        "Партнёру — выгода партнёра, без комиссии на пустом месте",
+        [
+            person(
+                1,
+                source="acquaintance",
+                stage="new",
+                days=None,
+                touches=[],
+            )
+        ],
+        {
+            "type": "strategy.partner_outreach",
+            "goal": "предложить взаимные рекомендации массажисту рядом",
+            "title": "Напишите партнёру",
+        },
+        constraints=[
+            "без медицинских обещаний",
+            "не обещать комиссию",
+            "не передавать контакты клиентов",
+        ],
+        expect={
+            "drafts_count": 1,
+            "refs": ["{{name_1}}"],
+            "must_macro": True,
+            "forbid_commission": True,
+        },
+    ),
+    case(
+        "d10_profile_facts",
+        "Описание старого клиента — текст опирается на факты",
+        [
+            {
+                **person(1, source="legacy_base", stage="former", days=200),
+                "profile": {
+                    "goal": "подготовиться к свадьбе",
+                    "period": "весна 2024, около 3 месяцев",
+                    "stop_reason": "moved",
+                    "stop_reason_note": "переезд в другой город",
+                    "format_place": "offline",
+                    "format_mode": "personal",
+                    "parting": "good",
+                    "result": "минус пара размеров",
+                    "liked": "утренние тренировки",
+                    "context": ["любит бегать по выходным"],
+                },
+            }
+        ],
+        {
+            "type": "strategy.base_reactivate",
+            "goal": "мягко напомнить о себе и предложить онлайн-занятия",
+            "title": "Напишите бывшим клиентам",
+        },
+        expect={
+            "drafts_count": 1,
+            "refs": ["{{name_1}}"],
+            "must_macro": True,
+            "mention_any": ["свадьб", "утренн", "переезд", "переехал", "новом город", "онлайн", "бег", "размер"],
+        },
+    ),
 ]
 
 

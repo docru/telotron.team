@@ -1,0 +1,55 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "sales_tools_describe_contact_v1",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "object",
+          "properties": {
+            "goal": { "type": ["string", "null"] },
+            "period": { "type": ["string", "null"] },
+            "stop_reason": {
+              "type": ["string", "null"],
+              "enum": ["moved", "money", "time", "motivation", "result_reached", "went_elsewhere", "lost_contact", "conflict", "personal", "other", "unknown", null]
+            },
+            "stop_reason_note": { "type": ["string", "null"] },
+            "format_place": {
+              "type": ["string", "null"],
+              "enum": ["online", "offline", "mixed", "unknown", null]
+            },
+            "format_mode": {
+              "type": ["string", "null"],
+              "enum": ["personal", "group", "mixed", "unknown", null]
+            },
+            "parting": {
+              "type": ["string", "null"],
+              "enum": ["good", "neutral", "bad", "unknown", null]
+            }
+          },
+          "required": ["goal", "period", "stop_reason", "stop_reason_note", "format_place", "format_mode", "parting"],
+          "additionalProperties": false
+        },
+        "extra": {
+          "type": "object",
+          "properties": {
+            "result": { "type": ["string", "null"] },
+            "liked": { "type": ["string", "null"] },
+            "context": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["result", "liked", "context"],
+          "additionalProperties": false
+        },
+        "questions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "health_mentioned": { "type": "boolean" }
+      },
+      "required": ["fields", "extra", "questions", "health_mentioned"],
+      "additionalProperties": false
+    }
+  }
+}

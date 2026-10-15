@@ -200,7 +200,8 @@ insight brief  →  идеи  →  инициатива (I) → эпик (E) + �
 | T-139 | **сделано** | `done` | [Переименование LeadGen → Sales](сделано/T-139-e014-переименование-leadgen-в-sales.md) · [E-014](эпики/E-014-ии-роп.md) |
 | T-140 | сделано | `done` · P1 | [Доработка карточек методик по ревью](сделано/T-140-e014-kartochki-dorabotka-po-revyu.md) · [E-014](эпики/E-014-ии-роп.md) · AI-инженер |
 | T-141 | сделано | `done` · P1 | [Волна 5 — координация трёх слоёв](сделано/T-141-e014-volna-5-koordinaciya.md) · [E-014](эпики/E-014-ии-роп.md) · AI + архитектор + PO |
-| T-142 | **в-работе** | `in_progress` · P1 | [Волна 6 — конкретика](в-работе/T-142-e014-volna-6-konkretika.md) · [E-014](эпики/E-014-ии-роп.md) · AI + архитектор + PO |
+| T-142 | сделано | `done` · P1 | [Волна 6 — конкретика](сделано/T-142-e014-volna-6-konkretika.md) · [E-014](эпики/E-014-ии-роп.md) |
+| T-143 | **в-работе** | `in_progress` · P1 | [Волна 7 — разработка MVP](в-работе/T-143-e014-volna-7-razrabotka.md) · [E-014](эпики/E-014-ии-роп.md) · архитектор + dev |
 | T-047 | бэклог | `backlog` | [Commerce public тарифы](бэклог/T-047-commerce-public-тарифы.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-027 | бэклог | `backlog` · код в ветке `commerce` | [Commerce foundation](бэклог/T-027-commerce-foundation-ledger.md) · [E-001](эпики/E-001-commerce-модуль.md) |
 | T-028 | бэклог | `backlog` · код в ветке `commerce` | [Commerce тарифы](бэклог/T-028-commerce-тарифы-статусы-триал.md) |

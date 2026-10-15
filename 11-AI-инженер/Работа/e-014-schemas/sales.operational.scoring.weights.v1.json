@@ -1,0 +1,98 @@
+{
+  "version": "sales.scoring.v1",
+  "comment": "Фиксированные веса MVP (решение PO 2026-10-15). Автокорректировка по сигналам — после MVP. Канон описания: e-014-volna-6-konkretika.md §1.",
+  "tiers": {
+    "crm.reply_new_contact": 0,
+    "crm.next_action": 1,
+    "crm.remind_stale": 2,
+    "strategy.*": 3
+  },
+  "type_weight": {
+    "crm.reply_new_contact": 30,
+    "crm.next_action": 25,
+    "crm.remind_stale": 15,
+    "strategy.base_reactivate": 20,
+    "strategy.follow_up": 18,
+    "strategy.trial_convert": 18,
+    "strategy.referral_ask": 15,
+    "strategy.base_collect": 12,
+    "strategy.base_describe": 12,
+    "strategy.offer_setup": 12,
+    "strategy.link_share": 10,
+    "strategy.partner_outreach": 10,
+    "strategy.listing_setup": 8,
+    "strategy.community_engage": 8,
+    "strategy.content_post": 6,
+    "strategy.content_short": 5,
+    "strategy.social_profile": 5,
+    "strategy.review_collect": 5
+  },
+  "source_bonus": {
+    "crm_signal": 0,
+    "strategy": 15
+  },
+  "overdue": {
+    "per_day": 10,
+    "cap_days": {
+      "crm.reply_new_contact": 3,
+      "crm.next_action": 5
+    },
+    "applies_to": ["crm.reply_new_contact", "crm.next_action"]
+  },
+  "stage": {
+    "new": 20,
+    "in_progress": 10,
+    "client": 10,
+    "former": 5,
+    "legacy_base": 5,
+    "applies_to": ["crm.*"]
+  },
+  "touch_age": {
+    "per_day": 2,
+    "cap_days": 20,
+    "applies_to": ["crm.next_action", "crm.remind_stale"]
+  },
+  "postponed": {
+    "by_count": { "0": 0, "1": 5, "2": 10 },
+    "from_count_3": -10
+  },
+  "rejected_type": {
+    "window_days": 14,
+    "per_reject": { "crm.remind_stale": -5, "strategy.*": -10 },
+    "cap": { "crm.remind_stale": -15, "strategy.*": -20 },
+    "not_applied_to": ["crm.reply_new_contact", "crm.next_action"]
+  },
+  "skill_new": {
+    "value": -10,
+    "when": "skill level 0 по навыку типа И среди кандидатов дня есть задача уровня 0 или 1",
+    "applies_to": ["strategy.*"]
+  },
+  "floor": 0,
+  "thresholds": {
+    "drop_below_if_enough": 20,
+    "drop_below_always": 10,
+    "comment": "<10 — убрать, если после этого остаётся хоть один кандидат; <20 — убрать, если после этого остаётся не меньше items_max(intensity) кандидатов"
+  },
+  "candidates_max": 15,
+  "items_max": { "light": 2, "moderate": 3, "intense": 3 },
+  "type_skill": {
+    "crm.reply_new_contact": "reply_inbound",
+    "crm.next_action": null,
+    "crm.remind_stale": "follow_up",
+    "strategy.base_reactivate": "reactivate_base",
+    "strategy.base_collect": "reactivate_base",
+    "strategy.base_describe": "reactivate_base",
+    "strategy.follow_up": "follow_up",
+    "strategy.trial_convert": "follow_up",
+    "strategy.referral_ask": "referral_ask",
+    "strategy.offer_setup": "offer_clarity",
+    "strategy.link_share": "offer_clarity",
+    "strategy.listing_setup": "offer_clarity",
+    "strategy.social_profile": "offer_clarity",
+    "strategy.partner_outreach": "partner_outreach",
+    "strategy.content_post": "content_regular",
+    "strategy.content_short": "content_regular",
+    "strategy.community_engage": "content_regular",
+    "strategy.review_collect": "review_collect"
+  }
+}

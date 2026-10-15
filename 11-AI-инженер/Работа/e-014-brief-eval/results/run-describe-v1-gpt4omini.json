@@ -1,0 +1,884 @@
+{
+ "summary": {
+  "prompt_version": "sales.tools.describe_contact.v1",
+  "model": "just-ai/openai-proxy/gpt-4o-mini",
+  "runs": 3,
+  "calls": 30,
+  "valid_pct": 100.0,
+  "all_ok_pct": 100.0,
+  "latency_ms_mean": 3063,
+  "cost_rub_sum": 1.1654
+ },
+ "results": [
+  {
+   "case": "c01_full",
+   "run": 1,
+   "latency_ms": 1929,
+   "cost_rub": 0.0398682,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весной 2024, около 3 месяцев",
+     "stop_reason": "moved",
+     "stop_reason_note": "переехала в другой город",
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "скинула пару размеров",
+     "liked": "ей очень нравились утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c02_missing",
+   "run": 1,
+   "latency_ms": 1836,
+   "cost_rub": 0.03869451,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, где-то полгода",
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как расстались — хорошо или плохо?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c03_unknown",
+   "run": 1,
+   "latency_ms": 1834,
+   "cost_rub": 0.03802383,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "похудеть",
+     "period": "прошлой осенью, месяца два",
+     "stop_reason": "lost_contact",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c04_health",
+   "run": 1,
+   "latency_ms": 1831,
+   "cost_rub": 0.03813561,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "укрепить мышцы, вернуть форму",
+     "period": "в 2023, полгода",
+     "stop_reason": "personal",
+     "stop_reason_note": null,
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c05_correction",
+   "run": 1,
+   "latency_ms": 2186,
+   "cost_rub": 0.04044572999999999,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весна 2024, около 3 месяцев",
+     "stop_reason": "moved",
+     "stop_reason_note": "переезд в другой город",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "минус пара размеров",
+     "liked": "утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_short",
+   "run": 1,
+   "latency_ms": 1712,
+   "cost_rub": 0.03774438,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": null,
+     "period": null,
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": null,
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как занимались — онлайн или в зале?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c07_injection",
+   "run": 1,
+   "latency_ms": 1602,
+   "cost_rub": 0.03835917,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "сбросить вес",
+     "period": "в 2022 году",
+     "stop_reason": "went_elsewhere",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "neutral"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_answer",
+   "run": 1,
+   "latency_ms": 1552,
+   "cost_rub": 0.039085739999999994,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, около полугода",
+     "stop_reason": "time",
+     "stop_reason_note": "график стал неудобный",
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c09_context",
+   "run": 1,
+   "latency_ms": 1912,
+   "cost_rub": 0.03975642,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "вернуть энергию",
+     "period": "зимой 2025",
+     "stop_reason": "money",
+     "stop_reason_note": "сказала, что сейчас дорого",
+     "format_place": "online",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": [
+      "мама двоих детей",
+      "работает бухгалтером",
+      "любит бегать по выходным"
+     ]
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c10_conflict",
+   "run": 1,
+   "latency_ms": 1873,
+   "cost_rub": 0.03835917,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "набрать массу",
+     "period": "прошлым летом, два месяца",
+     "stop_reason": "conflict",
+     "stop_reason_note": "поругались из-за переносов",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "bad"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c01_full",
+   "run": 2,
+   "latency_ms": 1803,
+   "cost_rub": 0.03971916,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весной 2024, месяца три",
+     "stop_reason": "moved",
+     "stop_reason_note": "переехала в другой город",
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "скинула пару размеров",
+     "liked": "ей очень нравились утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c02_missing",
+   "run": 2,
+   "latency_ms": 2038,
+   "cost_rub": 0.03869451,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, где-то полгода",
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как расстались — хорошо или плохо?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c03_unknown",
+   "run": 2,
+   "latency_ms": 1799,
+   "cost_rub": 0.03802383,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "похудеть",
+     "period": "прошлой осенью, месяца два",
+     "stop_reason": "lost_contact",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c04_health",
+   "run": 2,
+   "latency_ms": 1704,
+   "cost_rub": 0.03813561,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "укрепить мышцы, вернуть форму",
+     "period": "в 2023, полгода",
+     "stop_reason": "personal",
+     "stop_reason_note": null,
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c05_correction",
+   "run": 2,
+   "latency_ms": 1879,
+   "cost_rub": 0.04044572999999999,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весна 2024, около 3 месяцев",
+     "stop_reason": "moved",
+     "stop_reason_note": "переезд в другой город",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "минус пара размеров",
+     "liked": "утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_short",
+   "run": 2,
+   "latency_ms": 1811,
+   "cost_rub": 0.03774438,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": null,
+     "period": null,
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": null,
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как занимались — онлайн или в зале?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c07_injection",
+   "run": 2,
+   "latency_ms": 3301,
+   "cost_rub": 0.03835917,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "сбросить вес",
+     "period": "в 2022 году",
+     "stop_reason": "went_elsewhere",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "neutral"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_answer",
+   "run": 2,
+   "latency_ms": 3206,
+   "cost_rub": 0.039085739999999994,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, около полугода",
+     "stop_reason": "time",
+     "stop_reason_note": "график стал неудобный",
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c09_context",
+   "run": 2,
+   "latency_ms": 4244,
+   "cost_rub": 0.03975642,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "вернуть энергию",
+     "period": "зимой 2025",
+     "stop_reason": "money",
+     "stop_reason_note": "сказала, что сейчас дорого",
+     "format_place": "online",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": [
+      "мама двоих детей",
+      "работает бухгалтером",
+      "любит бегать по выходным"
+     ]
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c10_conflict",
+   "run": 2,
+   "latency_ms": 3574,
+   "cost_rub": 0.038508209999999994,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "набрать массу",
+     "period": "прошлым летом, два месяца",
+     "stop_reason": "conflict",
+     "stop_reason_note": "поругались из-за переносов",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "bad"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c01_full",
+   "run": 3,
+   "latency_ms": 4483,
+   "cost_rub": 0.03971916,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весной 2024, месяца три",
+     "stop_reason": "moved",
+     "stop_reason_note": "переехала в другой город",
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "скинула пару размеров",
+     "liked": "ей очень нравились утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c02_missing",
+   "run": 3,
+   "latency_ms": 4598,
+   "cost_rub": 0.03869451,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, где-то полгода",
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как расстались — хорошо или плохо?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c03_unknown",
+   "run": 3,
+   "latency_ms": 13462,
+   "cost_rub": 0.03802383,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "похудеть",
+     "period": "прошлой осенью, месяца два",
+     "stop_reason": "lost_contact",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c04_health",
+   "run": 3,
+   "latency_ms": 3701,
+   "cost_rub": 0.03813561,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "укрепить мышцы, вернуть форму",
+     "period": "в 2023, полгода",
+     "stop_reason": "personal",
+     "stop_reason_note": null,
+     "format_place": "online",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c05_correction",
+   "run": 3,
+   "latency_ms": 4615,
+   "cost_rub": 0.04044572999999999,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подготовиться к свадьбе",
+     "period": "весна 2024, около 3 месяцев",
+     "stop_reason": "moved",
+     "stop_reason_note": "переезд в другой город",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "good"
+    },
+    "extra": {
+     "result": "минус пара размеров",
+     "liked": "утренние тренировки",
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c06_short",
+   "run": 3,
+   "latency_ms": 4316,
+   "cost_rub": 0.03774438,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": null,
+     "period": null,
+     "stop_reason": null,
+     "stop_reason_note": null,
+     "format_place": null,
+     "format_mode": "group",
+     "parting": null
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [
+     "Почему перестали заниматься?",
+     "Как занимались — онлайн или в зале?"
+    ],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c07_injection",
+   "run": 3,
+   "latency_ms": 4114,
+   "cost_rub": 0.03835917,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "сбросить вес",
+     "period": "в 2022 году",
+     "stop_reason": "went_elsewhere",
+     "stop_reason_note": null,
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "neutral"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": true
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c08_answer",
+   "run": 3,
+   "latency_ms": 3428,
+   "cost_rub": 0.039085739999999994,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "подкачаться",
+     "period": "год назад, около полугода",
+     "stop_reason": "time",
+     "stop_reason_note": "график стал неудобный",
+     "format_place": "offline",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c09_context",
+   "run": 3,
+   "latency_ms": 3670,
+   "cost_rub": 0.03975642,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "вернуть энергию",
+     "period": "зимой 2025",
+     "stop_reason": "money",
+     "stop_reason_note": "сказала, что сейчас дорого",
+     "format_place": "online",
+     "format_mode": "group",
+     "parting": "good"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": [
+      "мама двоих детей",
+      "работает бухгалтером",
+      "любит бегать по выходным"
+     ]
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  },
+  {
+   "case": "c10_conflict",
+   "run": 3,
+   "latency_ms": 1867,
+   "cost_rub": 0.038508209999999994,
+   "validation_errors": [],
+   "valid": true,
+   "parsed": {
+    "fields": {
+     "goal": "набрать массу",
+     "period": "прошлым летом, два месяца",
+     "stop_reason": "conflict",
+     "stop_reason_note": "поругались из-за переносов",
+     "format_place": "offline",
+     "format_mode": "personal",
+     "parting": "bad"
+    },
+    "extra": {
+     "result": null,
+     "liked": null,
+     "context": []
+    },
+    "questions": [],
+    "health_mentioned": false
+   },
+   "expect_misses": [],
+   "expect_ok": true
+  }
+ ]
+}

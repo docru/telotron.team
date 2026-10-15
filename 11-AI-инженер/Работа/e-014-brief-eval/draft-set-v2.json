@@ -294,5 +294,192 @@
       "forbid_promise": true,
       "manual": "в body нет обещания числа клиентов"
     }
+  },
+  {
+    "id": "d07_referral_ask",
+    "description": "Просьба рекомендовать клиента — без запроса контактов знакомых",
+    "input": {
+      "profile": {
+        "specialization": "персональные онлайн-тренировки",
+        "style": {
+          "address": "vy",
+          "tone": "soft",
+          "length": "short"
+        }
+      },
+      "task": {
+        "type": "strategy.referral_ask",
+        "goal": "попросить порекомендовать и предложить короткий текст для пересылки",
+        "title": "Попросите довольного клиента порекомендовать вас"
+      },
+      "people": [
+        {
+          "ref": "{{name_1}}",
+          "source": "other",
+          "stage": "client",
+          "days_since_touch": 3,
+          "touches": []
+        }
+      ],
+      "constraints": [
+        "без прайса в первом сообщении",
+        "без медицинских обещаний",
+        "одно напоминание"
+      ]
+    },
+    "expect": {
+      "drafts_count": 1,
+      "refs": [
+        "{{name_1}}"
+      ],
+      "must_macro": true,
+      "forbid_ask_contacts": true
+    }
+  },
+  {
+    "id": "d08_review_collect",
+    "description": "Просьба отзыва — упомянуть согласие на публикацию",
+    "input": {
+      "profile": {
+        "specialization": "персональные онлайн-тренировки",
+        "style": {
+          "address": "vy",
+          "tone": "soft",
+          "length": "short"
+        }
+      },
+      "task": {
+        "type": "strategy.review_collect",
+        "goal": "попросить отзыв своими словами и уточнить согласие на публикацию",
+        "title": "Попросите отзыв у клиента"
+      },
+      "people": [
+        {
+          "ref": "{{name_1}}",
+          "source": "other",
+          "stage": "client",
+          "days_since_touch": 7,
+          "touches": []
+        }
+      ],
+      "constraints": [
+        "без прайса в первом сообщении",
+        "без медицинских обещаний",
+        "одно напоминание"
+      ]
+    },
+    "expect": {
+      "drafts_count": 1,
+      "refs": [
+        "{{name_1}}"
+      ],
+      "must_macro": true,
+      "must_consent": true
+    }
+  },
+  {
+    "id": "d09_partner",
+    "description": "Партнёру — выгода партнёра, без комиссии на пустом месте",
+    "input": {
+      "profile": {
+        "specialization": "персональные онлайн-тренировки",
+        "style": {
+          "address": "vy",
+          "tone": "soft",
+          "length": "short"
+        }
+      },
+      "task": {
+        "type": "strategy.partner_outreach",
+        "goal": "предложить взаимные рекомендации массажисту рядом",
+        "title": "Напишите партнёру"
+      },
+      "people": [
+        {
+          "ref": "{{name_1}}",
+          "source": "acquaintance",
+          "stage": "new",
+          "days_since_touch": null,
+          "touches": []
+        }
+      ],
+      "constraints": [
+        "без медицинских обещаний",
+        "не обещать комиссию",
+        "не передавать контакты клиентов"
+      ]
+    },
+    "expect": {
+      "drafts_count": 1,
+      "refs": [
+        "{{name_1}}"
+      ],
+      "must_macro": true,
+      "forbid_commission": true
+    }
+  },
+  {
+    "id": "d10_profile_facts",
+    "description": "Описание старого клиента — текст опирается на факты",
+    "input": {
+      "profile": {
+        "specialization": "персональные онлайн-тренировки",
+        "style": {
+          "address": "vy",
+          "tone": "soft",
+          "length": "short"
+        }
+      },
+      "task": {
+        "type": "strategy.base_reactivate",
+        "goal": "мягко напомнить о себе и предложить онлайн-занятия",
+        "title": "Напишите бывшим клиентам"
+      },
+      "people": [
+        {
+          "ref": "{{name_1}}",
+          "source": "legacy_base",
+          "stage": "former",
+          "days_since_touch": 200,
+          "touches": [],
+          "profile": {
+            "goal": "подготовиться к свадьбе",
+            "period": "весна 2024, около 3 месяцев",
+            "stop_reason": "moved",
+            "stop_reason_note": "переезд в другой город",
+            "format_place": "offline",
+            "format_mode": "personal",
+            "parting": "good",
+            "result": "минус пара размеров",
+            "liked": "утренние тренировки",
+            "context": [
+              "любит бегать по выходным"
+            ]
+          }
+        }
+      ],
+      "constraints": [
+        "без прайса в первом сообщении",
+        "без медицинских обещаний",
+        "одно напоминание"
+      ]
+    },
+    "expect": {
+      "drafts_count": 1,
+      "refs": [
+        "{{name_1}}"
+      ],
+      "must_macro": true,
+      "mention_any": [
+        "свадьб",
+        "утренн",
+        "переезд",
+        "переехал",
+        "новом город",
+        "онлайн",
+        "бег",
+        "размер"
+      ]
+    }
   }
 ]
