@@ -1,0 +1,27 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "sales_operational_brief_v2",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "task_id": { "type": "integer" },
+              "order": { "type": "integer" },
+              "why": { "type": "string" }
+            },
+            "required": ["task_id", "order", "why"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["items"],
+      "additionalProperties": false
+    }
+  }
+}

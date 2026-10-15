@@ -1,0 +1,20 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "sales_tools_draft_message_v1",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "primary": { "type": "string" },
+        "alternative": { "type": ["string", "null"] },
+        "why_so": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["primary", "alternative", "why_so"],
+      "additionalProperties": false
+    }
+  }
+}
